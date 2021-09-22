@@ -1,0 +1,7 @@
+html {
+  max-width: 1920px;
+  scroll-behavior: smooth;
+  /* Изменение стиля интерактивных элементов при наведении и при клике */
+  /* Параллакс
+  background-attachment: fixed */
+}
