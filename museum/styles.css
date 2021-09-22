@@ -5,3 +5,23 @@ html {
   /* Параллакс
   background-attachment: fixed */
 }
+
+.youtube {
+  background-image: url("../assets/svg/social-youtube.svg");
+}
+
+.instagram {
+  background-image: url("../assets/svg/social-instagram.svg");
+}
+
+.facebook {
+  background-image: url("../assets/svg/social-facebook.svg");
+}
+
+.twitter {
+  background-image: url("../assets/svg/social-twitter.svg");
+}
+
+.pinterest {
+  background-image: url("../assets/svg/social-pinterest.svg");
+}
