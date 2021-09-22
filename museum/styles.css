@@ -1,9 +1,82 @@
+:root {
+  --dark: #030303;
+  --dark-red: #710707;
+  --gold: #9d8665;
+  --light: #ffffff;
+  --font-xlarge: 80px;
+  --font-large: 32px;
+  --font-medium: 28px;
+  --font-small: 22px;
+  --font-xsmall: 18px;
+  --duration-short: 300ms;
+  --duration-long: 800ms;
+  --player-controls: #B3B3B3;
+  --player-controls-hover: #989898;
+  --roboto: "Roboto", sans-serif;
+  --forum: "Forum", cursive;
+}
+
 html {
-  max-width: 1920px;
   scroll-behavior: smooth;
+  font-family: var(--roboto);
   /* Изменение стиля интерактивных элементов при наведении и при клике */
   /* Параллакс
   background-attachment: fixed */
+}
+
+.block-wrapper {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dark-section {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+}
+.spacer {
+  flex-grow: 1;
+}
+
+.header-nav {
+  display: flex;
+}
+
+.header-nav > ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+}
+
+.header-nav li {
+  padding: 0 15px;
+}
+
+.header-nav a {
+  color: var(--light);
+  text-decoration: none;
+  font-size: var(--font-small);
+}
+
+#welcome {
+  height: 500px;
+}
+
+#welcome > .block-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-image: url("./assets/img/welcome-background.png");
+}
+
+.welcome-title {
+  text-transform: uppercase;
 }
 
 .youtube {

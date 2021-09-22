@@ -5,31 +5,43 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./styles.css" />
   <title>Document</title>
 </head>
 
 <body>
-  <header>
-    <h1 class="logo-text">Louvre</h1>
-    <nav class="header-nav">
-      <ul>
-        <li><a href="#visiting">Visiting</a></li>
-        <li><a href="#explore">Explore</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#tickets">Tickets</a></li>
-        <li><a href="#contacts">Contacts</a></li>
-      </ul>
-    </nav>
+  <header class="dark-section">
+    <div class="block-wrapper header-container">
+      <h1 class="logo-text">Louvre</h1>
+      <div class="spacer"></div>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#visiting">Visiting</a></li>
+          <li><a href="#explore">Explore</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#tickets">Tickets</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+        </ul>
+      </nav>
+    </div>
+
   </header>
 
   <main>
     <section class="section section-title dark-section" id="welcome">
-      <h2 class="section-title welcome-title">Welcome <br>to the Louvre</h2>
+      <div class="block-wrapper">
+        <div class="welcome-block">
+          <h2 class="welcome-title">Welcome <br>to the Louvre</h2>
+          <p class="welcome-subtitle">From the castle to the museum</p>
+          <a class="welcome-btn"
+            href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736">
+            Discover the Louvre</a>
+        </div>
+      </div>
     </section>
 
-    <section class="section section-title dark-section" id="visiting">
+    <section class="section section-title" id="visiting">
       <h2 class="section-title underline-title mb103 font-gold">Virtual tour</h2>
       <div class="visiting-cards-container">
         <a class="visiting-card"
@@ -81,7 +93,7 @@
       <h2 class="section-title underline-title mb103">Picture explore</h2>
     </section>
 
-    <section class="section section-title dark-section" id="video">
+    <section class="section section-title" id="video">
       <h2 class="section-title video-title font-gold">Video journey</h2>
     </section>
 
