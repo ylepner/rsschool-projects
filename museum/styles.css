@@ -13,12 +13,13 @@
   --player-controls: #B3B3B3;
   --player-controls-hover: #989898;
   --roboto: "Roboto", sans-serif;
-  --forum: "Forum", cursive;
+  --forum: "Forum";
 }
 
 html {
   scroll-behavior: smooth;
   font-family: var(--roboto);
+  font-weight: 100;
   /* Изменение стиля интерактивных элементов при наведении и при клике */
   /* Параллакс
   background-attachment: fixed */
@@ -77,6 +78,92 @@ html {
 
 .welcome-title {
   text-transform: uppercase;
+}
+
+.logo-icon{
+  background-image: url(".assets/svg/logo.svg");
+}
+
+.visiting-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: auto;
+}
+
+.visiting-cards-container a {
+  text-decoration: none;
+}
+
+
+.visiting-card {
+  display: flex;
+  width: 440px;
+  height: 422px;
+  flex-direction: column;
+  color: var(--dark);
+}
+
+.underline-title {
+  position: relative;
+}
+
+.underline-title::after {
+  content: "";
+  position: absolute;
+  /* bottom: -25px; */
+  bottom: -28px;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background-color: var(--dark-red);
+}
+
+.underline-title-small {
+  position: relative;
+}
+
+.underline-title-small::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 2px;
+  bottom: -11px;
+  left: 0;
+  background-color: var(--dark-red);
+}
+
+.mb103 {
+  margin-bottom: 103px;
+}
+
+
+.visiting-card-title {
+  margin-top: 25px;
+  margin-bottom: 21px;
+  font-family: var(--forum);
+  font-style: normal;
+  font-size: var(--font-large);
+  line-height: 35px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.visiting-card-subtitle-vt {
+  margin-bottom: 11px;
+  line-height: 26px;
+}
+
+.visiting-card-subtitle-gs {
+  font-size: var(--font-xsmall);
+  line-height: 21px;
+}
+
+.visiting-card:hover .underline-title-small::after, .visiting-card:focus .underline-title-small::after {
+  width: 100%;
+  transition-duration: var(--duration-long);
 }
 
 .youtube {
