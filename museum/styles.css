@@ -1,7 +1,7 @@
 :root {
   --dark: #030303;
   --dark-red: #710707;
-  --gold: #9d8665;
+  --gold: #9d8665; 
   --light: #ffffff;
   --font-xlarge: 80px;
   --font-large: 32px;
@@ -109,6 +109,7 @@ html {
   position: relative;
 }
 
+
 .underline-title::after {
   content: "";
   position: absolute;
@@ -164,6 +165,174 @@ html {
 .visiting-card:hover .underline-title-small::after, .visiting-card:focus .underline-title-small::after {
   width: 100%;
   transition-duration: var(--duration-long);
+}
+
+.welcome-btn {
+  display: block;
+  width: 360px;
+  line-height: 75px;
+  letter-spacing: 2px;
+  text-align: center;
+  background-color: var(--dark-red);
+  border-radius: 10px;
+  color: var(--light);
+  text-decoration: none;
+  left: 0px;
+  top: 313px;
+}
+
+.slider{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.explore-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.explore-description {
+  flex-basis: 50%;
+  max-width: 660px;
+  max-height: 77px;
+}
+
+.explore-description h2 {
+  width: 660px;
+  height: 90px;
+  left: 0px;
+  top: 0px;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 90px;
+  /* identical to box height, or 112% */
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-weight: 100;
+}
+
+.explore-description p {
+  margin-bottom: 25px;
+  font-weight: 300;
+  width: 660px;
+  height: 77px;
+  font-size: var(--font-small);
+}
+
+.explore-img {
+  display: block;
+  flex-basis: 50%;
+  margin-top: 16px;
+  /* В процессе добавления адаптивности размеры изображения - ширину и высоту - укажем в процентах, а затем перестроим 
+  блок, добавив контейнеру свойство flex-direction: column; благодаря которому заголовок и описание разместятся над 
+  изображением. */
+}
+
+.video-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.video-description h2 {
+  color: var(--gold);
+  font-family: var(--forum);
+  font-size: var(--font-xlarge);
+}
+
+.video-description p {
+  width: 720px;
+  height: 90px;
+}
+
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1440px;
+  height: 650px;
+  background-image: url("./assets/img/video-poster.jpg");
+  cursor: pointer;
+}
+
+.player-btn-play-big {
+  width: 220px;
+  height: 220px;
+  cursor: pointer;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1440px;
+  height: 85px;
+  background-color: var(--dark);
+}
+
+.player {
+  margin-bottom: 40px;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  margin-left: 41px;
+  cursor: pointer;
+}
+
+.control:last-child {
+  margin-left: 48px;
+  margin-right: 41px;
+}
+
+.control:hover, .control:focus, .player-btn-play-big:hover, .player-btn-play-big:focus {
+  filter: invert(66%) sepia(0%) saturate(26%) hue-rotate(162deg) brightness(92%) contrast(92%);
+  transition-duration: var(--duration-long);
+}
+
+.progress {
+  height: 8px;
+  margin-left: 41px;
+  outline: none;
+  transition: background 450ms ease-in;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.progress-video {
+  width: 820px;
+  background: #710707;
+}
+
+.progress-volume {
+  width: 155px;
+  margin-left: 20px;
+  background: linear-gradient(to right, #24809E 0%, #24809E 43%, #C4C4C4 43%, #C4C4C4 100%);
+}
+
+.progress::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50%;
+  background: var(--light);
+  cursor: ew-resize;
+  -webkit-appearance: none;
+}
+
+.progress::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50%;
+  background: var(--light);
+  cursor: ew-resize;
+  -webkit-appearance: none;
 }
 
 .youtube {

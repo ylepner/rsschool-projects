@@ -39,6 +39,7 @@
           <a class="welcome-btn"
             href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736">
             Discover the Louvre</a>
+          <img class="slider" src="assets/svg/slider.svg" alt="slider" width="600" height="120">
         </div>
       </div>
     </section>
@@ -94,11 +95,45 @@
     </section>
 
     <section class="section section-title dark-section" id="explore">
-      <h2 class="section-title underline-title mb103">Picture explore</h2>
+      <div class="container explore-container">
+        <div class="explore-description">
+          <h2 class="section-title underline-title mb103">Picture explore</h2>
+          <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
+          <p>It was cleaned in 1984 to remove a <span class="font-gold">"yellow veil"</span> of dust that had gathered
+            since the previous restoration in the 19th century.</p>
+          <p>The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it
+            looked different.</p>
+        </div>
+        <img class="explore-img" src="assets/img/explore-las-meninas-before.jpg" alt="Las Meninas picture" width="720"
+          height="700">
+        <!-- <img class="explore-img" src="assets/img/explore-las-meninas-after.jpg" alt="Las Meninas picture" width="720"
+          height="700"> -->
+      </div>
     </section>
 
     <section class="section section-title" id="video">
-      <h2 class="section-title video-title font-gold">Video journey</h2>
+      <div class="video-description block-wrapper">
+        <h2 class="section-title video-title font-gold">Video journey</h2>
+        <p class="video-subtitle">Enter and visit one of the most famous museums in the world and enjoy masterpieces
+          such as Mona Lisa or Hammurabi's Code</p>
+      </div>
+      <div class="container">
+        <div class="player">
+          <div class="video">
+            <button class="player-btn-play-big"><img class="player-btn-play-big"
+                src=".assets/svg/player-btn-play-big.svg" alt="Button Play Big" width="220" height="220"></button>
+          </div>
+          <div class="controls-container">
+            <button class="control"><img src="assets/svg/player-btn-play.svg" alt="Button Play" width="23"
+                height="30"></button>
+            <input type="range" class="progress progress-video" value="47" min="0" max="100" step="1">
+            <button class="control"><img src="assets/svg/player-btn-volume.svg" alt="Button Sound" width="38"
+                height="30"></button>
+            <input type="range" class="progress progress-volume" value="43" min="0" max="100" step="1">
+            <button class="control player-btn-full"><img src=".assets/svg/player-btn-full.svg" alt="Button Full"
+                width="36" height="36"></button>
+          </div>
+        </div>
     </section>
 
     <section class="section section-title dark-section" id="gallery">
