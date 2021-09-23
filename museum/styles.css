@@ -335,6 +335,11 @@ html {
   -webkit-appearance: none;
 }
 
+.video-slider {
+  width: 200px;
+  height: 12px;
+}
+
 .youtube {
   background-image: url("../assets/svg/social-youtube.svg");
 }
