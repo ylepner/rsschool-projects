@@ -15,6 +15,9 @@
   --roboto: "Roboto", sans-serif;
   --forum: "Forum";
 }
+body {
+  margin: 0;
+}
 
 html {
   scroll-behavior: smooth;
@@ -25,10 +28,24 @@ html {
   background-attachment: fixed */
 }
 
+h1 {
+  text-transform: uppercase;
+  margin-left: 25px;
+  font-family: 'Forum';
+  font-weight: 400;
+  font-size: var(--font-medium);
+  letter-spacing: 5px;
+}
+
+h1, h2, h3 {
+  font-weight: 100;
+}
+
 .block-wrapper {
-  max-width: 700px;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 .dark-section {
@@ -66,7 +83,7 @@ html {
 }
 
 #welcome {
-  height: 500px;
+  height: 810px;
 }
 
 #welcome > .block-wrapper {
@@ -74,22 +91,68 @@ html {
   display: flex;
   align-items: center;
   background-image: url("./assets/img/welcome-background.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: top;
 }
 
 .welcome-title {
   text-transform: uppercase;
+  font-family: var(--forum);
+  font-weight: 400;
+  font-size: var(--font-xlarge);
+  letter-spacing: 5px;
+  line-height: 90px;
 }
 
+.welcome-subtitle {
+  font-family: var(--roboto);
+  font-size: var(--font-medium);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 33px;
+  letter-spacing: 2px;
+  text-align: left;
+  margin-bottom: 75px;
+
+}
+
+section {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .logo-icon{
-  background-image: url(".assets/svg/logo.svg");
+  /* background-image: url("assets/svg/logo.svg"); */
+}
+
+.font-gold {
+  color: var(--gold);
+  font-family: Forum;
+  font-size: var(--font-xlarge);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.font-gold-picture-explore {
+  color: var(--gold);
 }
 
 .visiting-cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 64px;
+}
+
+@media (max-width: 1024px) {
+  .visiting-cards-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+  }
 }
 
 .visiting-cards-container a {
@@ -99,11 +162,15 @@ html {
 
 .visiting-card {
   display: flex;
-  width: 440px;
-  height: 422px;
   flex-direction: column;
   color: var(--dark);
 }
+
+.visiting-card img {
+  width: 100%;
+  height: auto;
+}
+
 
 .underline-title {
   position: relative;
@@ -160,6 +227,7 @@ html {
 .visiting-card-subtitle-gs {
   font-size: var(--font-xsmall);
   line-height: 21px;
+  margin: 0;
 }
 
 .visiting-card:hover .underline-title-small::after, .visiting-card:focus .underline-title-small::after {
@@ -179,6 +247,12 @@ html {
   text-decoration: none;
   left: 0px;
   top: 313px;
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
 .slider{
@@ -190,6 +264,7 @@ html {
 .explore-container {
   display: flex;
   justify-content: space-between;
+  padding: 90px 0;
 }
 
 .explore-description {
@@ -199,34 +274,35 @@ html {
 }
 
 .explore-description h2 {
-  width: 660px;
-  height: 90px;
   left: 0px;
   top: 0px;
   font-family: Forum;
   font-style: normal;
   font-weight: normal;
-  font-size: 80px;
+  font-size: var(--font-xlarge);
   line-height: 90px;
   /* identical to box height, or 112% */
   letter-spacing: 5px;
   text-transform: uppercase;
   color: #FFFFFF;
   font-weight: 100;
+  margin-top: 0;
 }
 
 .explore-description p {
   margin-bottom: 25px;
-  font-weight: 300;
-  width: 660px;
-  height: 77px;
   font-size: var(--font-small);
+  font-family: var(--Roboto);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .explore-img {
-  display: block;
-  flex-basis: 50%;
-  margin-top: 16px;
+  width: 50%;
   /* В процессе добавления адаптивности размеры изображения - ширину и высоту - укажем в процентах, а затем перестроим 
   блок, добавив контейнеру свойство flex-direction: column; благодаря которому заголовок и описание разместятся над 
   изображением. */
@@ -246,7 +322,13 @@ html {
 
 .video-description p {
   width: 720px;
-  height: 90px;
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .video {
@@ -263,6 +345,8 @@ html {
   width: 220px;
   height: 220px;
   cursor: pointer;
+  border: none;
+  background-color: rgb(0, 0, 0, 0);
 }
 
 .controls-container {
@@ -283,6 +367,8 @@ html {
   align-items: center;
   margin-left: 41px;
   cursor: pointer;
+  border: none;
+  background-color: rgb(0, 0, 0, 0);
 }
 
 .control:last-child {
@@ -338,6 +424,11 @@ html {
 .video-slider {
   width: 200px;
   height: 12px;
+}
+
+.video-slide {
+  display: flex;
+  justify-content: space-between;
 }
 
 .youtube {
