@@ -456,18 +456,18 @@ section {
 }
 
 .gallery-inner-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: center; */
+  columns: 3;
+  column-gap: 5px;
 }
 
-.gallery-inner-container img {
+/* .gallery-inner-container img {
   width: 33%;
-  
-}
-
+} */
 
 .youtube {
   background-image: url("../assets/svg/social-youtube.svg");
