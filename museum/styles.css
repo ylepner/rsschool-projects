@@ -607,6 +607,20 @@ input {
   color: white;
 }
 
+.parallax {
+  width: 100%;
+  height: 400px;
+  background-image: url(./assets/img/parallax.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top: 50px;
+}
+
+.contacts-container{
+  display: flex;
+flex-direction: row;
+}
+
 .youtube {
   background-image: url("../assets/svg/social-youtube.svg");
 }
