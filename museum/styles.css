@@ -15,8 +15,16 @@
   --roboto: "Roboto", sans-serif;
   --forum: "Forum";
 }
+
+
 body {
   margin: 0;
+}
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 html {
@@ -163,6 +171,12 @@ section {
   .visiting-cards-container {
     grid-template-columns: 1fr 1fr;
     gap: 10%;
+  }
+}
+
+@media(width: 1024px) {
+  .counter {
+    width: 175px;
   }
 }
 
@@ -456,18 +470,142 @@ section {
 }
 
 .gallery-inner-container {
-  /* display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center; */
   columns: 3;
-  column-gap: 5px;
+  column-gap: 36px;
 }
 
-/* .gallery-inner-container img {
-  width: 33%;
-} */
+.gallery-inner-container img {
+  width: 100%;
+  height: auto;
+  padding-bottom: 24px;
+}
+
+.tickets-big-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.ticket-type-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 60px;
+}
+
+.ticket-type-container > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ticket-type-item {
+  position: relative;
+  display: block;
+  margin-bottom: 25px;
+  padding-left: 40px;
+  font-size: var(--font-small);
+  line-height: 26px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.ticket-type-item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ticket-title {
+  font-family: var(--roboto);
+  font-weight: bold;
+  font-size: var(--font-medium);
+  line-height: 33px;
+  margin: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  border: 2px solid  var(--dark);
+  border-radius: 50%;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+
+.ticket-type-item input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.ticket-type-item .checkmark:after {
+  top: 3px;
+  left: 3px;
+  width: 7px;
+  height: 7px;
+  background: var(--dark);
+  border-radius: 50%;
+}
+
+
+.counter {
+  display: flex;
+  align-items: center;
+  border: 3px solid var(--dark);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+}
+
+.number {
+  width: 30px;
+  font-weight: 300;
+  text-align: center;
+  font-size: var(--font-small);
+  font-family: var(--roboto);
+  display: flex;
+  flex-grow: 1;
+}
+
+.btn-change-amount {
+  font-size: var(--font-large);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+input {
+  border: none;
+}
+
+.ticket-total {
+  font-size: var(--font-medium);
+  line-height: 33px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+}
+
+.buy-btn {
+  width: 175px;
+  height: 50px;
+  font-family: var(--roboto);
+  font-size: var(--font-small);
+  line-height: 27px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  background: black;
+  color: white;
+}
 
 .youtube {
   background-image: url("../assets/svg/social-youtube.svg");
