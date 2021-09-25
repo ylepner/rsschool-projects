@@ -125,6 +125,17 @@ section {
   /* background-image: url("assets/svg/logo.svg"); */
 }
 
+.section-title {
+  font-family: var(--forum);
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
 .font-gold {
   color: var(--gold);
   font-family: Forum;
@@ -205,7 +216,6 @@ section {
 .mb103 {
   margin-bottom: 103px;
 }
-
 
 .visiting-card-title {
   margin-top: 25px;
@@ -422,14 +432,42 @@ section {
 }
 
 .video-slider {
-  width: 200px;
-  height: 12px;
+  margin-top: 40px;
 }
 
 .video-slide {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
+
+.video-slide > iframe {
+  width: 31%;
+}
+
+#video .block-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-container {
+  overflow-y: hidden;
+}
+
+.gallery-inner-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gallery-inner-container img {
+  width: 33%;
+  
+}
+
 
 .youtube {
   background-image: url("../assets/svg/social-youtube.svg");
