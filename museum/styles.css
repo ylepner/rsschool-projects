@@ -400,9 +400,6 @@ section {
   width: 50%;
   margin-top: 14px;
   position: relative;
-  /* В процессе добавления адаптивности размеры изображения - ширину и высоту - укажем в процентах, а затем перестроим 
-  блок, добавив контейнеру свойство flex-direction: column; благодаря которому заголовок и описание разместятся над 
-  изображением. */
 }
 
 .explore-img-expanding {
@@ -429,8 +426,12 @@ section {
   width: 38px;
   height: 38px;
   border: solid 3px var(--light);
-
 }
+
+.circle-handle:hover {
+  cursor: ew-resize;
+}
+
 .explore-img-slider-bar > .bar {
   flex-grow: 1;
   background-color: var(--light);
@@ -810,10 +811,6 @@ footer {
   line-height: 26px;
   letter-spacing: 2px;
 }
-
-/* .footer-links {
-  padding: 10px;
-} */
 
 .footer .social {
   grid-column: 4 /5;
