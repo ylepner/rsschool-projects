@@ -474,13 +474,13 @@ section {
 
 .progress-video {
   width: 820px;
-  background: #710707;
+  background: linear-gradient(to right, var(--dark-red) 0%, var(--dark-red) 47%, #C4C4C4 47%, #C4C4C4 100%);
 }
 
 .progress-volume {
   width: 155px;
   margin-left: 20px;
-  background: linear-gradient(to right, #24809E 0%, #24809E 43%, #C4C4C4 43%, #C4C4C4 100%);
+  background: linear-gradient(to right, var(--dark-red) 0%, var(--dark-red) 47%, #C4C4C4 43%, #C4C4C4 100%);
 }
 
 .progress::-webkit-slider-thumb {
@@ -818,7 +818,7 @@ footer {
   margin: 50px;
 }
 
-/* #visiting, */ /* #explore, */ #video, #tickets, #gallery,/*  #welcome, */ #parallax {
+/* #visiting, #explore, #video, #tickets, #gallery, #welcome, #parallax {
   display: none;
-}
+} */
 
