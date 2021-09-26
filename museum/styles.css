@@ -49,6 +49,22 @@ h1, h2, h3 {
   font-weight: 100;
 }
 
+.m0 {
+  margin: 0;
+}
+
+.p0 {
+  padding: 0;
+}
+
+.pt0 {
+  padding-top: 0;
+}
+
+.p10 {
+  padding: 10px;
+}
+
 .block-wrapper {
   max-width: 1440px;
   margin-left: auto;
@@ -648,7 +664,7 @@ flex-direction: row;
 }
 
 footer {
-  padding-bottom: 60px;
+  padding-top: 60px;
 }
 
 .rsschool {
@@ -662,7 +678,7 @@ footer {
 
 .footer-container {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 2fr;
+  grid-template-columns: fit-content 1fr 1fr 2fr;
   grid-template-rows: auto auto auto auto;
 }
 
@@ -693,6 +709,10 @@ footer {
   letter-spacing: 2px;
 }
 
+/* .footer-links {
+  padding: 10px;
+} */
+
 .footer .social {
   grid-column: 4 /5;
   grid-row: 1/ 4;
@@ -703,26 +723,69 @@ footer {
   grid-row: 4 / 5;
 }
 
+.social {
+  list-style: none;
+  display: flex;
+  justify-self: end;
+  gap: 25px;
+  align-items: end;
+}
+
+
+.social-logo {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #666666;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .youtube {
   background-image: url("./assets/svg/youtube.svg");
 }
 
 .instagram {
-  background-image: url("../assets/svg/social-instagram.svg");
+  background-image: url("./assets/svg/instagram.svg");
 }
 
 .facebook {
-  background-image: url("../assets/svg/social-facebook.svg");
+  background-image: url("./assets/svg/facebook.svg");
 }
 
 .twitter {
-  background-image: url("../assets/svg/social-twitter.svg");
+  background-image: url("./assets/svg/twitter.svg");
 }
 
 .pinterest {
-  background-image: url("../assets/svg/social-pinterest.svg");
+  background-image: url("./assets/svg/pinterest.svg");
 }
+
+.rsschool ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.rsschool a {
+  text-decoration: none;
+  color: var(--light);
+}
+
+.rsschool {
+  font-family: var(--roboto);
+  font-weight: 200;
+  font-size: var(--font-small);
+  line-height: 22px;
+  letter-spacing: 2px;
+  padding: 51px 0;
+  margin: 30px 0;
+  border-top: solid 3px #666666;
+}
+
 
 #visiting, #explore, #video, #tickets, #gallery, #welcome, #parallax {
   display: none;
 }
+
