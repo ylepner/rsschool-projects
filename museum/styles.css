@@ -36,6 +36,10 @@ html {
   background-attachment: fixed */
 }
 
+.icon {
+  block: mode
+}
+
 h1 {
   text-transform: uppercase;
   margin-left: 25px;
@@ -77,6 +81,10 @@ h1, h2, h3 {
   color: var(--light);
 }
 
+.header {
+  padding: 41px;
+}
+
 .header-container {
   display: flex;
   flex-direction: row;
@@ -93,17 +101,26 @@ h1, h2, h3 {
   display: flex;
   flex-direction: row;
   list-style: none;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .header-nav li {
-  padding: 0 15px;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 56px;
 }
+
 
 .header-nav a {
   color: var(--light);
   text-decoration: none;
-  font-size: var(--font-small);
+  font-size: 22px;
+  font-family: var(--roboto);
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 2px;
 }
 
 #welcome {
@@ -112,12 +129,17 @@ h1, h2, h3 {
 
 #welcome > .block-wrapper {
   height: 100%;
-  display: flex;
+  display: stop;
   align-items: center;
   background-image: url("./assets/img/welcome-background.png");
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: top;
+}
+
+.welcome-block {
+  margin-top: 85px;
+  display: inline-block;
 }
 
 .welcome-title {
@@ -138,8 +160,13 @@ h1, h2, h3 {
   letter-spacing: 2px;
   text-align: left;
   margin-bottom: 75px;
-
+  text-transform: initial;
+  margin-top: -40px;
 }
+
+/* .welcome-subtitle p {
+  text-transform: initial;
+} */
 
 section {
   padding-left: 10px;
@@ -298,6 +325,7 @@ section {
   font-weight: 300;
   letter-spacing: 2px;
   text-align: center;
+  text-transform: initial;
 }
 
 .slider{
@@ -771,16 +799,17 @@ footer {
   font-size: var(--font-small);
   line-height: 22px;
   letter-spacing: 2px;
-  padding: 50px 0;
+  padding-bottom: 50px;
 }
 
 .line {
   width: 100%;
   height: 3px;
   background-color: #666666;
+  margin: 50px;
 }
 
-#visiting, #explore, #video, #tickets, #gallery, #welcome, #parallax {
+#visiting, #explore, #video, #tickets, #gallery,/*  #welcome, */ #parallax {
   display: none;
 }
 
