@@ -18,9 +18,15 @@
 </head>
 
 <body>
+  <div class="ticket-form display-none" id="ticket-form">
+    tickets
+    <button class="return" width="220" height="220" type="button"
+      onclick="document.getElementById('ticket-form').classList.add('display-none')"> RETURN</button>
+  </div>
+
+
   <header class="dark-section header">
     <div class="block-wrapper header-container">
-      <!-- не показывается лого -->
       <img src="./assets/svg/logo.svg" alt="Louvre logo">
       <h1 class="logo-text">Louvre</h1>
       <div class="spacer"></div>
@@ -45,7 +51,8 @@
           <h2 class="welcome-title">Welcome <br>to the Louvre</h2>
           <p class="welcome-subtitle">From the castle to the museum</p>
           <a class="welcome-btn"
-            href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736">
+            href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736"
+            target="_blank">
             Discover the Louvre</a>
           <img class="slider" src="assets/svg/slider.svg" alt="slider" width="600" height="120">
         </div>
@@ -202,7 +209,8 @@
             <h4 class="ticket-title">Ticket Type</h4>
             <ul>
               <li>
-                <label class="ticket-type-item">Permanent exhibition
+                <label class="ticket-type-item">
+                  Permanent exhibition
                   <input type="radio" checked="checked" name="ticket-type">
                   <span class="checkmark"></span>
                 </label>
@@ -245,7 +253,8 @@
               </div>
             </div>
             <p class="ticket-total">Total €220</p>
-            <button class="buy-btn" type="submit">Buy Now</button>
+            <button class="buy-btn" type="submit"
+              onclick="document.getElementById('ticket-form').classList.remove('display-none')">Buy Now</button>
           </div>
         </div>
       </div>
@@ -289,27 +298,27 @@
       <div class="footer-links"><a href="#contacts">Contacts</a></div>
       <ul class="social p0 m0">
         <li>
-          <a href="https://www.youtube.com/user/louvre">
+          <a href="https://www.youtube.com/user/louvre" target="_blank">
             <div class="social-logo youtube"></div>
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/museelouvre/">
+          <a href="https://www.instagram.com/museelouvre/" target="_blank">
             <div class="social-logo instagram"></div>
           </a>
         </li>
         <li>
-          <a href="https://www.facebook.com/museedulouvre">
+          <a href="https://www.facebook.com/museedulouvre" target="_blank">
             <div class="social-logo facebook"></div>
           </a>
         </li>
         <li>
-          <a href="http://twitter.com/museelouvre">
+          <a href="http://twitter.com/museelouvre" target="_blank">
             <div class="social-logo twitter"></div>
           </a>
         </li>
         <li>
-          <a href="https://www.pinterest.fr/museedulouvre/">
+          <a href="https://www.pinterest.fr/museedulouvre/" target="_blank">
             <div class="social-logo pinterest"></div>
           </a>
         </li>
@@ -319,8 +328,8 @@
     <div class="block-wrapper rsschool">
       <ul>
         <li style="color: white">© 2021</li>
-        <li><a href="https://rs.school/js/" target="blank">The Rolling Scopes School</a></li>
-        <li> <a href="https://github.com/ylepner" target="blank">ylepner</a></li>
+        <li><a href="https://rs.school/js/" target="_blank">The Rolling Scopes School</a></li>
+        <li> <a href="https://github.com/ylepner" target="_blank">ylepner</a></li>
       </ul>
     </div>
   </footer>
