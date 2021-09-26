@@ -14,6 +14,7 @@
   --player-controls-hover: #989898;
   --roboto: "Roboto", sans-serif;
   --forum: "Forum";
+  --image-compare-slider-position: 440px;
 }
 
 body {
@@ -179,7 +180,7 @@ h1, h2, h3 {
 section {
   padding-left: 10px;
   padding-right: 10px;
-  overflow: hidden;
+  overflow-y: hidden;
 
 }
 
@@ -398,11 +399,43 @@ section {
 .explore-img {
   width: 50%;
   margin-top: 14px;
+  position: relative;
   /* В процессе добавления адаптивности размеры изображения - ширину и высоту - укажем в процентах, а затем перестроим 
   блок, добавив контейнеру свойство flex-direction: column; благодаря которому заголовок и описание разместятся над 
   изображением. */
 }
 
+.explore-img-expanding {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--image-compare-slider-position);
+  overflow: hidden;
+}
+
+.explore-img-slider-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--image-compare-slider-position);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.explore-img-slider-bar > .circle-handle {
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  border: solid 3px var(--light);
+
+}
+.explore-img-slider-bar > .bar {
+  flex-grow: 1;
+  background-color: var(--light);
+  width: 5px;
+}
 #video {
   padding-bottom: 69px;
 }
