@@ -704,7 +704,7 @@ footer {
 }
 
 .youtube {
-  background-image: url("../assets/svg/social-youtube.svg");
+  background-image: url("./assets/svg/youtube.svg");
 }
 
 .instagram {
@@ -723,6 +723,6 @@ footer {
   background-image: url("../assets/svg/social-pinterest.svg");
 }
 
-#visiting, #explore, #video, #tickets, #gallery {
+#visiting, #explore, #video, #tickets, #gallery, #welcome, #parallax {
   display: none;
 }
