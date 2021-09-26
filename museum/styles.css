@@ -358,8 +358,7 @@ section {
 .explore-container {
   display: flex;
   justify-content: space-between;
-  padding: 90px 0;
-  margin-top: -14px;
+  padding: 75px 0;
 }
 
 .explore-description {
@@ -398,6 +397,7 @@ section {
 
 .explore-img {
   width: 50%;
+  margin-top: 14px;
   /* В процессе добавления адаптивности размеры изображения - ширину и высоту - укажем в процентах, а затем перестроим 
   блок, добавив контейнеру свойство flex-direction: column; благодаря которому заголовок и описание разместятся над 
   изображением. */
@@ -673,6 +673,7 @@ input {
   text-align: right;
   font-weight: 700;
   letter-spacing: 1.65px;
+  margin-top: 50px;
 }
 
 .buy-btn {
@@ -688,6 +689,8 @@ input {
   cursor: pointer;
   background: black;
   color: white;
+  margin-left: -26px;
+  margin-top: 31px;
 }
 
 .parallax {
@@ -700,7 +703,8 @@ input {
 
 .contacts-container{
   display: flex;
-flex-direction: row;
+  flex-direction: row;
+  height: calc(75px + 620px);
 }
 
 .contacts-title {
@@ -730,7 +734,7 @@ flex-direction: row;
 }
 
 footer {
-  padding-top: 60px;
+  padding-top: 85px;
 }
 
 
@@ -741,14 +745,16 @@ footer {
 
 .footer-container {
   display: grid;
-  grid-template-columns: fit-content 1fr 1fr 2fr;
+  grid-template-columns: 340px 1fr 1fr 2fr;
   grid-template-rows: auto auto auto;
+  row-gap: 28px;
 }
 
 .footer .logo {
   grid-column: 1/ 2;
   grid-row: 1 /4;
 }
+
 
 .footer .footer-links:nth-child(3n+2) {
   grid-row: 1 / 2;
@@ -787,6 +793,7 @@ footer {
   justify-self: end;
   gap: 25px;
   align-items: end;
+  margin-right: -14px;
 }
 
 
@@ -864,6 +871,19 @@ footer {
 
 .ticket-amount-container {
   width: 150px
+}
+
+.ticket-amount-counter {
+  margin-top: 11px;
+}
+.tickets-age-category {
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 26px;
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .display-none {
