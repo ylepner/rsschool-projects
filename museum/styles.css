@@ -172,6 +172,8 @@ section {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+
 .logo-icon{
   display: flex;
   margin: 0;
@@ -208,11 +210,16 @@ section {
   color: var(--gold);
 }
 
+#visiting {
+  margin: 75px;
+}
+
 .visiting-cards-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 60px;
   margin-bottom: 64px;
+  row-gap: 77px;
 }
 
 @media (max-width: 1024px) {
@@ -293,13 +300,14 @@ section {
 
 .visiting-card-subtitle-vt {
   margin-bottom: 11px;
-  line-height: 26px;
+  font-size: var(--font-small);
+  margin: 0;
 }
 
 .visiting-card-subtitle-gs {
   font-size: var(--font-xsmall);
-  line-height: 21px;
   margin: 0;
+  margin-top: 10px;
 }
 
 .visiting-card:hover .underline-title-small::after, .visiting-card:focus .underline-title-small::after {
@@ -809,7 +817,7 @@ footer {
   margin: 50px;
 }
 
-#visiting, #explore, #video, #tickets, #gallery,/*  #welcome, */ #parallax {
+/* #visiting, */ /* #explore, */ #video, #tickets, #gallery,/*  #welcome, */ #parallax {
   display: none;
 }
 
