@@ -130,7 +130,7 @@ section {
   padding-right: 10px;
 }
 .logo-icon{
-  /* background-image: url("assets/svg/logo.svg"); */
+  display: flex;
 }
 
 .section-title {
@@ -621,6 +621,46 @@ input {
 flex-direction: row;
 }
 
+.contacts-title {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: var(--font-medium);
+  line-height: 33px;
+  color: var(--dark);
+}
+
+.contacts-details > ul {
+  padding: 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: var(--font-small);
+  line-height: 50px;
+  color: var(--dark);
+  list-style: none;
+  margin: 25 0px;
+}
+
+.footer-nav li {
+  list-style: none;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: var(--light);
+}
+
+/* .social-media li {
+  color: var(--light);
+  text-decoration: none;
+} */
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .youtube {
   background-image: url("../assets/svg/social-youtube.svg");
 }
@@ -639,4 +679,8 @@ flex-direction: row;
 
 .pinterest {
   background-image: url("../assets/svg/social-pinterest.svg");
+}
+
+#visiting, #explore, #video, #tickets, #gallery {
+  display: none;
 }
