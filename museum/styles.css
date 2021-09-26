@@ -346,6 +346,7 @@ section {
   display: flex;
   justify-content: space-between;
   padding: 90px 0;
+  margin-top: -14px;
 }
 
 .explore-description {
