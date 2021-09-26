@@ -700,6 +700,11 @@ flex-direction: row;
   margin: 25 0px;
 }
 
+.links {
+  text-decoration: none;
+  color: var(--dark);
+}
+
 footer {
   padding-top: 60px;
 }
