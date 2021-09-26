@@ -16,7 +16,15 @@
   --forum: "Forum";
 }
 
+body {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
+}
 
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
 body {
   margin: 0;
 }
@@ -171,6 +179,8 @@ h1, h2, h3 {
 section {
   padding-left: 10px;
   padding-right: 10px;
+  overflow: hidden;
+
 }
 
 
@@ -211,7 +221,7 @@ section {
 }
 
 #visiting {
-  margin: 75px;
+  padding-bottom: 6px;
 }
 
 .visiting-cards-container {
@@ -286,6 +296,10 @@ section {
   margin-bottom: 103px;
 }
 
+.mt75 {
+  margin-top: 75px;
+}
+
 .visiting-card-title {
   margin-top: 25px;
   margin-bottom: 21px;
@@ -332,7 +346,6 @@ section {
   font-style: normal;
   font-weight: 300;
   letter-spacing: 2px;
-  text-align: center;
   text-transform: initial;
 }
 
@@ -390,10 +403,16 @@ section {
   изображением. */
 }
 
+#video {
+  padding-bottom: 69px;
+}
+
 .video-description {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 10px;
+  width: 100%;
 }
 
 .video-description h2 {
@@ -418,7 +437,7 @@ section {
   justify-content: center;
   align-items: center;
   width: 1440px;
-  height: 650px;
+  height: 657px;
   background-image: url("./assets/img/video-poster.jpg");
   cursor: pointer;
 }
@@ -444,10 +463,12 @@ section {
   margin-bottom: 40px;
 }
 
+
+
 .control {
   display: flex;
   align-items: center;
-  margin-left: 41px;
+  margin-left: 25px;
   cursor: pointer;
   border: none;
   background-color: rgb(0, 0, 0, 0);
@@ -455,7 +476,7 @@ section {
 
 .control:last-child {
   margin-left: 48px;
-  margin-right: 41px;
+  margin-right: 26px;
 }
 
 .control:hover, .control:focus, .player-btn-play-big:hover, .player-btn-play-big:focus {
@@ -473,8 +494,11 @@ section {
 }
 
 .progress-video {
-  width: 820px;
+  width: 925px;
   background: linear-gradient(to right, var(--dark-red) 0%, var(--dark-red) 47%, #C4C4C4 47%, #C4C4C4 100%);
+}
+.btn-sound-img {
+  margin-left: 20px;
 }
 
 .progress-volume {
@@ -525,6 +549,7 @@ section {
 
 .gallery-container {
   overflow-y: hidden;
+  max-height: 1931px;
 }
 
 .gallery-inner-container {
@@ -552,6 +577,7 @@ section {
 .ticket-type-container > ul {
   list-style: none;
   padding: 0;
+  padding-top: 36px;
 }
 
 .ticket-type-item {
@@ -644,6 +670,7 @@ input {
 .ticket-total {
   font-size: var(--font-medium);
   line-height: 33px;
+  text-align: right;
   font-weight: 700;
   letter-spacing: 1.65px;
 }
@@ -669,7 +696,6 @@ input {
   background-image: url(./assets/img/parallax.jpg);
   background-size: cover;
   background-attachment: fixed;
-  margin-top: 50px;
 }
 
 .contacts-container{
@@ -834,6 +860,10 @@ footer {
   left: 0;
   right: 0;
   z-index: 100;
+}
+
+.ticket-amount-container {
+  width: 150px
 }
 
 .display-none {
