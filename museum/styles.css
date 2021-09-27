@@ -198,10 +198,6 @@ section {
   margin: 0;
 }
 
-.logo-icon img{
-  padding-right: 25px;
-}
-
 .section-title {
   font-family: var(--forum);
   font-size: 80px;
@@ -807,6 +803,15 @@ footer {
 .footer .logo {
   grid-column: 1/ 2;
   grid-row: 1 /4;
+}
+
+.logo-text-footer {
+  text-transform: uppercase;
+  margin-left: 25px;
+  font-family: 'Forum';
+  font-weight: 400;
+  font-size: var(--font-medium);
+  letter-spacing: 5px;
 }
 
 
