@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Museum</title>
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./formStyles.css" />
   <link rel="icon" href="./assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,39 +21,101 @@
   <div class="ticket-form" id="ticket-form">
     <!-- form, input type="date", input type="time", input type="text", input type="email", input type="tel", 
       input type="number", select +8 -->
-    <div>
+    <!--  <div class="block-wrapper">
       tickets
       <button class="return" type="button"
         onclick="document.getElementById('ticket-form').classList.add('display-none')">
-        RETURN</button>
-    </div>
-    <form action="#" method="post" enctype="multipart/form-data"> </form>
-    <div class="ticket-form-container">
-      <div class="ticket-form-input">
-        <div class="ticket-form-title">
-          <img src="./assets/svg/logo.svg" alt="Louvre logo">
-          <h2 class="section-title font-gold">Booking tickets</h2>
-          <p class="ticket-form-subtitle">Tout to Louvre</p>
-        </div>
-        <div class="ticket-form-atrubutes">
-          <div class="date-time">
-            <input name="date" type="date" placeholder="Date" required />
-            <input name="time" type="time" placeholder="Time" required />
+        RETURN</button> -->
+    <form action="#" method="post" enctype="multipart/form-data">
+      <div class="ticket-form-container">
+        <div class="ticket-form-input">
+          <div class="ticket-form-info">
+            <img src="./assets/svg/logo-ticket-form.svg" alt="Ticker form logo">
+            <h2 class="section-title font-gold ticket-form-title">Booking tickets</h2>
+            <p class="ticket-form-subtitle">Tour to Louvre</p>
+            <!-- <div class="ticket-form-line"></div> -->
           </div>
-          <input name="name" type="text" placeholder="Name" required />
-          <input name="email" type="email" placeholder="E-mail" required />
-          <input name="phone" type="tel" placeholder="Phone" required />
-          <select name="ticket-type" type="dropdown" required>
-            <option disabled selected value>Ticket Type</option>
-            <option value="permanent">Permanent Exhibition</option>
-            <option value="temporary">Temporary Exhibition</option>
-            <option value="combined">Combined Admission</option>
-          </select>
+          <div class="input-attributes">
+            <div class="ticket-form-attributes">
+              <input name="date" type="date" placeholder="Date" required />
+              <input name="time" type="time" placeholder="Time" required />
+              <input name="name" type="text" placeholder="Name" required />
+              <input name="email" type="email" placeholder="E-mail" required />
+              <input name="phone" type="tel" placeholder="Phone" required />
+              <select name="ticket-type" type="dropdown" required>
+                <option disabled selected value>Ticket Type</option>
+                <option value="permanent">Permanent Exhibition</option>
+                <option value="temporary">Temporary Exhibition</option>
+                <option value="combined">Combined Admission</option>
+              </select>
+              <div class="ticket-form-amount-container">
+                <div class="ticket-form-amount-counter">
+                  <p>Entry Ticket</p>
+                  <div class="ticket-form-amount-counter">
+                    <span class="tickets-form-age">Basic 18+ (20€)</span>
+                    <div class="counter">
+                      <button class="btn-change-amount" type="button"
+                        onclick="this.nextElementSibling.stepDown()">–</button>
+                      <input type="number" min="0" value="1" readonly class="number">
+                      <button class="btn-change-amount" type="button"
+                        onclick="this.previousElementSibling.stepUp()">+</button>
+                    </div>
+                  </div>
+                  <div class="ticket-form-amount-counter">
+                    <span class="tickets-form-age">Senior 65+ (10€)</span>
+                    <div class="counter">
+                      <button class="btn-change-amount" type="button"
+                        onclick="this.nextElementSibling.stepDown()">–</button>
+                      <input type="number" min="0" value="1" readonly class="number">
+                      <button class="btn-change-amount" type="button"
+                        onclick="this.previousElementSibling.stepUp()">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-form-book">
+          <div class="overview">
+            <div>
+              <h2>Overview</h2>
+              <p class="ticket-form-subtitle">Tour to Louvre</p>
+              <div>Friday, August 19</div>
+              <div>16:30</div>
+              <div>Temporary exhibition</div>
+            </div>
+            <div class="ticket-form-picture">
+              <img src="assets/img/ticket-form-picture.jpg" alt="Ticket form picture">
+            </div>
+          </div>
+          <div class="ticket-form-total">
+            <div>
+              <span>2</span>
+              <span>Basic(20€)</span>
+              <span>40 €</span>
+            </div>
+            <div>
+              <span>2</span>
+              <span>Senior(10€)</span>
+              <span>20 €</span>
+            </div>
+            <div>
+              <span>Total:</span>
+              <span>60 €</span>
+            </div>
+          </div>
+          <div class="credit-cards">
+            <img src="assets/img/ticket-form-card.jpg" alt="Credit card">
+            <!-- <img src="assets/img/ticket-form-card-cvc.jpg" alt="Credit card flip"> -->
+          </div>
+          <div class="ticket-form-btn-book">
+            <button class="ticket-form-btn-book">Book</button>
+          </div>
         </div>
       </div>
-      <div class="ticket-form-book">
-      </div>
-    </div>
+    </form>
+  </div>
   </div>
 
 
