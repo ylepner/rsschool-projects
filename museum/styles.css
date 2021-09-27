@@ -45,8 +45,8 @@ html {
   background-attachment: fixed */
 }
 
-.icon {
-  block: mode
+button {
+  cursor: pointer;
 }
 
 h1 {
@@ -947,12 +947,6 @@ footer {
 .tickets-section {
   padding: 5px;
 }
-
-.display-none {
-  display: none;
-}
-
-
 
 /* #visiting, #explore, #video, #tickets, #gallery, #welcome, #parallax {
   display: none;
