@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Museum</title>
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./formStyles.css" />
   <link rel="icon" href="./assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +15,106 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-  <title>Document</title>
 </head>
 
 <body>
-  <div class="ticket-form display-none" id="ticket-form">
-    tickets
-    <button class="return" width="220" height="220" type="button"
-      onclick="document.getElementById('ticket-form').classList.add('display-none')"> RETURN</button>
+  <div class="ticket-for display-none" id="ticket-form">
+    <!-- form, input type="date", input type="time", input type="text", input type="email", input type="tel", 
+      input type="number", select +8 -->
+    <!--  <div class="block-wrapper">
+      tickets
+      <button class="return" type="button"
+        onclick="document.getElementById('ticket-form').classList.add('display-none')">
+        RETURN</button> -->
+    <form action="#" method="post" enctype="multipart/form-data">
+      <div class="ticket-form-container">
+        <div class="ticket-form-input">
+          <div class="ticket-form-info">
+            <img src="./assets/svg/logo-ticket-form.svg" alt="Ticker form logo">
+            <h2 class="section-title font-gold ticket-form-title">Booking tickets</h2>
+            <p class="ticket-form-subtitle">Tour to Louvre</p>
+            <!-- <div class="ticket-form-line"></div> -->
+          </div>
+          <div class="input-attributes">
+            <div class="ticket-form-attributes">
+              <input name="date" type="date" required />
+              <input name="time" type="time" required />
+              <input name="name" type="text" placeholder="Name" required />
+              <input name="email" type="email" placeholder="E-mail" required />
+              <input name="phone" type="tel" placeholder="Phone" required />
+              <select name="ticket-type" required>
+                <option disabled selected value>Ticket Type</option>
+                <option value="permanent">Permanent Exhibition</option>
+                <option value="temporary">Temporary Exhibition</option>
+                <option value="combined">Combined Admission</option>
+              </select>
+              <div class="ticket-form-amount-container">
+                <p>Entry Ticket</p>
+                <div class="ticket-form-amount-counter">
+                  <span class="tickets-form-age">Basic 18+ (20€)</span>
+                  <div class="spacer"></div>
+                  <div class="counter">
+                    <button class="form-btn-change-amount" type="button"
+                      onclick="this.nextElementSibling.stepDown()">–</button>
+                    <input type="number" min="0" value="1" readonly class="number">
+                    <button class="form-btn-change-amount" type="button"
+                      onclick="this.previousElementSibling.stepUp()">+</button>
+                  </div>
+                </div>
+                <div class="ticket-form-amount-counter">
+                  <span class="tickets-form-age">Senior 65+ (10€)</span>
+                  <div class="spacer"></div>
+                  <div class="counter">
+                    <button class="form-btn-change-amount" type="button"
+                      onclick="this.nextElementSibling.stepDown()">–</button>
+                    <input type="number" min="0" value="1" readonly class="number">
+                    <button class="form-btn-change-amount" type="button"
+                      onclick="this.previousElementSibling.stepUp()">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-form-book">
+          <div class="overview">
+            <div>
+              <h2>Overview</h2>
+              <p class="ticket-form-subtitle">Tour to Louvre</p>
+              <div>Friday, August 19</div>
+              <div>16:30</div>
+              <div>Temporary exhibition</div>
+            </div>
+            <div class="ticket-form-picture">
+              <img src="assets/img/ticket-form-picture.jpg" alt="Ticket form picture">
+            </div>
+          </div>
+          <div class="ticket-form-total">
+            <div>
+              <span>2</span>
+              <span>Basic(20€)</span>
+              <span>40 €</span>
+            </div>
+            <div>
+              <span>2</span>
+              <span>Senior(10€)</span>
+              <span>20 €</span>
+            </div>
+            <div>
+              <span>Total:</span>
+              <span>60 €</span>
+            </div>
+          </div>
+          <div class="credit-cards">
+            <img src="assets/img/ticket-form-card.jpg" alt="Credit card">
+            <!-- <img src="assets/img/ticket-form-card-cvc.jpg" alt="Credit card flip"> -->
+          </div>
+          <div class="ticket-form-btn-book">
+            <button class="ticket-form-btn-book">Book</button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 
 
@@ -134,6 +227,7 @@
             <div class="bar"></div>
           </div>
         </div>
+      </div>
     </section>
 
     <section class="section" id="video">
@@ -166,15 +260,12 @@
         </div>
         <div class="video-slide">
           <iframe width="560" height="254" src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
           <iframe width="560" height="254" src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
           <iframe width="560" height="254" src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
@@ -269,21 +360,20 @@
           </div>
         </div>
       </div>
-      </div>
     </section>
 
     <div class="parallax mt75"></div>
 
     <section class="section contacts-section" id="contacts">
-      <div class="block-wrapper">
+      <div class="block-wrapper pt5">
         <h2 class="section-title underline-title font-gold mb103 mt75">Contacts</h2>
         <div class="contacts-container">
           <div class="contacts-details">
             <h4 class="contacts-title m0">Palais Royal<br>Musee du Louvre</h4>
             <ul>
               <li>address: 75001 Paris, France</li>
-              <li><a class="links" href="tel:+33(0) 1 40 20 50 50">+33(0) 1 40 20 50 50</a></li>
-              <li><a class="links" href="mailto: info@louvre.fr">info@louvre.fr</a></li>
+              <li><a class="links" href="tel:+33(0)140205050">phone: +33(0) 1 40 20 50 50</a></li>
+              <li><a class="links" href="mailto:info@louvre.fr">mail: info@louvre.fr</a></li>
             </ul>
           </div>
           <div class="spacer"></div>
@@ -304,9 +394,9 @@
       <div class="footer-links"><a href="#visiting">Visiting</a></div>
       <div class="footer-links"><a href="#explore">Explore</a></div>
       <div class="footer-links"><a href="#video">Video</a></div>
-      <div class="footer-links"><a href="#gallery">Gallery</a></div>
-      <div class="footer-links"><a href="#tickets">Tickets</a></div>
-      <div class="footer-links"><a href="#contacts">Contacts</a></div>
+      <div class="footer-links m-17"><a href="#gallery">Gallery</a></div>
+      <div class="footer-links m-17"><a href="#tickets">Tickets</a></div>
+      <div class="footer-links m-17"><a href="#contacts">Contacts</a></div>
       <ul class="social p0 m0">
         <li>
           <a href="https://www.youtube.com/user/louvre" target="_blank">
@@ -340,7 +430,7 @@
       <ul>
         <li style="color: white">© 2021</li>
         <li><a href="https://rs.school/js/" target="_blank">The Rolling Scopes School</a></li>
-        <li> <a href="https://github.com/ylepner" target="_blank">ylepner</a></li>
+        <li> <a href="https://github.com/ylepner" target="_blank">@ylepner</a></li>
       </ul>
     </div>
   </footer>

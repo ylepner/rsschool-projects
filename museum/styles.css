@@ -78,6 +78,14 @@ h1, h2, h3 {
   padding: 10px;
 }
 
+.pt5 {
+  padding-top: 5px;
+}
+
+.m-17 {
+  margin-left: -17px;
+}
+
 .block-wrapper {
   max-width: 1440px;
   margin-left: auto;
@@ -104,6 +112,7 @@ h1, h2, h3 {
 
 .header-nav {
   display: flex;
+  padding-top: 7px;
 }
 
 .header-nav > ul {
@@ -181,7 +190,6 @@ section {
   padding-left: 10px;
   padding-right: 10px;
   overflow-y: hidden;
-
 }
 
 
@@ -729,7 +737,7 @@ input {
 
 .parallax {
   width: 100%;
-  height: 400px;
+  height: 390px;
   background-image: url(./assets/img/parallax.jpg);
   background-size: cover;
   background-attachment: fixed;
@@ -750,6 +758,10 @@ input {
   color: var(--dark);
 }
 
+.contacts-title > li{
+  padding-top: 17px;
+}
+
 .contacts-details > ul {
   padding: 0;
   font-family: Roboto;
@@ -760,6 +772,16 @@ input {
   color: var(--dark);
   list-style: none;
   margin: 25 0px;
+  padding-top: 17px;
+}
+
+.contacts-details > li {
+  padding-top: 16px;
+}
+
+
+.pt5 {
+  padding-top: 5px;
 }
 
 .links {
@@ -767,8 +789,11 @@ input {
   color: var(--dark);
 }
 
+
+
 footer {
   padding-top: 85px;
+  overflow: hidden;
 }
 
 
@@ -810,6 +835,7 @@ footer {
   font-size: var(--font-small);
   line-height: 26px;
   letter-spacing: 2px;
+  /* margin-left: -17px; */
 }
 
 .footer .social {
@@ -880,6 +906,7 @@ footer {
   line-height: 22px;
   letter-spacing: 2px;
   padding-bottom: 50px;
+  margin-top: 52px;
 }
 
 .line {
@@ -887,6 +914,7 @@ footer {
   height: 3px;
   background-color: #666666;
   margin: 50px 0;
+  margin: 44px;
 }
 
 .ticket-form {
@@ -916,9 +944,15 @@ footer {
   margin-top: 10px;
 }
 
+.tickets-section {
+  padding: 5px;
+}
+
 .display-none {
   display: none;
 }
+
+
 
 /* #visiting, #explore, #video, #tickets, #gallery, #welcome, #parallax {
   display: none;
