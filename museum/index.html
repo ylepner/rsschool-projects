@@ -17,10 +17,42 @@
 </head>
 
 <body>
-  <div class="ticket-form display-none" id="ticket-form">
-    tickets
-    <button class="return" type="button" onclick="document.getElementById('ticket-form').classList.add('display-none')">
-      RETURN</button>
+  <div class="ticket-form" id="ticket-form">
+    <!-- form, input type="date", input type="time", input type="text", input type="email", input type="tel", 
+      input type="number", select +8 -->
+    <div>
+      tickets
+      <button class="return" type="button"
+        onclick="document.getElementById('ticket-form').classList.add('display-none')">
+        RETURN</button>
+    </div>
+    <form action="#" method="post" enctype="multipart/form-data"> </form>
+    <div class="ticket-form-container">
+      <div class="ticket-form-input">
+        <div class="ticket-form-title">
+          <img src="./assets/svg/logo.svg" alt="Louvre logo">
+          <h2 class="section-title font-gold">Booking tickets</h2>
+          <p class="ticket-form-subtitle">Tout to Louvre</p>
+        </div>
+        <div class="ticket-form-atrubutes">
+          <div class="date-time">
+            <input name="date" type="date" placeholder="Date" required />
+            <input name="time" type="time" placeholder="Time" required />
+          </div>
+          <input name="name" type="text" placeholder="Name" required />
+          <input name="email" type="email" placeholder="E-mail" required />
+          <input name="phone" type="tel" placeholder="Phone" required />
+          <select name="ticket-type" type="dropdown" required>
+            <option disabled selected value>Ticket Type</option>
+            <option value="permanent">Permanent Exhibition</option>
+            <option value="temporary">Temporary Exhibition</option>
+            <option value="combined">Combined Admission</option>
+          </select>
+        </div>
+      </div>
+      <div class="ticket-form-book">
+      </div>
+    </div>
   </div>
 
 
