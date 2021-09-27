@@ -119,3 +119,12 @@
   background-image: url("./assets/img/ticket-form-card-cvc.jpg");
   background-repeat: no-repeat;
 }
+
+.ticket-form-amount-counter {
+  display: flex;
+}
+
+.form-btn-change-amount {
+  background: black;
+  color: white;
+}
