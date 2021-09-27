@@ -18,13 +18,13 @@
 </head>
 
 <body>
-  <div class="ticket-form ticket-form-hidden" id="ticket-form">
-    <div class="close-button-container">
-      <button onclick="document.getElementById('ticket-form').classList.add('ticket-form-hidden')">
-        <img src="./assets/svg/close.svg" alt="Close the form">
-      </button>
-    </div>
-    <form>
+  <div class="ticket-form" id="ticket-form">
+    <form class="ticket-form-inner">
+      <div class="close-button-container">
+        <button onclick="document.getElementById('ticket-form').classList.add('ticket-form-hidden')">
+          <img src="./assets/svg/close.svg" alt="Close the form">
+        </button>
+      </div>
       <div class="ticket-form-container">
         <div class="ticket-form-input">
           <div class="ticket-form-info">
@@ -51,7 +51,7 @@
                 <div class="ticket-form-amount-counter">
                   <span class="tickets-form-age">Basic 18+ (20€)</span>
                   <div class="spacer"></div>
-                  <div class="counter">
+                  <div class="counter-in-form">
                     <button class="form-btn-change-amount" type="button"
                       onclick="this.nextElementSibling.stepDown()">–</button>
                     <input type="number" min="0" value="1" readonly class="number">
@@ -62,7 +62,7 @@
                 <div class="ticket-form-amount-counter">
                   <span class="tickets-form-age">Senior 65+ (10€)</span>
                   <div class="spacer"></div>
-                  <div class="counter">
+                  <div class="counter-in-form">
                     <button class="form-btn-change-amount" type="button"
                       onclick="this.nextElementSibling.stepDown()">–</button>
                     <input type="number" min="0" value="1" readonly class="number">
@@ -107,7 +107,7 @@
             <img src="assets/img/ticket-form-card.jpg" alt="Credit card">
             <!-- <img src="assets/img/ticket-form-card-cvc.jpg" alt="Credit card flip"> -->
           </div>
-          <div class="ticket-form-btn-book">
+          <div class="btn-book">
             <button class="ticket-form-btn-book">Book</button>
           </div>
         </div>
