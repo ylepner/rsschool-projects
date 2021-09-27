@@ -4,8 +4,18 @@
 
 .ticket-form {
   transition: transform 0.5s ease;
-  
+  background: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
 }
+
+.ticket-form-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  background: white;
+  height: 100%;
+}
+
+
 
 .ticket-form-title {
   font-size: 42px;
@@ -99,6 +109,17 @@
   border-bottom: solid 2px rgba(116, 12, 17, 1);
 }
 
+.counter-in-form {
+  display: flex;
+  align-items: center;
+  border: 3px solid var(--dark);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 30%;
+  height: 50px;
+}
+
 .tickets-form-age {
   font-family: Roboto;
   font-weight: normal;
@@ -118,10 +139,25 @@
 }
 
 .ticket-form-btn-book {
-  background: #710707;
   opacity: 0.9;
   color: white;
+  background:#710707;
+  width: 220px;
+  height: 45px;
+  font-size: 22px;
 }
+
+.btn-book {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.form-btn-change-amount {
+  width: 100%;
+  height: 50%;
+  border: none;
+}
+
 
 .credit-cards {
   background-image: url("./assets/img/ticket-form-card-cvc.jpg");

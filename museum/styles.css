@@ -248,11 +248,6 @@ section {
   }
 }
 
-@media(width: 1024px) {
-  .counter {
-    width: 175px;
-  }
-}
 
 .visiting-cards-container a {
   text-decoration: none;
