@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Museum</title>
   <link rel="stylesheet" href="./styles.css" />
-  <link rel="stylesheet" href="./formStyles.css" />
+  <link rel="stylesheet" href="./form-styles.css" />
   <link rel="icon" href="./assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,15 +18,13 @@
 </head>
 
 <body>
-  <div class="ticket-for display-none" id="ticket-form">
-    <!-- form, input type="date", input type="time", input type="text", input type="email", input type="tel", 
-      input type="number", select +8 -->
-    <!--  <div class="block-wrapper">
-      tickets
-      <button class="return" type="button"
-        onclick="document.getElementById('ticket-form').classList.add('display-none')">
-        RETURN</button> -->
-    <form action="#" method="post" enctype="multipart/form-data">
+  <div class="ticket-form" id="ticket-form">
+    <div class="close-button-container">
+      <button onclick="document.getElementById('ticket-form').classList.add('ticket-form-hidden')">
+        <img src="./assets/svg/close.svg" alt="Close the form">
+      </button>
+    </div>
+    <form>
       <div class="ticket-form-container">
         <div class="ticket-form-input">
           <div class="ticket-form-info">
@@ -356,7 +354,7 @@
             </div>
             <p class="ticket-total">Total €220</p>
             <button class="buy-btn" type="submit"
-              onclick="document.getElementById('ticket-form').classList.remove('display-none')">Buy Now</button>
+              onclick="document.getElementById('ticket-form').classList.remove('ticket-form-hidden')">Buy Now</button>
           </div>
         </div>
       </div>
