@@ -141,6 +141,11 @@ h1, h2, h3 {
   letter-spacing: 2px;
 }
 
+@media (max-width: 1024px) {
+  /*  {display: none;
+  } */
+}
+
 #welcome {
   height: 810px;
 }
@@ -182,9 +187,6 @@ h1, h2, h3 {
   margin-top: -40px;
 }
 
-/* .welcome-subtitle p {
-  text-transform: initial;
-} */
 
 section {
   padding-left: 10px;

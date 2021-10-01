@@ -34,12 +34,13 @@
           </div>
           <div class="input-attributes">
             <div class="ticket-form-attributes">
-              <input name="date" type="date" required />
-              <input name="time" type="time" required />
-              <input name="name" type="text" placeholder="Name" required />
-              <input name="email" type="email" placeholder="E-mail" required />
-              <input name="phone" type="tel" placeholder="Phone" required />
-              <select name="ticket-type" required>
+
+              <input class="date" name="date" type="date" required />
+              <input class="time" name="time" type="time" required />
+              <input class="inputs" name="name" type="text" placeholder="Name" required />
+              <input class="inputs" name="email" type="email" placeholder="E-mail" required />
+              <input class="inputs" name="phone" type="tel" placeholder="Phone" required />
+              <select class="inputs" name="ticket-type" required>
                 <option disabled selected value>Ticket Type</option>
                 <option value="permanent">Permanent Exhibition</option>
                 <option value="temporary">Temporary Exhibition</option>
@@ -143,7 +144,19 @@
             href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736"
             target="_blank">
             Discover the Louvre</a>
-          <img class="slider" src="assets/svg/slider.svg" alt="slider" width="600" height="120">
+          <div class="slider" width="600" height="120">
+            <div class="welcom-slider-button">
+              <button></button>
+              <button></button>
+              <button></button>
+              <button></button>
+              <button></button>
+            </div>
+            <div class="welcom-slider-arrows">
+              <img src="/museum/assets/svg/arrow.svg" alt="back">
+              <img src="/museum/assets/svg/arrow.svg" alt="forward">
+            </div>
+          </div>
         </div>
       </div>
     </section>
