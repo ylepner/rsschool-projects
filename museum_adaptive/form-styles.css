@@ -186,3 +186,8 @@
   cursor: pointer;
   padding: 0;
 }
+
+#foo {
+  background-image: url("assets/svg/date.svg");
+  background-repeat: no-repeat;
+}
