@@ -2,11 +2,11 @@
   transform: translateX(-100%);
 }
 
-.ticket-form {
+/* .ticket-form {
   transition: transform 0.5s ease;
   background: rgba(0, 0, 0, 0.5);
   overflow-y: auto;
-}
+} */
 
 .ticket-form-inner {
   max-width: 1024px;
@@ -189,9 +189,94 @@
   padding: 0;
 }
 
-input[type=date] {
+.date-time {
   width: 190px;
   height: 45px;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-left: 43px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  border: 1px solid var(--dark);
+}
+
+.wide-input {
+  width: 400px;
+  height: 45px;
+  padding-left: 43px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+}
+
+input[type="date"] {
   background-image: url("assets/svg/date.svg");
   background-repeat: no-repeat;
+}
+
+input[type="time"] {
+  background-image: url("assets/svg/time.svg");
+  background-repeat: no-repeat;
+}
+
+input[type="text"] {
+  background-image: url("assets/svg/name.svg");
+  background-repeat: no-repeat;
+}
+
+input[type="email"] {
+  background-image: url("assets/svg/email.svg");
+  background-repeat: no-repeat;
+}
+
+input[type="tel"] {
+  background-image: url("assets/svg/tel.svg");
+  background-repeat: no-repeat;
+}
+
+.ticket-type {
+  background-image: url("assets/svg/ticket.svg");
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 45px;
+  padding-left: 43px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  border: 1px solid var(--dark);
+}
+
+.wide-input::placeholder {
+  color: black;
+}
+
+.ticket-form-amount-container p {
+  border-bottom: solid 3px #710707;
+  padding: 10px 0;
+  color: #9d8665; 
+  font-family: "Forum";
+  font-size: 18px;
+}
+
+.overview-form {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+.overview-info {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.tickets-number-highlight {
+  margin-right: 10px;
+  color: white;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  background: black;
+}
+
+.ticket-types-choice {
+  border-bottom: solid 2px rgba(116, 12, 17, 1);
 }
