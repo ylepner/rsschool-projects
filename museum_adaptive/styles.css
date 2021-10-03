@@ -96,23 +96,87 @@ h1, h2, h3 {
   overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+  .header {
+    padding: 30px;
+  }
+  .header-nav {
+    display: none!important;
+  }
+  .nav-mobile {
+    display: unset!important;
+  }
+  .slider {
+    width: 700px;
+    height: 124px;
+  }
+}
+
+.logo-block {
+  display: flex;
+}
+
 .header-container {
   display: flex;
   flex-direction: row;
 }
+
+.nav-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--dark);
+  font-size: 22px;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 2px;
+  display: none;
+  width: 297px;
+}
+.nav-mobile a::after {
+  content: '>';
+  float: right;
+}
+
+.nav-mobile ul {
+  margin: 0;
+  padding-left: 55px;
+  padding-right: 120px;
+  padding-top: 10px;
+}
+
+.nav-mobile li {
+  padding: 25px 0;
+}
+
+.nav-mobile a {
+  text-transform: capitalize;
+}
+
 .spacer {
   flex-grow: 1;
+}
+
+nav > ul {
+  padding: 0;
+  list-style: none;
 }
 
 .header-nav {
   display: flex;
   padding-top: 7px;
+  justify-content: end;
+  flex-grow: 1;
+  font-weight: 200;
+  line-height: 26px;
+  letter-spacing: 2px;
 }
 
 .header-nav > ul {
   display: flex;
-  flex-direction: row;
-  list-style: none;
 }
 
 .header-nav li {
@@ -122,15 +186,12 @@ h1, h2, h3 {
   padding-left: 56px;
 }
 
-.header-nav a {
+nav a {
   color: var(--light);
   text-decoration: none;
-  font-size: 22px;
+  font-size: var(--font-small);
   font-family: var(--roboto);
-  font-weight: 200;
-  font-size: 22px;
-  line-height: 26px;
-  letter-spacing: 2px;
+  
 }
 
 nav a:hover, nav a:focus {
@@ -188,10 +249,16 @@ nav a:hover, nav a:focus {
   background-color: var(--dark);
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-style: normal;
-  font-size: 22px;
+  font-size: var(--font-small);
   line-height: 40px;
   justify-content: space-evenly;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  display: flex;
+  width: 600px;
+  height: 120px;
+  align-items: center;
 }
 
 .welcome-slider-button button {
@@ -359,21 +426,11 @@ section {
   left: 0px;
   top: 313px;
   font-family: Roboto;
-  font-size: 22px;
+  font-size: var(--font-small);
   font-style: normal;
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: initial;
-}
-
-.slider{
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  display: flex;
-  width: 600px;
-  height: 120px;
-  align-items: center;
 }
 
 .welcome-slider-button > button{
@@ -412,7 +469,7 @@ section {
   margin-bottom: 25px;
   font-size: var(--font-small);
   font-family: var(--Roboto);
-  font-size: 22px;
+  font-size: var(--font-small);
   font-style: normal;
   font-weight: 300;
   line-height: 39px;
@@ -482,7 +539,7 @@ section {
 .video-description p {
   width: 720px;
   font-family: Roboto;
-  font-size: 22px;
+  font-size: var(--font-small);
   font-style: normal;
   font-weight: 300;
   line-height: 39px;
@@ -956,7 +1013,7 @@ footer {
 .tickets-age-category {
   font-family: Roboto;
   font-weight: 300;
-  font-size: 22px;
+  font-size: var(--font-small);
   line-height: 26px;
   display: block;
   margin-bottom: 15px;
