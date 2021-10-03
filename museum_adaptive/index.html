@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="mobile-menu-close">
   <div class="ticket-form ticket-form-hidden" id="ticket-form">
     <form class="ticket-form-inner">
       <div class="close-button-container">
@@ -34,7 +34,7 @@
           </div>
           <div class="input-attributes">
             <div class="ticket-form-attributes">
-              <input id="foo" name="date" type="date" required />
+              <input name="date" type="date" placeholder="Date" required />
               <input name="time" type="time" required />
               <input name="name" type="text" placeholder="Name" required />
               <input name="email" type="email" placeholder="E-mail" required />
@@ -116,7 +116,7 @@
 
   <header class="dark-section header">
     <div class="block-wrapper header-container">
-      <div class="logo-block">
+      <div class="logo-block fg1">
         <img src="./assets/svg/logo.svg" alt="Louvre logo">
         <h1 class="logo-text">Louvre</h1>
       </div>
@@ -130,6 +130,7 @@
           <li><a href="#contacts">Contacts</a></li>
         </ul>
       </nav>
+      <button id="menu-toggle" class="menu-toggle"></button>
     </div>
 
   </header>

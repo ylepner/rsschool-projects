@@ -187,7 +187,9 @@
   padding: 0;
 }
 
-#foo {
+input[type=date] {
+  width: 190px;
+  height: 45px;
   background-image: url("assets/svg/date.svg");
   background-repeat: no-repeat;
 }
