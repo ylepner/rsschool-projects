@@ -17,6 +17,12 @@
   --image-compare-slider-position: 440px;
 }
 
+@media (max-width: 1024px) {
+  :root {
+    --font-xlarge: 50px;
+  }  
+}
+
 body {
   width: 100%;
   overflow-x: hidden;
@@ -133,7 +139,7 @@ h1, h2, h3 {
     transition: transform 0.5s ease;
   }
   .slider {
-    width: 700px;
+    width: 50%;
     height: 124px;
   }
   .menu-toggle {
@@ -150,6 +156,18 @@ h1, h2, h3 {
   }
   #welcome .block-wrapper {
     background-size: auto 500px; 
+  }
+  .welcome-title {
+    font-size: 50px!important;
+    font-weight: 400!important;
+    line-height: 90px!important;
+    letter-spacing: 5px!important;
+  }
+  .welcome-subtitle {
+    font-size: 24px!important;
+  }
+  .welcome-btn {
+    width: 300px!important;
   }
 }
 
@@ -340,6 +358,8 @@ section {
   text-transform: uppercase;
 }
 
+
+
 .font-gold {
   color: var(--gold);
   font-family: Forum;
@@ -369,9 +389,6 @@ section {
     grid-template-columns: 1fr 1fr;
     padding: 50px;
     gap: 50px;
-  }
-  .section-title {
-    font-size: 50px;
   }
 }
 
@@ -493,8 +510,6 @@ section {
 
 .explore-description {
   flex-basis: 50%;
-  max-width: 660px;
-  max-height: 77px;
 }
 
 .explore-description h2 {
@@ -513,7 +528,7 @@ section {
   margin-top: 0;
 }
 
-.explore-description p {
+.explore-description .explore-text {
   margin-bottom: 25px;
   font-size: var(--font-small);
   font-family: var(--Roboto);
@@ -526,9 +541,11 @@ section {
 }
 
 .explore-img {
-  width: 50%;
+  min-width: 50%;
   margin-top: 14px;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .explore-img-expanding {
@@ -556,6 +573,20 @@ section {
   height: 38px;
   border: solid 3px var(--light);
 }
+
+@media(max-width: 1024px) {
+  .explore-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .explore-container p {
+    font-size: 20px;
+  }
+  .p3 {
+    display: none;
+  }
+}
+
 
 .circle-handle:hover {
   cursor: ew-resize;
@@ -603,6 +634,12 @@ section {
   height: 657px;
   background-image: url("./assets/img/video-poster.jpg");
   cursor: pointer;
+}
+
+@media(max-width: 1024px) {
+  .video-subtitle {
+    display: none;
+}
 }
 
 .player-btn-play-big {
@@ -715,10 +752,18 @@ section {
   max-height: 1931px;
 }
 
+
 .gallery-inner-container {
   columns: 3;
   column-gap: 36px;
 }
+
+@media (max-width: 1024px) {
+  .gallery-inner-container {
+    columns: 2;
+  }
+}
+
 
 .gallery-inner-container img {
   width: 100%;
@@ -1071,8 +1116,3 @@ footer {
 .tickets-section {
   padding: 5px;
 }
-
-/* #visiting, #explore, #video, #tickets, #gallery, #welcome, #parallax {
-  display: none;
-} */
-

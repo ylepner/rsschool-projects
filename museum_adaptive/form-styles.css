@@ -21,7 +21,9 @@
   color: #9D8665;
   font-weight: normal;
 }
-
+.tickets-img {
+  max-width: 100%;
+}
 .ticket-form-subtitle {
   font-family: Roboto;
   font-style: normal;
