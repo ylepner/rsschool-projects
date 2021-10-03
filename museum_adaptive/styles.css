@@ -19,7 +19,7 @@
 
 @media (max-width: 1024px) {
   :root {
-    --font-xlarge: 50px;
+    --font-xlarge: 50px!important;
   }  
 }
 
@@ -284,6 +284,11 @@ nav a:hover, nav a:focus {
   background-position-y: top;
 }
 
+#welcome .background-image {
+  top: 0;
+  right: 0;
+  position: absolute;
+}
 .welcome-block {
   margin-top: 85px;
   display: inline-block;
@@ -630,16 +635,15 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1440px;
-  height: 657px;
-  background-image: url("./assets/img/video-poster.jpg");
+  max-width: 1440px;
   cursor: pointer;
+  position: relative;
 }
 
 @media(max-width: 1024px) {
   .video-subtitle {
     display: none;
-}
+  }
 }
 
 .player-btn-play-big {
@@ -648,13 +652,17 @@ section {
   cursor: pointer;
   border: none;
   background-color: rgb(0, 0, 0, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .controls-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1440px;
+  width: 100%;
   height: 85px;
   background-color: var(--dark);
 }
@@ -662,7 +670,9 @@ section {
 .player {
   margin-bottom: 40px;
 }
-
+.video-poster {
+  max-width: 100%;
+}
 
 
 .control {
@@ -694,7 +704,8 @@ section {
 }
 
 .progress-video {
-  width: 925px;
+  max-width: 925px;
+  width: 100%;
   background: linear-gradient(to right, var(--dark-red) 0%, var(--dark-red) 47%, #C4C4C4 47%, #C4C4C4 100%);
 }
 .btn-sound-img {
@@ -760,7 +771,7 @@ section {
 
 @media (max-width: 1024px) {
   .gallery-inner-container {
-    columns: 2;
+    columns: 3;
   }
 }
 
@@ -909,10 +920,21 @@ input {
   background-attachment: fixed;
 }
 
-.contacts-container{
+.contacts-container {
   display: flex;
   flex-direction: row;
-  height: calc(75px + 620px);
+  padding-bottom: 75px;
+  justify-content: space-between;
+}
+
+.contacts-details {
+  flex-shrink: 0;
+}
+
+.map-container img {
+  width: 100%;
+  height: auto;
+  max-width: 960px;
 }
 
 .contacts-title {
@@ -1083,7 +1105,6 @@ footer {
   height: 3px;
   background-color: #666666;
   margin: 50px 0;
-  margin: 44px;
 }
 
 .ticket-form {
