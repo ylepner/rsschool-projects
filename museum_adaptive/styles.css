@@ -17,13 +17,13 @@
   --image-compare-slider-position: 440px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
   :root {
     --font-xlarge: 50px!important;
   }  
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 421px) {
   :root {
     --font-xlarge: 40px!important;
   }  
@@ -151,7 +151,7 @@ h1, h2, h3 {
   height: 18px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
   .header {
     padding: 30px;
   }
@@ -328,7 +328,7 @@ nav a:hover, nav a:focus {
   height: 810px;
 }
 
-@media(max-width: 1024px) {
+@media(max-width: 1024px) and (min-width: 769px)  {
   #welcome {
     height: 586px!important;
   }
@@ -449,7 +449,7 @@ section {
   row-gap: 77px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px)  {
   .visiting-cards-container {
     grid-template-columns: 1fr 1fr;
     padding: 50px;
@@ -683,7 +683,7 @@ section {
   border: solid 3px var(--light);
 }
 
-@media(max-width: 1024px) {
+@media(max-width: 1024px) and (min-width: 769px)  {
   .explore-container {
     display: flex;
     flex-direction: column;
@@ -753,7 +753,7 @@ section {
   position: relative;
 }
 
-@media(max-width: 1024px) {
+@media(max-width: 1024px) and (min-width: 769px)  {
   .video-subtitle {
     display: none;
   }
@@ -889,7 +889,7 @@ section {
   column-gap: 36px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
   .gallery-inner-container {
     columns: 3;
   }
@@ -1065,7 +1065,7 @@ input {
   justify-content: space-between;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
   .contacts-container {
   flex-direction: column;
   }
@@ -1134,7 +1134,7 @@ footer {
   overflow: hidden;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px)  {
   footer {
   padding-left: 20px;
   padding-right: 20px;
