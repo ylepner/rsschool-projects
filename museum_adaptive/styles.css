@@ -151,7 +151,7 @@ h1, h2, h3 {
   height: 18px;
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1024px){
   .header {
     padding: 30px;
   }
@@ -201,17 +201,17 @@ h1, h2, h3 {
   display: none;
 }
 
-@media (max-width: 768px) and (min-width: 421px) {
+@media (max-width: 768px){
   #welcome .block-wrapper {
     display: flex;
     flex-direction: column;
     background-image: none!important;
   }
   .welcome-btn {
-    display: none!important;
+    display: none;
   }
   .slider {
-    width: 100%!important;
+    width: 100%;
   }
   .img-welcome {
     display: flex;
@@ -424,7 +424,6 @@ section {
 }
 
 
-
 .font-gold {
   color: var(--gold);
   font-family: Forum;
@@ -470,6 +469,9 @@ section {
   .contacts-details > ul {
     font-size: 20px;
   }
+  .section-title {
+    font-size: 50px;
+  }
 }
 
 @media (max-width: 768px) and (min-width: 421px) {
@@ -484,6 +486,9 @@ section {
   }
   .visiting-cards-container {
     grid-template-columns: 1fr 1fr;
+  }
+  .section-title {
+    font-size: 40px;
   }
 }
 
@@ -500,7 +505,9 @@ section {
   .visiting-cards-container {
     grid-template-columns: 1fr;
   }
-
+  .section-title {
+    font-size: 28px;
+  }
 }
 
 .visiting-cards-container a {
@@ -621,6 +628,10 @@ section {
   flex-basis: 50%;
 }
 
+.font-gold-picture-explore {
+  color: var(--gold)
+}
+
 .explore-description h2 {
   left: 0px;
   top: 0px;
@@ -696,9 +707,9 @@ section {
   }
 }
 
-@media(max-width: 768px) and (min-width: 421px) {
+@media(max-width: 768px) {
   .explore-container p {
-    display: none!important;
+    display: none;
   }
   .p3 {
     display: none;
@@ -753,7 +764,7 @@ section {
   position: relative;
 }
 
-@media(max-width: 1024px) and (min-width: 769px)  {
+@media(max-width: 1024px) {
   .video-subtitle {
     display: none;
   }
@@ -895,7 +906,7 @@ section {
   }
 }
 
-@media (max-width: 768px) and (min-width: 421px) {
+@media (max-width: 768px){
   .gallery-inner-container {
     columns: 2;
   }
@@ -918,7 +929,7 @@ section {
   margin: 0 60px;
 }
 
-@media (max-width: 768px) and (min-width: 421px) {
+@media (max-width: 768px) {
   .tickets-section .block-wrapper {
     padding-left: 20px;
     padding-right: 20px;
@@ -1070,10 +1081,10 @@ input {
   flex-direction: column;
   }
   .contacts-title {
-    font-size: 20px!important;
+    font-size: 20px;
   }
   .links {
-  font-size: 18px!important;
+  font-size: 18px;
   }
 }
 
