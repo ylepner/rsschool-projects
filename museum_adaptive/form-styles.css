@@ -152,6 +152,7 @@
 .ticket-form-book {
   border: 1px solid black;
   width: 530px;
+  padding: 25px 30px;
 }
 
 .overview {
