@@ -7,6 +7,13 @@
   background: rgba(0, 0, 0, 0.5);
   overflow-y: auto;
 } */
+.fs18 {
+  font-size: 18px;
+}
+
+.fs22 {
+  font-size: 22px;
+}
 
 .ticket-form-inner {
   max-width: 1024px;
@@ -16,10 +23,13 @@
 }
 
 .ticket-form-title {
-  font-size: 42px;
-  line-height: 55px;
-  color: #9D8665;
+  font-family: Forum;
+  font-style: normal;
   font-weight: normal;
+  font-size: 50px;
+  line-height: 55px;
+  text-transform: uppercase;
+  color: #9D8665;
 }
 .tickets-img {
   max-width: 100%;
@@ -28,10 +38,10 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
   line-height: 21px;
   color: #710707;
 }
+
 
 .ticket-form-line {
   width: 100%;
@@ -136,6 +146,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding: 91px 0;
+}
+
+.ticket-form-book {
+  border: 1px solid black;
+  width: 530px;
 }
 
 .overview {
@@ -149,6 +165,7 @@
   width: 220px;
   height: 45px;
   font-size: 22px;
+  border: none;
 }
 
 .btn-book {
@@ -277,6 +294,22 @@ input[type="tel"] {
   background: black;
 }
 
+.ticket-form-type-price {
+  font-family: Roboto;
+  font-size: 22px;
+  line-height: 26px;
+}
+
 .ticket-types-choice {
   border-bottom: solid 2px rgba(116, 12, 17, 1);
+}
+
+.total {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.18;
+  color: #030303;
+  padding-left: 30px;
+  margin: 0;
 }
