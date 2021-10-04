@@ -58,6 +58,10 @@
   border-bottom: solid 3px #710707;
 }
 
+.ticket-form-info img {
+  height: 45px;
+}
+
 .ticket-form-attributes input {
   border: 1px solid black;
 }
@@ -284,6 +288,7 @@ input[type="tel"] {
   font-family: "Roboto";
   font-weight: 300;
   font-size: 18px;
+  line-height: 30px;
 }
 
 .tickets-number-highlight {
@@ -293,12 +298,22 @@ input[type="tel"] {
   text-align: center;
   border-radius: 5px;
   background: black;
+  padding: 0 12px;
 }
 
 .ticket-form-type-price {
   font-family: Roboto;
   font-size: 22px;
   line-height: 26px;
+  font-weight: 400;
+}
+
+.ticket-form-type-price-2 {
+  float: right;
+  font-family: Roboto;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
 }
 
 .ticket-types-choice {
@@ -311,6 +326,22 @@ input[type="tel"] {
   font-size: 32px;
   line-height: 1.18;
   color: #030303;
-  padding-left: 30px;
   margin: 0;
+  padding: 0;
+}
+
+.total-2 {
+  float: right;
+}
+
+.ticket-form-total {
+  line-height: 38px;
+}
+
+@media (max-width: 1240px) {
+  .ticket-form-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 }
