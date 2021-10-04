@@ -23,7 +23,7 @@
   }  
 }
 
-@media (max-width: 768px) and (min-width: 421px) {
+@media (max-width: 768px) and (min-width: 421px) and (min-width: 421px) {
   :root {
     --font-xlarge: 40px!important;
   }  
@@ -201,7 +201,7 @@ h1, h2, h3 {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 421px) {
   #welcome .block-wrapper {
     display: flex;
     flex-direction: column;
@@ -472,7 +472,7 @@ section {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 421px) {
   .visiting-card-title {
     font-size: 22px!important;
   }
@@ -696,7 +696,7 @@ section {
   }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 768px) and (min-width: 421px) {
   .explore-container p {
     display: none!important;
   }
@@ -759,7 +759,7 @@ section {
   }
 }
 
-/* @media (max-width: 768px) {
+/* @media (max-width: 768px) and (min-width: 421px) {
   .video-slide > iframe {
     width: 100%;
   }
@@ -895,7 +895,7 @@ section {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 421px) {
   .gallery-inner-container {
     columns: 2;
   }
@@ -918,7 +918,7 @@ section {
   margin: 0 60px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 421px) {
   .tickets-section .block-wrapper {
     padding-left: 20px;
     padding-right: 20px;
