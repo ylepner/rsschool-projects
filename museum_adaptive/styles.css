@@ -207,16 +207,19 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px){
+  #welcome {
+    height: 100%!important;
+  }
   #welcome .block-wrapper {
     display: flex;
     flex-direction: column;
     background-image: none!important;
   }
   .welcome-btn {
-    display: none;
+    display: none!important;
   }
   .slider {
-    width: 100%;
+    position: unset!important;
   }
   .img-welcome {
     display: flex;
