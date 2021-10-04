@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="mobile-menu-close">
   <div class="ticket-form ticket-form-hidden" id="ticket-form">
     <form class="ticket-form-inner">
       <div class="close-button-container">
@@ -28,19 +28,19 @@
       <div class="ticket-form-container">
         <div class="ticket-form-input">
           <div class="ticket-form-info">
-            <img src="./assets/svg/logo-ticket-form.svg" alt="Ticker form logo">
-            <h2 class="section-title font-gold ticket-form-title">Booking tickets</h2>
-            <p class="ticket-form-subtitle">Tour to Louvre</p>
+            <img src="./assets/svg/logo-ticket-form.svg" alt="Ticket form logo">
+            <h2 class="ticket-form-title">Booking tickets</h2>
+            <p class="ticket-form-subtitle fs18">Tour to Louvre</p>
           </div>
           <div class="input-attributes">
             <div class="ticket-form-attributes">
-              <input name="date" type="date" required />
-              <input name="time" type="time" required />
-              <input name="name" type="text" placeholder="Name" required />
-              <input name="email" type="email" placeholder="E-mail" required />
-              <input name="phone" type="tel" placeholder="Phone" required />
-              <select name="ticket-type" required>
-                <option disabled selected value>Ticket Type</option>
+              <input class="date-time" name="date" type="date" placeholder="Date" required />
+              <input class="date-time" name="time" type="time" required />
+              <input class="wide-input" name="name" type="text" placeholder="Name" required />
+              <input class="wide-input" name="email" type="email" placeholder="E-mail" required />
+              <input class="wide-input" name="phone" type="tel" placeholder="Phone" required />
+              <select class="ticket-type" name="ticket-type" required>
+                <option>Ticket Type</option>
                 <option value="permanent">Permanent Exhibition</option>
                 <option value="temporary">Temporary Exhibition</option>
                 <option value="combined">Combined Admission</option>
@@ -75,12 +75,21 @@
         </div>
         <div class="ticket-form-book">
           <div class="overview">
-            <div>
-              <p>Overview</p>
-              <p class="ticket-form-subtitle">Tour to Louvre</p>
-              <div>Friday, August 19</div>
-              <div>16:30</div>
-              <div>Temporary exhibition</div>
+            <div class="overview-info">
+              <h2 class="overview-form">Overview</h2>
+              <p class="ticket-form-subtitle fs22">Tour to Louvre</p>
+              <div>
+                <img width="15" height="15" src="./assets/svg/date.svg" alt="date">
+                Friday, August 19
+              </div>
+              <div>
+                <img width="15" height="15" src="./assets/svg/time.svg" alt="time">
+                16:30
+              </div>
+              <div>
+                <img width="15" height="15" src="./assets/svg/confirm.svg" alt="confirm">
+                Temporary exhibition
+              </div>
             </div>
             <div class="ticket-form-picture">
               <img src="assets/img/ticket-form-picture.jpg" alt="Ticket form picture">
@@ -88,18 +97,18 @@
           </div>
           <div class="ticket-form-total">
             <div>
-              <span>2</span>
-              <span>Basic(20€)</span>
-              <span>40 €</span>
+              <span class="tickets-number-highlight">2</span>
+              <span class="ticket-form-type-price">Basic(20€)</span>
+              <span class="ticket-form-type-price">40 €</span>
+            </div>
+            <div class="ticket-types-choice">
+              <span class="tickets-number-highlight">2</span>
+              <span class="ticket-form-type-price">Senior(10€)</span>
+              <span class="ticket-form-type-price">20 €</span>
             </div>
             <div>
-              <span>2</span>
-              <span>Senior(10€)</span>
-              <span>20 €</span>
-            </div>
-            <div>
-              <span>Total:</span>
-              <span>60 €</span>
+              <span class="total">Total:</span>
+              <span class="total">60 €</span>
             </div>
           </div>
           <div class="credit-cards">
@@ -116,9 +125,10 @@
 
   <header class="dark-section header">
     <div class="block-wrapper header-container">
-      <img src="./assets/svg/logo.svg" alt="Louvre logo">
-      <h1 class="logo-text">Louvre</h1>
-      <div class="spacer"></div>
+      <div class="logo-block fg1">
+        <img src="./assets/svg/logo.svg" alt="Louvre logo">
+        <h1 class="logo-text">Louvre</h1>
+      </div>
       <nav class="header-nav">
         <ul>
           <li><a href="#visiting">Visiting</a></li>
@@ -129,6 +139,7 @@
           <li><a href="#contacts">Contacts</a></li>
         </ul>
       </nav>
+      <button id="menu-toggle" class="menu-toggle"></button>
     </div>
 
   </header>
@@ -136,15 +147,47 @@
   <main>
     <section class="section section-title dark-section" id="welcome">
       <div class="block-wrapper">
+        <nav class="nav-mobile">
+          <ul>
+            <li><a href="#visiting">Visiting</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#video">Video</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#tickets">Tickets</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+          </ul>
+        </nav>
         <div class="welcome-block">
           <h2 class="welcome-title">Welcome <br>to the Louvre</h2>
           <p class="welcome-subtitle">From the castle to the museum</p>
           <a class="welcome-btn"
             href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736"
             target="_blank">
-            Discover the Louvre</a>
-          <img class="slider" src="assets/svg/slider.svg" alt="slider" width="600" height="120">
+            Discover the Louvre
+          </a>
         </div>
+        <div class="img-welcome">
+          <img src="./assets/img/mona.jpg" alt="Mona Lisa">
+        </div>
+        <div class="slider">
+          <div>
+            <span>01</span>
+            <span>|</span>
+            <span>05</span>
+          </div>
+          <div class="welcome-slider-button">
+            <button style="background-color:#D2B183"></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+          </div>
+          <div class=" welcom-slider-arrows">
+            <img src="assets/svg/arrow-left.svg" alt="back">
+            <img src="assets/svg/arrow-left.svg" style="transform: rotate(180deg);" alt="forward">
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -204,14 +247,15 @@
       <div class="explore-container block-wrapper">
         <div class="explore-description">
           <h2 class="section-title underline-title mb103">Picture explore</h2>
-          <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading <br> artist of the Spanish Golden Age.</p>
-          <p>It was cleaned in 1984 to remove a <span class="font-gold-picture-explore">"yellow veil"</span> of dust
-            that had gathered
-            since the previous restoration in the 19th century.</p>
-          <p>The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it
-            looked different.</p>
+          <div class="explore-text">
+            <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
+            <p>It was cleaned in 1984 to remove a <span class="font-gold-picture-explore">"yellow veil"</span> of dust
+              that had gathered
+              since the previous restoration in the 19th century.</p>
+            <p class=p3>The cleaning provoked furious protests, not because the picture had been damaged in any way, but
+              because it looked different.</p>
+          </div>
         </div>
-        <div class="spacer"></div>
         <div class="explore-img">
           <img src="assets/img/after.jpg" alt="Las Meninas picture">
           <div class="explore-img-expanding">
@@ -236,8 +280,10 @@
         <div class="container">
           <div class="player">
             <div class="video">
-              <button class="player-btn-play-big"><img class="player-btn-play-big"
-                  src="./assets/svg/player-btn-play-big.svg" alt="Big Button Play" width="220" height="220"></button>
+              <img src="./assets/img/video-poster.jpg" class="video-poster">
+              <button class="player-btn-play-big">
+                <img src="./assets/svg/player-btn-play-big.svg" alt="Big Button Play" width="220" height="220">
+              </button>
             </div>
             <div class="controls-container">
               <button class="control">
@@ -261,7 +307,8 @@
           <iframe width="560" height="254" src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
-          <iframe width="560" height="254" src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player"
+          <iframe class="frame-3" width="560" height="254" src="https://www.youtube.com/embed/NOhDysLnTvY"
+            title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
@@ -303,7 +350,10 @@
       <div class="block-wrapper">
         <h2 class="font-gold underline-title mb103 mt75">Buy tickets</h2>
         <div class="tickets-big-container">
-          <img class="tickets-img" src="assets/img/buy-tickets-image.jpg" alt="Tickets picture">
+          <div class="tickets-img-container">
+            <img class="tickets-img" src="assets/img/buy-tickets-image.jpg" alt="Tickets picture">
+          </div>
+
           <div class="ticket-type-container">
             <h4 class="ticket-title">Ticket Type</h4>
             <ul>
@@ -367,13 +417,14 @@
           <div class="contacts-details">
             <h4 class="contacts-title m0">Palais Royal<br>Musee du Louvre</h4>
             <ul>
-              <li>address: 75001 Paris, France</li>
+              <li class="links">address: 75001 Paris, France</li>
               <li><a class="links" href="tel:+33(0)140205050">phone: +33(0) 1 40 20 50 50</a></li>
               <li><a class="links" href="mailto:info@louvre.fr">mail: info@louvre.fr</a></li>
             </ul>
           </div>
-          <div class="spacer"></div>
-          <img class="map" src="assets/img/contacts-map.png" alt="Louvre on the map" width="960" height="620">
+          <div class="map-container">
+            <img class="map" src="assets/img/contacts-map.png" alt="Louvre on the map">
+          </div>
         </div>
       </div>
     </section>
@@ -387,12 +438,17 @@
           <p class="logo-text-footer m0">Louvre</p>
         </div>
       </div>
-      <div class="footer-links"><a href="#visiting">Visiting</a></div>
-      <div class="footer-links"><a href="#explore">Explore</a></div>
-      <div class="footer-links"><a href="#video">Video</a></div>
-      <div class="footer-links m-17"><a href="#gallery">Gallery</a></div>
-      <div class="footer-links m-17"><a href="#tickets">Tickets</a></div>
-      <div class="footer-links m-17"><a href="#contacts">Contacts</a></div>
+      <ul class="footer-links">
+        <li><a href="#visiting">Visiting</a></li>
+        <li><a href="#explore">Explore</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#tickets">Tickets</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+      </ul>
+
+
+
       <ul class="social p0 m0">
         <li>
           <a href="https://www.youtube.com/user/louvre" target="_blank">
