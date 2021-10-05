@@ -187,7 +187,7 @@ h1, h2, h3 {
   #welcome .block-wrapper {
     background-size: auto 500px; 
   }
-  .welcome-title {
+  /* .welcome-title {
     font-size: 50px!important;
     font-weight: 400!important;
     line-height: 90px!important;
@@ -196,7 +196,7 @@ h1, h2, h3 {
   .welcome-subtitle {
     font-size: 24px!important;
     padding-top: 20px;
-  }
+  } */
   .welcome-btn {
     width: 300px!important;
   }
@@ -225,7 +225,7 @@ h1, h2, h3 {
     display: flex;
     width: 728px;
     height: 546px;
-  }
+  }/* 
   .welcome-title h2 {
     font-size: 40px!important;
     text-align: center!important;
@@ -233,7 +233,7 @@ h1, h2, h3 {
   .welcome-subtitle {
     font-size: 20px!important;
     text-align: center!important;
-  }
+  } */
   .welcome-block {
     margin-top: 0!important;
   }
@@ -720,7 +720,7 @@ section {
   border: solid 3px var(--light);
 }
 
-@media(max-width: 1024px) and (min-width: 769px)  {
+@media(max-width: 1024px) {
   .explore-container {
     display: flex;
     flex-direction: column;
@@ -990,6 +990,17 @@ section {
     padding-left: 20px;
     padding-right: 20px;
   }
+  .tickets-img {
+    width: 444px;
+    height: 340px
+  }
+  .buy-btn {
+    margin: 1px;
+  }
+  .map-container img {
+    width: 728px!important;
+    height: 426px!important;
+}
 }
 
 
@@ -1144,8 +1155,9 @@ input {
   .contacts-details > ul {
     line-height: 38px!important;
     margin-top: 0px;
+  }
 }
-}
+
 .contacts-details {
   flex-shrink: 0;
 }
