@@ -152,6 +152,12 @@ h1, h2, h3 {
   height: 18px;
 }
 
+@media (max-width: 1024px) and (min-width: 769px){
+  .img-welcome {
+    display: none;
+}
+}
+
 @media (max-width: 1024px){
   .header {
     padding: 30px;
@@ -170,7 +176,6 @@ h1, h2, h3 {
   .slider span {
     font-size: 20px;
   }
-
   .menu-toggle {
     display: unset!important;
   }
@@ -202,40 +207,51 @@ h1, h2, h3 {
   }
 }
 
-.img-welcome {
-  display: none;
-}
-
 @media (max-width: 768px){
-  #welcome {
-    height: 100%!important;
-  }
   #welcome .block-wrapper {
     display: flex;
     flex-direction: column;
     background-image: none!important;
+    overflow: hidden;
   }
+  #explore {
+    overflow: hidden;
+  }
+  #video {
+    overflow: hidden;
+  }
+  #tickets {
+    overflow: hidden;
+  }
+  #contacts {
+    overflow: hidden;
+  }
+
   .welcome-btn {
     display: none!important;
   }
   .slider {
     position: unset!important;
+    width: 100%;
   }
-  .img-welcome {
-    display: flex;
-    width: 728px;
-    height: 546px;
-  }/* 
+  .welcome-block {
+    margin-top: 0!important;
+  }
   .welcome-title h2 {
-    font-size: 40px!important;
     text-align: center!important;
   }
   .welcome-subtitle {
     font-size: 20px!important;
     text-align: center!important;
-  } */
-  .welcome-block {
-    margin-top: 0!important;
+}
+}
+
+
+
+@media (max-width: 420px) {
+  .img-welcome {
+    display: flex;
+    height: 380px;
   }
 }
 
