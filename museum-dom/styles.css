@@ -164,11 +164,7 @@ h1, h2, h3 {
   height: 18px;
 }
 
-@media (max-width: 1920px) and (min-width: 769px){
-  .img-welcome {
-    display: none;
-}
-}
+
 
 @media (max-width: 1024px){
   .header {
@@ -395,6 +391,10 @@ nav a:hover, nav a:focus {
   display: inline-block;
 }
 
+/* position: ABSOLUTE;
+    Z-INDEX: 999;
+} */
+
 .welcome-title {
   text-transform: uppercase;
   font-family: var(--forum);
@@ -433,6 +433,10 @@ nav a:hover, nav a:focus {
   align-items: center;
 }
 
+.welcome-slider-button .tns-nav-active {
+  background-color:#D2B183;
+}
+
 .welcome-slider-button button {
   width: 16px;
   height: 16px;
@@ -440,6 +444,9 @@ nav a:hover, nav a:focus {
   border: none;
 }
 
+.welcome-slider-arrows {
+  cursor: pointer;
+}
 
 section {
   padding-left: 10px;

@@ -1,4 +1,19 @@
 
+var slider = tns({
+  container: '.my-slider',
+  items: 1,
+  slideBy: 'page',
+  controlsContainer: ".welcome-slider-arrows",
+  navContainer: ".welcome-slider-button",
+  mouseDrag: true,
+});
+
+
+
+slider.events.on('indexChanged', function(sliderInfo){
+  console.log(sliderInfo.index)
+  document.getElementById('img-index').innerText = '0' + sliderInfo.index
+});
 
 /* video  */
 
@@ -20,3 +35,4 @@ document.getElementById("menu-toggle").onclick = function () {
   document.body.classList.toggle("mobile-menu-close")
   document.body.classList.toggle("mobile-menu-open")
 }
+
