@@ -433,6 +433,13 @@ nav a:hover, nav a:focus {
   align-items: center;
 }
 
+.my-slider img{
+  height: 100%;
+  width: 100%;
+
+}
+
+
 .welcome-slider-button .tns-nav-active {
   background-color:#D2B183;
 }

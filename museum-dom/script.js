@@ -6,6 +6,7 @@ var slider = tns({
   controlsContainer: ".welcome-slider-arrows",
   navContainer: ".welcome-slider-button",
   mouseDrag: true,
+  center:true,
 });
 
 
