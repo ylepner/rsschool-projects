@@ -376,9 +376,9 @@ nav a:hover, nav a:focus {
 
 #welcome > .block-wrapper {
   height: 100%;
-  display: stop;
+  display: flex;
   align-items: center;
-  background-image: url("./assets/img/welcome-background.png");
+  /* background-image: url("./assets/img/welcome-background.png"); */
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: top;
@@ -1433,3 +1433,8 @@ footer {
   padding: 5px;
 }
 
+/* carousel */
+
+.slide.active {
+  display: block;
+}
