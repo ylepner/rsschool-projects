@@ -93,15 +93,19 @@ sliderVideo.events.on('indexChanged', function (sliderInfo) {
 
 /* validation */
 
-const form = document.getElementById('form')
+/* const form = document.getElementById('form')
 const date = document.getElementById('date')
 const time = document.getElementById('time')
 const userName = document.getElementById('userName')
 const email = document.getElementById('email')
 const phone = document.getElementById('phone')
 const ticket = document.getElementById('ticket')
+debugger
+userName.oninput = (evt) => {
+  console.log(evt)
+} */
 
-form.addEventListener('submit', (e) => {
+/* form.addEventListener('submit', (e) => {
   console.log(e)
   e.preventDefault();
   checkInputs();
@@ -140,11 +144,10 @@ function setErrorFor(input, message) {
 function setSuccessFor(input) {
   const formControl = input.parentElement;
   formControl.className = 'form-control success'
-}
+} */
 
 /* function isEmail(email) {
-  return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}
-  [a - zA - Z0 - 9])?(?: \.[a - zA - Z0 - 9](?: [a - zA - Z0 - 9 -]{ 0, 61}[a - zA - Z0 - 9]) ?)* $ /.test(email)
+  return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a - zA - Z0 - 9])?(?: \.[a - zA - Z0 - 9](?: [a - zA - Z0 - 9 -]{ 0, 61}[a - zA - Z0 - 9]) ?)* $ /.test(email)
 } */
 
 
