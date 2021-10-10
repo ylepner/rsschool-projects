@@ -67,10 +67,8 @@ document.getElementById("menu-toggle").onclick = function () {
 const sliderVideo = tns({
   container: '.video-carousel',
   items: 3,
-  slideBy: 'page',
-  controlsContainer: ".video-slider",
-  /*  prevButton: ".prev-button",
-   nextButton: ".next-button", */
+  slideBy: 1,
+  controlsContainer: false,
   navContainer: ".video-slider-dot",
   center: true,
 });
@@ -85,11 +83,11 @@ document.querySelector('.next-button').onclick = function () {
 
 // stop video
 
-sliderVideo.events.on('indexChanged', function (sliderInfo) {
+/* sliderVideo.events.on('indexChanged', function (sliderInfo) {
   Array.from(document.getElementsByClassName('video-carousel')[0].querySelectorAll('iframe')).forEach(iframe => {
     iframe.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
   })
-});
+}); */
 
 /* function stopVideo(el) {
   const iframe = element.querySelector('iframe');

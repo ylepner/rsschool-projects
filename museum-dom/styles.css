@@ -985,9 +985,11 @@ section {
   margin-right: 8px;
 }
 
+.video-slider-dot .tns-nav-active {
+  background-color: #333333
+}
+
 .video-slide {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
 }
 
