@@ -68,7 +68,7 @@ const sliderVideo = tns({
   container: '.video-carousel',
   items: 3,
   slideBy: 1,
-  controlsContainer: false,
+  controlsContainer: ".video-slider",
   navContainer: ".video-slider-dot",
   center: true,
 });
@@ -83,25 +83,11 @@ document.querySelector('.next-button').onclick = function () {
 
 // stop video
 
-/* sliderVideo.events.on('indexChanged', function (sliderInfo) {
+sliderVideo.events.on('indexChanged', function (sliderInfo) {
   Array.from(document.getElementsByClassName('video-carousel')[0].querySelectorAll('iframe')).forEach(iframe => {
     iframe.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
   })
-}); */
-
-/* function stopVideo(el) {
-  const iframe = element.querySelector('iframe');
-  const video = element.querySelector('video');
-  if (iframe) {
-    const iframeSrc = iframe.src;
-    iframe.src = iframeSrc;
-  }
-  if (video) {
-    video.pause();
-  }
-}
- */
-
+});
 
 
 
