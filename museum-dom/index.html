@@ -20,7 +20,7 @@
 
 <body class="mobile-menu-close">
   <div class="ticket-form ticket-form-hidden" id="ticket-form">
-    <form class="ticket-form-inner">
+    <form id="form" class="ticket-form-inner">
       <div class="close-button-container">
         <button onclick="document.getElementById('ticket-form').classList.add('ticket-form-hidden')">
           <img src="./assets/svg/close.svg" alt="Close the form">
@@ -35,17 +35,36 @@
           </div>
           <div class="input-attributes">
             <div class="ticket-form-attributes">
-              <input class="date-time" name="date" type="date" placeholder="Date" required />
-              <input class="date-time" name="time" type="time" required />
-              <input class="wide-input" name="name" type="text" placeholder="Name" required />
-              <input class="wide-input" name="email" type="email" placeholder="E-mail" required />
-              <input class="wide-input" name="phone" type="tel" placeholder="Phone" required />
-              <select class="ticket-type" name="ticket-type" required>
-                <option>Ticket Type</option>
-                <option value="permanent">Permanent Exhibition</option>
-                <option value="temporary">Temporary Exhibition</option>
-                <option value="combined">Combined Admission</option>
-              </select>
+              <div class="fordate-time">
+                <span class="form-control">
+                  <input id="date" class="date-time" name="date" type="date" placeholder="Date">
+                  <small>Error message</small>
+                </span>
+                <span class="form-control">
+                  <input id="time" class="date-time" name="time" type="time">
+                  <small>Error message</small>
+                </span>
+              </div>
+              <div class="form-control"><input id="userName" class="wide-input" name="name" type="text"
+                  placeholder="Name">
+                <small>Error message</small>
+              </div>
+              <div class="form-control"> <input id="email" class="wide-input" name="email" type="email"
+                  placeholder="E-mail">
+                <small>Error message</small>
+              </div>
+              <div class="form-control"> <input id="phone" class="wide-input" name="phone" type="tel"
+                  placeholder="Phone">
+                <small>Error message</small>
+              </div>
+              <div class="form-control"> <select id="ticket" class="ticket-type" name="ticket-type">
+                  <small>Error message</small>
+                  <option>Ticket Type</option>
+                  <option value="permanent">Permanent Exhibition</option>
+                  <option value="temporary">Temporary Exhibition</option>
+                  <option value="combined">Combined Admission</option>
+                </select>
+              </div>
               <div class="ticket-form-amount-container">
                 <p>Entry Ticket</p>
                 <div class="ticket-form-amount-counter">
@@ -116,7 +135,7 @@
             <img src="assets/img/ticket-form-card.jpg" alt="Credit card">
           </div>
           <div class="btn-book">
-            <button class="ticket-form-btn-book">Book</button>
+            <button id="submit" class="submit ticket-form-btn-book">Book</button>
           </div>
         </div>
       </div>
@@ -172,7 +191,7 @@
           <div><img src="./assets/img/welcome-slider-2.jpeg" alt="image 2"></div>
           <div><img src="./assets/img/welcome-slider-3.jpeg" alt="image 3"></div>
           <div><img src="./assets/img/welcome-slider-4.jpeg" alt="image 4"></div>
-          <div><img src="./assets/img/mona.jpg" alt="image 5"></div>
+          <div><img src="./assets/img/welcome-slider-5.png" alt="image 5"></div>
         </div>
         <div class="slider">
           <div>
@@ -305,19 +324,42 @@
             </div>
           </div>
         </div>
-        <div class="video-slide">
-          <iframe src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player"
+        <div class="video-carousel video-slide">
+          <iframe id="iframe" src="https://www.youtube.com/embed/aWmJ5DgyWPI?version=3&enablejsapi=1"
+            title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
-          <iframe src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player"
+          <iframe src="https://www.youtube.com/embed/Vi5D6FKhRmo?version=3&enablejsapi=1" title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
-          <iframe class="frame-3" src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player"
+          <iframe class="frame-3" src="https://www.youtube.com/embed/NOhDysLnTvY?version=3&enablejsapi=1"
+            title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/mHfwdCMZRqU?version=3&enablejsapi=1"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/OkETwJ1viCU?version=3&enablejsapi=1"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
         </div>
         <div class="video-slider">
-          <img src="assets/svg/video-slider-pagination.svg" alt="Video Slider">
+          <span class="video-slider-arrow">
+            <button class="prev-button"><img src="./assets/svg/video-slider-arrow-back.svg" alt="back"></button>
+          </span>
+          <span class="video-slider-dot">
+            <button style="background-color: #333333;"></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+          </span>
+          <span class="video-slider-arrow">
+            <button class="next-button"><img src="./assets/svg/video-slider-arrow-next.jpg" alt="next"></button>
+          </span>
         </div>
       </div>
 
@@ -328,23 +370,23 @@
         <h2 class="section-title mb103 mt75">Art gallery</h2>
         <div class="gallery-container">
           <div class="gallery-inner-container">
-            <img src="assets/img/galery1.jpg" alt="picture-6">
-            <img src="assets/img/galery2.jpg" alt="picture-1">
-            <img src="assets/img/galery11.jpg" alt="picture-5">
-            <img src="assets/img/galery5.jpg" alt="picture-9">
-            <img src="assets/img/galery9.jpg" alt="picture-2">
+            <img class="anim-items" src="assets/img/galery1.jpg" alt="picture-6" style="margin-top: 80px">
+            <img class="anim-items" src="assets/img/galery2.jpg" alt="picture-1">
+            <img class="anim-items" src="assets/img/galery11.jpg" alt="picture-5">
+            <img class="anim-items" src="assets/img/galery5.jpg" alt="picture-9">
+            <img class="anim-items" src="assets/img/galery9.jpg" alt="picture-2">
 
-            <img src="assets/img/galery7.jpg" alt="picture-11">
-            <img src="assets/img/galery8.jpg" alt="picture-7">
-            <img src="assets/img/galery13.jpg" alt="picture-10">
-            <img src="assets/img/galery14.jpg" alt="picture-15">
-            <img src="assets/img/galery10.jpg" alt="picture-12">
+            <img class="anim-items" src="assets/img/galery7.jpg" alt="picture-11">
+            <img class="anim-items" src="assets/img/galery8.jpg" alt="picture-7">
+            <img class="anim-items" src="assets/img/galery13.jpg" alt="picture-10">
+            <img class="anim-items" src="assets/img/galery14.jpg" alt="picture-15">
+            <img class="anim-items" src="assets/img/galery10.jpg" alt="picture-12">
 
-            <img src="assets/img/galery12.jpg" alt="picture-14">
-            <img src="assets/img/galery3.jpg" alt="picture-8">
-            <img src="assets/img/galery4.jpg" alt="picture-3">
-            <img src="assets/img/galery6.jpg" alt="picture-4">
-            <img src="assets/img/galery15.jpg" alt="picture-13">
+            <img class="anim-items" src="assets/img/galery12.jpg" alt="picture-14" style="margin-top: 80px">
+            <img class="anim-items" src="assets/img/galery3.jpg" alt="picture-8">
+            <img class="anim-items" src="assets/img/galery4.jpg" alt="picture-3">
+            <img class="anim-items" src="assets/img/galery6.jpg" alt="picture-4">
+            <img class="anim-items" src="assets/img/galery15.jpg" alt="picture-13">
 
 
 
@@ -500,7 +542,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.js"></script>
   <script src="script.js"></script>
-  
+
 </body>
 
 </html>

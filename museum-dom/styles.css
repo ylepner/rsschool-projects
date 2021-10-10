@@ -389,6 +389,8 @@ nav a:hover, nav a:focus {
 .welcome-block {
   margin-top: 85px;
   display: inline-block;
+  position: ABSOLUTE;
+    Z-INDEX: 999;
 }
 
 /* position: ABSOLUTE;
@@ -968,6 +970,21 @@ section {
   margin-top: 40px;
 }
 
+.video-slider-arrow button {
+  border: none;
+  background: none;
+}
+
+.video-slider-dot button {
+  border-radius: 100%;
+  width: 12px;
+  height: 12px;
+  border: none;
+  background-color: #666666;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
 .video-slide {
   display: flex;
   justify-content: space-between;
@@ -985,6 +1002,10 @@ section {
   align-items: center;
 }
 
+#gallery h2 {
+  margin-bottom: 50px;
+}
+
 .gallery-container {
   overflow-y: hidden;
   max-height: 1931px;
@@ -994,6 +1015,20 @@ section {
 .gallery-inner-container {
   columns: 3;
   column-gap: 36px;
+  /* transform: 120%;
+  opacity: 0;
+  transition: all 0.8s ease 0s; */
+}
+
+.gallery-inner-container img {
+  transform: 120%;
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
+
+.gallery-inner-container img.active {
+  transform: 0;
+  opacity: 1;
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
