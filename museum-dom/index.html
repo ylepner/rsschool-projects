@@ -8,6 +8,7 @@
   <title>Museum</title>
   <link rel="stylesheet" href="./styles.css" />
   <link rel="stylesheet" href="./form-styles.css" />
+  <link rel="stylesheet" href="./video-player.css" />
   <link rel="icon" href="./assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -304,7 +305,7 @@
         <div class="container">
           <div class="player">
             <div class="video">
-              <img src="./assets/img/video-poster.jpg" class="video-poster">
+              <video src="./assets/video/video.mp4" poster="./assets/img/video-poster.jpg" class="video-poster"></video>
               <button class="player-btn-play-big">
                 <img src="./assets/svg/player-btn-play-big.svg" alt="Big Button Play">
               </button>
@@ -324,7 +325,7 @@
             </div>
           </div>
         </div>
-        <div class="video-carousel video-slide">
+        <!-- <div class="video-carousel video-slide">
           <iframe id="iframe" src="https://www.youtube.com/embed/aWmJ5DgyWPI?version=3&enablejsapi=1"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -381,7 +382,7 @@
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
-        </div>
+        </div> -->
         <div class="video-slider">
           <span class="video-slider-arrow">
             <button class="prev-button"><img src="./assets/svg/video-slider-arrow-back.svg" alt="back"></button>
@@ -578,6 +579,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.js"></script>
   <script src="script.js"></script>
+  <script src="video-player.js"></script>
 
 </body>
 
