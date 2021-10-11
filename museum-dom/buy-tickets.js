@@ -1,9 +1,6 @@
 const permanentEx = document.querySelector('.permanent')
 const temporaryEx = document.querySelector('.temporary')
 const combinedEx = document.querySelector('.combined')
-const permanentPrice = 20
-const temporaryPrice = 25
-const combinedPrice = 40
 const basicCounter = document.querySelector('.basic-counter')
 const seniorCounter = document.querySelector('.senior-counter')
 const totalPrice = document.querySelector('#total-span')
@@ -38,9 +35,19 @@ document.querySelectorAll('.ticket-amount-counter .btn-change-amount').forEach(e
 
 function updateTotalPrice(cart) {
   console.log(cart)
-  let basicTickets = cart.basic()
-  let seniorTickets = cart.senior()
+  let basic = cart.basic()
+  let senior = cart.senior()
   let price = prices[cart.ticketType]
-  let total = price * basicTickets + (price * seniorTickets) / 2
+  let total = price * basic + (price * senior) / 2
   totalPrice.innerHTML = total
+  localStorage.setItem('cart', JSON.stringify({ basic, senior, ticketType: cart.ticketType }))
+}
+
+const restoredCart = localStorage.getItem('cart')
+if (restoredCart) {
+  const cartRestored = JSON.parse(restoredCart);
+  document.getElementById('basic-tickets-count').value = cartRestored.basic
+  document.getElementById('senior-tickets-count').value = cartRestored.senior
+  document.querySelector(`.ticket-type-item input[value="${cartRestored.ticketType}"]`).checked = true
+  updateTotalPrice(cart)
 }
