@@ -26,10 +26,25 @@ const bigPlayButton = player.querySelector('.player-btn-play-big')
 const video = player.querySelector('video')
 const smallPlayButton = player.querySelector('.button-small-play')
 const smallPauseButton = player.querySelector('.button-small-pause')
+const mute = player.querySelector('.volume-mute')
+const volume = player.querySelector('.volume-on')
+
+volume.onclick = soundOff
+mute.onclick = soundOn
+
+function soundOff() {
+  /*  debugger */
+  video.muted = true
+  player.classList.add('sound-off')
+}
+
+function soundOn() {
+  video.muted = false
+  player.classList.remove('sound-off')
+}
+
 
 let active = false
-
-
 bigPlayButton.onclick = play
 smallPauseButton.onclick = stop
 smallPlayButton.onclick = play
@@ -41,14 +56,12 @@ function isPlayerPlaying() {
 
 
 function play() {
-  /* debugger */
   video.play()
   player.classList.add('is-playing')
   active = true
 }
 
 function stop() {
-  /* debugger */
   video.pause()
   player.classList.remove('is-playing')
   active = false

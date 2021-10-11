@@ -12,3 +12,15 @@
 .button-small-pause {
   padding: 0;
 }
+
+.volume-mute {
+  display: none;
+}
+
+.player.sound-off .volume-on {
+  display: none;
+}
+
+.player.sound-off .volume-mute {
+  display: flex;
+}
