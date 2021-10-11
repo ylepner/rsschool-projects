@@ -7,7 +7,6 @@ const phone = document.getElementById('phone')
 const ticket = document.getElementById('ticket')
 
 userName.oninput = (evt) => {
-  console.log(evt.target.value)
   const error = isValidName(evt.target.value)
   const formControl = userName.parentElement
   const small = formControl.querySelector('small')

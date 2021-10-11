@@ -108,7 +108,6 @@ video.ontimeupdate = (evt) => {
 }
 
 document.onkeydown = (evt) => {
-  console.log(evt)
   evt.preventDefault()
   if (evt.code === 'Space') {
     isPlayerPlaying()

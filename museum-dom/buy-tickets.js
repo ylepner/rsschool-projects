@@ -34,7 +34,6 @@ document.querySelectorAll('.ticket-amount-counter .btn-change-amount').forEach(e
 })
 
 function updateTotalPrice(cart) {
-  console.log(cart)
   let basic = cart.basic()
   let senior = cart.senior()
   let price = prices[cart.ticketType]

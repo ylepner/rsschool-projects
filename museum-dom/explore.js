@@ -11,7 +11,6 @@ canvas.addEventListener('mousemove', (evt) => {
   if (!isDragging) {
     return
   }
-  console.log(evt)
   r.style.setProperty('--image-compare-slider-position', evt.offsetX + 'px');
 })
 
