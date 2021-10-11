@@ -1,13 +1,13 @@
 /* controls */
 
 const progressVideo = document.querySelector('.progress-video');
-let isPause = true
 
 progressVideo.addEventListener('input', function () {
+
   const value = this.value;
+
   this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #d3d3d3 ${value}%, #d3d3d3 100%)`
-  stop()
-  isPause
+  video.pause()
 })
 
 progressVideo.onchange = () => {
@@ -17,8 +17,12 @@ progressVideo.onchange = () => {
     return !isPause
   } else { */
   const value = progressVideo.value * video.duration / 100
+
   video.currentTime = value
-  play()
+  if (active) {
+    video.play()
+  }
+
   /*   if (value === video.duration) {
       debugger
       player.classList.remove('is-playing')
@@ -74,8 +78,9 @@ function openFullScreen() {
   if (!isFullScreen) {
     player.requestFullscreen()
   } else {
-    player.requestFullscreen()
+    document.exitFullscreen()
   }
+  isFullScreen = !isFullScreen
 }
 
 
@@ -104,8 +109,9 @@ function stop() {
 
 video.ontimeupdate = (evt) => {
 
+  if (video.paused) return;
+
   let value = video.currentTime / video.duration * 100
-  console.log('Time update', value, video.currentTime);
   progressVideo.value = value
   progressVideo.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #d3d3d3 ${value}%, #d3d3d3 100%)`
 }
