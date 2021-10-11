@@ -11,22 +11,11 @@ progressVideo.addEventListener('input', function () {
 })
 
 progressVideo.onchange = () => {
-  /* if (isPause) {
-    const value = progressVideo.value * video.duration / 100
-    video.currentTime = value
-    return !isPause
-  } else { */
   const value = progressVideo.value * video.duration / 100
-
   video.currentTime = value
   if (active) {
     video.play()
   }
-
-  /*   if (value === video.duration) {
-      debugger
-      player.classList.remove('is-playing')
-    } */
 }
 
 const progressVolume = document.querySelector('.progress-volume');
@@ -106,6 +95,10 @@ function stop() {
   player.classList.remove('is-playing')
   active = false
 }
+
+video.addEventListener('ended', () => {
+  stop()
+})
 
 video.ontimeupdate = (evt) => {
 
