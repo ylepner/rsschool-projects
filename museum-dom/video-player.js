@@ -101,10 +101,28 @@ video.addEventListener('ended', () => {
 })
 
 video.ontimeupdate = (evt) => {
-
   if (video.paused) return;
-
   let value = video.currentTime / video.duration * 100
   progressVideo.value = value
   progressVideo.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #d3d3d3 ${value}%, #d3d3d3 100%)`
+}
+
+document.onkeydown = (evt) => {
+  console.log(evt)
+  evt.preventDefault()
+  if (evt.code === 'Space') {
+    isPlayerPlaying()
+  }
+  if (evt.code === 'KeyM') {
+    player.classList.contains('sound-off') ? soundOn() : soundOff()
+  }
+  if (evt.code === 'KeyF') {
+    openFullScreen()
+  }
+  if (evt.code == 'Comma' && evt.shiftKey) {
+    video.playbackRate = 2.0
+  }
+  if (evt.code == 'Period' && evt.shiftKey) {
+    video.playbackRate = 0.5
+  }
 }
