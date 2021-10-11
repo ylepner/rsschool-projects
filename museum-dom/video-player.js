@@ -11,15 +11,18 @@ progressVideo.addEventListener('input', function () {
 })
 
 progressVideo.onchange = () => {
-  if (isPause) {
+  /* if (isPause) {
     const value = progressVideo.value * video.duration / 100
     video.currentTime = value
     return !isPause
-  } else {
-    const value = progressVideo.value * video.duration / 100
-    video.currentTime = value
-    play()
-  }
+  } else { */
+  const value = progressVideo.value * video.duration / 100
+  video.currentTime = value
+  play()
+  /*   if (value === video.duration) {
+      debugger
+      player.classList.remove('is-playing')
+    } */
 }
 
 const progressVolume = document.querySelector('.progress-volume');
@@ -49,9 +52,13 @@ const smallPlayButton = player.querySelector('.button-small-play')
 const smallPauseButton = player.querySelector('.button-small-pause')
 const mute = player.querySelector('.volume-mute')
 const volume = player.querySelector('.volume-on')
+const fullScreen = player.querySelector('.player-btn-full')
+const container = player.querySelector('.container')
+let isFullScreen = false
 
 volume.onclick = soundOff
 mute.onclick = soundOn
+fullScreen.onclick = openFullScreen
 
 function soundOff() {
   video.muted = true
@@ -61,6 +68,14 @@ function soundOff() {
 function soundOn() {
   video.muted = false
   player.classList.remove('sound-off')
+}
+
+function openFullScreen() {
+  if (!isFullScreen) {
+    player.requestFullscreen()
+  } else {
+    player.requestFullscreen()
+  }
 }
 
 
