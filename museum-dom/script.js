@@ -1,20 +1,3 @@
-/* slider */
-
-const slider = tns({
-  container: '.my-slider',
-  items: 1,
-  slideBy: 'page',
-  controlsContainer: ".welcome-slider-arrows",
-  navContainer: ".welcome-slider-button",
-  mouseDrag: true,
-  center: true,
-});
-
-
-slider.events.on('indexChanged', function (sliderInfo) {
-  console.log(sliderInfo.index)
-  document.getElementById('img-index').innerText = '0' + sliderInfo.index
-});
 
 /* slider explore */
 
@@ -150,43 +133,4 @@ function setSuccessFor(input) {
   return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a - zA - Z0 - 9])?(?: \.[a - zA - Z0 - 9](?: [a - zA - Z0 - 9 -]{ 0, 61}[a - zA - Z0 - 9]) ?)* $ /.test(email)
 } */
 
-
-/* gallery */
-
-const animItems = document.querySelectorAll('.anim-items');
-
-if (animItems.length > 0) {
-  window.addEventListener('scroll', animOnScroll)
-  function animOnScroll(params) {
-    for (let index = 0; index < animItems.length; index++) {
-      const animItem = animItems[index];
-      const animItemHeight = animItem.offsetHeight;
-      const animItemOffSet = offset(animItem).top;
-      const animStart = 4;
-
-      let animItemPoint = window.innerHeight - animItemHeight / animStart;
-
-      if (animItemHeight > window.innerHeight) {
-        animItemPoint = window.innerHeight - window.innerHeight / animStart;
-      }
-
-      if ((scrollY > animItemOffSet - animItemPoint) && scrollY < (animItemOffSet + animItemHeight)) {
-        animItem.classList.add('active');
-      } else {
-        animItem.classList.remove('active')
-      }
-    }
-  }
-  function offset(el) {
-    const rect = el.getBoundingClientRect(),
-      scrollLeft = window.scrollX || document.documentElement.scrollLeft,
-      scrollTop = window.scrollY || document.documentElement.scrollTop;
-    return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
-  }
-
-  setTimeout(() => {
-    animOnScroll();
-  }, 300);
-
-}
 

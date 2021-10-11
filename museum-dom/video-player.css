@@ -8,3 +8,7 @@
 .player:not(.is-playing) .button-small-pause{
   display: none;
 }
+
+.button-small-pause {
+  padding: 0;
+}
