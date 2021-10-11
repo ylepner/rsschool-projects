@@ -75,7 +75,7 @@
                   <div class="counter-in-form">
                     <button class="form-btn-change-amount" type="button"
                       onclick="this.nextElementSibling.stepDown()">–</button>
-                    <input type="number" min="0" value="1" readonly class="number">
+                    <input type="number" min="0" value="0" readonly class="number">
                     <button class="form-btn-change-amount" type="button"
                       onclick="this.previousElementSibling.stepUp()">+</button>
                   </div>
@@ -86,7 +86,7 @@
                   <div class="counter-in-form">
                     <button class="form-btn-change-amount" type="button"
                       onclick="this.nextElementSibling.stepDown()">–</button>
-                    <input type="number" min="0" value="1" readonly class="number">
+                    <input type="number" min="0" value="0" readonly class="number">
                     <button class="form-btn-change-amount" type="button"
                       onclick="this.previousElementSibling.stepUp()">+</button>
                   </div>
@@ -167,7 +167,7 @@
   </header>
 
   <main>
-    <!-- <section class="section section-title dark-section" id="welcome">
+    <section class="section section-title dark-section" id="welcome">
       <div class="block-wrapper">
         <nav class="nav-mobile">
           <ul>
@@ -217,7 +217,7 @@
       </div>
     </section> -->
 
-    <!-- <section class="section" id="visiting">
+    <section class="section" id="visiting">
       <div class="block-wrapper">
         <h2 class="section-title underline-title mb103 mt75 font-gold">Virtual tour</h2>
         <div class="visiting-cards-container">
@@ -269,7 +269,7 @@
 
     </section> -->
 
-    <!-- <section class="section dark-section" id="explore">
+    <section class="section dark-section" id="explore">
       <div class="explore-container block-wrapper">
         <div class="explore-description">
           <h2 class="section-title underline-title mb103">Picture explore</h2>
@@ -411,7 +411,7 @@
 
     </section>
 
-    <!-- <section class="section dark-section" id="gallery">
+    <section class="section dark-section" id="gallery">
       <div class="block-wrapper">
         <h2 class="section-title mb103 mt75">Art gallery</h2>
         <div class="gallery-container">
@@ -421,30 +421,22 @@
             <img class="anim-items" src="assets/img/galery11.jpg" alt="picture-5">
             <img class="anim-items" src="assets/img/galery5.jpg" alt="picture-9">
             <img class="anim-items" src="assets/img/galery9.jpg" alt="picture-2">
-
             <img class="anim-items" src="assets/img/galery7.jpg" alt="picture-11">
             <img class="anim-items" src="assets/img/galery8.jpg" alt="picture-7">
             <img class="anim-items" src="assets/img/galery13.jpg" alt="picture-10">
             <img class="anim-items" src="assets/img/galery14.jpg" alt="picture-15">
             <img class="anim-items" src="assets/img/galery10.jpg" alt="picture-12">
-
             <img class="anim-items" src="assets/img/galery12.jpg" alt="picture-14" style="margin-top: 80px">
             <img class="anim-items" src="assets/img/galery3.jpg" alt="picture-8">
             <img class="anim-items" src="assets/img/galery4.jpg" alt="picture-3">
             <img class="anim-items" src="assets/img/galery6.jpg" alt="picture-4">
             <img class="anim-items" src="assets/img/galery15.jpg" alt="picture-13">
-
-
-
-
-
-
           </div>
         </div>
       </div>
     </section> -->
 
-    <!--  <section class="section tickets-section" id="tickets">
+    <section class="section tickets-section" id="tickets">
       <div class="block-wrapper">
         <h2 class="font-gold underline-title mb103 mt75">Buy tickets</h2>
         <div class="tickets-big-container">
@@ -456,22 +448,23 @@
             <h4 class="ticket-title">Ticket Type</h4>
             <ul>
               <li>
-                <label class="ticket-type-item">
+                <label class="ticket-type-item permanent">
                   Permanent exhibition
-                  <input type="radio" checked="checked" name="ticket-type">
+                  <input type="radio" checked="checked" name="ticket-type" value="permanent">
                   <span class="checkmark"></span>
                 </label>
               </li>
               <li>
-                <label class="ticket-type-item">
+                <label class="ticket-type-item temporary">
                   Temporary exhibition
-                  <input type="radio" name="ticket-type">
+                  <input type="radio" name="ticket-type" value="temporary">
                   <span class="checkmark"></span>
                 </label>
               </li>
               <li>
-                <label class="ticket-type-item">Combined Admission
-                  <input type="radio" name="ticket-type">
+                <label class="ticket-type-item combined">
+                  Combined Admission
+                  <input type="radio" name="ticket-type" value="combined">
                   <span class="checkmark"></span>
                 </label>
               </li>
@@ -481,23 +474,23 @@
             <h4 class="ticket-title" style="text-align: right; margin-bottom: 27px;">Amount</h4>
             <div class="ticket-amount-counter">
               <span class="tickets-age-category">Basic 18+</span>
-              <div class="counter">
+              <div class="counter basic-counter">
                 <button class="btn-change-amount" type="button" onclick="this.nextElementSibling.stepDown()">–</button>
-                <input type="number" min="0" value="1" readonly class="number">
+                <input type="number" min="0" value="0" readonly class="number" id="basic-tickets-count">
                 <button class="btn-change-amount" type="button"
                   onclick="this.previousElementSibling.stepUp()">+</button>
               </div>
             </div>
             <div class="ticket-amount-counter">
               <span class="tickets-age-category">Senior 65+</span>
-              <div class="counter">
+              <div class="counter senior-counter">
                 <button class="btn-change-amount" type="button" onclick="this.nextElementSibling.stepDown()">–</button>
-                <input type="number" min="0" value="1" readonly class="number">
+                <input type="number" min="0" value="0" readonly class="number" id="senior-tickets-count">
                 <button class="btn-change-amount" type="button"
                   onclick="this.previousElementSibling.stepUp()">+</button>
               </div>
             </div>
-            <p class="ticket-total">Total €220</p>
+            <p class="ticket-total">Total € <span id="total-span">0</span></p>
             <button class="buy-btn" type="submit"
               onclick="document.getElementById('ticket-form').classList.remove('ticket-form-hidden')">Buy Now</button>
           </div>
@@ -593,7 +586,7 @@
   <script src="gallery.js"></script>
   <script src="welcome-section.js"></script>
   <script src="explore.js"></script>
-
+  <script src="buy-tickets.js"></script>
 
 </body>
 
