@@ -126,3 +126,30 @@ document.onkeydown = (evt) => {
     video.playbackRate = 0.5
   }
 }
+
+/* slider video */
+
+const sliderVideo = tns({
+  container: '.video-carousel',
+  items: 3,
+  slideBy: 1,
+  controlsContainer: ".video-slider",
+  navContainer: ".video-slider-dot",
+  center: true,
+});
+
+document.querySelector('.prev-button').onclick = function () {
+  sliderVideo.goTo('prev');
+};
+
+document.querySelector('.next-button').onclick = function () {
+  sliderVideo.goTo('next');
+};
+
+// stop video
+
+sliderVideo.events.on('indexChanged', function (sliderInfo) {
+  Array.from(document.getElementsByClassName('video-carousel')[0].querySelectorAll('iframe')).forEach(iframe => {
+    iframe.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+  })
+});
