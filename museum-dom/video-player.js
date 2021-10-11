@@ -1,17 +1,38 @@
 /* controls */
 
 const progressVideo = document.querySelector('.progress-video');
+let isPause = true
 
 progressVideo.addEventListener('input', function () {
   const value = this.value;
   this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #d3d3d3 ${value}%, #d3d3d3 100%)`
+  stop()
+  isPause
 })
+
+progressVideo.onchange = () => {
+  if (isPause) {
+    const value = progressVideo.value * video.duration / 100
+    video.currentTime = value
+    return !isPause
+  } else {
+    const value = progressVideo.value * video.duration / 100
+    video.currentTime = value
+    play()
+  }
+}
 
 const progressVolume = document.querySelector('.progress-volume');
 
 progressVolume.addEventListener('input', function () {
   const value = this.value;
   this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #d3d3d3 ${value}%, #d3d3d3 100%)`
+  video.volume = value / 100
+  if (video.volume > 0) {
+    soundOn()
+  } else {
+    soundOff()
+  }
 })
 
 document.getElementById("menu-toggle").onclick = function () {
@@ -33,7 +54,6 @@ volume.onclick = soundOff
 mute.onclick = soundOn
 
 function soundOff() {
-  /*  debugger */
   video.muted = true
   player.classList.add('sound-off')
 }
@@ -67,4 +87,10 @@ function stop() {
   active = false
 }
 
+video.ontimeupdate = (evt) => {
 
+  let value = video.currentTime / video.duration * 100
+  console.log('Time update', value, video.currentTime);
+  progressVideo.value = value
+  progressVideo.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #d3d3d3 ${value}%, #d3d3d3 100%)`
+}
