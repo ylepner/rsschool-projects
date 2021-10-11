@@ -742,6 +742,7 @@ section {
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  user-select: none;
 }
 
 .explore-img img {
