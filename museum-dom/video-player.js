@@ -133,7 +133,7 @@ const sliderVideo = tns({
   items: 3,
   slideBy: 1,
   controlsContainer: ".video-slider",
-  navContainer: ".video-slider-dot",
+  navItems: ".video-slider-dot",
   center: true,
 });
 
