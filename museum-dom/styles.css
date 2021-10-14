@@ -1103,12 +1103,12 @@ section {
   }
 }
 
-@media (max-width: 768px) and (min-width: 421px) {
+/* @media (max-width: 768px) and (min-width: 421px) {
 .map-container img {
   width: 728px!important;
   height: 426px!important;
 }
-}
+} */
 
 
 .ticket-type-container > ul {
@@ -1262,9 +1262,9 @@ input {
   .links {
     font-size: 20px;
   }
-  .map-container img {
+  /* .map-container img {
     max-width: 694px!important;
-  }
+  } */
   .contacts-details ul {
     line-height: 38px!important;
     margin-top: 0px;
@@ -1274,13 +1274,13 @@ input {
 .contacts-details {
   flex-shrink: 0;
 }
-
+/* 
 .map-container img {
   width: 100%;
   height: auto;
   max-width: 960px;
 }
-
+ */
 .contacts-title {
   font-family: var(--roboto);
   font-style: normal;
@@ -1493,3 +1493,19 @@ footer {
   padding: 5px;
 }
 
+.mapouter {
+  position: relative;
+  text-align: right;
+  width: 960px;
+  height: 600px;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+   filter: grayscale(100%);
+}
