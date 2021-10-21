@@ -16,7 +16,13 @@ function createImageLink() {
 }
 
 function setBackgroundImg() {
-  return document.body.style.backgroundImage = `url('${createImageLink()}')`
+  const img = new Image();
+  const imageLink = createImageLink()
+  img.src = imageLink
+  img.onload = () => {
+    document.body.style.backgroundImage = `url('${imageLink}')`
+  };
+  /* return document.body.style.backgroundImage = `url('${createImageLink()}')` */
 }
 
 const prevImg = document.querySelector('.slide-prev')
