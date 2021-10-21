@@ -1,15 +1,16 @@
-setBackgroundImg()
+const IMAGES_NUMBER = 20
+let count = Math.floor(Math.random() * IMAGES_NUMBER)
+let timeOfDay = getTimeOfDay()
+
 
 function getImageNumber() {
-  let imageNumber = Math.floor(Math.random() * 20) + 1
+  let imageNumber = count + 1
   let formattedNumber = ("0" + imageNumber).slice(-2);
-  console.log(formattedNumber)
   return formattedNumber
 }
 
 
 function createImageLink() {
-  let timeOfDay = getGreeting()
   let imageNumber = getImageNumber()
   return `https://raw.githubusercontent.com/ylepner/stage1-tasks/assets/images/${timeOfDay}/${imageNumber}.jpg`
 }
@@ -21,13 +22,22 @@ function setBackgroundImg() {
 const prevImg = document.querySelector('.slide-prev')
 const nextImg = document.querySelector('.slide-next')
 
-prevImg.onclick = getSlidePrev
-nextImg.onclick = getSlideNext
+prevImg.onclick = setPrevSlide
+nextImg.onclick = setNextSlide
 
-function getSlidePrev() {
-  console.log(1)
+function setPrevSlide() {
+  count = mod(count - 1, IMAGES_NUMBER)
+  console.log(count)
+  setBackgroundImg()
 }
 
-function getSlideNext() {
-  console.log(2)
+function setNextSlide() {
+  count = (count + 1) % IMAGES_NUMBER
+  setBackgroundImg()
 }
+
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+setBackgroundImg()
