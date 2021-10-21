@@ -41,7 +41,6 @@ function getLocalStorage() {
   }
 }
 window.addEventListener('load', getLocalStorage)
-let count = 0
 
 setInterval(() => {
   greeting.textContent = `Good ${getGreeting()},`
