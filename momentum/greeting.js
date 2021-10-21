@@ -16,19 +16,19 @@ function getGreeting() {
       result = 'night';
       break;
     case 1:
-      result = 'Good morning';
+      result = 'morning';
       break;
     case 2:
-      result = 'Good afternoon';
+      result = 'afternoon';
       break;
     case 3:
-      result = 'Good evening';
+      result = 'evening';
       break;
   }
   return result
 }
 
-greeting.textContent = `${getGreeting()},`
+greeting.textContent = `Good ${getGreeting()},`
 
 function setLocalStorage() {
   localStorage.setItem('nameInput', nameInput.value);
@@ -44,6 +44,6 @@ window.addEventListener('load', getLocalStorage)
 let count = 0
 
 setInterval(() => {
-  greeting.textContent = `${getGreeting()},`
+  greeting.textContent = `Good ${getGreeting()},`
 }, 1000)
 
