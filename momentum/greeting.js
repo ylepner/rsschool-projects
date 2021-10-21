@@ -15,12 +15,12 @@ function setLocalStorage() {
 }
 window.addEventListener('beforeunload', setLocalStorage)
 
-function getLocalStorage() {
+function initWeather() {
   if (localStorage.getItem('nameInput')) {
     nameInput.value = localStorage.getItem('nameInput');
   }
 }
-window.addEventListener('load', getLocalStorage)
+window.addEventListener('load', initWeather)
 
 setInterval(() => {
   greeting.textContent = `Good ${getTimeOfDay()},`
