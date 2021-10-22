@@ -23,7 +23,7 @@ const playList = [
 
 const playListUl = document.querySelector('.play-list')
 
-const listItems = playList
+let listItems = playList
   .map(song => {
     const el = document.createElement('li')
     el.innerText = song.title
@@ -31,6 +31,8 @@ const listItems = playList
   })
 
 listItems.forEach(el => playListUl.appendChild(el))
+console.log(listItems)
+
 
 let count = 0
 const player = document.querySelector('.player')
@@ -48,6 +50,7 @@ function playAudio() {
   audio.play();
   player.classList.add('is-playing')
   songTitle.textContent = `${playList[count].title} ${playList[count].duration}`
+  listItems[count].classList.add('is-active')
 }
 
 function pauseAudio() {
@@ -56,6 +59,7 @@ function pauseAudio() {
 }
 
 function playNextSong() {
+  listItems[count].classList.toggle('is-active')
   count++
   if (count > 3) {
     count = 0
@@ -65,6 +69,7 @@ function playNextSong() {
 }
 
 function playPrevSong() {
+  listItems[count].classList.toggle('is-active')
   count--
   if (count < 0) {
     count = 3

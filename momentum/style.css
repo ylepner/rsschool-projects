@@ -55,6 +55,14 @@ li {
   margin-bottom: 5px;
 }
 
+li.is-active {
+  color: red;
+}
+
+.li:not(.is-active) {
+  color: #fff;
+}
+
 .play-item {
   position: relative;
   padding: 5px;
