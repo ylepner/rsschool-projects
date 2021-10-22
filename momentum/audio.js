@@ -58,24 +58,19 @@ function pauseAudio() {
   player.classList.remove('is-playing')
 }
 
-function playNextSong() {
+function playOtherSong(direction) {
   listItems[count].classList.toggle('is-active')
-  count++
-  if (count > 3) {
-    count = 0
-  }
-  console.log(count)
+  count = mod(count + direction, playList.length)
   playAudio()
 }
 
+
+function playNextSong() {
+  playOtherSong(1)
+}
+
 function playPrevSong() {
-  listItems[count].classList.toggle('is-active')
-  count--
-  if (count < 0) {
-    count = 3
-  }
-  console.log(count)
-  playAudio()
+  playOtherSong(-1)
 }
 
 playBtn.addEventListener('click', playAudio);
@@ -89,7 +84,6 @@ playPrev.addEventListener('click', playPrevSong);
 const progressBar = document.querySelector('.progress-bar');
 
 progressBar.addEventListener('input', function () {
-
   const value = this.value;
   audio.pause()
 })
@@ -97,9 +91,7 @@ progressBar.addEventListener('input', function () {
 progressBar.onchange = () => {
   const value = progressBar.value * audio.duration / 100
   audio.currentTime = value
-  if (active) {
-    audio.play()
-  }
+  audio.play()
 }
 
 const volumeBar = document.querySelector('.volume-bar');

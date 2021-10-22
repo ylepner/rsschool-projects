@@ -22,7 +22,6 @@ function setBackgroundImg() {
   img.onload = () => {
     document.body.style.backgroundImage = `url('${imageLink}')`
   };
-  /* return document.body.style.backgroundImage = `url('${createImageLink()}')` */
 }
 
 const prevImg = document.querySelector('.slide-prev')
@@ -40,10 +39,6 @@ function setPrevSlide() {
 function setNextSlide() {
   count = (count + 1) % IMAGES_NUMBER
   setBackgroundImg()
-}
-
-function mod(n, m) {
-  return ((n % m) + m) % m;
 }
 
 setBackgroundImg()
