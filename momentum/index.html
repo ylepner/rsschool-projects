@@ -7,18 +7,34 @@
   <link href="favicon.ico" rel="shortcut icon" />
   <link rel="stylesheet" href="assets/css/owfont-regular.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="player.css" />
   <title>momentum</title>
 </head>
 
 <body>
   <header class="header">
     <div class="player">
+      <audio src=""></audio>
       <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
+        <div>
+          <input type="range" class="progress progress-bar" value="0" min="0" max="100" step="1">
+        </div>
+        <div class="default-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="pause player-icon"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+        <button class="soundOn sound-btn">
+          <img src="./assets/svg/sound-on.svg" alt="">
+        </button>
+        <button class="mute sound-btn">
+          <img src="./assets/svg/mute.svg" alt="">
+        </button>
+        <input type="range" class="volume volume-bar" value="30" min="0" max="100" step="1">
       </div>
-      <ul class="play-list"></ul>
+      <ul class="play-list">
+      </ul>
     </div>
     <div class="weather">
       <input type="text" class="city" />
@@ -57,6 +73,7 @@
   <script src="backgroundChange.js"></script>
   <script src="weather.js"></script>
   <script src="quotes.js"></script>
+  <script src="audio.js" type="module"></script>
 
 </body>
 

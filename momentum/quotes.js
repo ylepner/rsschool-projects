@@ -7,7 +7,6 @@ let current;
 async function getQuotes() {
   const res = await fetch('assets/quotes.json');
   data = await res.json();
-  console.log(data)
   updateText()
 }
 
