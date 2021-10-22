@@ -39,6 +39,7 @@ const playBtn = document.querySelector('.play')
 const pauseBtn = document.querySelector('.pause')
 const playPrev = document.querySelector('.play-prev')
 const playNext = document.querySelector('.play-next')
+const songTitle = document.querySelector('.song-title')
 
 
 function playAudio() {
@@ -46,6 +47,7 @@ function playAudio() {
   audio.currentTime = 0;
   audio.play();
   player.classList.add('is-playing')
+  songTitle.textContent = `${playList[count].title} ${playList[count].duration}`
 }
 
 function pauseAudio() {
@@ -81,7 +83,19 @@ playPrev.addEventListener('click', playPrevSong);
 
 const progressBar = document.querySelector('.progress-bar');
 
+progressBar.addEventListener('input', function () {
 
+  const value = this.value;
+  audio.pause()
+})
+
+progressBar.onchange = () => {
+  const value = progressBar.value * audio.duration / 100
+  audio.currentTime = value
+  if (active) {
+    audio.play()
+  }
+}
 
 const volumeBar = document.querySelector('.volume-bar');
 

@@ -32,8 +32,12 @@ body {
   padding: 20px;
 }
 
+.spacer {
+  flex-grow: 0.7;
+}
+
 .player-controls {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 28px;
@@ -90,7 +94,8 @@ li {
   outline: 0;
   opacity: .8;
   cursor: pointer;
-  transition: .3s;  
+  transition: .3s;
+  margin: auto;
 }
 
 .player-icon:hover,
@@ -137,26 +142,17 @@ li {
   background-image: url("./assets/svg/play-next.svg");
 }
 
-.player {
-  display: grid;
-  grid-template-areas: "video-progress"
-                       "play-controls volume-bar"
-                       "playlist";
-}
-
 .progress-bar {
-  grid-area: video-progress;
   width: 300px;
 }
 
 .volume-bar {
-  grid-area: volume-bar;
-  width: 155px;
-  /* background: linear-gradient(to right, rgb(90, 83, 83) 0%, rgb(90, 83, 83) 56%, rgb(211, 211, 211) 56%, rgb(211, 211, 211) 100%); */
+  width: 100px;
+  margin-left: 5px;
 }
 
 .default-controls {
-  grid-area: play-controls;
+  display: flex;
 }
 
 .volume {
