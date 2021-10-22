@@ -46,7 +46,7 @@ const songTitle = document.querySelector('.song-title')
 
 function playAudio() {
   audio.src = playList[count].src
-  audio.currentTime = 0;
+  setCurrentTime(0)
   audio.play();
   player.classList.add('is-playing')
   songTitle.textContent = `${playList[count].title} ${playList[count].duration}`
@@ -64,7 +64,6 @@ function playOtherSong(direction) {
   playAudio()
 }
 
-
 function playNextSong() {
   playOtherSong(1)
 }
@@ -79,22 +78,57 @@ playNext.addEventListener('click', playNextSong);
 playPrev.addEventListener('click', playPrevSong);
 
 
-/* progress-bar and volune-bar */
+/* progress-bar and volume-bar */
 
 const progressBar = document.querySelector('.progress-bar');
 
+function getCurrentTime() {
+  return audio.currentTime
+}
+
+function formatTimeMinSec() {
+  const time = Math.round(getCurrentTime())
+  const minutes = padNumber(Math.floor(time / 60))
+  const seconds = padNumber(time % 60)
+  return `${minutes}:${seconds}`
+}
+
+function padNumber(number) {
+  if (number < 10) {
+    return '0' + number
+  }
+  return String(number)
+}
+
+function setCurrentTime(time) {
+  audio.currentTime = time
+}
+
+function updateTimeElements() {
+  if (!audio.duration) {
+    return
+  }
+  progressBar.value = getCurrentTime() / audio.duration * 100
+  songTitle.textContent = `${playList[count].title} ${playList[count].duration} / ${formatTimeMinSec()}`
+  console.log(progressBar.value)
+}
+
+audio.addEventListener('timeupdate', (evt) => {
+  updateTimeElements()
+})
+
 progressBar.addEventListener('input', function () {
-  const value = this.value;
   audio.pause()
 })
 
 progressBar.onchange = () => {
   const value = progressBar.value * audio.duration / 100
-  audio.currentTime = value
+  setCurrentTime(value)
   audio.play()
 }
 
 const volumeBar = document.querySelector('.volume-bar');
+
 
 volumeBar.addEventListener('input', function () {
   const value = this.value;

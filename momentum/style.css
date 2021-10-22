@@ -56,9 +56,14 @@ li {
   margin-bottom: 5px;
 }
 
-li.is-active {
-  color: red;
+li.is-active::before {
+  color: #C5B358;
 }
+
+li::before {
+  content: "✔ "; 
+}
+
 
 .li:not(.is-active) {
   color: #fff;
