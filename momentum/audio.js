@@ -26,8 +26,6 @@ const playListUl = document.querySelector('.play-list')
 let listItems = playList
   .map((song, index) => {
     const el = document.createElement('li')
-    // el.innerText = song.title
-    console.log(el)
     el.innerHTML = `
     <button class="play-btn-mini player-icon">▶</button>
     <button class="pause-btn-mini player-icon">| |</button>${song.title}
