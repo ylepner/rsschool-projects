@@ -1,4 +1,4 @@
-const state = {
+let state = {
   language: 'en',
   photoSource: 'github',
 
@@ -28,6 +28,8 @@ const state = {
   }]
 }
 
+inputBindings = [];
+
 function toggleOption(name) {
   const block = state.blocks.find(block => block.name === name)
   block.enabled = !block.enabled
@@ -47,6 +49,7 @@ function updateUI() {
       widget.style.opacity = '0'
     }
   })
+
 }
 
 function updateImageSourceUI() {
@@ -60,7 +63,7 @@ function updateImageSourceUI() {
 const settingList = document.querySelector('.settings-list')
 
 let listItems = state.blocks
-  .map((option) => {
+  .map((option, i) => {
     const el = document.createElement('li')
     el.innerHTML = `
     <input type="checkbox" class="setting-check-option" checked>
@@ -69,6 +72,12 @@ let listItems = state.blocks
     el.querySelector('input').onchange = (evt) => {
       toggleOption(option.name)
     }
+
+    inputBindings.push(() => {
+      el.querySelector('input').checked = state.blocks[i].enabled
+    })
+
+
     return el
   })
 
@@ -95,3 +104,23 @@ imgSource.onchange = (evt) => {
   state.photoSource = imgSource.value
   updateImageSourceUI()
 }
+
+
+window.addEventListener('beforeunload', function setLocalStorage() {
+  console.log(JSON.stringify(state.blocks))
+  localStorage.setItem('settings', JSON.stringify(state));
+})
+
+window.addEventListener('load', () => {
+  if (localStorage.getItem('settings')) {
+
+    state = JSON.parse(localStorage.getItem('settings'))
+    updateUI()
+    inputBindings.forEach(fn => fn())
+
+    console.log(state.blocks)
+  }
+})
+
+
+
