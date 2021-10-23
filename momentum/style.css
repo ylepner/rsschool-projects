@@ -440,6 +440,11 @@ li {
   opacity: 0;
 }
 
+.selector-photo-tag.is-visible {
+  opacity: 1;
+}
+
+
 .rsschool ul {
   list-style: none;
   display: flex;

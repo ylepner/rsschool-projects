@@ -50,7 +50,11 @@ function updateUI() {
 }
 
 function updateImageSourceUI() {
-
+  if (state.photoSource === 'Unsplash' || state.photoSource === 'Flickr') {
+    imgTag.classList.add('is-visible')
+  } else {
+    imgTag.classList.remove('is-visible')
+  }
 }
 
 const settingList = document.querySelector('.settings-list')
@@ -84,9 +88,10 @@ function toggleSettingPanel() {
 
 // choose image
 
-const imgSource = document.querySelector('.selector-photo-source')
-const imgTag = docunemt.querySelector('.selector-photo-tag')
+const imgSource = document.querySelector('.selector-photo-source-input')
+const imgTag = document.querySelector('.selector-photo-tag')
 
-imgSource.onchange = () => {
+imgSource.onchange = (evt) => {
+  state.photoSource = imgSource.value
   updateImageSourceUI()
 }
