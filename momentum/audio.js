@@ -24,14 +24,26 @@ const playList = [
 const playListUl = document.querySelector('.play-list')
 
 let listItems = playList
-  .map(song => {
+  .map((song, index) => {
     const el = document.createElement('li')
-    el.innerText = song.title
+    // el.innerText = song.title
+    console.log(el)
+    el.innerHTML = `
+    <button class="play-btn-mini player-icon">▶</button>
+    <button class="pause-btn-mini player-icon">| |</button>${song.title}
+    `
+    const playMini = el.querySelector('.play-btn-mini')
+    const pauseMini = el.querySelector('.pause-btn-mini')
+    playMini.onclick = () => {
+      playSong(index)
+    }
+    pauseMini.onclick = () => {
+      pauseAudio()
+    }
     return el
   })
 
 listItems.forEach(el => playListUl.appendChild(el))
-console.log(listItems)
 
 
 let count = 0
@@ -44,12 +56,15 @@ const playNext = document.querySelector('.play-next')
 const songTitle = document.querySelector('.song-title')
 
 
+
+
+
 function playAudio() {
   audio.src = playList[count].src
   setCurrentTime(0)
   audio.play();
   player.classList.add('is-playing')
-  songTitle.textContent = `${playList[count].title} ${playList[count].duration}`
+  songTitle.textContent = `${playList[count].title} ${playList[count].duration} / 00:00`
   listItems[count].classList.add('is-active')
 }
 
@@ -58,10 +73,14 @@ function pauseAudio() {
   player.classList.remove('is-playing')
 }
 
-function playOtherSong(direction) {
+function playSong(songNumber) {
   listItems[count].classList.toggle('is-active')
-  count = mod(count + direction, playList.length)
+  count = songNumber
   playAudio()
+}
+
+function playOtherSong(direction) {
+  playSong(mod(count + direction, playList.length))
 }
 
 function playNextSong() {
@@ -70,6 +89,10 @@ function playNextSong() {
 
 function playPrevSong() {
   playOtherSong(-1)
+}
+
+audio.onended = () => {
+  playOtherSong(1)
 }
 
 playBtn.addEventListener('click', playAudio);
@@ -110,7 +133,6 @@ function updateTimeElements() {
   }
   progressBar.value = getCurrentTime() / audio.duration * 100
   songTitle.textContent = `${playList[count].title} ${playList[count].duration} / ${formatTimeMinSec()}`
-  console.log(progressBar.value)
 }
 
 audio.addEventListener('timeupdate', (evt) => {
@@ -128,7 +150,6 @@ progressBar.onchange = () => {
 }
 
 const volumeBar = document.querySelector('.volume-bar');
-
 
 volumeBar.addEventListener('input', function () {
   const value = this.value;

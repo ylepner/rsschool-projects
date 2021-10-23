@@ -56,19 +56,6 @@ li {
   margin-bottom: 5px;
 }
 
-li.is-active::before {
-  color: #C5B358;
-}
-
-li::before {
-  content: "✔ "; 
-}
-
-
-.li:not(.is-active) {
-  color: #fff;
-}
-
 .play-item {
   position: relative;
   padding: 5px;
@@ -84,7 +71,6 @@ li::before {
 }
 
 .play-item::before {
-  content: "\2713";  
   position: absolute;
   left: 0;
   top: 2px;
@@ -145,6 +131,33 @@ li::before {
 }
 
 .player:not(.is-playing) .pause {
+  display: none;
+}
+
+.player.is-playing li.is-active .play-btn-mini {
+  display: none;
+}
+
+.player.is-playing li.is-active .pause-btn-mini {
+  display: initial;
+}
+
+.player:not(.is-playing) li.is-active .pause-btn-mini {
+  display: none;
+}
+
+.play-btn-mini {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  color: white;
+}
+
+.pause-btn-mini {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  color: white;
   display: none;
 }
 
