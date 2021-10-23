@@ -471,4 +471,18 @@ li {
   padding-right: 10px;
 }
 
-
+@media (max-width: 320px) {
+  .progress-bar {
+    width: 100%;
+  }
+  .greeting,
+  .name {
+    font-size: 23px;
+  }
+  .sound-btn > img {
+    margin: 7px;
+}
+.volume-bar {
+  margin-left: -5px;
+}
+}
