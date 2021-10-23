@@ -339,8 +339,7 @@ li {
   align-items: center;
   width: 100%;
   height: 30vh;
-  min-height: 160px;  
-  padding: 20px;
+  min-height: 160px;
 }
 
 .change-quote {
@@ -381,7 +380,7 @@ li {
   background-color: unset;
   border: none;
   color: white;
-  font-size: 50px;
+  font-size: 40px;
   position: absolute;
   bottom: 0;
   left: 1%;
@@ -403,9 +402,11 @@ li {
 }
 
 .settings-title {
+  display: flex;
   font-size: 20px;
   letter-spacing: 1px;
   padding: 10px;
+  padding-left: 15px;
 }
 
 .setting-panel.is-active {
@@ -417,10 +418,52 @@ li {
   text-transform: capitalize;
   text-align: justify;
   padding-left: 10px;
-  line-height: 20px;
+  line-height: 30px;
   letter-spacing: 1px;
 }
 
 .widget {
   transition: all 0.5s ease-in;
 }
+
+.selector-lang,
+.selector-photo-source{
+  display: flex;
+  align-items: baseline;
+  padding-left: 10px;
+}
+
+.selector-photo-tag {
+  display: flex;
+  align-items: baseline;
+  padding-left: 10px;
+  opacity: 0;
+}
+
+.rsschool ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.rsschool a {
+  text-decoration: none;
+  color: white;
+}
+
+.rsschool {
+  padding-top: 30px;
+  margin-left: auto;
+}
+
+.rsschool-ul {
+  font-size: 10px;
+}
+
+.rsschool-ul li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+

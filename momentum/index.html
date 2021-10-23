@@ -67,16 +67,44 @@
       <button class="settings-btn">⚙</button>
       <div class="setting-panel">
         <div class="settings-title">Settings</div>
-        <div>
-          <ul class="settings-list">
-          </ul>
+        <div class="selector-lang">
+          <option selected disabled value="" style="color:white; padding:5px">Language</option>
+          <select name="select">
+            <option value="eng">Engish</option>
+            <option value="rus">Russian</option>
+          </select>
         </div>
+        <div class="selector-photo-source">
+          <option selected disabled value="" style="color:white; padding:5px">Sorce of images</option>
+          <select name="select">
+            <option value="Github">GitHub</option>
+            <option value="Unsplash">Unsplash API</option>
+            <option value="Flickr">Flickr API</option>
+          </select>
+        </div>
+        <div class=selector-photo-tag>
+          <option selected disabled value="" style="color:white; padding:5px">Choose tag</option>
+          <select name="select">
+            <option value="nature">Nature</option>
+            <option value="art">Art</option>
+            <option value="urban">Urban</option>
+          </select>
+        </div>
+        <ul class="settings-list">
+        </ul>
       </div>
     </div>
     <div id="quote" class="widget">
       <button class="change-quote"></button>
       <div class="quote"></div>
       <div class="author"></div>
+    </div>
+    <div class="rsschool">
+      <ul class="rsschool-ul">
+        <li style="color: white">© 2021</li>
+        <li><a href="https://rs.school/js/" target="_blank">The Rolling Scopes School</a></li>
+        <li><a href="https://github.com/ylepner" target="_blank">@ylepner</a></li>
+      </ul>
     </div>
   </footer>
   <script src="common.js"></script>

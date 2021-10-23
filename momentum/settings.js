@@ -1,6 +1,7 @@
 const state = {
   language: 'en',
   photoSource: 'github',
+
   blocks: [{
     name: 'time',
     enabled: true
@@ -48,6 +49,10 @@ function updateUI() {
   })
 }
 
+function updateImageSourceUI() {
+
+}
+
 const settingList = document.querySelector('.settings-list')
 
 let listItems = state.blocks
@@ -76,3 +81,12 @@ function toggleSettingPanel() {
   settingPanel.classList.toggle('is-active')
 }
 
+
+// choose image
+
+const imgSource = document.querySelector('.selector-photo-source')
+const imgTag = docunemt.querySelector('.selector-photo-tag')
+
+imgSource.onchange = () => {
+  updateImageSourceUI()
+}
