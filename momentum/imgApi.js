@@ -1,9 +1,9 @@
+const IMAGES_NUMBER = 20
 let ghImgCount = Math.floor(Math.random() * IMAGES_NUMBER)
 
 
 function getNextGithubImgLink(timeOfDay, direction) {
   ghImgCount = mod(ghImgCount + direction, IMAGES_NUMBER)
-  const IMAGES_NUMBER = 20
   function getImageNumber() {
     let imageNumber = ghImgCount + 1
     let formattedNumber = ("0" + imageNumber).slice(-2);

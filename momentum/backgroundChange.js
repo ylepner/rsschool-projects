@@ -14,13 +14,11 @@ prevImg.onclick = setPrevSlide
 nextImg.onclick = setNextSlide
 
 function setPrevSlide() {
-  count = mod(count - 1, IMAGES_NUMBER)
-  setBackgroundImg()
+  setBackgroundImg(getNextGithubImgLink(getTimeOfDay(), -1))
 }
 
 function setNextSlide() {
-  count = (count + 1) % IMAGES_NUMBER
-  setBackgroundImg()
+  setBackgroundImg(getNextGithubImgLink(getTimeOfDay(), 1))
 }
 
 
