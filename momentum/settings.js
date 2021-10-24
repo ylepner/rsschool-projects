@@ -28,6 +28,20 @@ let state = {
   }]
 }
 
+const eventListeners = {
+
+};
+
+function setSettingsEventListener(field, callback) {
+  eventListeners[field] = callback;
+}
+
+function callEventListener(field) {
+  if (eventListeners[field]) {
+    eventListeners[field];
+  }
+}
+
 inputBindings = [];
 
 function toggleOption(name) {
@@ -58,6 +72,7 @@ function updateImageSourceUI() {
   } else {
     imgTag.classList.remove('is-visible')
   }
+  callEventListener('photoSource');
 }
 
 const settingList = document.querySelector('.settings-list')
@@ -116,6 +131,8 @@ window.addEventListener('load', () => {
 
     state = JSON.parse(localStorage.getItem('settings'))
     updateUI()
+    imgSource.value = state.photoSource
+    updateImageSourceUI()
     inputBindings.forEach(fn => fn())
 
     console.log(state.blocks)

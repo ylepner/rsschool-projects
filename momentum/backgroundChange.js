@@ -13,13 +13,18 @@ const nextImg = document.querySelector('.slide-next')
 prevImg.onclick = setPrevSlide
 nextImg.onclick = setNextSlide
 
-function setPrevSlide() {
-  setBackgroundImg(getNextGithubImgLink(getTimeOfDay(), -1))
+async function setPrevSlide() {
+  setBackgroundImg(await getLinkToImage(state.photoSource, getTimeOfDay(), -1))
 }
 
-function setNextSlide() {
-  setBackgroundImg(getNextGithubImgLink(getTimeOfDay(), 1))
+async function setNextSlide() {
+  setBackgroundImg(await getLinkToImage(state.photoSource, getTimeOfDay(), 1))
 }
 
+(async function () {
+  setBackgroundImg(await getLinkToImage(state.photoSource, getTimeOfDay(), 0))
+})()
 
-setBackgroundImg(getNextGithubImgLink(getTimeOfDay(), 0))
+// setSettingsEventListener('photoSource', () => {
+//   setBackgroundImg()
+// })

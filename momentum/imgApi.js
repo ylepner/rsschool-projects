@@ -13,7 +13,7 @@ function getNextGithubImgLink(timeOfDay, direction) {
     let imageNumber = getImageNumber()
     return `https://raw.githubusercontent.com/ylepner/stage1-tasks/assets/images/${timeOfDay}/${imageNumber}.jpg`
   }
-  return createImageLink()
+  return Promise.resolve(createImageLink());
 }
 
 function getUnsplashImgLink(timeOfDay, direction) {
@@ -29,8 +29,9 @@ function getFlickrImgLink(timeOfDay, direction) {
 }
 
 
-function getLinkToImage() {
-
+function getNextLinkToImage(timeOfDay, direction) {
+  let currentProvider = getProviderFromState()
+  return getNextGithubImgLink(timeOfDay, direction)
 }
 
 const providers = {
@@ -39,6 +40,6 @@ const providers = {
   flickr: getFlickrImgLink
 }
 
-async function getLinkToImage(provider, timeOfDay, direction) {
-  return await providers[provider](timeOfDay, direction)
+function getLinkToImage(provider, timeOfDay, direction) {
+  return providers[provider](timeOfDay, direction)
 }
