@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="assets/css/owfont-regular.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="player.css" />
+  <title>momentum</title>
+</head>
+
+<body>
+  <header class="header">
+    <div id="music" class="widget player">
+      <audio src=""></audio>
+      <div class="player-controls">
+        <div>
+          <div class="song-title">My Music</div>
+          <input type="range" class="progress-bar" value="0" min="0" max="100" step="1">
+        </div>
+        <div class="default-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="pause player-icon"></button>
+          <button class="play-next player-icon"></button>
+          <span class="spacer"></span>
+          <button class="soundOn sound-btn">
+            <img src="./assets/svg/sound-on.svg" alt="">
+          </button>
+          <button class="mute sound-btn">
+            <img src="./assets/svg/mute.svg" alt="">
+          </button>
+          <input type="range" class="volume-bar" value="30" min="0" max="100" step="1">
+        </div>
+      </div>
+      <ul class="play-list">
+      </ul>
+    </div>
+    <div id="weather" class="widget weather">
+      <input type="text" class="city" />
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time id="time" class="widget time"></time>
+    <date id="date" class="widget date">2017-06-01</date>
+    <div id="greeting" class="widget greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" placeholder="[Enter name]" />
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="settings">
+      <button class="settings-btn">⚙</button>
+      <div class="setting-panel">
+        <div class="settings-title">Settings</div>
+        <div class="selector-lang">
+          <option selected disabled value="" style="color:white; padding:5px">Language</option>
+          <select name="select">
+            <option value="eng">Engish</option>
+            <option value="rus">Russian</option>
+          </select>
+        </div>
+        <div class="selector-photo-source">
+          <option selected disabled value="" style="color:white; padding:5px">Sorce of images</option>
+          <select class="selector-photo-source-input" name="select">
+            <option value="Github">GitHub</option>
+            <option value="Unsplash">Unsplash API</option>
+            <option value="Flickr">Flickr API</option>
+          </select>
+        </div>
+        <div class=selector-photo-tag>
+          <option selected disabled value="" style="color:white; padding:5px">Choose tag</option>
+          <select class="selector-photo-tag-input" name="select">
+            <option value="nature">Nature</option>
+            <option value="art">Art</option>
+            <option value="urban">Urban</option>
+          </select>
+        </div>
+        <ul class="settings-list">
+        </ul>
+      </div>
+    </div>
+    <div id="quote" class="widget">
+      <button class="change-quote"></button>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+    <div class="rsschool">
+      <ul class="rsschool-ul">
+        <li style="color: white">© 2021</li>
+        <li><a href="https://rs.school/js/" target="_blank">The Rolling Scopes School</a></li>
+        <li><a href="https://github.com/ylepner" target="_blank">@ylepner</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="common.js"></script>
+  <!-- <script src="imgApi.js"></script> -->
+  <script src="time.js"></script>
+  <script src="greeting.js"></script>
+  <script src="backgroundChange.js"></script>
+  <script src="weather.js"></script>
+  <script src="quotes.js"></script>
+  <script src="audio.js" type="module"></script>
+  <script src="settings.js"></script>
+
+
+</body>
+
+</html>
