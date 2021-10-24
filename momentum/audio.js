@@ -26,9 +26,11 @@ const playListUl = document.querySelector('.play-list')
 let listItems = playList
   .map((song, index) => {
     const el = document.createElement('li')
+
     el.innerHTML = `
-    <button class="play-btn-mini player-icon">▶</button>
-    <button class="pause-btn-mini player-icon">| |</button>${song.title}
+    <button class="play-btn-mini btn-mini player-icon">▶</button>
+    <button class="pause-btn-mini btn-mini player-icon">| |</button>
+    <span class="song-title">${song.title}</span>
     `
     const playMini = el.querySelector('.play-btn-mini')
     const pauseMini = el.querySelector('.pause-btn-mini')
@@ -72,7 +74,7 @@ function pauseAudio() {
 }
 
 function playSong(songNumber) {
-  listItems[count].classList.toggle('is-active')
+  listItems[count].classList.remove('is-active')
   count = songNumber
   playAudio()
 }
