@@ -142,8 +142,16 @@ li {
   display: initial;
 }
 
+.song-title {
+  flex-grow: 1;
+}
+
 .player:not(.is-playing) li.is-active .pause-btn-mini {
   display: none;
+}
+
+.play-list li.is-active {
+  color: #C5B358;;
 }
 
 .play-btn-mini {
@@ -154,11 +162,19 @@ li {
 }
 
 .pause-btn-mini {
+  display: none;
+}
+
+.play-list li {
+  display: flex;
+  align-items: center;
+}
+
+.btn-mini {
+  color: white;
   width: 20px;
   height: 20px;
   background-size: 20px 20px;
-  color: white;
-  display: none;
 }
 
 .play-prev {
