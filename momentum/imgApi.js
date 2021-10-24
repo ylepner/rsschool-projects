@@ -31,7 +31,6 @@ function getFlickrImgLink(timeOfDay, direction) {
     .then(data => {
       const photos = data.photos.photo
       const index = Math.round(Math.random(0, 1) * photos.length)
-      console.log(index)
       return data.photos.photo[index].url_l
     });
 }
