@@ -67,7 +67,7 @@ function updateUI() {
 }
 
 function updateImageSourceUI() {
-  if (state.photoSource === 'Unsplash' || state.photoSource === 'Flickr') {
+  if (state.photoSource === 'unsplash' || state.photoSource === 'flickr') {
     imgTag.classList.add('is-visible')
   } else {
     imgTag.classList.remove('is-visible')
