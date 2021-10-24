@@ -38,7 +38,7 @@ function setSettingsEventListener(field, callback) {
 
 function callEventListener(field) {
   if (eventListeners[field]) {
-    eventListeners[field];
+    eventListeners[field]();
   }
 }
 
@@ -56,7 +56,6 @@ function updateUI() {
     if (!widget) {
       return
     }
-    console.log(block)
     if (block.enabled) {
       widget.style.opacity = '1'
     } else {
@@ -122,7 +121,6 @@ imgSource.onchange = (evt) => {
 
 
 window.addEventListener('beforeunload', function setLocalStorage() {
-  console.log(JSON.stringify(state.blocks))
   localStorage.setItem('settings', JSON.stringify(state));
 })
 
@@ -134,8 +132,6 @@ window.addEventListener('load', () => {
     imgSource.value = state.photoSource
     updateImageSourceUI()
     inputBindings.forEach(fn => fn())
-
-    console.log(state.blocks)
   }
 })
 

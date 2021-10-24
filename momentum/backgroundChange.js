@@ -25,6 +25,6 @@ async function setNextSlide() {
   setBackgroundImg(await getLinkToImage(state.photoSource, getTimeOfDay(), 0))
 })()
 
-// setSettingsEventListener('photoSource', () => {
-//   setBackgroundImg()
-// })
+setSettingsEventListener('photoSource', async () => {
+  setBackgroundImg(await getLinkToImage(state.photoSource, getTimeOfDay(), 0))
+})

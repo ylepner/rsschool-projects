@@ -10,6 +10,5 @@ const slider = tns({
 
 
 slider.events.on('indexChanged', function (sliderInfo) {
-  console.log(sliderInfo.index)
   document.getElementById('img-index').innerText = '0' + sliderInfo.index
 });
