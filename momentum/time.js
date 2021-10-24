@@ -3,7 +3,7 @@ function showTime() {
   const date = new Date();
   const currentTime = date.toLocaleTimeString('en-GB');
   time.textContent = currentTime
-  /*  setTimeout(showTime, 1000); */
+  setTimeout(showTime, 1000);
 }
 showTime();
 
