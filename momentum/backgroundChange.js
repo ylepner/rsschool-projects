@@ -4,7 +4,7 @@ let timeOfDay = getTimeOfDay()
 
 
 function getImageNumber() {
-  let imageNumber = count + 1
+  let imageNumber = ghImgCount + 1
   let formattedNumber = ("0" + imageNumber).slice(-2);
   return formattedNumber
 }
@@ -31,13 +31,13 @@ prevImg.onclick = setPrevSlide
 nextImg.onclick = setNextSlide
 
 function setPrevSlide() {
-  count = mod(count - 1, IMAGES_NUMBER)
-  console.log(count)
+  ghImgCount = mod(ghImgCount - 1, IMAGES_NUMBER)
+  console.log(ghImgCount)
   setBackgroundImg()
 }
 
 function setNextSlide() {
-  count = (count + 1) % IMAGES_NUMBER
+  ghImgCount = (ghImgCount + 1) % IMAGES_NUMBER
   setBackgroundImg()
 }
 
