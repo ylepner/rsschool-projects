@@ -1,5 +1,3 @@
-import image from './images/lazy.png';
-
 const createImage = (src) => new Promise((res, rej) => {
   const img = new Image();
   img.onload = () => res(img);
