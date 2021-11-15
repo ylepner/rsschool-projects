@@ -1,0 +1,44 @@
+body {
+  align-items: center;
+  max-height: 100vh;
+}
+
+.logo {
+  height: 20vh;
+}
+
+.pictures-quiz-container {
+  display: flex;
+  justify-content: space-evenly;
+  height: 48vh;
+}
+
+.settings {
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+}
+
+.settings button {
+  border: none;
+  background-color: transparent;
+}
+
+footer ul{
+  list-style: none;
+  display: flex;
+  justify-content: end;
+  height: 20vh;
+  align-items: flex-end;
+  margin: 0;
+}
+
+li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+li a {
+  text-decoration: none;
+  color: #660032;
+}
