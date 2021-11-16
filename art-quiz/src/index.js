@@ -1,4 +1,6 @@
 import Home from './components/home'
+import CategoryPicker from './components/category-picker'
+import Settings from './components/settings'
 /* const createImage = (src) => new Promise((res, rej) => {
   const img = new Image();
   img.onload = () => res(img);
@@ -17,7 +19,24 @@ async function render() {
 render(); */
 
 const homePage = new Home({
-  categorySelected: (category) => console.log('category selected ' + category)
+  categorySelected: (category) => {
+    console.log('category selected ' + category)
+    const categoryPage = new CategoryPicker()
+    const categoryResult = categoryPage.render()
+    clearNode(document.querySelector('.main-container'))
+    document.querySelector('.main-container').appendChild(categoryResult)
+  },
+  onSettingsClick: () => {
+    const settingsPage = new Settings()
+    const settingsResult = settingsPage.render()
+    clearNode(document.querySelector('.main-container'))
+    document.querySelector('.main-container').appendChild(settingsResult)
+  }
 })
 const result = homePage.render()
 document.querySelector('.main-container').appendChild(result)
+
+function clearNode(node) {
+  node.innerHTML = ''
+}
+

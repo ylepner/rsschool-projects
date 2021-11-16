@@ -3,6 +3,7 @@ import html from './index.html'
 export default class Home {
   constructor(params) {
     this.categorySelected = params.categorySelected
+    this.onSettingsClick = params.onSettingsClick
   }
   render() {
     let template = document.createElement('div')
@@ -12,6 +13,9 @@ export default class Home {
     }
     template.querySelector('.pictures-block').onclick = () => {
       this.categorySelected('pictures')
+    }
+    template.querySelector('.settings').onclick = () => {
+      this.onSettingsClick()
     }
 
     return template
