@@ -5,7 +5,7 @@
   "name": "my-app",
   "scripts": {
     "start": "webpack serve --env development=true dirname=\"./\"",
-    "build": "rss-scripts build"
+    "build": "webpack build --env development=true dirname=\"./\""
   },
   "devDependencies": {
     "html-loader": "^3.0.1",
