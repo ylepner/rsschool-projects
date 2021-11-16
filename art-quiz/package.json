@@ -4,7 +4,7 @@
   "private": true,
   "name": "my-app",
   "scripts": {
-    "start": "rss-scripts start",
+    "start": "webpack serve --env development=true dirname=\"./\"",
     "build": "rss-scripts build"
   },
   "devDependencies": {
