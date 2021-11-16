@@ -16,6 +16,8 @@ async function render() {
 
 render(); */
 
-const homePage = new Home()
+const homePage = new Home({
+  categorySelected: (category) => console.log('category selected ' + category)
+})
 const result = homePage.render()
 document.querySelector('.main-container').appendChild(result)
