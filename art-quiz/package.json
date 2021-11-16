@@ -8,6 +8,7 @@
     "build": "rss-scripts build"
   },
   "devDependencies": {
+    "html-loader": "^3.0.1",
     "rss-scripts": "^0.2.4"
   }
 }

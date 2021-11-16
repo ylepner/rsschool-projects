@@ -1,4 +1,5 @@
-const createImage = (src) => new Promise((res, rej) => {
+import Home from './components/home'
+/* const createImage = (src) => new Promise((res, rej) => {
   const img = new Image();
   img.onload = () => res(img);
   img.onerror = rej;
@@ -13,4 +14,8 @@ async function render() {
   document.body.appendChild(myImage);
 }
 
-render();
+render(); */
+
+const homePage = new Home()
+const result = homePage.render()
+document.querySelector('.main-container').appendChild(result)
