@@ -48,7 +48,7 @@ const getPages = (dir, n, getRelative, isUseTs) => {
         name: `p${n += i}`,
         dir: getRelative(dir),
         html: makePath(getRelative(path.join(dir, f))),
-        script: dirContent.find(f => new RegExp(`^${name}\.${isUseTs?'t':'j'}s$`, 'i').test(f)),
+        script: dirContent.find(f => new RegExp(`^${name}\.${isUseTs ? 't' : 'j'}s$`, 'i').test(f)),
         style: dirContent.find(f => new RegExp(`^${name}\.s(c|a)ss$`, 'i').test(f)),
       });
       return res;
@@ -61,15 +61,15 @@ const getPages = (dir, n, getRelative, isUseTs) => {
   return pages;
 };
 
-const getEntryPoints = (pages) => pages.reduce((entry, {name, dir, script, style}) => Object.assign(entry,
+const getEntryPoints = (pages) => pages.reduce((entry, { name, dir, script, style }) => Object.assign(entry,
   script ? { [name]: makePath(path.join(dir, script)) } : {},
   style ? { [`${name}-styles`]: makePath(path.join(dir, style)) } : {},
 ), {});
 
-const getHtmlPlugins = (pages) => pages.map(({html, name, script, style}) => new HtmlWebpackPlugin({
+const getHtmlPlugins = (pages) => pages.map(({ html, name, script, style }) => new HtmlWebpackPlugin({
   template: html,
   filename: html,
-  chunks: [ script ? name : null, style ? `${name}-styles` : null ].filter(c => !!c),
+  chunks: [script ? name : null, style ? `${name}-styles` : null].filter(c => !!c),
 }));
 
 module.exports = ({ development, dirname, isUseTs }) => {
@@ -105,11 +105,15 @@ module.exports = ({ development, dirname, isUseTs }) => {
         },
         {
           test: /\.css$/i,
-          use: [{loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' }}, 'css-loader'],
+          use: [{ loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } }, 'css-loader'],
         },
         {
           test: /\.s[ac]ss$/i,
-          use: [{loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' }}, 'css-loader', 'sass-loader']
+          use: [{ loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } }, 'css-loader', 'sass-loader']
+        },
+        {
+          test: /\.html$/i,
+          loader: "html-loader",
         }
       ],
     },
