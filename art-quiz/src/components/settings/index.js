@@ -1,4 +1,5 @@
 import html from './index.html'
+import './style.css'
 
 export default class Settings {
   constructor(params) {

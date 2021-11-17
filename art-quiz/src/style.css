@@ -20,6 +20,12 @@ h1 {
   text-align: center;
 }
 
+button {
+  border: none;
+  background-color: none;
+  padding: 0;
+}
+
 .logo {
   height: 20vh;
 }
