@@ -1,13 +1,18 @@
+import { Component } from '../component'
 import html from './index.html'
 
-export default class Home {
+export default class Home extends Component {
   constructor(params) {
+    super()
     this.categorySelected = params.categorySelected
     this.onSettingsClick = params.onSettingsClick
   }
-  render() {
-    let template = document.createElement('div')
-    template.innerHTML = html
+
+  getTemplate() {
+    return html;
+  }
+
+  renderInternal(template) {
     template.querySelector('.artists-block').onclick = () => {
       this.categorySelected('artists')
     }
@@ -17,8 +22,6 @@ export default class Home {
     template.querySelector('.settings').onclick = () => {
       this.onSettingsClick()
     }
-
-    return template
   }
 }
 

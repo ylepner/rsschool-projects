@@ -1,5 +1,5 @@
 import Home from './components/home'
-import CategoryPicker from './components/category-picker'
+import { CategoryPicker } from './components/category-picker'
 import Settings from './components/settings'
 /* const createImage = (src) => new Promise((res, rej) => {
   const img = new Image();
