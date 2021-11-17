@@ -1,3 +1,8 @@
+:root {
+  --font-montserrat: 'Montserrat', sans-serif;
+  --text-color: #660032;
+}
+
 body {
   align-items: center;
   height: 100vh;
@@ -5,11 +10,22 @@ body {
   margin: 0;
 }
 
+h1,
+h2 {
+  font-family: var(--font-montserrat);
+  color: var(--text-color);
+}
+
+h1 {
+  text-align: center;
+}
+
 .logo {
   height: 20vh;
 }
 
-.pictures-quiz-container {
+.pictures-quiz-container,
+.settings-main-container {
   display: flex;
   justify-content: space-evenly;
 }
@@ -43,12 +59,12 @@ footer ul{
 li {
   padding-left: 10px;
   padding-right: 10px;
-  color: #660032;
+  color: var(--text-color);
 }
 
 li a {
   text-decoration: none;
-  color: #660032;
+  color: var(--text-color);
 }
 
 li a:hover {

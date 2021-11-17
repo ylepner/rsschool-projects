@@ -7,7 +7,6 @@ export default class Settings {
   render() {
     let template = document.createElement('div')
     template.innerHTML = html
-
     return template
   }
 }
