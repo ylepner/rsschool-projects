@@ -1,0 +1,17 @@
+.categories-main-container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  max-width: 1064px;
+  width: 100%;
+  gap: 20px;
+}
+
+.categories-item {
+  width: 250px;
+  margin: 0 auto;
+}
+

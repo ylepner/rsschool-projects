@@ -1,6 +1,7 @@
 import { Card } from '../card'
 import { Component } from '../component'
 import html from './index.html'
+import './style.css'
 
 export class CategoryPicker extends Component {
   constructor(params) {
@@ -23,7 +24,8 @@ export class CategoryPicker extends Component {
     this.cards = this.rounds.map((round, i) => new Card(i, round.imgUrl, round.score))
     this.cards.forEach((card) => {
       const result = card.render()
-      element.appendChild(result)
+      result.classList.add('categories-item')
+      element.querySelector('.categories-main-container').appendChild(result)
     })
   }
 }
