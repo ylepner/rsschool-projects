@@ -2,10 +2,9 @@
   text-align: center;
 }
 
-.volume,
-.timer {
-  display: grid;
-  row-gap: 14%;
+.controls-container {
+  display: flex;
+  flex-direction: column;
   border: #d6cbcb solid;
   border-radius: 8%;
   padding: 7%;
@@ -18,11 +17,12 @@
   align-items: center;
 }
 
-.sound-bar input {
+.controls-container input {
   appearance: unset;
   border: solid 2px lightgrey;
   height: 1px;
 }
+
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance : none;
@@ -34,7 +34,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .save-options {
-  padding: 5%;
+  padding: 5%;  
 }
 
 input[type="checkbox"] {
@@ -50,11 +50,12 @@ input:checked + label:before {
 }
 
 label {
-  font-size: 20px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 17px;
   color: var(--text-color);
   display: flex;
   justify-content: space-evenly;
-  align-items: baseline;
 }
 
 .save-options button {

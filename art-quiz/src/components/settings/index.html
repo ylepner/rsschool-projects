@@ -1,23 +1,30 @@
 <h1>SETTINGS</h1>
 <div>
   <div class="settings-main-container">
-    <div class="volume">
+    <div class="volume controls-container">
       <div class="sound-icon icon">
         <img src="./img/volume-on.svg" alt="sound-on">
       </div>
       <div class="sound-bar active-item">
         <img src="./img/volume-off.svg" alt="volume-bar">
-        <input id="check" type="range" min="0" max="100" value="50" class="volume-range"><label for="check"></label>
+        <input type="range" min="0" max="100" value="50" class="volume-range"><label for="check"></label>
+      </div>
+      <div class="sound-checkbox active-item">
+        <input type="checkbox" id="scales" name="scales" checked>
+        <label for="scales">ON / OFF</label>
       </div>
       <h2>VOLUME</h2>
     </div>
-    <div class="timer">
+    <div class="timer controls-container">
       <div class="timer-icon icon">
-        <img src="./img/timer-picture.svg" alt="">
+        <img src="./img/timer-picture.svg" alt="timer">
+      </div>
+      <div class="timer-control active-item">
+        <input type="range" min="0" max="100" value="50" class="volume-range"><label for="check"></label>
       </div>
       <div class="timer-checkbox active-item">
-        <input type="checkbox" id="scales" name="scales" checked>
-        <label for="scales">ON / OFF</label>
+        <input type="checkbox" id="scales2" name="scales2" checked>
+        <label for="scales2">ON / OFF</label>
       </div>
       <h2>TIME GAME</h2>
     </div>

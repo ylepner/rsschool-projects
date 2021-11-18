@@ -1,18 +1,18 @@
 import html from './index.html'
 import './style.css'
 import { Component } from '../component'
-export default class Settings {
+export default class Settings extends Component {
   constructor(params) {
+    super()
+    this.onSaveSettings = params.onSaveSettings
+  }
+  getTemplate() {
+    return html
+  }
 
-  }
-  render() {
-    let template = document.createElement('div')
-    template.innerHTML = html
-    return template
-  }
   renderInternal(element) {
     element.querySelector('.save-btn').onclick = () => {
-      this.saveSettings()
+      this.onSaveSettings()
     }
   }
 }

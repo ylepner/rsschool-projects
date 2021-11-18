@@ -18,30 +18,36 @@ async function render() {
 
 render(); */
 
-const homePage = new Home({
-  categorySelected: (category) => {
-    console.log('category selected ' + category)
-    const categoryPage = new CategoryPicker()
-    const categoryResult = categoryPage.render()
-    clearNode(document.querySelector('.main-container'))
-    document.querySelector('.main-container').appendChild(categoryResult)
-  },
-  onSettingsClick: () => {
-    const settingsPage = new Settings()
-    const settingsResult = settingsPage.render()
-    clearNode(document.querySelector('.main-container'))
-    document.querySelector('.main-container').appendChild(settingsResult)
-  }
-})
-const result = homePage.render()
-document.querySelector('.main-container').appendChild(result)
+
 
 function clearNode(node) {
   node.innerHTML = ''
 }
 
-// const settingsPage = new Settings ({
-//   saveSettings: () => {
+function goToHome() {
+  clearNode(document.querySelector('.main-container'))
+  const homePage = new Home({
+    categorySelected: (category) => {
+      console.log('category selected ' + category)
+      const categoryPage = new CategoryPicker()
+      const categoryResult = categoryPage.render()
+      clearNode(document.querySelector('.main-container'))
+      document.querySelector('.main-container').appendChild(categoryResult)
+    },
+    onSettingsClick: () => {
+      const settingsPage = new Settings({
+        onSaveSettings: () => {
+          goToHome()
+        }
+      })
+      const settingsResult = settingsPage.render()
+      clearNode(document.querySelector('.main-container'))
+      document.querySelector('.main-container').appendChild(settingsResult)
+    }
+  })
+  const result = homePage.render()
+  document.querySelector('.main-container').appendChild(result)
+}
 
-//   } 
-// })
+goToHome()
+
