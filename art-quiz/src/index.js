@@ -40,3 +40,8 @@ function clearNode(node) {
   node.innerHTML = ''
 }
 
+// const settingsPage = new Settings ({
+//   saveSettings: () => {
+
+//   } 
+// })

@@ -2,32 +2,27 @@
 <div>
   <div class="settings-main-container">
     <div class="volume">
-      <div class="sound-icon">
+      <div class="sound-icon icon">
         <img src="./img/volume-on.svg" alt="sound-on">
       </div>
-      <div class="sound-bar">
+      <div class="sound-bar active-item">
         <img src="./img/volume-off.svg" alt="volume-bar">
-        <input type="range" min="0" max="100" value="50" class="volume-range">
+        <input id="check" type="range" min="0" max="100" value="50" class="volume-range"><label for="check"></label>
       </div>
       <h2>VOLUME</h2>
     </div>
     <div class="timer">
-      <div class="timer-icon">
+      <div class="timer-icon icon">
         <img src="./img/timer-picture.svg" alt="">
       </div>
-      <div class="timer-checkbox">
+      <div class="timer-checkbox active-item">
         <input type="checkbox" id="scales" name="scales" checked>
-        <label for="scales">ON/OFF</label>
-        <h2>TIME GAME</h2>
+        <label for="scales">ON / OFF</label>
       </div>
+      <h2>TIME GAME</h2>
     </div>
   </div>
   <div class="save-options">
-    <button class="save-btn">
-      <img src="./img/save-button.jpg" alt="save">
-    </button>
-    <button class="defualt-btn">
-      <img src="./img/defaults-button.jpg" alt="default">
-    </button>
+    <button class="save-btn">SAVE</button>
   </div>
 </div>

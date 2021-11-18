@@ -1,3 +1,68 @@
 .save-options {
   text-align: center;
 }
+
+.volume,
+.timer {
+  display: grid;
+  row-gap: 14%;
+  border: #d6cbcb solid;
+  border-radius: 8%;
+  padding: 7%;
+  text-align: center;
+  height: auto;
+}
+
+.sound-bar {
+  display: flex;
+  align-items: center;
+}
+
+.sound-bar input {
+  appearance: unset;
+  border: solid 2px lightgrey;
+  height: 1px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance : none;
+  background : var(--text-color);
+  border-radius: 50%;
+  width: 100px;
+  height: 15px;
+  width: 15px;
+}
+
+.save-options {
+  padding: 5%;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label:before {
+  content:"☐";
+}
+
+input:checked + label:before {
+  content:"☑";
+}
+
+label {
+  font-size: 20px;
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.save-options button {
+  width: 150px;
+  height: 50px;
+  font-family: var(--font-montserrat);
+  background-color: var(--text-color);
+  color: white;
+  font-weight: bold;
+  font-size: large;
+}

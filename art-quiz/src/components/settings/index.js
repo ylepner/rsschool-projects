@@ -1,6 +1,6 @@
 import html from './index.html'
 import './style.css'
-
+import { Component } from '../component'
 export default class Settings {
   constructor(params) {
 
@@ -10,4 +10,11 @@ export default class Settings {
     template.innerHTML = html
     return template
   }
+  renderInternal(element) {
+    element.querySelector('.save-btn').onclick = () => {
+      this.saveSettings()
+    }
+  }
 }
+
+
