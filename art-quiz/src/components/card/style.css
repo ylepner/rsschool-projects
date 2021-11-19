@@ -1,4 +1,28 @@
+.card {
+  border: solid 2px #c4bcbc;
+  border-radius: 5%;
+  padding: 15px;
+}
+
 .card-image img {
   width: 100%;
   height: auto;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-montserrat);
+  color: var(--text-color); 
+}
+
+.title {
+  font-weight: bold;
+  font-size: 80px;
+}
+
+.score{
+  font-size: 30px;
+  display: flex;
+  align-items: center;
 }
