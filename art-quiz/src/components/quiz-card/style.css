@@ -1,0 +1,32 @@
+h2 {
+  text-align: right;
+}
+
+.answers,
+.quiz-image {
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-image img {
+  max-width: 100%;
+}
+
+.answers-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: black;
+  gap: 1px;
+  flex-grow: 1;
+  max-width: 700px;
+}
+
+.answers-list li {
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  font-family: var(--font-montserrat);
+  font-weight: bold;
+}

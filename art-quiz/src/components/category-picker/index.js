@@ -32,8 +32,5 @@ export class CategoryPicker extends Component {
       result.classList.add('categories-item')
       element.querySelector('.categories-main-container').appendChild(result)
     })
-    element.querySelector('.home-btn').onclick = () => {
-      this.homeBtnOnClick()
-    }
   }
 }

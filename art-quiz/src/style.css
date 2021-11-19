@@ -20,6 +20,11 @@ h1 {
   text-align: center;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
 button {
   border: none;
   background-color: none;
@@ -40,6 +45,7 @@ button:hover {
 .logo {
   height: 20vh;
 }
+
 
 .pictures-quiz-container,
 .settings-main-container {
@@ -87,6 +93,10 @@ li a:hover {
   filter: drop-shadow(2px 4px 6px black);
 }
 
+.logo img:hover {
+  filter: opacity(0.5);
+}
+
 .img-main img {
   width: 100%;
   height: auto;
@@ -95,4 +105,8 @@ li a:hover {
 .btn-container {
   padding: 5%;
   text-align: center;
+}
+
+ul {
+  padding: 0;
 }

@@ -1,11 +1,40 @@
 import Home from './components/home'
 import { CategoryPicker } from './components/category-picker'
 import Settings from './components/settings'
+import QuizCard from './components/quiz-card'
+import { Quiz } from './components/quiz'
 
 
 function clearNode(node) {
   node.innerHTML = ''
 }
+
+function clearContent() {
+  clearNode(document.querySelector('.main-container'))
+}
+
+function putContent(element) {
+  document.querySelector('.main-container').appendChild(element)
+}
+
+const quiz = [{
+  question: "Who is the author of this picture?",
+  answers: ['van gogh', 'j.vermeer'],
+  image: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg',
+  correctAnswer: 1
+},
+{
+  question: "Who is the author of this picture?",
+  answers: ['van gogh', 'j.vermeer'],
+  image: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg',
+  correctAnswer: 1
+}, {
+  question: "Who is the author of this picture?",
+  answers: ['van gogh', 'j.vermeer'],
+  image: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg',
+  correctAnswer: 1
+},
+]
 
 function goToHome() {
   clearNode(document.querySelector('.main-container'))
@@ -17,7 +46,7 @@ function goToHome() {
           goToHome()
         },
         categoryClick: function (roundNumber) {
-          console.log(roundNumber)
+          goToQuiz(quiz)
         }
       })
       const categoryResult = categoryPage.render()
@@ -40,4 +69,15 @@ function goToHome() {
 }
 
 goToHome()
+goToQuiz(quiz)
 
+function goToQuiz(questions) {
+  const quizPage = new Quiz({
+    questions: questions
+  })
+  const quizResult = quizPage.render()
+  clearNode(document.querySelector('.main-container'))
+  document.querySelector('.main-container').appendChild(quizResult)
+}
+
+document.querySelector('.logo').onclick = goToHome
