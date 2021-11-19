@@ -2,7 +2,7 @@ import html from './index.html'
 import './style.css'
 import { Component } from '../component'
 
-export default class QuizCard extends Component {
+export class QuizCard extends Component {
   constructor(params) {
     super()
     this.image = params.image
