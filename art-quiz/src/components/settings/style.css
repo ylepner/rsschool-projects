@@ -1,7 +1,3 @@
-.save-options {
-  text-align: center;
-}
-
 .controls-container {
   display: flex;
   flex-direction: column;
@@ -33,8 +29,9 @@ input[type=range]::-webkit-slider-thumb {
   width: 15px;
 }
 
-.save-options {
-  padding: 5%;  
+.btn-container {
+  padding: 5%;
+  text-align: center;
 }
 
 input[type="checkbox"] {
@@ -56,14 +53,4 @@ label {
   color: var(--text-color);
   display: flex;
   justify-content: space-evenly;
-}
-
-.save-options button {
-  width: 150px;
-  height: 50px;
-  font-family: var(--font-montserrat);
-  background-color: var(--text-color);
-  color: white;
-  font-weight: bold;
-  font-size: large;
 }

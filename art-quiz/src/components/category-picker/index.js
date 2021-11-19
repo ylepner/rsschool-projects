@@ -6,16 +6,25 @@ import './style.css'
 export class CategoryPicker extends Component {
   constructor(params) {
     super()
-    this.rounds = [
-      {
-        score: 9,
-        imgUrl: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg'
-      },
-      {
-        score: 8,
-        imgUrl: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg'
-      },
-    ]
+    // this.rounds = [
+    //   {
+    //     score: 9,
+    //     imgUrl: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg'
+    //   },
+    //   {
+    //     score: 8,
+    //     imgUrl: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg'
+    //   },
+    // ]
+    this.rounds = []
+    const round = {
+      score: 9,
+      imgUrl: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg'
+    }
+    for (let i = 0; i < 12; i++) {
+      this.rounds.push(round)
+    }
+
   }
   getTemplate() {
     return html
