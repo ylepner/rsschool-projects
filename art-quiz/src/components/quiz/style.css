@@ -1,0 +1,3 @@
+.quiz-container > .non-active {
+  display: none;
+}

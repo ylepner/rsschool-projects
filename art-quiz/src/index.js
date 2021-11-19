@@ -26,7 +26,7 @@ const quiz = [{
 {
   question: "Who is the author of this picture?",
   answers: ['van gogh', 'j.vermeer'],
-  image: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg',
+  image: 'https://www.placecage.com/200/300',
   correctAnswer: 1
 }, {
   question: "Who is the author of this picture?",
