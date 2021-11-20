@@ -9,6 +9,7 @@ export class QuizCard extends Component {
     this.answers = params.answers
     this.timer = params.timer
     this.answerSelected = params.answerSelected
+    this.correctAnswer = params.correctAnswer
   }
 
   getTemplate() {
@@ -20,12 +21,24 @@ export class QuizCard extends Component {
     element.querySelector('.timer-text').innerText = `00:${this.timer}`
     element.querySelector('img').src = this.image
 
-    this.answers.forEach(answer => {
+    this.answerLis = this.answers.map(answer => {
       let answerLi = document.createElement('li')
       answerLi.innerText = answer
+      return answerLi
+    })
+
+    this.answerLis.forEach((answerLi, i) => {
       element.querySelector('ul').appendChild(answerLi)
       answerLi.onclick = () => {
-        this.answerSelected(true)
+        answerLi.classList.add('selected-answer')
+        this.answerLis[this.correctAnswer].classList.add('correct-answer')
+        if (i === this.correctAnswer) {
+
+          // this.answerSelected(true)
+        } else {
+          // this.answerSelected(false)
+        }
+        console.log(this.correctAnswer, i)
       }
     })
   }

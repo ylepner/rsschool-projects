@@ -35,8 +35,18 @@ h2 {
   font-family: var(--font-montserrat);
   font-weight: bold;
   color: #453838;
+  cursor: pointer;  
 }
 
 .timer-text {
   color: #ce8c78;
 }
+
+.answers-list .correct-answer {
+  background-color: green;
+}
+
+.answers-list .selected-answer:not(.correct-answer) {
+  background-color: red;
+}
+

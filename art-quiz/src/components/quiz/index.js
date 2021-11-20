@@ -19,6 +19,7 @@ export class Quiz extends Component {
       image: question.image,
       answers: question.answers,
       timer: 10,
+      correctAnswer: question.correctAnswer,
       answerSelected: (isCorrect) => {
         this.activeCard = this.activeCard + 1
 
