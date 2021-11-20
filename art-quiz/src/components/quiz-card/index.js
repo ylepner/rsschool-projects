@@ -17,6 +17,7 @@ export class QuizCard extends Component {
   }
 
   renderInternal(element) {
+    this.element = element
     element.querySelector('.title').innerText = "Who is the author of this picture?"
     element.querySelector('.timer-text').innerText = `00:${this.timer}`
     element.querySelector('img').src = this.image
@@ -35,16 +36,33 @@ export class QuizCard extends Component {
         }
         this.isSelected = true
         answerLi.classList.add('selected-answer')
-        this.answerLis[this.correctAnswer].classList.add('correct-answer')
-        element.querySelector('.next-btn').classList.remove('hidden')
-        element.querySelector('.next-btn').onclick = () => {
-          this.answerSelected(i === this.correctAnswer)
-        }
+        this.selectAnswerOrTimeIsOver(i === this.correctAnswer)
         console.log(this.correctAnswer, i)
       }
     })
+  }
 
+  selectAnswerOrTimeIsOver(isCorrectAnswer) {
+    this.isSelected = true
+    this.answerLis[this.correctAnswer].classList.add('correct-answer')
+    this.element.querySelector('.next-btn').classList.remove('hidden')
+    this.element.querySelector('.next-btn').onclick = () => {
+      this.answerSelected(isCorrectAnswer)
+    }
+    clearInterval(this.intervalId)
 
+  }
+
+  startCountdown() {
+    if (this.timer) {
+      this.intervalId = setInterval(() => {
+        this.timer--
+        if (this.timer <= 0) {
+          this.selectAnswerOrTimeIsOver(false)
+        }
+        this.element.querySelector('.timer-text').innerText = `00:0${this.timer}`
+      }, 1000)
+    }
   }
 
 }

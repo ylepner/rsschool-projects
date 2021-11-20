@@ -37,6 +37,7 @@ export class Quiz extends Component {
   updateActiveCard() {
     this.cardElements.forEach((element, i) => {
       if (i === this.activeCard) {
+        this.cards[i].startCountdown()
         element.classList.add('active')
         element.classList.remove('non-active')
       } else {
