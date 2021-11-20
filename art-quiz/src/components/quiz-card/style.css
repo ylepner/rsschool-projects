@@ -50,3 +50,6 @@ h2 {
   background-color: red;
 }
 
+.next-btn.hidden{
+  display: none;
+}

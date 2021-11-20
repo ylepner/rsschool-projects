@@ -13,6 +13,10 @@ body {
   justify-content: space-between;
 }
 
+main {
+  flex-grow: 1;
+}
+
 h1,
 h2 {
   font-family: var(--font-montserrat);
@@ -43,10 +47,6 @@ button {
 
 button:hover {
   filter: drop-shadow(2px 4px 6px black);
-}
-
-.logo {
-  height: 20vh;
 }
 
 

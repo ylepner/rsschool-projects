@@ -30,17 +30,21 @@ export class QuizCard extends Component {
     this.answerLis.forEach((answerLi, i) => {
       element.querySelector('ul').appendChild(answerLi)
       answerLi.onclick = () => {
+        if (this.isSelected) {
+          return
+        }
+        this.isSelected = true
         answerLi.classList.add('selected-answer')
         this.answerLis[this.correctAnswer].classList.add('correct-answer')
-        if (i === this.correctAnswer) {
-
-          // this.answerSelected(true)
-        } else {
-          // this.answerSelected(false)
+        element.querySelector('.next-btn').classList.remove('hidden')
+        element.querySelector('.next-btn').onclick = () => {
+          this.answerSelected(i === this.correctAnswer)
         }
         console.log(this.correctAnswer, i)
       }
     })
+
+
   }
 
 }
