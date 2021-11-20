@@ -3,6 +3,7 @@ import { CategoryPicker } from './components/category-picker'
 import Settings from './components/settings'
 import QuizCard from './components/quiz-card'
 import { Quiz } from './components/quiz'
+import { QuizResult } from './components/quiz-result'
 
 
 function clearNode(node) {
@@ -70,14 +71,31 @@ function goToHome() {
 
 goToHome()
 goToQuiz(quiz)
+//goToQuizResultPage()
 
 function goToQuiz(questions) {
   const quizPage = new Quiz({
-    questions: questions
+    questions: questions,
+    quizFinished: (quizResult) => {
+      console.log(questions, quizResult);
+      goToQuizResultPage(quizResult)
+    }
   })
-  const quizResult = quizPage.render()
-  clearNode(document.querySelector('.main-container'))
-  document.querySelector('.main-container').appendChild(quizResult)
+  const element = quizPage.render()
+  clearContent()
+  putContent(element)
+}
+
+function goToQuizResultPage(results) {
+  const quizResultPage = new QuizResult({
+    quizResult: {
+
+    }
+  })
+  const element = quizResultPage.render()
+  clearContent()
+  putContent(element)
+
 }
 
 document.querySelector('.logo').onclick = goToHome

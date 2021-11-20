@@ -8,6 +8,8 @@ export class Quiz extends Component {
     super()
     this.questions = params.questions
     this._activeCard = 0
+    this.quizFinished = params.quizFinished
+    this.results = []
   }
 
   getTemplate() {
@@ -22,6 +24,10 @@ export class Quiz extends Component {
       correctAnswer: question.correctAnswer,
       answerSelected: (isCorrect) => {
         this.activeCard = this.activeCard + 1
+        this.results.push(isCorrect)
+        if (this.activeCard === this.cards.length) {
+          this.quizFinished(this.results)
+        }
 
       }
 
@@ -29,7 +35,6 @@ export class Quiz extends Component {
     }));
     this.cardElements = this.cards.map(card => card.render())
     this.cardElements.forEach((result) => {
-      // result.classList.add('')
       element.querySelector('.quiz-container').appendChild(result)
     })
     this.updateActiveCard()
