@@ -3,12 +3,15 @@ import html from './index.html'
 import './style.css'
 
 export class Card extends Component {
-  constructor({ number, image, score, onCardClick }) {
+  constructor({ number, image, score, onCardClick, onScoreButtonClick }) {
     super()
     this.number = number
     this.image = image
     this.score = score
     this.onCardClick = onCardClick ?? function () {
+      console.log('No action')
+    }
+    this.onScoreButtonClick = onScoreButtonClick ?? function () {
       console.log('No action')
     }
   }
@@ -21,6 +24,9 @@ export class Card extends Component {
     element.querySelector('img').src = this.image
     element.querySelector('img').onclick = () => {
       this.onCardClick()
+    }
+    element.querySelector('button').onclick = () => {
+      this.onScoreButtonClick()
     }
   }
 

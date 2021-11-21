@@ -102,31 +102,3 @@ export class QuizLoader {
     })
   }
 }
-
-
-
-// {
-//   "author": "Илья Репин",
-//     "name": "Вечорници",
-//       "year": "1881",
-//         "imageNum": "15"
-// },
-
-
-// const quiz = [{
-//   question: "Who is the author of this picture?",
-//   answers: ['van gogh', 'j.vermeer', 'p.rubens', 'v.serov'],
-//   image: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg',
-//   correctAnswer: 1
-// },
-// {
-//   question: "Who is the author of this picture?",
-//   answers: ['van gogh', 'j.vermeer', 'p.rubens', 'v.serov'],
-//   image: 'https://www.placecage.com/200/300',
-//   correctAnswer: 1
-// }, {
-//   question: "Who is the author of this picture?",
-//   answers: ['van gogh', 'j.vermeer', 'p.rubens', 'v.serov'],
-//   image: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg',
-//   correctAnswer: 1
-// },]

@@ -9,6 +9,7 @@ export class CategoryPicker extends Component {
     this.homeBtnOnClick = params.homeBtnOnClick
     this.rounds = params.rounds
     this.categoryClick = params.categoryClick
+    this.buttonScoreClick = params.buttonScoreClick
 
   }
   getTemplate() {
@@ -16,8 +17,13 @@ export class CategoryPicker extends Component {
   }
   renderInternal(element) {
     this.cards = this.rounds.map((round, i) => new Card({
-      number: i + 1, image: round.imgUrl, score: round.score, onCardClick: () => {
+      number: i + 1, image: round.imgUrl,
+      score: round.score,
+      onCardClick: () => {
         this.categoryClick(i)
+      },
+      onScoreButtonClick: () => {
+        this.buttonScoreClick(i)
       }
     }))
     this.cards.forEach((card) => {

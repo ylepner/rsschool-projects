@@ -4,6 +4,7 @@ import Settings from './components/settings'
 import { Quiz } from './components/quiz'
 import { QuizResult } from './components/quiz-result'
 import { QuizLoader } from './quiz-loader'
+import { Card } from './components/card'
 
 
 function clearNode(node) {
@@ -34,6 +35,10 @@ async function goToHome() {
           goToQuiz(quizes[roundNumber])
         },
         rounds: rounds,
+        buttonScoreClick: function (roundNumber) {
+          // список пройденных раундов quizResult из сохраненных 
+          goToQuizResultPage()
+        }
       })
       const categoryResult = categoryPage.render()
       clearNode(document.querySelector('.main-container'))
@@ -98,4 +103,5 @@ document.querySelector('.logo').onclick = goToHome
 // const quizLoader = new QuizLoader()
 
 quizLoader.getQuizes()
+
 
