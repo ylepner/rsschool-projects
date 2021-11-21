@@ -56,6 +56,18 @@ button:hover {
   justify-content: space-evenly;
 }
 
+@media (max-width: 768px) {
+  .pictures-quiz-container,
+  .settings-main-container {
+    flex-direction: column;   
+  }
+
+  .settings button {
+    margin-top: 30px;
+  }
+
+}
+
 .settings {
   display: flex;
   justify-content: center;

@@ -78,3 +78,9 @@ h2 {
   font-size: 20px;
   color: green;
 }
+
+@media (max-width: 768px) {
+  .quiz-result {
+    display: grid;
+  }
+}

@@ -123,3 +123,5 @@ quizLoader.getAuthors()
 quizLoader.getQuiz()
 quizLoader.getPicture()
 
+goToHome()
+
