@@ -20,7 +20,7 @@ export class QuizResult extends Component {
       tempNode.innerHTML = htmlIcon
       const iconDiv = tempNode.firstElementChild
       element.querySelector('.quiz-result').appendChild(iconDiv)
-      iconDiv.querySelector('img').src = result.picture.imgURL
+      iconDiv.querySelector('img').src = result.picture.imgUrl
       if (result.isCorrectAnswer) {
         iconDiv.classList.add('correct-card')
       } else {

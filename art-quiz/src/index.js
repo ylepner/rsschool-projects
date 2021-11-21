@@ -37,7 +37,8 @@ const quiz = [{
   correctAnswer: 1
 },]
 
-function goToHome() {
+async function goToHome() {
+  const rounds = await quizLoader.getRounds()
   clearNode(document.querySelector('.main-container'))
   const homePage = new Home({
     categorySelected: (category) => {
@@ -46,9 +47,11 @@ function goToHome() {
         homeBtnOnClick: function () {
           goToHome()
         },
-        categoryClick: function (roundNumber) {
-          goToQuiz(quiz)
-        }
+        categoryClick: async function (roundNumber) {
+          const quizes = await quizLoader.getQuizes()
+          goToQuiz(quizes[roundNumber])
+        },
+        rounds: rounds,
       })
       const categoryResult = categoryPage.render()
       clearNode(document.querySelector('.main-container'))
@@ -69,16 +72,28 @@ function goToHome() {
   document.querySelector('.main-container').appendChild(result)
 }
 
-// goToHome()
+goToHome()
 // goToQuiz(quiz)
-goToQuizResultPage()
+//goToQuizResultPage()
 
 function goToQuiz(questions) {
+  console.log(questions)
   const quizPage = new Quiz({
     questions: questions,
     quizFinished: (quizResult) => {
-      console.log(questions, quizResult);
-      goToQuizResultPage(quizResult)
+      console.log('Quiz result', questions, quizResult);
+      const resultQuiz = questions.map((question, i) => {
+        return {
+          picture: question.picture,
+          isCorrectAnswer: quizResult[i]
+        }
+      })
+      const quizParams = {
+        quizResult: {
+          results: resultQuiz,
+        }
+      }
+      goToQuizResultPage(quizParams)
     }
   })
   const element = quizPage.render()
@@ -87,28 +102,9 @@ function goToQuiz(questions) {
 
 }
 
+
 function goToQuizResultPage(results) {
-  const quizResultPage = new QuizResult({
-    quizResult: {
-      results: [{
-        picture: {
-          author: 'Илья Репин',
-          name: 'Проводы новобранца',
-          year: '1879',
-          imgURL: 'https://raw.githubusercontent.com/irinainina/image-data/master/img/100.jpg'
-        },
-        isCorrectAnswer: true
-      }, {
-        picture: {
-          author: 'Илья Репин',
-          name: 'Проводы новобранца',
-          year: '1879',
-          imgURL: 'https://raw.githubusercontent.com/irinainina/image-data/master/img/108.jpg'
-        },
-        isCorrectAnswer: false
-      }]
-    }
-  })
+  const quizResultPage = new QuizResult(results)
   const element = quizResultPage.render()
   clearContent()
   putContent(element)

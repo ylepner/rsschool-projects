@@ -3,6 +3,9 @@ export class QuizLoader {
     const url = 'assets/images.json'
     const res = await fetch(url);
     const data = await res.json();
+    data.forEach((picture, i) => {
+      picture.imgUrl = `https://raw.githubusercontent.com/ylepner/image-data/master/img/${i}.jpg`
+    })
     Object.freeze(data)
     return data
   }
@@ -31,26 +34,6 @@ export class QuizLoader {
     })
   }
 
-  async getQuizQuestion() {
-    const data = await this.load()
-    const imgQuiz = data
-    const imgNumber = 15
-    const picture = imgQuiz[imgNumber]
-    const correctAnswer = picture.author
-    const answers = await this.getAnswersRandomArray(correctAnswer)
-    answers.push(correctAnswer)
-    const answersSorted = answers.sort(() => .5 - Math.random())
-    const correctAnswerNumber = answersSorted.indexOf(correctAnswer)
-
-    const quizQuestion = {
-      question: "Who is the author of this picture?",
-      answers: answersSorted,
-      image: `https://raw.githubusercontent.com/ylepner/image-data/master/img/${imgNumber}.jpg`,
-      correctAnswer: correctAnswerNumber,
-    }
-    console.log(quizQuestion)
-  }
-
   async getQuizQuestionRound(picture) {
     const correctAnswer = picture.author
     const answers = await this.getAnswersRandomArray(correctAnswer)
@@ -63,6 +46,7 @@ export class QuizLoader {
       answers: answersSorted,
       image: `https://raw.githubusercontent.com/ylepner/image-data/master/img/${picture.imageNum}.jpg`,
       correctAnswer: correctAnswerNumber,
+      picture: picture,
     }
     return quizQuestion
   }
@@ -71,8 +55,9 @@ export class QuizLoader {
     let data = await this.load()
     data = [...data];
     const dataSplit = []
-    for (let i = 0; i < data.length - 1; i + 10) {
-      dataSplit.push(data.splice(i, i + 10))
+    const cardsPerQuiz = 3;
+    for (let i = 0; i < data.length - 1; i + cardsPerQuiz) {
+      dataSplit.push(data.splice(i, i + cardsPerQuiz))
     }
 
     console.log({ dataSplit })
@@ -105,6 +90,16 @@ export class QuizLoader {
     }
 
     return result
+  }
+
+  async getRounds() {
+    const quizes = await this.getQuizes()
+    return quizes.map(quiz => {
+      return {
+        score: 0,
+        imgUrl: quiz[0].image
+      }
+    })
   }
 }
 

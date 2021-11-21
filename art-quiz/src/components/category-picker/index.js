@@ -7,15 +7,8 @@ export class CategoryPicker extends Component {
   constructor(params) {
     super()
     this.homeBtnOnClick = params.homeBtnOnClick
-    this.rounds = []
+    this.rounds = params.rounds
     this.categoryClick = params.categoryClick
-    const round = {
-      score: 9,
-      imgUrl: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg'
-    }
-    for (let i = 0; i < 12; i++) {
-      this.rounds.push(round)
-    }
 
   }
   getTemplate() {
