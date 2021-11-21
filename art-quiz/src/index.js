@@ -1,7 +1,6 @@
 import Home from './components/home'
 import { CategoryPicker } from './components/category-picker'
 import Settings from './components/settings'
-import QuizCard from './components/quiz-card'
 import { Quiz } from './components/quiz'
 import { QuizResult } from './components/quiz-result'
 import { QuizLoader } from './quiz-loader'
@@ -19,23 +18,6 @@ function putContent(element) {
   document.querySelector('.main-container').appendChild(element)
 }
 const quizLoader = new QuizLoader()
-const quiz = [{
-  question: "Who is the author of this picture?",
-  answers: ['van gogh', 'j.vermeer', 'p.rubens', 'v.serov'],
-  image: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg',
-  correctAnswer: 1
-},
-{
-  question: "Who is the author of this picture?",
-  answers: ['van gogh', 'j.vermeer', 'p.rubens', 'v.serov'],
-  image: 'https://www.placecage.com/200/300',
-  correctAnswer: 1
-}, {
-  question: "Who is the author of this picture?",
-  answers: ['van gogh', 'j.vermeer', 'p.rubens', 'v.serov'],
-  image: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg',
-  correctAnswer: 1
-},]
 
 async function goToHome() {
   const rounds = await quizLoader.getRounds()

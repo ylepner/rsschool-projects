@@ -17,9 +17,9 @@ export class Card extends Component {
   }
   renderInternal(element) {
     element.querySelector('.title').innerText = this.number
-    element.querySelector('.score').innerText = this.score
+    element.querySelector('button').innerText = this.score
     element.querySelector('img').src = this.image
-    element.querySelector('.card').onclick = () => {
+    element.querySelector('img').onclick = () => {
       this.onCardClick()
     }
   }
