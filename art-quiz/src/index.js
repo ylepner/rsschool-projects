@@ -71,7 +71,7 @@ function goToHome() {
 
 goToHome()
 goToQuiz(quiz)
-//goToQuizResultPage()
+goToQuizResultPage()
 
 function goToQuiz(questions) {
   const quizPage = new Quiz({
@@ -84,12 +84,29 @@ function goToQuiz(questions) {
   const element = quizPage.render()
   clearContent()
   putContent(element)
+
 }
 
 function goToQuizResultPage(results) {
   const quizResultPage = new QuizResult({
     quizResult: {
-
+      results: [{
+        picture: {
+          author: 'Илья Репин',
+          name: 'Проводы новобранца',
+          year: '1879',
+          imgURL: 'https://raw.githubusercontent.com/irinainina/image-data/master/img/100.jpg'
+        },
+        isCorrectAnswer: true
+      }, {
+        picture: {
+          author: 'Илья Репин',
+          name: 'Проводы новобранца',
+          year: '1879',
+          imgURL: 'https://raw.githubusercontent.com/irinainina/image-data/master/img/108.jpg'
+        },
+        isCorrectAnswer: false
+      }]
     }
   })
   const element = quizResultPage.render()

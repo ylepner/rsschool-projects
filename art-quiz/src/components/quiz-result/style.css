@@ -53,3 +53,28 @@ h2 {
 .next-btn.hidden{
   display: none;
 }
+
+.quiz-result-icon {
+  width: 200px;
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+}
+
+.quiz-result-icon img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.quiz-result-icon.incorrect-card {
+  filter: grayscale(1)
+}
+
+.quiz-result-icon.correct-card::after {
+  content: '✔';
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  color: green;
+}
