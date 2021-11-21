@@ -18,7 +18,7 @@ function clearContent() {
 function putContent(element) {
   document.querySelector('.main-container').appendChild(element)
 }
-
+const quizLoader = new QuizLoader()
 const quiz = [{
   question: "Who is the author of this picture?",
   answers: ['van gogh', 'j.vermeer', 'p.rubens', 'v.serov'],
@@ -69,8 +69,8 @@ function goToHome() {
   document.querySelector('.main-container').appendChild(result)
 }
 
-goToHome()
-goToQuiz(quiz)
+// goToHome()
+// goToQuiz(quiz)
 goToQuizResultPage()
 
 function goToQuiz(questions) {
@@ -117,11 +117,7 @@ function goToQuizResultPage(results) {
 
 document.querySelector('.logo').onclick = goToHome
 
-const quizLoader = new QuizLoader()
-quizLoader.load()
-quizLoader.getAuthors()
-quizLoader.getQuiz()
-quizLoader.getPicture()
+// const quizLoader = new QuizLoader()
 
-goToHome()
+quizLoader.getQuizes()
 

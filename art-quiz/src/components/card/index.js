@@ -8,6 +8,7 @@ export class Card extends Component {
     this.number = number
     this.image = image
     this.score = score
+    this.buttonToScore = buttonToScore
     this.onCardClick = onCardClick ?? function () {
       console.log('No action')
     }

@@ -3,6 +3,7 @@ export class QuizLoader {
     const url = 'assets/images.json'
     const res = await fetch(url);
     const data = await res.json();
+    Object.freeze(data)
     return data
   }
 
@@ -30,7 +31,7 @@ export class QuizLoader {
     })
   }
 
-  async getQuiz() {
+  async getQuizQuestion() {
     const data = await this.load()
     const imgQuiz = data
     const imgNumber = 15
@@ -50,20 +51,64 @@ export class QuizLoader {
     console.log(quizQuestion)
   }
 
+  async getQuizQuestionRound(picture) {
+    const correctAnswer = picture.author
+    const answers = await this.getAnswersRandomArray(correctAnswer)
+    answers.push(correctAnswer)
+    const answersSorted = answers.sort(() => .5 - Math.random())
+    const correctAnswerNumber = answersSorted.indexOf(correctAnswer)
+
+    const quizQuestion = {
+      question: "Who is the author of this picture?",
+      answers: answersSorted,
+      image: `https://raw.githubusercontent.com/ylepner/image-data/master/img/${picture.imageNum}.jpg`,
+      correctAnswer: correctAnswerNumber,
+    }
+    return quizQuestion
+  }
+
+  async getQuizes() {
+    let data = await this.load()
+    data = [...data];
+    const dataSplit = []
+    for (let i = 0; i < data.length - 1; i + 10) {
+      dataSplit.push(data.splice(i, i + 10))
+    }
+
+    console.log({ dataSplit })
+
+    const result = await Promise.all(dataSplit.map(chunk => this.toQuizQuestion(chunk)))
+    console.log(result)
+    return result
+  }
+
   async getAnswersRandomArray(correctAnswer) {
     const answers = await this.getAuthors()
     const answersArrLength = answers.length
     const answersArray = []
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3;) {
       let randomNumber = Math.floor(Math.random() * answersArrLength)
-      if (answers[randomNumber] !== correctAnswer)
+      if (answers[randomNumber] !== correctAnswer) {
         answersArray.push(answers[randomNumber])
+        i++
+      }
+
     }
     return answersArray
   }
 
+  async toQuizQuestion(chunk) {
+    const result = []
+    for (let picture of chunk) {
+      const q = await this.getQuizQuestionRound(picture);
+      result.push(q)
+    }
 
+    return result
+  }
 }
+
+
 
 // {
 //   "author": "Илья Репин",
