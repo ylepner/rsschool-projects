@@ -4,6 +4,7 @@ import Settings from './components/settings'
 import QuizCard from './components/quiz-card'
 import { Quiz } from './components/quiz'
 import { QuizResult } from './components/quiz-result'
+import { QuizLoader } from './quiz-loader'
 
 
 function clearNode(node) {
@@ -34,8 +35,7 @@ const quiz = [{
   answers: ['van gogh', 'j.vermeer', 'p.rubens', 'v.serov'],
   image: 'https://raw.githubusercontent.com/ylepner/image-data/master/img/0.jpg',
   correctAnswer: 1
-},
-]
+},]
 
 function goToHome() {
   clearNode(document.querySelector('.main-container'))
@@ -116,3 +116,10 @@ function goToQuizResultPage(results) {
 }
 
 document.querySelector('.logo').onclick = goToHome
+
+const quizLoader = new QuizLoader()
+quizLoader.load()
+quizLoader.getAuthors()
+quizLoader.getQuiz()
+quizLoader.getPicture()
+
