@@ -11,6 +11,8 @@ export class Quiz extends Component {
     this.quizFinished = params.quizFinished
     this.results = []
     this.timer = params.timer
+    this.volume = params.volume
+    console.log(params)
   }
 
   getTemplate() {
@@ -22,7 +24,9 @@ export class Quiz extends Component {
       image: question.image,
       answers: question.answers,
       timer: this.timer,
+      volume: this.volume,
       correctAnswer: question.correctAnswer,
+      picture: question.picture,
       answerSelected: (isCorrect) => {
         this.activeCard = this.activeCard + 1
         this.results.push(isCorrect)

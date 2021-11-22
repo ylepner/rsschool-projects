@@ -8,8 +8,10 @@ export class QuizCard extends Component {
     this.image = params.image
     this.answers = params.answers
     this.timer = params.timer
+    this.volume = params.volume
     this.answerSelected = params.answerSelected
     this.correctAnswer = params.correctAnswer
+    this.picture = params.picture
   }
 
   getTemplate() {
@@ -21,10 +23,16 @@ export class QuizCard extends Component {
     if (!this.timer) {
       element.querySelector('.timer-text').style.display = 'none'
     }
+    this.element.querySelector('.wrong-sound').volume = this.volume
+    this.element.querySelector('.done-sound').volume = this.volume
     element.querySelector('.title').innerText = "Who is the author of this picture?"
-    element.querySelector('.timer-text').innerText = `00:${this.timer}`
+    element.querySelector('.timer-text').innerText = getTimerText(this.timer)
     element.querySelector('img').src = this.image
     element.querySelector('.result-info-img').src = this.image
+    element.querySelector('.picture-title').innerText = this.picture.name
+    element.querySelector('.artist-title').innerText = this.picture.author
+    element.querySelector('.year-of-picture').innerText = this.picture.year
+
     // element.querySelector('.marks').appendChild('')
     // <div class="mark empty"></div>
 
@@ -63,7 +71,9 @@ export class QuizCard extends Component {
     }
     this.isSelected = true
     this.answerLis[this.correctAnswer].classList.add('correct-answer')
-    setTimeout(this.showPisctureInfo(), 20000)
+    setTimeout(() => {
+      this.showPisctureInfo()
+    }, 500)
     this.element.querySelector('.next-btn').onclick = () => {
       this.answerSelected(isCorrectAnswer)
     }
@@ -83,11 +93,18 @@ export class QuizCard extends Component {
         if (this.timer <= 0) {
           this.selectAnswerOrTimeIsOver(false)
         }
-        this.element.querySelector('.timer-text').innerText = `00:0${this.timer}`
+        this.element.querySelector('.timer-text').innerText = getTimerText(this.timer)
       }, 1000)
     }
   }
 
+}
+
+function getTimerText(time) {
+  if (time > 9) {
+    return `00:${time}`
+  }
+  return `00:0${time}`
 }
 
 

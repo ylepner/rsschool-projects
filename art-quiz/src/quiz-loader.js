@@ -60,10 +60,7 @@ export class QuizLoader {
       dataSplit.push(data.splice(i, i + cardsPerQuiz))
     }
 
-    console.log({ dataSplit })
-
     const result = await Promise.all(dataSplit.map(chunk => this.toQuizQuestion(chunk)))
-    console.log(result)
     return result
   }
 
