@@ -53,3 +53,42 @@ h2 {
 .next-btn.hidden{
   display: none;
 }
+
+.window-result-container {
+  display: none;
+  font-size: 16px;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color: #8a432c;
+  line-height: 37px;
+}
+
+.window-result-container.visible {
+  display: flex;
+  position: absolute;
+  top: 150px;
+  background: white;
+  width: 800px;
+  border-radius: 2%;
+  filter: drop-shadow(2px 4px 6px black);
+  padding-top: 20px;
+}
+
+.picture-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.window-result-container img {
+  max-width: 100%;
+  border-radius: 2%;
+  filter: drop-shadow(2px 4px 6px black);
+  margin: 15px;
+}
+
+.symbol-answer {
+  font-size: 40px;
+}

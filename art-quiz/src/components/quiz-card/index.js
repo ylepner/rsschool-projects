@@ -53,6 +53,8 @@ export class QuizCard extends Component {
     }
     this.isSelected = true
     this.answerLis[this.correctAnswer].classList.add('correct-answer')
+
+    this.element.querySelector('.window-result-container').classList.add('visible')
     this.element.querySelector('.next-btn').classList.remove('hidden')
     this.element.querySelector('.next-btn').onclick = () => {
       this.answerSelected(isCorrectAnswer)
