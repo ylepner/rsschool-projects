@@ -42,6 +42,7 @@ export class QuizCard extends Component {
     })
   }
 
+
   selectAnswerOrTimeIsOver(isCorrectAnswer) {
     const audioDone = this.element.querySelector('.wrong-sound')
     const audioWrong = this.element.querySelector('.done-sound')

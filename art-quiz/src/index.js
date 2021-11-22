@@ -63,6 +63,7 @@ goToHome()
 // goToQuiz(quiz)
 //goToQuizResultPage()
 
+
 function goToQuiz(questions) {
   console.log(questions)
   const quizPage = new Quiz({
@@ -81,7 +82,8 @@ function goToQuiz(questions) {
         }
       }
       goToQuizResultPage(quizParams)
-    }
+    },
+    timer: false,
   })
   const element = quizPage.render()
   clearContent()

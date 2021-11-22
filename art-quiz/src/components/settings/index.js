@@ -19,6 +19,7 @@ export default class Settings extends Component {
     }
     element.querySelector('.timer-input').addEventListener('input', function () {
       const value = this.value
+      // this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #710707 ${value}%, #d3d3d3 100%)`
       element.querySelector('.timer-control-text').innerText = value
     })
     element.querySelector('.timer-checked').addEventListener('change', function () {
@@ -46,6 +47,7 @@ export default class Settings extends Component {
     })
     volumeInput.addEventListener('input', function () {
       const value = this.value
+      // this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #710707 ${value}%, #d3d3d3 100%)`
       audio.volume = value / 100
       if (audio.volume > 0) {
         audio.muted = false

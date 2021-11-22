@@ -10,6 +10,7 @@ export class Quiz extends Component {
     this._activeCard = 0
     this.quizFinished = params.quizFinished
     this.results = []
+    this.timer = params.timer
   }
 
   getTemplate() {
@@ -42,7 +43,9 @@ export class Quiz extends Component {
   updateActiveCard() {
     this.cardElements.forEach((element, i) => {
       if (i === this.activeCard) {
-        this.cards[i].startCountdown()
+        if (this.timer) {
+          this.cards[i].startCountdown()
+        }
         element.classList.add('active')
         element.classList.remove('non-active')
       } else {

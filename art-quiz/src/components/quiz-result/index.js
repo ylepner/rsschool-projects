@@ -26,6 +26,7 @@ export class QuizResult extends Component {
       } else {
         iconDiv.classList.add('incorrect-card')
       }
+
     })
   }
 }
