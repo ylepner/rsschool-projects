@@ -31,6 +31,28 @@ export default class Settings extends Component {
         element.querySelector('.timer-input').classList.remove('disabled')
       }
     })
+    const audio = element.querySelector('audio')
+    const volumeInput = element.querySelector('.volume-input')
+    element.querySelector('.volume-checked').addEventListener('change', function () {
+      if (this.checked) {
+        audio.play()
+        volumeInput.disabled = false
+        volumeInput.classList.remove('disabled')
+      } else {
+        audio.pause()
+        volumeInput.disabled = true
+        volumeInput.classList.add('disabled')
+      }
+    })
+    volumeInput.addEventListener('input', function () {
+      const value = this.value
+      audio.volume = value / 100
+      if (audio.volume > 0) {
+        audio.muted = false
+      } else {
+        audio.muted = true
+      }
+    })
   }
 }
 

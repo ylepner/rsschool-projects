@@ -7,10 +7,12 @@
       </div>
       <div class="sound-bar active-item">
         <img src="./img/volume-off.svg" alt="volume-bar">
-        <input type="range" min="0" max="100" value="50" class="volume-range"><label for="check"></label>
+        <input class="volume-input disabled" type="range" min="0" max="100" value="50" disabled><label
+          for="check"></label>
+        <audio src="./mp3/Kevin_MacLeod_-_Canon_in_D_Major.mp3"></audio>
       </div>
       <div class="sound-checkbox active-item">
-        <input type="checkbox" id="scales" name="scales" checked>
+        <input class="volume-checked" type="checkbox" id="scales" name="scales" unchecked>
         <label for="scales">ON / OFF</label>
       </div>
       <h2>VOLUME</h2>
@@ -20,11 +22,11 @@
         <img src="./img/timer-picture.svg" alt="timer">
       </div>
       <div class="timer-control active-item">
-        <input class="timer-input" type="range" min="5" max="30" value="10" step="5">
+        <input class="timer-input disabled" type="range" min="5" max="30" value="10" step="5" disabled>
         <div class="timer-control-text">10</div>
       </div>
       <div class="timer-checkbox active-item">
-        <input class="timer-checked" type="checkbox" id="scales2" name="scales2" checked>
+        <input class="timer-checked" type="checkbox" id="scales2" name="scales2" unchecked>
         <label for="scales2">ON / OFF</label>
       </div>
       <h2>TIME GAME</h2>
