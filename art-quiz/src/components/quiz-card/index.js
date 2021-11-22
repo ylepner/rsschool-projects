@@ -43,6 +43,13 @@ export class QuizCard extends Component {
   }
 
   selectAnswerOrTimeIsOver(isCorrectAnswer) {
+    const audioDone = this.element.querySelector('.wrong-sound')
+    const audioWrong = this.element.querySelector('.done-sound')
+    if (isCorrectAnswer) {
+      audioDone.play()
+    } else {
+      audioWrong.play()
+    }
     this.isSelected = true
     this.answerLis[this.correctAnswer].classList.add('correct-answer')
     this.element.querySelector('.next-btn').classList.remove('hidden')
