@@ -54,6 +54,10 @@ h2 {
   display: none;
 }
 
+.btn-container-next {
+  padding: 10px;
+}
+
 .window-result-container {
   display: none;
   font-size: 16px;
@@ -73,7 +77,8 @@ h2 {
   width: 800px;
   border-radius: 2%;
   filter: drop-shadow(2px 4px 6px black);
-  padding-top: 20px;
+  padding-top: 0px;
+  max-width: 100%;
 }
 
 .picture-info {
@@ -87,8 +92,10 @@ h2 {
   border-radius: 2%;
   filter: drop-shadow(2px 4px 6px black);
   margin: 15px;
+  max-height: 500px;
 }
 
 .symbol-answer {
   font-size: 40px;
+  padding: 10px;
 }

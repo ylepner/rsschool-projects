@@ -21,6 +21,8 @@ export class QuizCard extends Component {
     element.querySelector('.title').innerText = "Who is the author of this picture?"
     element.querySelector('.timer-text').innerText = `00:${this.timer}`
     element.querySelector('img').src = this.image
+    element.querySelector('.result-info-img').src = this.image
+
 
     this.answerLis = this.answers.map(answer => {
       let answerLi = document.createElement('li')
@@ -48,19 +50,25 @@ export class QuizCard extends Component {
     const audioWrong = this.element.querySelector('.done-sound')
     if (isCorrectAnswer) {
       audioDone.play()
+      this.element.querySelector('.window-result-container').style.color = "#598c59"
+      this.element.querySelector('.symbol-answer').innerText = '✔️'
     } else {
       audioWrong.play()
+      this.element.querySelector('.symbol-answer').innerText = '❌'
     }
     this.isSelected = true
     this.answerLis[this.correctAnswer].classList.add('correct-answer')
-
-    this.element.querySelector('.window-result-container').classList.add('visible')
-    this.element.querySelector('.next-btn').classList.remove('hidden')
+    setTimeout(this.showPisctureInfo(), 20000)
     this.element.querySelector('.next-btn').onclick = () => {
       this.answerSelected(isCorrectAnswer)
     }
     clearInterval(this.intervalId)
 
+  }
+
+  showPisctureInfo() {
+    this.element.querySelector('.symbol-answer')
+    this.element.querySelector('.window-result-container').classList.add('visible')
   }
 
   startCountdown() {
