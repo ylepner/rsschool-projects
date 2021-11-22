@@ -22,6 +22,7 @@
   }
 }
 
+
 .sound-bar,
 .timer-control {
   display: flex;
@@ -88,4 +89,32 @@ label {
 .timer-input:disabled,
 .volume-input:disabled {
   opacity: 0.5;
+}
+
+.picture-title {
+  text-align: center;
+}
+
+@media (max-height: 1000px) {
+  .settings-main-container {
+    display: block;
+  }
+  .icon {
+    height: 50px;
+  }
+
+  .timer-icon img {
+    width: 52px!important;
+  }
+  .sound-icon img {
+    width: 60px!important;
+  }
+
+  h2 {
+    font-size: 18px!important;
+  }
+
+  .controls-container {
+    row-gap: 5px;
+  }
 }
