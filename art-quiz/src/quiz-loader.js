@@ -55,7 +55,7 @@ export class QuizLoader {
     let data = await this.load()
     data = [...data];
     const dataSplit = []
-    const cardsPerQuiz = 3;
+    const cardsPerQuiz = 10;
     for (let i = 0; i < data.length - 1; i + cardsPerQuiz) {
       dataSplit.push(data.splice(i, i + cardsPerQuiz))
     }

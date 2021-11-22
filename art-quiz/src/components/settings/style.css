@@ -56,6 +56,7 @@ input[type=range]::-webkit-slider-thumb {
   width: 100px;
   height: 15px;
   width: 15px;
+  cursor: e-resize;
 }
 
 .btn-container {
@@ -82,4 +83,8 @@ label {
   color: var(--text-color);
   display: flex;
   justify-content: space-evenly;
+}
+
+.timer-input.disabled {
+  opacity: 0.5;
 }

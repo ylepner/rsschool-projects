@@ -104,4 +104,3 @@ document.querySelector('.logo').onclick = goToHome
 
 quizLoader.getQuizes()
 
-
