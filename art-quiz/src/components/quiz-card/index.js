@@ -18,10 +18,15 @@ export class QuizCard extends Component {
 
   renderInternal(element) {
     this.element = element
+    if (!this.timer) {
+      element.querySelector('.timer-text').style.display = 'none'
+    }
     element.querySelector('.title').innerText = "Who is the author of this picture?"
     element.querySelector('.timer-text').innerText = `00:${this.timer}`
     element.querySelector('img').src = this.image
     element.querySelector('.result-info-img').src = this.image
+    // element.querySelector('.marks').appendChild('')
+    // <div class="mark empty"></div>
 
 
     this.answerLis = this.answers.map(answer => {

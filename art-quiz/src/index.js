@@ -19,6 +19,7 @@ function putContent(element) {
   document.querySelector('.main-container').appendChild(element)
 }
 const quizLoader = new QuizLoader()
+const settings = loadSettings()
 
 async function goToHome() {
   const rounds = await quizLoader.getRounds()
@@ -46,9 +47,14 @@ async function goToHome() {
     },
     onSettingsClick: () => {
       const settingsPage = new Settings({
-        onSaveSettings: function () {
+        onSaveSettings: function (timer, volume) {
+          settings.timer = timer
+          settings.volume = volume
+          saveSettings()
           goToHome()
-        }
+        },
+        timerInputValue: settings.timer,
+        volumeInputValue: settings.volume
       })
       const settingsResult = settingsPage.render()
       clearNode(document.querySelector('.main-container'))
@@ -83,7 +89,8 @@ function goToQuiz(questions) {
       }
       goToQuizResultPage(quizParams)
     },
-    timer: false,
+    timer: settings.timer,
+    volume: settings.volume
   })
   const element = quizPage.render()
   clearContent()
@@ -99,6 +106,23 @@ function goToQuizResultPage(results) {
   putContent(element)
 
 }
+
+function saveSettings() {
+  localStorage.setItem('settings', JSON.stringify(settings))
+}
+
+function loadSettings() {
+  const json = localStorage.getItem('settings')
+  if (!json) {
+    return {
+      timer: null,
+      volume: null
+    }
+  }
+  return JSON.parse(json)
+}
+
+
 
 document.querySelector('.logo').onclick = goToHome
 

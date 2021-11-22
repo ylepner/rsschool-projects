@@ -6,21 +6,53 @@ export default class Settings extends Component {
     super()
     this.onSaveSettings = params.onSaveSettings
     this.timerInputValue = params.timerInputValue
+    this.volumeInputValue = params.volumeInputValue
   }
   getTemplate() {
     return html
   }
 
+  readValue(checkboxSelector, inputSelector) {
+    const checkbox = this.element.querySelector(checkboxSelector)
+    if (!checkbox.checked) {
+      return null
+    }
+    return new Number(this.element.querySelector(inputSelector).value)
+  }
 
+  writeValue(checkboxSelector, inputSelector, value, textSelector) {
+    const checkbox = this.element.querySelector(checkboxSelector)
+    const input = this.element.querySelector(inputSelector)
+    if (value == null) {
+      checkbox.checked = false
+      input.disabled = true
+      input.value = 10
+    } else {
+      checkbox.checked = true
+      input.disabled = false
+      input.value = value
+    }
+    if (textSelector) {
+      this.element.querySelector(textSelector).innerText = input.value
+    }
+  }
 
   renderInternal(element) {
+    this.element = element
+    this.writeValue('.volume-checked', '.volume-input', this.volumeInputValue)
+    this.writeValue('.timer-checked', '.timer-input', this.timerInputValue, '.timer-control-text')
+
+
+
+
+
     element.querySelector('.save-btn').onclick = () => {
-      this.onSaveSettings()
+      this.onSaveSettings(this.readValue('.timer-checked', '.timer-input'), this.readValue('.volume-checked', '.volume-input'))
     }
-    element.querySelector('.timer-input').addEventListener('input', function () {
-      const value = this.value
-      // this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #710707 ${value}%, #d3d3d3 100%)`
-      element.querySelector('.timer-control-text').innerText = value
+    const timerInput = element.querySelector('.timer-input')
+    timerInput.addEventListener('input', () => {
+      timerInput.style.background = `linear-gradient(to right, #710707 0%, #710707 ${timerInput.value}%, #710707 ${timerInput.value}%, #d3d3d3 100%)`
+      element.querySelector('.timer-control-text').innerText = timerInput.value
     })
     element.querySelector('.timer-checked').addEventListener('change', function () {
       if (!this.checked) {

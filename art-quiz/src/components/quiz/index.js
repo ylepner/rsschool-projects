@@ -21,7 +21,7 @@ export class Quiz extends Component {
     this.cards = this.questions.map((question, i) => new QuizCard({
       image: question.image,
       answers: question.answers,
-      timer: 10,
+      timer: this.timer,
       correctAnswer: question.correctAnswer,
       answerSelected: (isCorrect) => {
         this.activeCard = this.activeCard + 1

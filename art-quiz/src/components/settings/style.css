@@ -85,7 +85,7 @@ label {
   justify-content: space-evenly;
 }
 
-.timer-input.disabled,
-.volume-input.disabled {
+.timer-input:disabled,
+.volume-input:disabled {
   opacity: 0.5;
 }
