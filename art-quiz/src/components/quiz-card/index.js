@@ -33,10 +33,6 @@ export class QuizCard extends Component {
     element.querySelector('.artist-title').innerText = this.picture.author
     element.querySelector('.year-of-picture').innerText = this.picture.year
 
-    // element.querySelector('.marks').appendChild('')
-    // <div class="mark empty"></div>
-
-
     this.answerLis = this.answers.map(answer => {
       let answerLi = document.createElement('li')
       answerLi.innerText = answer
@@ -60,7 +56,6 @@ export class QuizCard extends Component {
   selectAnswerOrTimeIsOver(isCorrectAnswer) {
     const audioDone = this.element.querySelector('.wrong-sound')
     const audioWrong = this.element.querySelector('.done-sound')
-    // const audioClock = this.element.querySelector('.clock')
     if (isCorrectAnswer) {
       audioDone.play()
       this.element.querySelector('.window-result-container').style.color = "#598c59"
@@ -78,7 +73,6 @@ export class QuizCard extends Component {
       this.answerSelected(isCorrectAnswer)
     }
     clearInterval(this.intervalId)
-    // audioClock.pause()
 
   }
 
@@ -89,7 +83,6 @@ export class QuizCard extends Component {
 
   startCountdown() {
     if (this.timer) {
-      // this.element.querySelector('.clock').play()
       this.intervalId = setInterval(() => {
         this.timer--
         if (this.timer <= 0) {

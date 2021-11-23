@@ -65,9 +65,7 @@ async function goToHome() {
   document.querySelector('.main-container').appendChild(result)
 }
 
-goToHome()
-// goToQuiz(quiz)
-//goToQuizResultPage()
+
 
 
 function goToQuiz(questions) {
@@ -121,11 +119,6 @@ function loadSettings() {
   return JSON.parse(json)
 }
 
-
-
 document.querySelector('.logo').onclick = goToHome
 
-// const quizLoader = new QuizLoader()
-
-quizLoader.getQuizes()
-
+goToHome()
