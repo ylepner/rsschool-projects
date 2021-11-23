@@ -19,7 +19,7 @@ export default class Home extends Component {
     template.querySelector('.pictures-block').onclick = () => {
       this.categorySelected('pictures')
     }
-    template.querySelector('.settings').onclick = () => {
+    template.querySelector('.settings-button').onclick = () => {
       this.onSettingsClick()
     }
   }

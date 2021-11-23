@@ -41,17 +41,12 @@ export default class Settings extends Component {
     this.element = element
     this.writeValue('.volume-checked', '.volume-input', this.volumeInputValue)
     this.writeValue('.timer-checked', '.timer-input', this.timerInputValue, '.timer-control-text')
-
-
-
-
-
     element.querySelector('.save-btn').onclick = () => {
       this.onSaveSettings(this.readValue('.timer-checked', '.timer-input'), this.readValue('.volume-checked', '.volume-input'))
     }
     const timerInput = element.querySelector('.timer-input')
     timerInput.addEventListener('input', () => {
-      timerInput.style.background = `linear-gradient(to right, #710707 0%, #710707 ${timerInput.value}%, #710707 ${timerInput.value}%, #d3d3d3 100%)`
+      // timerInput.style.background = `linear-gradient(to right, #710707 0%, #710707 ${timerInput.value}%, #710707 ${timerInput.value}%, #d3d3d3 100%)`
       element.querySelector('.timer-control-text').innerText = timerInput.value
     })
     element.querySelector('.timer-checked').addEventListener('change', function () {
@@ -79,7 +74,6 @@ export default class Settings extends Component {
     })
     volumeInput.addEventListener('input', function () {
       const value = this.value
-      // this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #710707 ${value}%, #d3d3d3 100%)`
       audio.volume = value / 100
       if (audio.volume > 0) {
         audio.muted = false
