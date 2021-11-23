@@ -6,7 +6,6 @@ import { Component } from '../component'
 export class QuizResult extends Component {
   constructor(params) {
     super()
-    console.log(params)
     this.quizResult = params.quizResult.results
   }
 

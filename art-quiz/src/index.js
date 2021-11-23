@@ -26,7 +26,7 @@ async function goToHome() {
   clearNode(document.querySelector('.main-container'))
   const homePage = new Home({
     categorySelected: (category) => {
-      console.log('category selected ' + category)
+      // console.log('category selected ' + category)
       const categoryPage = new CategoryPicker({
         homeBtnOnClick: function () {
           goToHome()
@@ -71,7 +71,6 @@ goToHome()
 
 
 function goToQuiz(questions) {
-  console.log(questions)
   const quizPage = new Quiz({
     questions: questions,
     quizFinished: (quizResult) => {

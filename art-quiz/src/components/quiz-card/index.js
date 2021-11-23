@@ -23,8 +23,9 @@ export class QuizCard extends Component {
     if (!this.timer) {
       element.querySelector('.timer-text').style.display = 'none'
     }
-    this.element.querySelector('.wrong-sound').volume = this.volume
-    this.element.querySelector('.done-sound').volume = this.volume
+    console.log(this.element.querySelector('.wrong-sound').volume)
+    this.element.querySelector('.wrong-sound').volume = this.volume * 0.01
+    this.element.querySelector('.done-sound').volume = this.volume * 0.01
     element.querySelector('.title').innerText = "Who is the author of this picture?"
     element.querySelector('.timer-text').innerText = getTimerText(this.timer)
     element.querySelector('img').src = this.image
@@ -52,7 +53,6 @@ export class QuizCard extends Component {
         this.isSelected = true
         answerLi.classList.add('selected-answer')
         this.selectAnswerOrTimeIsOver(i === this.correctAnswer)
-        console.log(this.correctAnswer, i)
       }
     })
   }
@@ -61,6 +61,7 @@ export class QuizCard extends Component {
   selectAnswerOrTimeIsOver(isCorrectAnswer) {
     const audioDone = this.element.querySelector('.wrong-sound')
     const audioWrong = this.element.querySelector('.done-sound')
+    const audioClock = this.element.querySelector('.clock')
     if (isCorrectAnswer) {
       audioDone.play()
       this.element.querySelector('.window-result-container').style.color = "#598c59"
@@ -78,6 +79,7 @@ export class QuizCard extends Component {
       this.answerSelected(isCorrectAnswer)
     }
     clearInterval(this.intervalId)
+    audioClock.pause()
 
   }
 
@@ -88,6 +90,7 @@ export class QuizCard extends Component {
 
   startCountdown() {
     if (this.timer) {
+      this.element.querySelector('.clock').play()
       this.intervalId = setInterval(() => {
         this.timer--
         if (this.timer <= 0) {

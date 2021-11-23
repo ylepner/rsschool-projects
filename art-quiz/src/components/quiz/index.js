@@ -12,14 +12,12 @@ export class Quiz extends Component {
     this.results = []
     this.timer = params.timer
     this.volume = params.volume
-    console.log(params)
   }
 
   getTemplate() {
     return html
   }
   renderInternal(element) {
-    console.log(this.questions)
     this.cards = this.questions.map((question, i) => new QuizCard({
       image: question.image,
       answers: question.answers,
