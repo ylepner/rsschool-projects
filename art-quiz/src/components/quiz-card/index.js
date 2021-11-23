@@ -23,7 +23,6 @@ export class QuizCard extends Component {
     if (!this.timer) {
       element.querySelector('.timer-text').style.display = 'none'
     }
-    console.log(this.element.querySelector('.wrong-sound').volume)
     this.element.querySelector('.wrong-sound').volume = this.volume * 0.01
     this.element.querySelector('.done-sound').volume = this.volume * 0.01
     element.querySelector('.title').innerText = "Who is the author of this picture?"
