@@ -1,6 +1,6 @@
 import './sources.css';
 // интерфейс- как выглядит объект
-interface News {
+interface NewsSources {
   id: string;
   category: string;
   country: string;
@@ -10,7 +10,7 @@ interface News {
   url: string;
 }
 class Sources {
-  draw(data: News[]) {
+  draw(data: NewsSources[]) {
     console.log(data);
     const fragment = document.createDocumentFragment();
     const sourceItemTemp: HTMLTemplateElement = document.querySelector('#sourceItemTemp');
