@@ -1,16 +1,7 @@
 import './sources.css';
-// интерфейс- как выглядит объект
-interface NewsSources {
-  id: string;
-  category: string;
-  country: string;
-  description: string;
-  language: string;
-  name: string;
-  url: string;
-}
+import { NewsSources } from '../../../models/models';
 class Sources {
-  draw(data: NewsSources[]) {
+  draw(data: Array<NewsSources>) {
     console.log(data);
     const fragment = document.createDocumentFragment();
     const sourceItemTemp: HTMLTemplateElement = document.querySelector('#sourceItemTemp');
