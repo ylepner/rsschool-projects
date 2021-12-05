@@ -1,7 +1,11 @@
+type Options = { [key: string]: string | number };
+
 class Loader {
-  constructor(baseLink, options) {
-    this.baseLink = baseLink;
-    this.options = options;
+  // private baseLink: string;
+  // private options: any;
+  constructor(private baseLink: string, private options: Options) {
+    // this.baseLink = baseLink;
+    // this.options = options;
   }
 
   getResp(
@@ -23,7 +27,7 @@ class Loader {
     return res;
   }
 
-  makeUrl(options, endpoint) {
+  makeUrl(options: object, endpoint: string) {
     const urlOptions = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
@@ -34,7 +38,7 @@ class Loader {
     return url.slice(0, -1);
   }
 
-  load(method, endpoint, callback, options = {}) {
+  load(method: string, endpoint: string, callback: (data: object) => void, options = {}) {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => res.json())
@@ -44,3 +48,10 @@ class Loader {
 }
 
 export default Loader;
+
+// const dic = {
+//   foo: 1,
+//   bar: 2
+// }
+
+// 'news.com/news?foo=1&bar=2'
