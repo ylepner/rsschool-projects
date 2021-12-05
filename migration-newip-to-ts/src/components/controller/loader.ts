@@ -9,10 +9,12 @@ class Loader {
   }
 
   getResp(
+    // первый аргумент
     { endpoint, options = {} },
-    callback = () => {
+    // второй аругмент со значением по умолчанию
+    callback: (data: any) => void = () => {
       console.error('No callback for GET response');
-    }
+    },
   ) {
     this.load('GET', endpoint, callback, options);
   }
