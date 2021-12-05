@@ -1,6 +1,11 @@
 
 type Options = { [key: string]: string | number };
 
+interface RequestParameters {
+  endpoint: string;
+  // ставим ? может быть undefined
+  options?: Options;
+}
 class Loader {
   // private baseLink: string;
   // private options: any;
@@ -11,7 +16,7 @@ class Loader {
 
   protected getResp<T>(
     // первый аргумент
-    { endpoint, options = {} },
+    { endpoint, options = {} }: RequestParameters,
     // второй аругмент со значением по умолчанию
     callback: (data: T) => void = () => {
       console.error('No callback for GET response');
@@ -21,7 +26,6 @@ class Loader {
   }
 
   private errorHandler(res: Response) {
-    debugger
     if (!res.ok) {
       if (res.status === 401 || res.status === 404)
         console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
