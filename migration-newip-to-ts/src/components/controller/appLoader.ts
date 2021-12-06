@@ -3,7 +3,7 @@ import Loader from './loader';
 class AppLoader extends Loader {
   constructor() {
     super('https://newsapi.org/v2/', {
-      apiKey: 'e672470673734db69c274b93b65715a9',
+      apiKey: '233320c3d5b94c719b96e0fef48eee07',
     });
   }
 }
