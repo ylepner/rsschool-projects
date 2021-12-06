@@ -4,7 +4,6 @@ import { NewsSources } from '../../../models/models';
 type GroupSources = { [key: string]: Array<NewsSources> };
 class Sources {
   draw(data: Array<NewsSources>) {
-    console.log(data)
     const languageSources: GroupSources = {}
     data.forEach((element) => {
       if (!languageSources[element.language]) {
@@ -17,69 +16,41 @@ class Sources {
     const sourceItemTemp: HTMLTemplateElement = document.querySelector('#sourceItemTemp');
 
     // вернет массив с ключами объекта 
-    const languagesList = Object.keys(languageSources) as string[]
-    const languageListMap = languagesList.map((lang) => {
-      if (lang === 'en') {
-        return lang = 'English'
-      }
-      if (lang === "no") {
-        return lang = "Norwegian"
-      }
-      if (lang === "it") {
-        return lang = "Italian"
-      }
-      if (lang === "ar") {
-        return lang = "Arabic"
-      }
-      if (lang === "ud") {
-        return lang = "-"
-      }
-      if (lang === "de") {
-        return lang = "German"
-      }
-      if (lang === "pt") {
-        return lang = "Portuguese"
-      }
-      if (lang === "es") {
-        return lang = "Spanish"
-      }
-      if (lang === "fr") {
-        return lang = "French"
-      }
-      if (lang === "he") {
-        return lang = "Hebrew"
-      }
-      if (lang === "ru") {
-        return lang = "Russian"
-      }
-      if (lang === "se") {
-        return lang = "Swedish"
-      }
-      if (lang === "nl") {
-        return lang = "Dutch"
-      }
-      if (lang === "zh") {
-        return lang = "Chinese"
-      }
-    })
+    // const languagesList = Object.keys(languageSources) as string[]
+    const languageListObj = {
+      "en": "English",
+      "no": "Norwegian",
+      "it": "Italian",
+      "ar": "Arabic",
+      "de": "German",
+      "pt": "Portuguese",
+      "es": "Spanish",
+      "fr": "French",
 
-    // добавить языки
+      "he": "Hebrew",
+      "ru": "Russian",
+      "se": "Swedish",
+      "nl": "Dutch",
+      "zh": "Chinese",
+    }
+    const languagesList = Object.entries(languageListObj)
 
-    languagesList.forEach((item: string) => {
+    languagesList.forEach((item, i) => {
       const languageClone = languageItemTemp.content.cloneNode(true) as HTMLElement;
 
-      languageClone.querySelector('.language__item-name').textContent = item;
-      languageClone.querySelector('.language__item').setAttribute('data-language-id', item);
+      languageClone.querySelector('.language__item-name').textContent = item[1];
+      languageClone.querySelector('.language__item').setAttribute('data-language-id', item[0]);
       languageClone.querySelector('.language__item').classList.add('language-btn');
       fragment.append(languageClone);
     });
-
+    console.log('Lang list', languagesList);
     document.querySelector('.languages').append(fragment);
 
     const languageButton = document.querySelectorAll('.language-btn') as any
+    console.log(languageButton)
     for (let i = 0; i < languageButton.length; i++) {
       languageButton[i].addEventListener('click', function () {
-        addSources(languageButton[i].outerText)
+        addSources(languageButton[i].dataset.languageId)
       });
     }
 
