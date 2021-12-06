@@ -7,11 +7,7 @@ interface RequestParameters {
   options?: Options;
 }
 class Loader {
-  // private baseLink: string;
-  // private options: any;
   constructor(private baseLink: string, private options: Options) {
-    // this.baseLink = baseLink;
-    // this.options = options;
   }
 
   protected getResp<T>(
@@ -56,10 +52,3 @@ class Loader {
 }
 
 export default Loader;
-
-// const dic = {
-//   foo: 1,
-//   bar: 2
-// }
-
-// 'news.com/news?foo=1&bar=2'

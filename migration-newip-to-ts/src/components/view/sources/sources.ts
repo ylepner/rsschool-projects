@@ -14,9 +14,6 @@ class Sources {
     const fragment = document.createDocumentFragment();
     const languageItemTemp: HTMLTemplateElement = document.querySelector('#languageItemTemp');
     const sourceItemTemp: HTMLTemplateElement = document.querySelector('#sourceItemTemp');
-
-    // вернет массив с ключами объекта 
-    // const languagesList = Object.keys(languageSources) as string[]
     const languageListObj = {
       "en": "English",
       "no": "Norwegian",
@@ -26,7 +23,6 @@ class Sources {
       "pt": "Portuguese",
       "es": "Spanish",
       "fr": "French",
-
       "he": "Hebrew",
       "ru": "Russian",
       "se": "Swedish",
@@ -46,7 +42,7 @@ class Sources {
     console.log('Lang list', languagesList);
     document.querySelector('.languages').append(fragment);
 
-    const languageButton = document.querySelectorAll('.language-btn') as any
+    const languageButton = document.querySelectorAll('.language-btn') as NodeListOf<HTMLElement>;
     console.log(languageButton)
     for (let i = 0; i < languageButton.length; i++) {
       languageButton[i].addEventListener('click', function () {
@@ -55,7 +51,7 @@ class Sources {
     }
 
     // добавить ресурсы
-    function addSources(lang: any) {
+    function addSources(lang: string) {
       document.querySelector('.sources').innerHTML = '';
       languageSources[lang].forEach((item) => {
         const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLElement;
