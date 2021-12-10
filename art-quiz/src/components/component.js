@@ -1,7 +1,7 @@
+// eslint-disable-next-line prettier/prettier
 export class Component {
-
   getTemplate() {
-    return `<span>No component!</span>`
+    return `<span>No component!</span>`;
   }
 
   renderInternal(element) {
@@ -9,9 +9,9 @@ export class Component {
   }
 
   render() {
-    let template = document.createElement('div')
-    template.innerHTML = this.getTemplate()
+    const template = document.createElement('div');
+    template.innerHTML = this.getTemplate();
     this.renderInternal(template);
-    return template
+    return template;
   }
 }

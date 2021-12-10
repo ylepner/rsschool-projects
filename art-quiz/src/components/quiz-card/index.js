@@ -78,7 +78,7 @@ export class QuizCard extends Component {
 
   showPisctureInfo() {
     this.element.querySelector('.symbol-answer')
-    this.element.querySelector('.window-result-container').classList.add('visible')
+    this.element.querySelector('.overlay').classList.add('visible')
   }
 
   startCountdown() {

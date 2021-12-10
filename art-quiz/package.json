@@ -5,10 +5,17 @@
   "name": "my-app",
   "scripts": {
     "start": "webpack serve --env development=true dirname=\"./\"",
-    "build": "webpack build --env development=true dirname=\"./\""
+    "build": "webpack build --env development=true dirname=\"./\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix --ext .js,.jsx ."
   },
   "devDependencies": {
     "html-loader": "^3.0.1",
-    "rss-scripts": "^0.2.4"
+    "rss-scripts": "^0.2.4",
+    "eslint": "5.3.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "^3.6.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.1"
   }
 }

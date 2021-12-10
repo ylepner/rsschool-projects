@@ -1,45 +1,45 @@
 export class QuizLoader {
-  async _load() {
-    const url = 'assets/images.json'
+  async loadInternal() {
+    const url = "assets/images.json";
     const res = await fetch(url);
     const data = await res.json();
     data.forEach((picture, i) => {
-      picture.imgUrl = `https://raw.githubusercontent.com/ylepner/image-data/master/img/${i}.jpg`
-    })
-    Object.freeze(data)
-    return data
+      picture.imgUrl = `https://raw.githubusercontent.com/ylepner/image-data/master/img/${i}.jpg`;
+    });
+    Object.freeze(data);
+    return data;
   }
 
   // функция чтобы каждый раз не грузить данные
   load() {
     if (!this._dataPromise) {
-      this._dataPromise = this._load()
+      this._dataPromise = this.loadInternal();
     }
-    return this._dataPromise
+    return this._dataPromise;
   }
 
   async getAuthors() {
-    const data = await this.load()
-    const resultAuthors = data.map(picture => picture.author)
-    const resultAuthorsSet = Array.from(new Set(resultAuthors))
-    return resultAuthorsSet
+    const data = await this.load();
+    const resultAuthors = data.map((picture) => picture.author);
+    const resultAuthorsSet = Array.from(new Set(resultAuthors));
+    return resultAuthorsSet;
   }
 
   async getPicture() {
-    const data = await this.load()
-    const resultImgPaths = data.map(picture => {
-      const imageNumber = picture.imageNum
-      const picturePath = `https://raw.githubusercontent.com/ylepner/image-data/master/img/${imageNumber}.jpg`
-      return picturePath
-    })
+    const data = await this.load();
+    const resultImgPaths = data.map((picture) => {
+      const imageNumber = picture.imageNum;
+      const picturePath = `https://raw.githubusercontent.com/ylepner/image-data/master/img/${imageNumber}.jpg`;
+      return picturePath;
+    });
   }
 
   async getQuizQuestionRound(picture) {
-    const correctAnswer = picture.author
-    const answers = await this.getAnswersRandomArray(correctAnswer)
-    answers.push(correctAnswer)
-    const answersSorted = answers.sort(() => .5 - Math.random())
-    const correctAnswerNumber = answersSorted.indexOf(correctAnswer)
+    const correctAnswer = picture.author;
+    const answers = await this.getAnswersRandomArray(correctAnswer);
+    answers.push(correctAnswer);
+    const answersSorted = answers.sort(() => 0.5 - Math.random());
+    const correctAnswerNumber = answersSorted.indexOf(correctAnswer);
 
     const quizQuestion = {
       question: "Who is the author of this picture?",
@@ -47,55 +47,55 @@ export class QuizLoader {
       image: `https://raw.githubusercontent.com/ylepner/image-data/master/img/${picture.imageNum}.jpg`,
       correctAnswer: correctAnswerNumber,
       picture: picture,
-    }
-    return quizQuestion
+    };
+    return quizQuestion;
   }
 
   async getQuizes() {
-    let data = await this.load()
+    let data = await this.load();
     data = [...data];
-    const dataSplit = []
+    const dataSplit = [];
     const cardsPerQuiz = 10;
     for (let i = 0; i < data.length - 1; i + cardsPerQuiz) {
-      dataSplit.push(data.splice(i, i + cardsPerQuiz))
+      dataSplit.push(data.splice(i, i + cardsPerQuiz));
     }
 
-    const result = await Promise.all(dataSplit.map(chunk => this.toQuizQuestion(chunk)))
-    return result
+    const result = await Promise.all(
+      dataSplit.map((chunk) => this.toQuizQuestion(chunk))
+    );
+    return result;
   }
 
   async getAnswersRandomArray(correctAnswer) {
-    const answers = await this.getAuthors()
-    const answersArrLength = answers.length
-    const answersArray = []
+    const answers = await this.getAuthors();
+    const answersArrLength = answers.length;
+    const answersArray = [];
+    // eslint-disable-next-line prettier/prettier
     for (let i = 0; i < 3;) {
-      let randomNumber = Math.floor(Math.random() * answersArrLength)
+      let randomNumber = Math.floor(Math.random() * answersArrLength);
       if (answers[randomNumber] !== correctAnswer) {
-        answersArray.push(answers[randomNumber])
-        i++
+        answersArray.push(answers[randomNumber]);
+        i++;
       }
-
     }
-    return answersArray
+    return answersArray;
   }
 
   async toQuizQuestion(chunk) {
-    const result = []
+    const result = [];
     for (let picture of chunk) {
       const q = await this.getQuizQuestionRound(picture);
-      result.push(q)
+      result.push(q);
     }
 
-    return result
+    return result;
   }
 
   async getRounds() {
-    const quizes = await this.getQuizes()
-    return quizes.map(quiz => {
-      return {
-        score: 0,
-        imgUrl: quiz[0].image
-      }
-    })
+    const quizes = await this.getQuizes();
+    return quizes.map(quiz => ({
+      score: 0,
+      imgUrl: quiz[0].image,
+    }));
   }
 }

@@ -1,11 +1,11 @@
-import { Component } from '../component'
-import html from './index.html'
+import { Component } from '../component';
+import html from './index.html';
 
 export default class Home extends Component {
   constructor(params) {
-    super()
-    this.categorySelected = params.categorySelected
-    this.onSettingsClick = params.onSettingsClick
+    super();
+    this.categorySelected = params.categorySelected;
+    this.onSettingsClick = params.onSettingsClick;
   }
 
   getTemplate() {
@@ -14,15 +14,13 @@ export default class Home extends Component {
 
   renderInternal(template) {
     template.querySelector('.artists-block').onclick = () => {
-      this.categorySelected('artists')
-    }
+      this.categorySelected('artists');
+    };
     template.querySelector('.pictures-block').onclick = () => {
-      this.categorySelected('pictures')
-    }
+      this.categorySelected('pictures');
+    };
     template.querySelector('.settings-button').onclick = () => {
-      this.onSettingsClick()
-    }
+      this.onSettingsClick();
+    };
   }
 }
-
-
