@@ -3,17 +3,15 @@ import html from './index.html';
 import './style.css';
 
 export class Card extends Component {
-  constructor({ number, image, score, onCardClick, onScoreButtonClick }) {
+  constructor({
+    number, image, score, onCardClick, onScoreButtonClick,
+  }) {
     super();
     this.number = number;
     this.image = image;
     this.score = score;
-    this.onCardClick = onCardClick || (() => {
-      return 'No action';
-    });
-    this.onScoreButtonClick = onScoreButtonClick || (() => {
-      return 'No action';
-    });
+    this.onCardClick = onCardClick || (() => 'No action');
+    this.onScoreButtonClick = onScoreButtonClick || (() => 'No action');
   }
 
   getTemplate() {

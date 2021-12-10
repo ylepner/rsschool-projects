@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 import html from './index.html';
 import './style.css';
 import { Component } from '../component';
@@ -74,6 +75,7 @@ export default class Settings extends Component {
       }
     });
     volumeInput.addEventListener('input', function () {
+      // eslint-disable-next-line prefer-destructuring
       const value = this.value;
       audio.volume = value / 100;
       if (audio.volume > 0) {
@@ -84,5 +86,3 @@ export default class Settings extends Component {
     });
   }
 }
-
-
