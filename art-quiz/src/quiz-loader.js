@@ -1,6 +1,6 @@
 export class QuizLoader {
   async loadInternal() {
-    const url = "assets/images.json";
+    const url = 'assets/images.json';
     const res = await fetch(url);
     const data = await res.json();
     data.forEach((picture, i) => {
@@ -10,7 +10,6 @@ export class QuizLoader {
     return data;
   }
 
-  // функция чтобы каждый раз не грузить данные
   load() {
     if (!this._dataPromise) {
       this._dataPromise = this.loadInternal();
@@ -20,14 +19,14 @@ export class QuizLoader {
 
   async getAuthors() {
     const data = await this.load();
-    const resultAuthors = data.map((picture) => picture.author);
+    const resultAuthors = data.map(picture => picture.author);
     const resultAuthorsSet = Array.from(new Set(resultAuthors));
     return resultAuthorsSet;
   }
 
   async getPicture() {
     const data = await this.load();
-    const resultImgPaths = data.map((picture) => {
+    data.map((picture) => {
       const imageNumber = picture.imageNum;
       const picturePath = `https://raw.githubusercontent.com/ylepner/image-data/master/img/${imageNumber}.jpg`;
       return picturePath;
@@ -42,11 +41,11 @@ export class QuizLoader {
     const correctAnswerNumber = answersSorted.indexOf(correctAnswer);
 
     const quizQuestion = {
-      question: "Who is the author of this picture?",
+      question: 'Who is the author of this picture?',
       answers: answersSorted,
       image: `https://raw.githubusercontent.com/ylepner/image-data/master/img/${picture.imageNum}.jpg`,
       correctAnswer: correctAnswerNumber,
-      picture: picture,
+      picture,
     };
     return quizQuestion;
   }
@@ -61,7 +60,7 @@ export class QuizLoader {
     }
 
     const result = await Promise.all(
-      dataSplit.map((chunk) => this.toQuizQuestion(chunk))
+      dataSplit.map(chunk => this.toQuizQuestion(chunk)),
     );
     return result;
   }
@@ -70,12 +69,11 @@ export class QuizLoader {
     const answers = await this.getAuthors();
     const answersArrLength = answers.length;
     const answersArray = [];
-    // eslint-disable-next-line prettier/prettier
     for (let i = 0; i < 3;) {
-      let randomNumber = Math.floor(Math.random() * answersArrLength);
+      const randomNumber = Math.floor(Math.random() * answersArrLength);
       if (answers[randomNumber] !== correctAnswer) {
         answersArray.push(answers[randomNumber]);
-        i++;
+        i += 1;
       }
     }
     return answersArray;
@@ -83,11 +81,10 @@ export class QuizLoader {
 
   async toQuizQuestion(chunk) {
     const result = [];
-    for (let picture of chunk) {
+    for (const picture of chunk) {
       const q = await this.getQuizQuestionRound(picture);
       result.push(q);
     }
-
     return result;
   }
 

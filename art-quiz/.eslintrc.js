@@ -26,6 +26,9 @@ module.exports = {
     "linebreak-style": 0,
     "no-underscore-dangle": 0,
     "no-param-reassign": 0,
-    "eslintclass-methods-use-this": 0,
+    "class-methods-use-this": 0,
+    "react/prop-types": 0,
+    "no-restricted-syntax": 0,
+    "no-await-in-loop": 0,
   },
 }

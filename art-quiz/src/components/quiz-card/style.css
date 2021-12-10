@@ -91,11 +91,6 @@ h2 {
 .overlay:not(.visible) {
   display: none;
 }
-/* .overlay {
-  display: flex;
-} */
-
-
 
 .picture-info {
   display: flex;
@@ -135,12 +130,6 @@ h2 {
   li {
     font-size: 12px!important;
   }
-
-  /* .window-result-container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 92%!important;
-  } */
 
   .result-info-img {
     display: none;

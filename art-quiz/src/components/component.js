@@ -1,11 +1,10 @@
-// eslint-disable-next-line prettier/prettier
 export class Component {
   getTemplate() {
-    return `<span>No component!</span>`;
+    return '<span>No component!</span>';
   }
 
-  renderInternal(element) {
-    console.log('No implementation!');
+  renderInternal() {
+    return 'No implementation!';
   }
 
   render() {
