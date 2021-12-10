@@ -50,6 +50,11 @@ button:hover {
   filter: drop-shadow(2px 4px 6px black);
 }
 
+.non-style-button {
+  height: 0%;
+  background: none;
+  padding: 10px;
+}
 
 .pictures-quiz-container,
 .settings-main-container {
