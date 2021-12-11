@@ -15,7 +15,19 @@ const baseConfig = {
       {
         test: /\.ts?$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg|webp)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(?:mp3|wav|ogg|mp4)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
       }
     ],
   },
@@ -32,6 +44,7 @@ const baseConfig = {
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
+
   ],
 };
 
