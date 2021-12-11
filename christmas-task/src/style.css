@@ -2,6 +2,7 @@
   --green-color: #121C1E;
   --light-green: rgba(31, 112, 127, .3);
   --turkus: #278D9F;
+  --text-size: 1rem;
 }
 
 body {
@@ -34,7 +35,7 @@ body {
 }
 
 .nav-bar a {
-  font-size: 20px;
+  font-size: var(--text-size);
   color: white;
   font-family: monospace;
   text-decoration: none;
@@ -79,7 +80,7 @@ input[type="text"] {
   border-radius: 20px;
   border: 1px solid var(--turkus);
   color: white;
-  font-size: 18px;
+  font-size: var(--text-size);
   background-color: var(--light-green);
   background-size: 20px;
   background-repeat: no-repeat;
@@ -109,13 +110,12 @@ input[type="text"] {
   display: flex;
   position: absolute;
   bottom: 0;
-  font-size: 20px;
+  font-size: var(--text-size);
   color: white;
   font-family: monospace;
   text-decoration: none;
   padding: 0 20px;
   transition: .3s;
-  cursor: pointer;
   width: 100%;
   padding: 0;
   background: var(--green-color);
@@ -132,4 +132,5 @@ input[type="text"] {
 .rsschool a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
