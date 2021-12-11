@@ -101,3 +101,35 @@ input[type="text"] {
   font-size: 1.5rem;
 }
 
+.footer {
+  background: var(--green-color);
+}
+
+.rsschool {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  font-size: 20px;
+  color: white;
+  font-family: monospace;
+  text-decoration: none;
+  padding: 0 20px;
+  transition: .3s;
+  cursor: pointer;
+  width: 100%;
+  padding: 0;
+  background: var(--green-color);
+  justify-content: center;
+}
+
+.rsschool ul {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.rsschool a {
+  color: white;
+  text-decoration: none;
+}
