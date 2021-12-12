@@ -22,7 +22,7 @@
         <div>
         </div>
       </nav>
-      <div class="header-controls">
+      <div class="header-search">
         <div class="input-container search-bar">
           <input type="text">
         </div>
@@ -32,6 +32,43 @@
       </div>
     </div>
   </header>
+  <main>
+    <section class="filters-panel">
+      <div class="value-filters filters">
+        <h2>ФИЛЬТРЫ ПО ЗНАЧЕНИЮ</h2>
+        <div class="forms-filter">Форма</div>
+        <div class="color-filter">Цвет</div>
+        <div class="size-filter">Размер</div>
+        <div class="favotite-items-filter">
+          <input type="checkbox" unchecked>
+        </div>
+      </div>
+      <div class="range-filters filters">
+        <h2>ФИЛЬТРЫ ПО ДИАПОЗОНУ</h2>
+        <div class="amount-filter">
+          <h2>Количество экземпляров</h2>
+          <input type="range" min="0" max="12" step="1">
+        </div>
+        <div class="year-filter">
+          <h2>Год приобретения</h2>
+          <input type="range" min="1940" max="2020" step="10">
+        </div>
+      </div>
+      <div class="sort-items filters">
+        <h2>СОРТИРОВКА</h2>
+        <select name="sorting" id="sorting">
+          <option value=alfabet>По называнию от "А" до "Я"</option>
+          <option value=alfabet>По называнию от "Я" до "А"</option>
+          <option value=alfabet>По количеству по возрастанию</option>
+          <option value=alfabet>По количеству по убыванию</option>
+        </select>
+        <button>Сброс фильтров</button>
+      </div>
+    </section>
+    <section class="cards">
+
+    </section>
+  </main>
   <footer>
     <div class="rsschool">
       <ul class="rsschool-ul">
