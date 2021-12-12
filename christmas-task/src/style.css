@@ -14,6 +14,15 @@ body {
   margin: 0;
 }
 
+.flex {
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
 .nav-bar {
   display: flex;
   align-items: center;
@@ -254,4 +263,43 @@ body {
   content: "✔";
   position: absolute;
   left: 5px;
+}
+
+.output {
+  justify-content: center;
+  min-width: 80px;
+  height: 40px;
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid var(--turkus);
+}
+
+input[type="range"] {
+  width: 50%;
+  appearance: none;
+  height: 5px;
+  border-radius: 20px;
+  background: #e5fcff;;
+  margin: 10px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance : none;
+  background : var(--turkus);
+  border-radius: 50%;
+  width: 100px;
+  height: 15px;
+  width: 15px;
+  cursor: e-resize;
+}
+
+.range-bars-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+select {
+  appearance: none;
+  background: var(--turkus);
 }

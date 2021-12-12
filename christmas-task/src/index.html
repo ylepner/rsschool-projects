@@ -82,13 +82,23 @@
       </div>
       <div class="range-filters filters">
         <h1 class="filter-item">ФИЛЬТРЫ ПО ДИАПОЗОНУ</h1>
-        <div class="amount-filter">
-          <h2 class="filter-item">Количество экземпляров</h2>
-          <input type="range" min="0" max="12" step="1">
-        </div>
-        <div class="year-filter">
-          <h2 class="filter-item">Год приобретения</h2>
-          <input type="range" min="1940" max="2020" step="10">
+        <div class="range-bars-wrapper">
+          <div class="amount-filter">
+            <h2 class="filter-item">Количество экземпляров</h2>
+            <div class="amount-bar flex center">
+              <output class="output filter-item">1</output>
+              <input type="range" min="0" max="12" step="1">
+              <output class="output filter-item">12</output>
+            </div>
+          </div>
+          <div class="year-filter">
+            <h2 class="filter-item">Год приобретения</h2>
+            <div class="year-bar flex center">
+              <output class="output filter-item">1940</output>
+              <input type="range" min="1940" max="2020" step="10">
+              <output class="output filter-item">2020</output>
+            </div>
+          </div>
         </div>
       </div>
       <div class="sort-items filters">
