@@ -274,7 +274,7 @@ body {
   border: 1px solid var(--turkus);
 }
 
-input[type="range"] {
+.input-range {
   width: 50%;
   appearance: none;
   height: 5px;
@@ -283,7 +283,7 @@ input[type="range"] {
   margin: 10px;
 }
 
-input[type=range]::-webkit-slider-thumb {
+.input-range::-webkit-slider-thumb {
   -webkit-appearance : none;
   background : var(--turkus);
   border-radius: 50%;
@@ -299,7 +299,43 @@ input[type=range]::-webkit-slider-thumb {
   gap: 30px;
 }
 
+.select-controls select {
+  width: 100%;
+  background-color: rgba(31, 112, 127, .3);
+  background-image: url("./assets/svg/arrow-down.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: right;
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid var(--turkus);
+  font-size: var(--text-size);
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--monospace);
+}
+
 select {
   appearance: none;
   background: var(--turkus);
+  padding: 5px 20px;
+}
+
+option {
+  background-color: var(--turkus);
+  font-size: var(--text-size);
+  font-family: var(--monospace);
+}
+
+.reset-filters {
+  border-radius: 20px;
+  border: 1px solid #278D9F;
+  background-color: rgba(31, 112, 127, .3);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  color: white;
+  font-size: var(--text-size);
+  font-family: var(--monospace);
+  padding: 10px;
 }
