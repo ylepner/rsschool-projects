@@ -125,8 +125,8 @@ body {
 }
 
 .rsschool {
-  display: flex;
   position: absolute;
+  display: flex;
   bottom: 0;
   font-size: var(--text-size);
   color: white;
@@ -179,7 +179,7 @@ body {
 }
 
 .filter-item {
-  font-size: 1.4rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
 }
@@ -262,7 +262,9 @@ body {
 .checkbox-input:checked + label::after {
   content: "✔";
   position: absolute;
-  left: 5px;
+  left: 6px;
+  top: -2px;
+  font-size: 1.5rem;
 }
 
 .output {
@@ -338,4 +340,47 @@ option {
   font-size: var(--text-size);
   font-family: var(--monospace);
   padding: 10px;
+}
+
+.card-img {
+  width: 90px;
+  height: 90px;
+}
+
+.card-container {
+  color: white;
+  font-size: var(--text-size);
+  font-family: var(--monospace);
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+  border-radius: 10px;
+  border: 1px solid #278D9F;
+  background-color: rgba(31, 112, 127, .3);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  align-items: center;
+}
+
+.card-info {
+  display: flex;
+  padding: 0 10px;
+}
+
+p {
+  margin: 0;
+  line-height: 30px;
+}
+
+.cards {
+  justify-content: space-around;
+}
+
+.like {
+  position: absolute;
+  bottom: 0;
+}
+
+.like img {
+  width: 30px;
 }
