@@ -152,6 +152,8 @@ body {
   max-width: 400px;
   color: white;
   font-family: var(--monospace);
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 .filters-panel {
@@ -165,4 +167,91 @@ body {
 .sort-items {
   display: flex;
   flex-direction: column;
+}
+
+.filter-item {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.favorite-items-filter {
+  display: flex;
+  align-items: center;
+}
+
+.favorite-items-filter h2 {
+  margin-right: 10px;
+}
+
+.select-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.reset-filters {
+  position: absolute;
+  bottom: 0;
+  margin: 20px 0;
+}
+
+.forms-btn,
+.size-btn {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+.forms-btn img,
+.size-btn img {
+  width: 100%;
+}
+
+.color-btn {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.small-size {
+  width: 40px;
+  height: 40px;
+}
+
+.medium-size {
+  width: 50px;
+  height: 50px;
+}
+
+.big-size {
+  width: 60px;
+  height: 60px;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-label {
+  background: var(--light-green);
+  width: 30px;
+  height: 30px;
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--turkus);
+  border-radius: 5px;
+  padding: 0;
+  margin: 0;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.checkbox-input:checked + label::after {
+  content: "✔";
+  position: absolute;
+  left: 5px;
 }

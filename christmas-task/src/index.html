@@ -35,34 +35,73 @@
   <main>
     <section class="filters-panel">
       <div class="value-filters filters">
-        <h2>ФИЛЬТРЫ ПО ЗНАЧЕНИЮ</h2>
-        <div class="forms-filter">Форма</div>
-        <div class="color-filter">Цвет</div>
-        <div class="size-filter">Размер</div>
-        <div class="favotite-items-filter">
-          <input type="checkbox" unchecked>
+        <h1 class="filter-item">ФИЛЬТРЫ ПО ЗНАЧЕНИЮ</h1>
+        <div class="forms-filter filter-item">
+          <h4>Форма:</h4>
+          <button class="forms-btn">
+            <img src="./assets/svg/bell.svg" alt="">
+          </button>
+          <button class="forms-btn">
+            <img src="./assets/svg/bell.svg" alt="">
+          </button>
+          <button class="forms-btn">
+            <img src="./assets/svg/bell.svg" alt="">
+          </button>
+          <button class="forms-btn">
+            <img src="./assets/svg/bell.svg" alt="">
+          </button>
+          <button class="forms-btn">
+            <img src="./assets/svg/bell.svg" alt="">
+          </button>
+        </div>
+        <div class="color-filter filter-item">
+          <h4>Цвет:</h4>
+          <button class="color-btn"></button>
+          <button class="color-btn"></button>
+          <button class="color-btn"></button>
+          <button class="color-btn"></button>
+          <button class="color-btn"></button>
+        </div>
+        <div class="size-filter filter-item">
+          <h4>Размер:</h4>
+          <button class="size-btn big-size">
+            <img src="./assets/svg/ball.svg" alt="">
+          </button>
+          <button class="size-btn medium-size">
+            <img src="./assets/svg/ball.svg" alt="">
+          </button>
+          <button class="size-btn small-size">
+            <img src="./assets/svg/ball.svg" alt="">
+          </button>
+        </div>
+        <div class="favorite-items-filter filter-item">
+          <h4>Только любимые:</h4>
+          <input id="checkbox" class="checkbox-input" type="checkbox" unchecked>
+          <label class="checkbox-label" for="checkbox"></label>
         </div>
       </div>
       <div class="range-filters filters">
-        <h2>ФИЛЬТРЫ ПО ДИАПОЗОНУ</h2>
+        <h1 class="filter-item">ФИЛЬТРЫ ПО ДИАПОЗОНУ</h1>
         <div class="amount-filter">
-          <h2>Количество экземпляров</h2>
+          <h2 class="filter-item">Количество экземпляров</h2>
           <input type="range" min="0" max="12" step="1">
         </div>
         <div class="year-filter">
-          <h2>Год приобретения</h2>
+          <h2 class="filter-item">Год приобретения</h2>
           <input type="range" min="1940" max="2020" step="10">
         </div>
       </div>
       <div class="sort-items filters">
-        <h2>СОРТИРОВКА</h2>
-        <select name="sorting" id="sorting">
-          <option value=alfabet>По называнию от "А" до "Я"</option>
-          <option value=alfabet>По называнию от "Я" до "А"</option>
-          <option value=alfabet>По количеству по возрастанию</option>
-          <option value=alfabet>По количеству по убыванию</option>
-        </select>
-        <button>Сброс фильтров</button>
+        <h1 class="filter-item">СОРТИРОВКА</h1>
+        <div class="select-controls">
+          <select name="sorting" id="sorting">
+            <option value=alphabet-asc>По названию от "А" до "Я"</option>
+            <option value=alphabet-desc>По названию от "Я" до "А"</option>
+            <option value=amount-asc>По количеству по возрастанию</option>
+            <option value=amount-desc>По количеству по убыванию</option>
+          </select>
+          <button class="reset-filters">Сброс фильтров</button>
+        </div>
       </div>
     </section>
     <section class="cards">
