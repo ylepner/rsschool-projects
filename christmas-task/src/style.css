@@ -365,6 +365,7 @@ option {
 .card-info {
   display: flex;
   padding: 0 10px;
+  flex-wrap: wrap;
 }
 
 p {
@@ -374,11 +375,22 @@ p {
 
 .cards {
   justify-content: space-around;
+  flex-wrap: wrap;
+  white-space: normal;
 }
 
 .like {
   position: absolute;
   bottom: 0;
+}
+
+@media (max-width: 1292px) {
+  .like {
+    right: 0;
+  }
+  .card-container {
+    margin: 10px;
+  }
 }
 
 .like img {
