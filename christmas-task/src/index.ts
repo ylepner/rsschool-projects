@@ -1,3 +1,6 @@
 import './style.css';
+import data from './data';
+import { render } from './components/card/card';
 
-console.log("hello!")
+const card = render({} as any)
+document.querySelector('.cards').appendChild(card)

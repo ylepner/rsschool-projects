@@ -28,7 +28,7 @@ const baseConfig = {
       {
         test: /\.html$/i,
         loader: 'html-loader',
-      }
+      },
     ],
   },
   resolve: {
