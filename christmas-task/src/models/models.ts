@@ -8,3 +8,7 @@ export interface Card {
   size: string;
   favorite: boolean;
 }
+
+export interface Cart {
+  itemIds: number[];
+}

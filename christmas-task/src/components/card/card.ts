@@ -1,5 +1,6 @@
 import { Card } from '../../models/models';
 import html from './index.html';
+import './style.css';
 
 function convertBoolean(data) {
   if (data.favorite === true) {
@@ -8,9 +9,17 @@ function convertBoolean(data) {
   return 'Нет';
 }
 
-export function render(data: Card) {
-  const favorite = convertBoolean(data);
+interface CardComponentProps {
+  card: Card;
+  onFavoriteClicked: () => void;
+}
+
+export function render(props: CardComponentProps) {
   const template = document.createElement('div');
+
+  const data = props.card;
+  const favorite = convertBoolean(data);
+
   template.innerHTML = html;
   template.querySelector('.like-btn').id = `${data.num}`;
   template.querySelector('.card-title').innerHTML = `${data.name}`;
@@ -20,6 +29,11 @@ export function render(data: Card) {
   template.querySelector('.shape').innerHTML = `Форма: ${data.shape}`;
   template.querySelector('.color').innerHTML = `Цвет: ${data.color}`;
   template.querySelector('.size').innerHTML = `Размер: ${data.size}`;
-  template.querySelector('.favorite').innerHTML = `Любимая: ${favorite}`;
+  template.querySelector('.is-favorite').innerHTML = `Любимая: ${favorite}`;
+  const favBtn = template.querySelector('.like-btn');
+  template.children[0].addEventListener('click', () => {
+    favBtn.classList.toggle('favorite');
+    props.onFavoriteClicked();
+  });
   return template.children[0];
 }
