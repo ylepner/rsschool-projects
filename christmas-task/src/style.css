@@ -362,6 +362,10 @@ option {
   align-items: center;
 }
 
+.card-container:hover .like-btn{
+  filter: brightness(1);
+}
+
 .card-info {
   display: flex;
   padding: 0 10px;
@@ -395,4 +399,11 @@ p {
 
 .like img {
   width: 30px;
+}
+
+.like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  filter: brightness(0.3);
 }
