@@ -1,7 +1,15 @@
 import { Card } from '../../models/models';
 import html from './index.html';
 
+function convertBoolean(data) {
+  if (data.favorite === true) {
+    return 'Да';
+  }
+  return 'Нет';
+}
+
 export function render(data: Card) {
+  const favorite = convertBoolean(data);
   const template = document.createElement('div');
   template.innerHTML = html;
   template.querySelector('.card-title').innerHTML = `${data.name}`;
@@ -11,6 +19,6 @@ export function render(data: Card) {
   template.querySelector('.shape').innerHTML = `Форма: ${data.shape}`;
   template.querySelector('.color').innerHTML = `Цвет: ${data.color}`;
   template.querySelector('.size').innerHTML = `Размер: ${data.size}`;
-  template.querySelector('.favorite').innerHTML = `Любимая: ${data.favorite}`;
+  template.querySelector('.favorite').innerHTML = `Любимая: ${favorite}`;
   return template.children[0];
 }
