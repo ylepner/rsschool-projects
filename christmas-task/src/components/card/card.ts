@@ -12,6 +12,7 @@ export function render(data: Card) {
   const favorite = convertBoolean(data);
   const template = document.createElement('div');
   template.innerHTML = html;
+  template.querySelector('.like-btn').id = `${data.num}`;
   template.querySelector('.card-title').innerHTML = `${data.name}`;
   template.querySelector('img').src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${data.num}.png`;
   template.querySelector('.amount').innerHTML = `Количество: ${data.count}`;
