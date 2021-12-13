@@ -125,7 +125,6 @@ body {
 }
 
 .rsschool {
-  position: absolute;
   display: flex;
   bottom: 0;
   font-size: var(--text-size);
@@ -351,7 +350,6 @@ option {
   color: white;
   font-size: var(--text-size);
   font-family: var(--monospace);
-  display: flex;
   flex-direction: column;
   max-width: 20%;
   border-radius: 10px;
@@ -360,6 +358,8 @@ option {
   backdrop-filter: blur(6px);
   cursor: pointer;
   align-items: center;
+  display: block;
+  min-width: 270px;
 }
 
 .card-container:hover .like-btn{
@@ -378,23 +378,14 @@ p {
 }
 
 .cards {
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
-  white-space: normal;
+  gap: 10px;
 }
 
 .like {
   position: absolute;
   bottom: 0;
-}
-
-@media (max-width: 1292px) {
-  .like {
-    right: 0;
-  }
-  .card-container {
-    margin: 10px;
-  }
 }
 
 .like img {
@@ -406,4 +397,9 @@ p {
   border: none;
   cursor: pointer;
   filter: brightness(0.3);
+}
+
+.card-title {
+  font-size: 18px;
+  text-align: center;
 }
