@@ -92,3 +92,13 @@ selectElement.addEventListener('change', () => {
     addCards(data);
   }
 });
+
+// filtres by forms
+
+document.querySelector('.ball').addEventListener('click', (event) => {
+  console.log(event)
+  const filterBallShape = [...data].filter((el) => {
+    return el.shape === 'шар';
+  })
+  addCards(filterBallShape);
+})
