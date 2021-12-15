@@ -88,4 +88,7 @@ selectElement.addEventListener('change', () => {
   if (selectValue === 'year-desc') {
     addCards(sortDataByYearDesc);
   }
+  if (selectValue === 'default') {
+    addCards(data);
+  }
 });
