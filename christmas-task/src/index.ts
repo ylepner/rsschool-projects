@@ -2,6 +2,7 @@ import './style.css';
 import data from './data';
 import { render } from './components/card/card';
 import { Cart } from './models/models';
+import { toggleElement } from './utils';
 
 // добавление в корзину
 
@@ -20,36 +21,81 @@ interface Filter {
   yearMax?: number;
 }
 
-const filter: Filter = {
+const filterState: Filter = {
   shape: [],
   color: [],
   size: [],
   favorite: false,
-}
+};
 
 // filtres by forms
-
-const ballShape = document.querySelector('.ball')
-
-ballShape.addEventListener('click', (event) => {
-  // const filterBallShape = [...data].filter((el) => {
-  //   return el.shape === 'шар';
-  // })
-  // addCards(filterBallShape);
-  filter.shape.push('шар');
-  console.log(filter)
-})
-
-const shapes = []
-
+function createUpdateFilterCallback(fn: () => Filter) {
+  return () => {
+    const filter = fn();
+    console.log('Update interaface here with filter', filter);
+    const data = filterData(filter);
+    addCards(data);
+  };
+}
 document.querySelectorAll('.forms-btn').forEach((el: HTMLElement) => {
   el.addEventListener('click', () => {
-    filter.shape.push(el.dataset.shape)
-  })
-  console.log(filter)
-})
+    filterState.shape = toggleElement(filterState.shape, el.dataset.shape);
+  });
+});
+
+// filtres by color
+
+document.querySelectorAll('.color-btn').forEach((el: HTMLElement) => {
+  const func = () => {
+    filterState.color = toggleElement(filterState.color, el.dataset.color);
+    return filterState;
+  };
+  const callback = createUpdateFilterCallback(func);
+  el.addEventListener('click', callback);
+});
+
+// filtres by size
+
+document.querySelectorAll('.size-btn').forEach((el: HTMLElement) => {
+  el.addEventListener('click', () => {
+    filterState.size = toggleElement(filterState.size, el.dataset.size);
+  });
+});
+
+// filtres by favorites
+
+document.getElementById('checkbox').addEventListener('change', (event) => {
+  const target = event.target as HTMLInputElement;
+  filterState.favorite = target.checked;
+});
+
+function filterData(filter: Filter) {
+  return data.filter((el) => {
+    if (filter.shape.length > 0) {
+      if (!filter.shape.includes(el.shape)) {
+        return false;
+      }
+    }
+    if (filter.color.length > 0) {
+      if (!filter.color.includes(el.color)) {
+        return false;
+      }
+    }
+    if (filter.size.length > 0) {
+      if (!filter.size.includes(el.size)) {
+        return false;
+      }
+    }
+    if (filter.favorite && !el.favorite) {
+      return false;
+    }
+    return true;
+  });
+}
 
 
+
+// counter of favorite items
 
 const countBall = document.querySelector('.count');
 
@@ -69,7 +115,7 @@ function addToCart(cardNum: number) {
 // вывести карточки с игрушками
 
 function addCards(cardsData: any[]) {
-  document.querySelector('.cards').innerHTML = '';
+  document.querySelector('.cards')!.innerHTML = '';
   cardsData.forEach((item, i) => {
     const card = render({
       card: item,
