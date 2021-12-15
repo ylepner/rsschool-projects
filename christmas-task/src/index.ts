@@ -3,26 +3,6 @@ import data from './data';
 import { render } from './components/card/card';
 import { Cart } from './models/models';
 
-// вывести карточки с игрушками
-
-
-
-function addCards(cardsData: any[]) {
-  cardsData.forEach((item, i) => {
-    const card = render({
-      card: item,
-      onFavoriteClicked: () => {
-        addToCart(i);
-      },
-    });
-    document.querySelector('.cards').appendChild(card);
-  });
-}
-
-addCards(data);
-
-// addCards(data);
-
 // добавление в корзину
 
 const cart: Cart = {
@@ -44,35 +24,68 @@ function addToCart(cardNum: number) {
   countBall.innerHTML = `${cart.itemIds.length}`;
 }
 
-// сортировка по названию А-Я
+// вывести карточки с игрушками
 
-const sortDataByNameAsc = [...data].sort(function (a, b) {
+function addCards(cardsData: any[]) {
+  document.querySelector('.cards').innerHTML = '';
+  cardsData.forEach((item, i) => {
+    const card = render({
+      card: item,
+      onFavoriteClicked: () => {
+        addToCart(i);
+      },
+    });
+    document.querySelector('.cards').appendChild(card);
+  });
+}
+
+addCards(data);
+
+//  sortind by name ascending
+
+const sortDataByNameAsc = [...data].sort((a, b) => {
   if (a.name < b.name) return -1;
   if (a.name > b.name) return 1;
   return 0;
 });
 
-// сортировка по названию Я-А
+// sortind by name descenfing
 
-const sortDataByNameDesc = [...data].sort(function (a, b) {
+const sortDataByNameDesc = [...data].sort((a, b) => {
   if (a.name > b.name) return -1;
   if (a.name < b.name) return 1;
   return 0;
 });
 
+// sorting by year ascending
+
+const sortDataByYearAsc = [...data].sort((a, b) => {
+  if (a.year < b.year) return -1;
+  if (a.year > b.year) return 1;
+  return 0;
+});
+
+// sorting by year descending
+
+const sortDataByYearDesc = [...data].sort((a, b) => {
+  if (a.year > b.year) return -1;
+  if (a.year < b.year) return 1;
+  return 0;
+});
+
 const selectElement: HTMLSelectElement = document.querySelector('#sorting');
 selectElement.addEventListener('change', () => {
-  document.querySelector('.cards').innerHTML = '';
   const selectValue = selectElement.value;
   if (selectValue === 'alphabet-asc') {
     addCards(sortDataByNameAsc);
   }
   if (selectValue === 'alphabet-desc') {
-    document.querySelector('.cards').innerHTML = '';
     addCards(sortDataByNameDesc);
   }
-  if (selectValue === 'amount-asc') {
-    document.querySelector('.cards').innerHTML = '';
-    addCards(sortDataByNameAsc);
+  if (selectValue === 'year-asc') {
+    addCards(sortDataByYearAsc);
+  }
+  if (selectValue === 'year-desc') {
+    addCards(sortDataByYearDesc);
   }
 });
