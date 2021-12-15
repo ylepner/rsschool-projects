@@ -92,6 +92,7 @@ button {
   height: 40px;
   border: 1px solid var(--turkus);
   background-color: var(--light-green);
+
 }
 
 .input-container.search-bar {
@@ -100,10 +101,6 @@ button {
   background-size: 10%;
   background-position: right 10px center;
 }
-
-/* .input-container.search-bar.active {
-  background-image: 
-} */
 
 .input-container input {
   background: none;

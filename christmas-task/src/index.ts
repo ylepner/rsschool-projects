@@ -9,6 +9,48 @@ const cart: Cart = {
   itemIds: [],
 };
 
+interface Filter {
+  shape: string[];
+  color: string[];
+  size: string[];
+  favorite: boolean;
+  amountMin?: number;
+  amountMax?: number;
+  yearMin?: number;
+  yearMax?: number;
+}
+
+const filter: Filter = {
+  shape: [],
+  color: [],
+  size: [],
+  favorite: false,
+}
+
+// filtres by forms
+
+const ballShape = document.querySelector('.ball')
+
+ballShape.addEventListener('click', (event) => {
+  // const filterBallShape = [...data].filter((el) => {
+  //   return el.shape === 'шар';
+  // })
+  // addCards(filterBallShape);
+  filter.shape.push('шар');
+  console.log(filter)
+})
+
+const shapes = []
+
+document.querySelectorAll('.forms-btn').forEach((el: HTMLElement) => {
+  el.addEventListener('click', () => {
+    filter.shape.push(el.dataset.shape)
+  })
+  console.log(filter)
+})
+
+
+
 const countBall = document.querySelector('.count');
 
 function addToCart(cardNum: number) {
@@ -93,14 +135,4 @@ selectElement.addEventListener('change', () => {
   }
 });
 
-// filtres by forms
 
-const filtersItems = new Set()
-
-document.querySelector('.ball').addEventListener('click', (event) => {
-  console.log(event)
-  const filterBallShape = [...data].filter((el) => {
-    return el.shape === 'шар';
-  })
-  addCards(filterBallShape);
-})

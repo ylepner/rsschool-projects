@@ -24,7 +24,7 @@
       </nav>
       <div class="header-search">
         <div class="input-container search-bar">
-          <input type="text" autofocus="autofocus" autocomplete="off" placeholder="найти игрушку">
+          <input id="search-input" type="search" autofocus="autofocus" autocomplete="off" placeholder="найти игрушку">
         </div>
         <div class="counter-ball">
           <div class="count">0</div>
@@ -38,19 +38,19 @@
         <h1 class="filter-item">ФИЛЬТРЫ ПО ЗНАЧЕНИЮ</h1>
         <div class="forms-filter filter-item">
           <h4>Форма:</h4>
-          <button class="forms-btn ball">
+          <button class="forms-btn ball" data-shape="шар">
             <img src="./assets/svg/ball.svg" alt="">
           </button>
-          <button class="forms-btn bell">
+          <button class="forms-btn bell" data-shape="колокольчик">
             <img src="./assets/svg/bell.svg" alt="">
           </button>
-          <button class="forms-btn cone">
+          <button class="forms-btn cone" data-shape="шишка">
             <img src="./assets/svg/cone.svg" alt="">
           </button>
-          <button class="forms-btn snowflake">
+          <button class="forms-btn snowflake" data-shape="снежинка">
             <img src="./assets/svg/snowflake.svg" alt="">
           </button>
-          <button class="forms-btn toy">
+          <button class="forms-btn toy" data-shape="фигурка">
             <img src="./assets/svg/toy.svg" alt="">
           </button>
         </div>
