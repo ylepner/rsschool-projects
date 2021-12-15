@@ -16,10 +16,8 @@ interface CardComponentProps {
 
 export function render(props: CardComponentProps) {
   const template = document.createElement('div');
-
   const data = props.card;
   const favorite = convertBoolean(data);
-
   template.innerHTML = html;
   template.querySelector('.like-btn').id = `${data.num}`;
   template.querySelector('.card-title').innerHTML = `${data.name}`;
@@ -37,3 +35,4 @@ export function render(props: CardComponentProps) {
   });
   return template.children[0];
 }
+
