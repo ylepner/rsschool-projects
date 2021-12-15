@@ -101,6 +101,10 @@ button {
   background-position: right 10px center;
 }
 
+/* .input-container.search-bar.active {
+  background-image: 
+} */
+
 .input-container input {
   background: none;
   border: none;

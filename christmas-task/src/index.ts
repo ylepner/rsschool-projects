@@ -95,6 +95,8 @@ selectElement.addEventListener('change', () => {
 
 // filtres by forms
 
+const filtersItems = new Set()
+
 document.querySelector('.ball').addEventListener('click', (event) => {
   console.log(event)
   const filterBallShape = [...data].filter((el) => {
