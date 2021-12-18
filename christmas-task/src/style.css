@@ -223,7 +223,8 @@ button {
   height: 93%;
 }
 
-.forms-filter button.active {
+.forms-filter button.active,
+.size-filter button.active {
   filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(
     322deg) brightness(83%) contrast(88%);
 }

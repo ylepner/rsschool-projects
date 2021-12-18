@@ -40,10 +40,12 @@ function createUpdateFilterCallback(fn: () => Filter) {
 // filtres by forms
 
 document.querySelectorAll('.forms-btn').forEach((el: HTMLElement) => {
-  el.addEventListener('click', () => {
+  const func = () => {
     filterState.shape = toggleElement(filterState.shape, el.dataset.shape);
     el.classList.toggle('active');
-  });
+    return filterState;
+  };
+  el.addEventListener('click', createUpdateFilterCallback(func));
 });
 
 // filtres by color
@@ -61,9 +63,12 @@ document.querySelectorAll('.color-btn').forEach((el: HTMLElement) => {
 // filtres by size
 
 document.querySelectorAll('.size-btn').forEach((el: HTMLElement) => {
-  el.addEventListener('click', () => {
+  const func = () => {
     filterState.size = toggleElement(filterState.size, el.dataset.size);
-  });
+    el.classList.toggle('active');
+    return filterState;
+  };
+  el.addEventListener('click', createUpdateFilterCallback(func));
 });
 
 // filtres by favorites
