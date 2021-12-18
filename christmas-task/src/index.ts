@@ -187,5 +187,3 @@ selectElement.addEventListener('change', () => {
     addCards(data);
   }
 });
-
-
