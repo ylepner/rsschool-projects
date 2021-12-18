@@ -28,9 +28,9 @@ const filterState: Filter = {
   favorite: false,
 };
 
-function createUpdateFilterCallback(fn: () => Filter) {
-  return () => {
-    const filter = fn();
+function createUpdateFilterCallback(fn: (event: Event) => Filter) {
+  return (event: Event) => {
+    const filter = fn(event);
     console.log('Update interaface here with filter', filter);
     const data = filterData(filter);
     addCards(data);
@@ -73,10 +73,11 @@ document.querySelectorAll('.size-btn').forEach((el: HTMLElement) => {
 
 // filtres by favorites
 
-document.getElementById('checkbox').addEventListener('change', (event) => {
+document.getElementById('checkbox').addEventListener('change', createUpdateFilterCallback((event) => {
   const target = event.target as HTMLInputElement;
   filterState.favorite = target.checked;
-});
+  return filterState;
+}));
 
 function filterData(filter: Filter) {
   return data.filter((el) => {
@@ -110,11 +111,11 @@ function addToCart(cardNum: number) {
   if (cart.itemIds.includes(cardNum)) {
     cart.itemIds = cart.itemIds.filter((id) => id !== cardNum);
   } else {
+    if (cart.itemIds.length >= 2) {
+      alert('Извините, все слоты заполнены');
+      return;
+    }
     cart.itemIds.push(cardNum);
-  }
-  if (cart.itemIds.length > 20) {
-    alert('Извините, все слоты заполнены');
-    return;
   }
   countBall.innerHTML = `${cart.itemIds.length}`;
 }
@@ -128,6 +129,11 @@ function addCards(cardsData: any[]) {
       card: item,
       onFavoriteClicked: () => {
         addToCart(i);
+        if (cart.itemIds.includes(i)) {
+          card.querySelector('.like-btn').classList.add('favorite');
+        } else {
+          card.querySelector('.like-btn').classList.remove('favorite');
+        }
       },
     });
     document.querySelector('.cards').appendChild(card);

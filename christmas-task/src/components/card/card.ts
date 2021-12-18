@@ -30,7 +30,6 @@ export function render(props: CardComponentProps) {
   template.querySelector('.is-favorite').innerHTML = `Любимая: ${favorite}`;
   const favBtn = template.querySelector('.like-btn');
   template.children[0].addEventListener('click', () => {
-    favBtn.classList.toggle('favorite');
     props.onFavoriteClicked();
   });
   return template.children[0];
