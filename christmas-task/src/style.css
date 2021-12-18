@@ -223,6 +223,15 @@ button {
   height: 93%;
 }
 
+.forms-filter button.active {
+  filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(
+    322deg) brightness(83%) contrast(88%);
+}
+
+.color-filter button.active::after {
+  content: '✔';
+}
+
 .color-btn {
   width: 30px;
   height: 30px;

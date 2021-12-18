@@ -28,7 +28,6 @@ const filterState: Filter = {
   favorite: false,
 };
 
-// filtres by forms
 function createUpdateFilterCallback(fn: () => Filter) {
   return () => {
     const filter = fn();
@@ -37,9 +36,13 @@ function createUpdateFilterCallback(fn: () => Filter) {
     addCards(data);
   };
 }
+
+// filtres by forms
+
 document.querySelectorAll('.forms-btn').forEach((el: HTMLElement) => {
   el.addEventListener('click', () => {
     filterState.shape = toggleElement(filterState.shape, el.dataset.shape);
+    el.classList.toggle('active');
   });
 });
 
@@ -48,6 +51,7 @@ document.querySelectorAll('.forms-btn').forEach((el: HTMLElement) => {
 document.querySelectorAll('.color-btn').forEach((el: HTMLElement) => {
   const func = () => {
     filterState.color = toggleElement(filterState.color, el.dataset.color);
+    el.classList.toggle('active');
     return filterState;
   };
   const callback = createUpdateFilterCallback(func);
@@ -92,8 +96,6 @@ function filterData(filter: Filter) {
     return true;
   });
 }
-
-
 
 // counter of favorite items
 
