@@ -12,3 +12,21 @@ export interface Card {
 export interface Cart {
   itemIds: number[];
 }
+
+export type SortFunction = (a: Card, b: Card) => number;
+
+export interface Filter {
+  shape: string[];
+  color: string[];
+  size: string[];
+  favorite: boolean;
+  amountMin?: number;
+  amountMax?: number;
+  yearMin?: number;
+  yearMax?: number;
+}
+
+export interface Query {
+  filter: Filter;
+  sorting?: string;
+}

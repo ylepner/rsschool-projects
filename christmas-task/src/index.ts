@@ -1,7 +1,7 @@
 import './style.css';
 import data from './data';
 import { render } from './components/card/card';
-import { Cart } from './models/models';
+import { Cart, SortFunction, Filter, Query } from './models/models';
 import { toggleElement } from './utils';
 
 // добавление в корзину
@@ -10,17 +10,6 @@ const cart: Cart = {
   itemIds: [],
 };
 
-interface Filter {
-  shape: string[];
-  color: string[];
-  size: string[];
-  favorite: boolean;
-  amountMin?: number;
-  amountMax?: number;
-  yearMin?: number;
-  yearMax?: number;
-}
-
 const filterState: Filter = {
   shape: [],
   color: [],
@@ -28,13 +17,27 @@ const filterState: Filter = {
   favorite: false,
 };
 
-function createUpdateFilterCallback(fn: (event: Event) => Filter) {
+const queryState: Query = {
+  filter: filterState,
+};
+
+function createUpdateDataQueryCallback(fn: (event: Event) => Query) {
   return (event: Event) => {
-    const filter = fn(event);
-    console.log('Update interaface here with filter', filter);
-    const data = filterData(filter);
-    addCards(data);
+    const query = fn(event);
+    const dataFromData = filterData(query.filter);
+    if (query.sorting) {
+      dataFromData.sort(sortings[query.sorting]);
+    }
+    addCards(dataFromData);
   };
+}
+
+function createUpdateFilterCallback(fn: (event: Event) => Filter) {
+  return createUpdateDataQueryCallback((ev) => {
+    const filter = fn(ev);
+    queryState.filter = filter;
+    return queryState;
+  });
 }
 
 // filtres by forms
@@ -142,54 +145,32 @@ function addCards(cardsData: any[]) {
 
 addCards(data);
 
-//  sortind by name ascending
+// sorting
 
-const sortDataByNameAsc = [...data].sort((a, b) => {
+const selectElement: HTMLSelectElement = document.querySelector('#sorting');
+
+selectElement.addEventListener('change', createUpdateDataQueryCallback(() => {
+  queryState.sorting = selectElement.value;
+  return queryState;
+}));
+
+const sortByNameAsc: SortFunction = (a, b) => {
   if (a.name < b.name) return -1;
   if (a.name > b.name) return 1;
   return 0;
-});
-
-// sortind by name descenfing
-
-const sortDataByNameDesc = [...data].sort((a, b) => {
-  if (a.name > b.name) return -1;
-  if (a.name < b.name) return 1;
-  return 0;
-});
-
-// sorting by year ascending
-
-const sortDataByYearAsc = [...data].sort((a, b) => {
+};
+const sortByNameDesc: SortFunction = (a, b) => sortByNameAsc(a, b) * -1;
+const sortByYearAsc: SortFunction = (a, b) => {
   if (a.year < b.year) return -1;
   if (a.year > b.year) return 1;
   return 0;
-});
+};
 
-// sorting by year descending
+const sortByYearDesc: SortFunction = (a, b) => sortByYearAsc(a, b) * -1;
 
-const sortDataByYearDesc = [...data].sort((a, b) => {
-  if (a.year > b.year) return -1;
-  if (a.year < b.year) return 1;
-  return 0;
-});
-
-const selectElement: HTMLSelectElement = document.querySelector('#sorting');
-selectElement.addEventListener('change', () => {
-  const selectValue = selectElement.value;
-  if (selectValue === 'alphabet-asc') {
-    addCards(sortDataByNameAsc);
-  }
-  if (selectValue === 'alphabet-desc') {
-    addCards(sortDataByNameDesc);
-  }
-  if (selectValue === 'year-asc') {
-    addCards(sortDataByYearAsc);
-  }
-  if (selectValue === 'year-desc') {
-    addCards(sortDataByYearDesc);
-  }
-  if (selectValue === 'default') {
-    addCards(data);
-  }
-});
+const sortings = {
+  sortByNameAsc,
+  sortByNameDesc,
+  sortByYearAsc,
+  sortByYearDesc,
+};
