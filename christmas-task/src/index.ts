@@ -176,13 +176,3 @@ const sortings = {
   sortByYearAsc,
   sortByYearDesc,
 };
-
-const handlesSlider: HTMLElement = document.querySelector('.year-bar');
-
-noUiSlider.create(handlesSlider, {
-  start: [4000, 8000],
-  range: {
-    'min': [2000],
-    'max': [10000]
-  }
-});
