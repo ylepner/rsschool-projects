@@ -8,7 +8,7 @@
 }
 
 .noUi-handle:before, .noUi-handle:after {
-  content: unset!important;
+  content: unset;
 }
 
 .input-range {
@@ -16,4 +16,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.noUi-horizontal .noUi-handle {
+  right: -10px;
+}
+
+.noUi-horizontal {
+  height: 6px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
 }

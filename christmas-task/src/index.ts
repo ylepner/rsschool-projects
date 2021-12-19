@@ -208,8 +208,8 @@ const slider = noUiSlider.create(document.querySelector('.year-bar'), {
   start: [1940, 2020],
   connect: true,
   range: {
-    'min': 1940,
-    'max': 2020,
+    min: 1940,
+    max: 2020,
   },
   step: 10,
 });

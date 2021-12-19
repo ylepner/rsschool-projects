@@ -290,16 +290,6 @@ button {
   border: 1px solid var(--turkus);
 }
 
-.noUi-horizontal {
-  height: 6px!important;
-}
-
-.noUi-horizontal .noUi-handle {
-  width: 20px!important;
-  height: 20px!important;
-  border-radius: 10px;
-}
-
 input[type="range"] {
   width: 50%;
   appearance: none;
