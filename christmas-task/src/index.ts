@@ -26,9 +26,10 @@ const queryState: Query = {
   filter: filterState,
 };
 
-function createUpdateDataQueryCallback(fn: (event: Event) => Query) {
-  return (event: Event) => {
+function createUpdateDataQueryCallback<T>(fn: (event: T) => Query) {
+  return (event: T) => {
     const query = fn(event);
+    console.log(query.filter);
     const dataFromData = filterData(query.filter);
     if (query.sorting) {
       dataFromData.sort(sortings[query.sorting]);
@@ -37,8 +38,8 @@ function createUpdateDataQueryCallback(fn: (event: Event) => Query) {
   };
 }
 
-function createUpdateFilterCallback(fn: (event: Event) => Filter) {
-  return createUpdateDataQueryCallback((ev) => {
+function createUpdateFilterCallback<T>(fn: (event: T) => Filter) {
+  return createUpdateDataQueryCallback<T>((ev) => {
     const filter = fn(ev);
     queryState.filter = filter;
     return queryState;
@@ -106,6 +107,21 @@ function filterData(filter: Filter) {
     }
     if (filter.favorite && !el.favorite) {
       return false;
+    }
+    if (filter.search) {
+      if (!el.name.toLowerCase().includes(filter.search.toLowerCase())) {
+        return false;
+      }
+    }
+    if (filter.yearMin) {
+      if (Number(el.year) < filter.yearMin) {
+        return false;
+      }
+    }
+    if (filter.yearMax) {
+      if (Number(el.year) > filter.yearMax) {
+        return false;
+      }
     }
     return true;
   });
@@ -182,36 +198,14 @@ const sortings = {
 
 // search
 
-const searchBtn: HTMLElement = document.querySelector('.search-btn');
 const searchBar = document.getElementById('search-input') as HTMLInputElement;
-searchBtn.addEventListener('click', () => {
+searchBar.addEventListener('input', createUpdateFilterCallback(() => {
   filterState.search = searchBar.value;
-  const result = getMatch(data, filterState.search);
-  console.log(result);
   return filterState;
-});
-
-function getMatch(data, message: string) {
-  console.log(data);
-  data.map((element: Card) => {
-    console.log(element.name);
-    if (element.name.includes(message)) {
-      return element;
-    }
-    if (element.shape.includes(message)) {
-      return element;
-    }
-    if (element.size.includes(message)) {
-      return element;
-    }
-    if (element.color.includes(message)) {
-      return element;
-    }
-  });
-}
+}));
 
 const slider = noUiSlider.create(document.querySelector('.year-bar'), {
-  start: [1950, 2000],
+  start: [1940, 2020],
   connect: true,
   range: {
     'min': 1940,
@@ -220,9 +214,10 @@ const slider = noUiSlider.create(document.querySelector('.year-bar'), {
   step: 10,
 });
 
-slider.on('change', (event) => {
-  const values = event.values();
-  for (let value of values) {
-    console.log(value)
-  }
-})
+slider.on('change', createUpdateFilterCallback((event) => {
+  filterState.yearMin = Number.parseInt(event[0] as string);
+  filterState.yearMax = Number.parseInt(event[1] as string);
+  document.querySelector('.filter-item-min').innerHTML = String(filterState.yearMin);
+  document.querySelector('.filter-item-max').innerHTML = String(filterState.yearMax);
+  return queryState.filter;
+}));

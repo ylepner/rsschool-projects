@@ -181,7 +181,7 @@ button {
   flex-direction: column;
 }
 
-.filter-item {
+.output {
   font-size: 1rem;
   display: flex;
   align-items: center;
