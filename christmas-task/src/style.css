@@ -310,6 +310,7 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: e-resize;
 }
 
+/*  */
 .range-bars-wrapper {
   display: flex;
   flex-direction: column;
