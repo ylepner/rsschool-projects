@@ -28,10 +28,8 @@ export function render(props: CardComponentProps) {
   template.querySelector('.color').innerHTML = `Цвет: ${data.color}`;
   template.querySelector('.size').innerHTML = `Размер: ${data.size}`;
   template.querySelector('.is-favorite').innerHTML = `Любимая: ${favorite}`;
-  const favBtn = template.querySelector('.like-btn');
   template.children[0].addEventListener('click', () => {
     props.onFavoriteClicked();
   });
   return template.children[0];
 }
-

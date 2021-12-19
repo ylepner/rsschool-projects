@@ -24,6 +24,7 @@ export interface Filter {
   amountMax?: number;
   yearMin?: number;
   yearMax?: number;
+  search?: string;
 }
 
 export interface Query {

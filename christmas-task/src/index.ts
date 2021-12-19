@@ -1,9 +1,11 @@
 import './style.css';
+import noUiSlider from 'nouislider';
 import data from './data';
 import { render } from './components/card/card';
-import { Cart, SortFunction, Filter, Query } from './models/models';
+import {
+  Cart, SortFunction, Filter, Query, Card,
+} from './models/models';
 import { toggleElement } from './utils';
-import noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 
 // добавление в корзину
@@ -176,3 +178,33 @@ const sortings = {
   sortByYearAsc,
   sortByYearDesc,
 };
+
+// search
+
+const searchBtn: HTMLElement = document.querySelector('.search-btn');
+const searchBar = document.getElementById('search-input') as HTMLInputElement;
+searchBtn.addEventListener('click', () => {
+  filterState.search = searchBar.value;
+  const result = getMatch(data, filterState.search);
+  console.log(result);
+  return filterState;
+});
+
+function getMatch(data, message: string) {
+  console.log(data);
+  data.map((element: Card) => {
+    console.log(element.name);
+    if (element.name.includes(message)) {
+      return element;
+    }
+    if (element.shape.includes(message)) {
+      return element;
+    }
+    if (element.size.includes(message)) {
+      return element;
+    }
+    if (element.color.includes(message)) {
+      return element;
+    }
+  });
+}
