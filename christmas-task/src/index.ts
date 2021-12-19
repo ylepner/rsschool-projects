@@ -7,6 +7,7 @@ import {
 } from './models/models';
 import { toggleElement } from './utils';
 import 'nouislider/dist/nouislider.css';
+import './slider.css';
 
 // добавление в корзину
 
@@ -208,3 +209,20 @@ function getMatch(data, message: string) {
     }
   });
 }
+
+const slider = noUiSlider.create(document.querySelector('.year-bar'), {
+  start: [1950, 2000],
+  connect: true,
+  range: {
+    'min': 1940,
+    'max': 2020,
+  },
+  step: 10,
+});
+
+slider.on('change', (event) => {
+  const values = event.values();
+  for (let value of values) {
+    console.log(value)
+  }
+})

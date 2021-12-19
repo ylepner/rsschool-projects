@@ -1,0 +1,19 @@
+.year-filter {
+  flex-direction: column;;
+}
+
+.year-bar {
+  width: 60%;
+  margin: 10px;
+}
+
+.noUi-handle:before, .noUi-handle:after {
+  content: unset!important;
+}
+
+.input-range {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
