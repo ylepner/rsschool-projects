@@ -228,6 +228,10 @@ button {
     322deg) brightness(83%) contrast(88%);
 }
 
+.filter-item {
+  display: flex;
+}
+
 .color-filter button.active::after {
   content: '✔';
 }
