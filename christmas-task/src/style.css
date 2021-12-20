@@ -390,7 +390,8 @@ option {
   border: solid 1px black;
 }
 
-.overlay {
+.overlay,
+.overlay-no-matches {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -401,11 +402,12 @@ option {
   align-items: center;
 }
 
-.overlay:not(.visible) {
+.overlay:not(.visible),
+.overlay-no-matches:not(.visible) {
   display: none;
 }
 
-.model-window-favorites-container {
+.modal-window-container {
   display: flex;
   font-size: 16px;
   flex-direction: column;

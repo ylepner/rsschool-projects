@@ -160,7 +160,7 @@ function addToCart(cardNum: number) {
 
 function addCards(cardsData: any[]) {
   if (cardsData.length === 0) {
-    alert('По вашему запросу ничего не найдено')
+    showMessageMatches();
   }
   document.querySelector('.cards')!.innerHTML = '';
   cardsData.forEach((item, i) => {
@@ -298,5 +298,15 @@ function showMessage() {
 
 document.querySelector('.ok-btn').addEventListener('click', () => {
   document.querySelector('.overlay').classList.remove('visible');
+  document.querySelector('main').classList.remove('main-filter');
+});
+
+function showMessageMatches() {
+  document.querySelector('.overlay-no-matches').classList.add('visible');
+  document.querySelector('main').classList.add('main-filter');
+}
+
+document.querySelector('.ok-btn-matches').addEventListener('click', () => {
+  document.querySelector('.overlay-no-matches').classList.remove('visible');
   document.querySelector('main').classList.remove('main-filter');
 });
