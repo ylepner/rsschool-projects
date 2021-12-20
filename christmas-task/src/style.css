@@ -242,6 +242,15 @@ button {
   display: flex;
 }
 
+@media (max-width: 1000px) {
+  .filter-item {
+    display: table;
+  }
+  .favorite-items-filter {
+    display: flex;
+}
+}
+
 .color-filter button.active::after {
   content: '✔';
 }

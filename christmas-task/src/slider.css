@@ -20,6 +20,12 @@
   align-items: center;
 }
 
+@media (max-width: 1000px) {
+  .input-range {
+    display: contents;
+  }
+}
+
 .noUi-horizontal .noUi-handle {
   right: -10px;
 }
