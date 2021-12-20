@@ -8,6 +8,7 @@ import {
 import { toggleElement } from './utils';
 import 'nouislider/dist/nouislider.css';
 import './slider.css';
+import './self-check';
 
 // add to cart
 
