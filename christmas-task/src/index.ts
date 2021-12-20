@@ -160,7 +160,7 @@ function addToCart(cardNum: string) {
 
 function addCards(cardsData: Card[]) {
   if (cardsData.length === 0) {
-    showMessageMatches();
+    showMessageNoMatches();
   }
   document.querySelector('.cards')!.innerHTML = '';
   cardsData.forEach((item) => {
@@ -304,12 +304,8 @@ document.querySelector('.ok-btn').addEventListener('click', () => {
   document.querySelector('main').classList.remove('main-filter');
 });
 
-function showMessageMatches() {
-  document.querySelector('.overlay-no-matches').classList.add('visible');
-  document.querySelector('main').classList.add('main-filter');
-}
+// no matches
 
-document.querySelector('.ok-btn-matches').addEventListener('click', () => {
-  document.querySelector('.overlay-no-matches').classList.remove('visible');
-  document.querySelector('main').classList.remove('main-filter');
-});
+function showMessageNoMatches() {
+  document.querySelector('.message-no-matches').classList.add('visible');
+}
