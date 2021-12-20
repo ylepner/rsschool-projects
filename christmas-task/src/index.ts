@@ -123,6 +123,16 @@ function filterData(filter: Filter) {
         return false;
       }
     }
+    if (filter.amountMin) {
+      if (Number(el.count) < filter.amountMin) {
+        return false;
+      }
+    }
+    if (filter.amountMax) {
+      if (Number(el.count) > filter.amountMax) {
+        return false;
+      }
+    }
     return true;
   });
 }
@@ -204,7 +214,27 @@ searchBar.addEventListener('input', createUpdateFilterCallback(() => {
   return filterState;
 }));
 
-const slider = noUiSlider.create(document.querySelector('.year-bar'), {
+// slider
+
+const sliderAmount = noUiSlider.create(document.querySelector('.amount-bar'), {
+  start: [1, 12],
+  connect: true,
+  range: {
+    min: 1,
+    max: 12,
+  },
+  step: 1,
+});
+
+sliderAmount.on('change', createUpdateFilterCallback((event) => {
+  filterState.amountMin = Number.parseInt(event[0] as string);
+  filterState.amountMax = Number.parseInt(event[1] as string);
+  document.querySelector('.filter-item-amount-min').innerHTML = String(filterState.amountMin);
+  document.querySelector('.filter-item-amount-max').innerHTML = String(filterState.amountMax);
+  return queryState.filter;
+}));
+
+const sliderYear = noUiSlider.create(document.querySelector('.year-bar'), {
   start: [1940, 2020],
   connect: true,
   range: {
@@ -214,7 +244,7 @@ const slider = noUiSlider.create(document.querySelector('.year-bar'), {
   step: 10,
 });
 
-slider.on('change', createUpdateFilterCallback((event) => {
+sliderYear.on('change', createUpdateFilterCallback((event) => {
   filterState.yearMin = Number.parseInt(event[0] as string);
   filterState.yearMax = Number.parseInt(event[1] as string);
   document.querySelector('.filter-item-min').innerHTML = String(filterState.yearMin);

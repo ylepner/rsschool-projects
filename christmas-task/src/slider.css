@@ -1,10 +1,12 @@
-.year-filter {
+.year-filter,
+.amount-filter {
   flex-direction: column;;
 }
 
-.year-bar {
-  width: 60%;
-  margin: 10px;
+.year-bar,
+.amount-bar {
+  flex-grow: 1;
+  margin: 15px;
 }
 
 .noUi-handle:before, .noUi-handle:after {
