@@ -143,7 +143,7 @@ function filterData(filter: Filter) {
 
 const countBall = document.querySelector('.count');
 
-function addToCart(cardNum: number) {
+function addToCart(cardNum: string) {
   if (cart.itemIds.includes(cardNum)) {
     cart.itemIds = cart.itemIds.filter((id) => id !== cardNum);
   } else {
@@ -163,12 +163,12 @@ function addCards(cardsData: Card[]) {
     showMessageMatches();
   }
   document.querySelector('.cards')!.innerHTML = '';
-  cardsData.forEach((item, i) => {
+  cardsData.forEach((item) => {
     const card = render({
       card: item,
       onFavoriteClicked: () => {
-        addToCart(i);
-        if (cart.itemIds.includes(i)) {
+        addToCart(item.num);
+        if (cart.itemIds.includes(item.num)) {
           card.querySelector('.like-btn').classList.add('favorite');
         } else {
           card.querySelector('.like-btn').classList.remove('favorite');
@@ -176,6 +176,9 @@ function addCards(cardsData: Card[]) {
       },
     });
     document.querySelector('.cards').appendChild(card);
+    if (cart.itemIds.includes((item.num))) {
+      card.querySelector('.like-btn').classList.add('favorite');
+    }
   });
 }
 

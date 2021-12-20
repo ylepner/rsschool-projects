@@ -10,7 +10,7 @@ export interface Card {
 }
 
 export interface Cart {
-  itemIds: number[];
+  itemIds: string[];
 }
 
 export type SortFunction = (a: Card, b: Card) => number;
