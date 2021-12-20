@@ -9,7 +9,7 @@ import { toggleElement } from './utils';
 import 'nouislider/dist/nouislider.css';
 import './slider.css';
 
-// добавление в корзину
+// add to cart
 
 const cart: Cart = {
   itemIds: [],
@@ -87,6 +87,8 @@ document.getElementById('checkbox').addEventListener('change', createUpdateFilte
   filterState.favorite = target.checked;
   return filterState;
 }));
+
+// filter function
 
 function filterData(filter: Filter) {
   return data.filter((el) => {
@@ -249,5 +251,37 @@ sliderYear.on('change', createUpdateFilterCallback((event) => {
   filterState.yearMax = Number.parseInt(event[1] as string);
   document.querySelector('.filter-item-min').innerHTML = String(filterState.yearMin);
   document.querySelector('.filter-item-max').innerHTML = String(filterState.yearMax);
+  return queryState.filter;
+}));
+
+// reset
+
+document.querySelector('.reset-filters').addEventListener('click', createUpdateFilterCallback((event) => {
+  queryState.filter.shape = [];
+  queryState.filter.color = [];
+  queryState.filter.size = [];
+  queryState.filter.favorite = false;
+  queryState.filter.amountMin = 1;
+  queryState.filter.amountMax = 12;
+  queryState.filter.yearMin = 1940;
+  queryState.filter.yearMax = 2020;
+  queryState.filter.search = '';
+  document.querySelectorAll('.forms-btn').forEach((el: HTMLElement) => {
+    el.classList.remove('active');
+  });
+  document.querySelectorAll('.color-btn').forEach((el: HTMLElement) => {
+    el.classList.remove('active');
+  });
+  document.querySelectorAll('.size-btn').forEach((el: HTMLElement) => {
+    el.classList.remove('active');
+  });
+  const favoriteCheck = document.getElementById('checkbox') as HTMLInputElement;
+  favoriteCheck.checked = false;
+  sliderAmount.set([1, 12]);
+  document.querySelector('.filter-item-amount-min').innerHTML = '1';
+  document.querySelector('.filter-item-amount-max').innerHTML = '12';
+  sliderYear.set([1940, 2020]);
+  document.querySelector('.filter-item-min').innerHTML = '1940';
+  document.querySelector('.filter-item-max').innerHTML = '2020';
   return queryState.filter;
 }));
