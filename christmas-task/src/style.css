@@ -424,6 +424,10 @@ option {
   padding: 50px 0px;
 }
 
+.message-no-matches:not(.visible) {
+  display: none;
+}
+
 .message-no-matches {
   color: #fff;
   display: flex;

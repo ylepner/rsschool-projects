@@ -162,6 +162,9 @@ function addCards(cardsData: Card[]) {
   if (cardsData.length === 0) {
     showMessageNoMatches();
   }
+  if (cardsData.length > 0) {
+    document.querySelector('.message-no-matches').classList.remove('visible');
+  }
   document.querySelector('.cards')!.innerHTML = '';
   cardsData.forEach((item) => {
     const card = render({
