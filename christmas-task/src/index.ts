@@ -147,8 +147,8 @@ function addToCart(cardNum: number) {
   if (cart.itemIds.includes(cardNum)) {
     cart.itemIds = cart.itemIds.filter((id) => id !== cardNum);
   } else {
-    if (cart.itemIds.length >= 20) {
-      alert('Извините, все слоты заполнены');
+    if (cart.itemIds.length >= 2) {
+      showMessage();
       return;
     }
     cart.itemIds.push(cardNum);
@@ -288,3 +288,15 @@ document.querySelector('.reset-filters').addEventListener('click', createUpdateF
   document.querySelector('.filter-item-max').innerHTML = '2020';
   return queryState.filter;
 }));
+
+// modal window cart is full
+
+function showMessage() {
+  document.querySelector('.overlay').classList.add('visible');
+  document.querySelector('main').classList.add('main-filter');
+}
+
+document.querySelector('.ok-btn').addEventListener('click', () => {
+  document.querySelector('.overlay').classList.remove('visible');
+  document.querySelector('main').classList.remove('main-filter');
+});
