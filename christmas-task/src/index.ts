@@ -3,7 +3,7 @@ import noUiSlider from 'nouislider';
 import data from './data';
 import { render } from './components/card/card';
 import {
-  Cart, SortFunction, Filter, Query,
+  Cart, SortFunction, Filter, Query, Card,
 } from './models/models';
 import { toggleElement } from './utils';
 import 'nouislider/dist/nouislider.css';
@@ -158,7 +158,7 @@ function addToCart(cardNum: number) {
 
 // draw toys cards
 
-function addCards(cardsData: any[]) {
+function addCards(cardsData: Card[]) {
   if (cardsData.length === 0) {
     showMessageMatches();
   }
