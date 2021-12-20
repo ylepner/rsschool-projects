@@ -24,6 +24,9 @@
   .input-range {
     display: contents;
   }
+  .output {
+    height: unset;
+  }
 }
 
 .noUi-horizontal .noUi-handle {
