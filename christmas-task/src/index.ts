@@ -3,7 +3,7 @@ import noUiSlider from 'nouislider';
 import data from './data';
 import { render } from './components/card/card';
 import {
-  Cart, SortFunction, Filter, Query, Card,
+  Cart, SortFunction, Filter, Query,
 } from './models/models';
 import { toggleElement } from './utils';
 import 'nouislider/dist/nouislider.css';
@@ -30,7 +30,6 @@ const queryState: Query = {
 function createUpdateDataQueryCallback<T>(fn: (event: T) => Query) {
   return (event: T) => {
     const query = fn(event);
-    console.log(query.filter);
     const dataFromData = filterData(query.filter);
     if (query.sorting) {
       dataFromData.sort(sortings[query.sorting]);
@@ -260,7 +259,7 @@ sliderYear.on('change', createUpdateFilterCallback((event) => {
 
 // reset
 
-document.querySelector('.reset-filters').addEventListener('click', createUpdateFilterCallback((event) => {
+document.querySelector('.reset-filters').addEventListener('click', createUpdateFilterCallback(() => {
   queryState.filter.shape = [];
   queryState.filter.color = [];
   queryState.filter.size = [];
