@@ -147,7 +147,7 @@ function addToCart(cardNum: string) {
   if (cart.itemIds.includes(cardNum)) {
     cart.itemIds = cart.itemIds.filter((id) => id !== cardNum);
   } else {
-    if (cart.itemIds.length >= 2) {
+    if (cart.itemIds.length >= 20) {
       showMessage();
       return;
     }
