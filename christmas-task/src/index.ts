@@ -147,7 +147,7 @@ function addToCart(cardNum: number) {
   if (cart.itemIds.includes(cardNum)) {
     cart.itemIds = cart.itemIds.filter((id) => id !== cardNum);
   } else {
-    if (cart.itemIds.length >= 2) {
+    if (cart.itemIds.length >= 20) {
       alert('Извините, все слоты заполнены');
       return;
     }
@@ -156,9 +156,12 @@ function addToCart(cardNum: number) {
   countBall.innerHTML = `${cart.itemIds.length}`;
 }
 
-// вывести карточки с игрушками
+// draw toys cards
 
 function addCards(cardsData: any[]) {
+  if (cardsData.length === 0) {
+    alert('По вашему запросу ничего не найдено')
+  }
   document.querySelector('.cards')!.innerHTML = '';
   cardsData.forEach((item, i) => {
     const card = render({
