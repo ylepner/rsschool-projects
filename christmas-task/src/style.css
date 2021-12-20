@@ -228,6 +228,10 @@ button {
     322deg) brightness(83%) contrast(88%);
 }
 
+.size-filter {
+  align-items: center;
+}
+
 .filter-item {
   display: flex;
 }
