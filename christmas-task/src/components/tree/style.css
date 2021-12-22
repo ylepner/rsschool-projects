@@ -1,9 +1,28 @@
+.tree-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .play {
   width: 40px;
   height: 40px;
   background-image: url(/src/assets/svg/audio.svg);
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.settings {
+  margin: 15px;
+}
+
+.sound-visual-effects {
+  display: flex;
+  justify-content: space-around;
 }
 
 .snow {
@@ -14,7 +33,14 @@
   background-repeat: no-repeat;
 }
 
-.tree-1 {
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  justify-content: center;
+}
+
+.tree {
   width: 100px;
   height: 100px;
   background-image: url("https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/tree/1.png");
@@ -23,18 +49,22 @@
   border-radius: 10px;
   background-color: rgba(255, 255, 255, .5);
   background-position: center;
+  margin: 10px;
 }
 
-.background-1 {
+.background {
   background-image: url("https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/bg/1.jpg");
   width: 65px;
   height: 65px;
-  border: 1px solid #cccc;
+  margin: 2px;
+}
+
+.back-img {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, .5);
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 
 .lights-btn {
@@ -47,4 +77,48 @@
 .color-lights {
   background: linear-gradient(
   124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8);
+}
+
+.no-lights {
+  box-shadow: none;
+}
+
+.lights {
+  justify-content: space-evenly;
+}
+
+.tree-box {
+  min-height: 750px;
+  width: 800px;
+  background-image: url("https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/bg/1.jpg");
+}
+
+.toy-item {
+  background-image: url("https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/1.png");
+  width: 60px;
+  height: 60px;
+}
+
+.toys-cart {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount-of-item {
+  width: 30px;
+  height: 30px;
+  color: white;
+  background: var(--turkus);
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+}
+
+.tree-box {
+  height: calc(100vh - 140px);
 }
