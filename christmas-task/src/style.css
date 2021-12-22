@@ -29,6 +29,10 @@ button {
   color: white;
 }
 
+h2 {
+  color: white;
+}
+
 .flex {
   display: flex;
 }

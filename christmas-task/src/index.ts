@@ -11,6 +11,8 @@ import './slider.css';
 import './self-check';
 import { renderHome } from './components/main-page/index';
 import './components/main-page/index.html';
+import { renderTree } from './components/tree/index';
+import './components/tree/index.html';
 
 // add to cart
 
@@ -28,12 +30,6 @@ const filterState: Filter = {
 const queryState: Query = {
   filter: filterState,
 };
-
-// function goToToysPage() {
-//   document.querySelector('.search-bar').classList.remove('invisible');
-//   document.querySelector('.counter-ball').classList.remove('invisible');
-//   addCards(data);
-// }
 
 function createUpdateDataQueryCallback<T>(fn: (event: T) => Query) {
   return (event: T) => {
@@ -339,3 +335,22 @@ document.querySelector('.to-home-btn').addEventListener('click', () => {
 // });
 
 goToHomePage();
+
+// function goToToysPage() {
+//   document.querySelector('.search-bar').classList.remove('invisible');
+//   document.querySelector('.counter-ball').classList.remove('invisible');
+//   addCards(data);
+// }
+
+function goToTreePage() {
+  document.querySelector('.search-bar').classList.add('invisible');
+  document.querySelector('.counter-ball').classList.add('invisible');
+  document.querySelector('.main-container').innerHTML = '';
+  document.querySelector('.main-container').appendChild(renderTree());
+}
+
+document.querySelector('.btn-start').addEventListener('click', () => {
+  goToTreePage();
+});
+
+goToTreePage();
