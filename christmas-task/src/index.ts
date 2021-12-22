@@ -3,8 +3,7 @@ import 'nouislider/dist/nouislider.css';
 import './self-check';
 import { renderHome } from './components/main-page/index';
 import { renderTree } from './components/tree/index';
-
-// goToPage
+import { renderToys } from './components/toys/index';
 
 function goToHomePage() {
   document.querySelector('.search-bar').classList.add('invisible');
@@ -14,22 +13,16 @@ function goToHomePage() {
   document.querySelector('.start-game').addEventListener('click', () => {
     goToTreePage();
   });
+  document.querySelector('.link-toys-page').addEventListener('click', () => {
+    goToToysPage();
+  });
 }
 
 document.querySelector('.to-home-btn').addEventListener('click', () => {
   goToHomePage();
 });
 
-document.querySelector('.link-toys-page').addEventListener('click', () => {
-  goToToysPage();
-});
-
 goToHomePage();
-
-function goToToysPage() {
-  document.querySelector('.search-bar').classList.remove('invisible');
-  document.querySelector('.counter-ball').classList.remove('invisible');
-}
 
 function goToTreePage() {
   document.querySelector('.search-bar').classList.add('invisible');
@@ -39,3 +32,10 @@ function goToTreePage() {
 }
 
 goToTreePage();
+
+function goToToysPage() {
+  document.querySelector('.search-bar').classList.remove('invisible');
+  document.querySelector('.counter-ball').classList.remove('invisible');
+  document.querySelector('.main-container').innerHTML = '';
+  document.querySelector('.main-container').appendChild(renderToys());
+}
