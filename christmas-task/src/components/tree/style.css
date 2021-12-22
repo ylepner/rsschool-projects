@@ -92,6 +92,13 @@
   width: 800px;
   background-image: url("https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/bg/1.jpg");
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tree-box img {
+  height: 80%;
 }
 
 .toy-item {
@@ -108,8 +115,8 @@
 }
 
 .amount-of-item {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   color: white;
   background: var(--turkus);
   border-radius: 10px;
@@ -117,7 +124,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 23px;
+  font-size: 15px;
 }
 
 .tree-box {

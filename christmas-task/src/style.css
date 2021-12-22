@@ -76,10 +76,6 @@ h2 {
 }
 
 .nav-bar button:hover {
-  color: var(--turkus);
-}
-
-.logo-img:hover {
   filter: invert(57%) sepia(100%) saturate(329%) hue-rotate(141deg) brightness(89%) contrast(90%);
 }
 

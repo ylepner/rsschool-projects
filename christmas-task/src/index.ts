@@ -11,10 +11,13 @@ function goToHomePage() {
   document.querySelector('.main-container').innerHTML = '';
   document.querySelector('.main-container').appendChild(renderHome());
   document.querySelector('.start-game').addEventListener('click', () => {
-    goToTreePage();
+    goToToysPage();
   });
   document.querySelector('.link-toys-page').addEventListener('click', () => {
     goToToysPage();
+  });
+  document.querySelector('.link-tree-page').addEventListener('click', () => {
+    goToTreePage();
   });
 }
 
