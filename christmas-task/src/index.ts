@@ -9,6 +9,8 @@ import { toggleElement } from './utils';
 import 'nouislider/dist/nouislider.css';
 import './slider.css';
 import './self-check';
+import { renderHome } from './components/main-page/index';
+import './components/main-page/index.html';
 
 // add to cart
 
@@ -26,6 +28,12 @@ const filterState: Filter = {
 const queryState: Query = {
   filter: filterState,
 };
+
+// function goToToysPage() {
+//   document.querySelector('.search-bar').classList.remove('invisible');
+//   document.querySelector('.counter-ball').classList.remove('invisible');
+//   addCards(data);
+// }
 
 function createUpdateDataQueryCallback<T>(fn: (event: T) => Query) {
   return (event: T) => {
@@ -163,7 +171,9 @@ function addCards(cardsData: Card[]) {
     showMessageNoMatches();
   }
   if (cardsData.length > 0) {
-    document.querySelector('.message-no-matches').classList.remove('visible');
+    if (document.querySelector('.message-no-matches')) {
+      document.querySelector('.message-no-matches').classList.remove('visible');
+    }
   }
   document.querySelector('.cards')!.innerHTML = '';
   cardsData.forEach((item) => {
@@ -184,9 +194,7 @@ function addCards(cardsData: Card[]) {
     }
   });
 }
-
-addCards(data);
-
+// addCards(data);
 // sorting
 
 const selectElement: HTMLSelectElement = document.querySelector('#sorting');
@@ -312,3 +320,22 @@ document.querySelector('.ok-btn').addEventListener('click', () => {
 function showMessageNoMatches() {
   document.querySelector('.message-no-matches').classList.add('visible');
 }
+
+// goToPage
+
+function goToHomePage() {
+  document.querySelector('.search-bar').classList.add('invisible');
+  document.querySelector('.counter-ball').classList.add('invisible');
+  document.querySelector('.main-container').innerHTML = '';
+  document.querySelector('.main-container').appendChild(renderHome());
+}
+
+document.querySelector('.to-home-btn').addEventListener('click', () => {
+  goToHomePage();
+});
+
+// document.querySelector('.link-toys-page').addEventListener('click', () => {
+//   goToToysPage();
+// });
+
+goToHomePage();

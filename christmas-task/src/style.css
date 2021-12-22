@@ -24,6 +24,9 @@ main {
 
 button {
   cursor: pointer;
+  border: none;
+  background: none;
+  color: white;
 }
 
 .flex {
@@ -56,7 +59,7 @@ button {
   height: 65px;
 }
 
-.nav-bar a {
+.nav-bar button {
   font-size: var(--text-size);
   color: white;
   font-family: monospace;
@@ -66,7 +69,7 @@ button {
   cursor: pointer;
 }
 
-.nav-bar a:hover {
+.nav-bar button:hover {
   color: var(--turkus);
 }
 
@@ -117,6 +120,14 @@ button {
   border: none;
   font-size: 1.3rem;
   padding-left: 0;
+}
+
+.search-bar.invisible {
+  display: none;
+}
+
+.counter-ball.invisible {
+  display: none;
 }
 
 .counter-ball {
@@ -191,7 +202,7 @@ button {
   flex-direction: column;
 }
 
-.output {
+.borders {
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -308,7 +319,7 @@ button {
   font-size: 1.5rem;
 }
 
-.output {
+.borders {
   justify-content: center;
   min-width: 80px;
   height: 40px;
@@ -437,5 +448,5 @@ option {
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  padding: 30px
+  padding: 30px;
 }

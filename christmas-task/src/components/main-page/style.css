@@ -1,0 +1,63 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ball-big {
+  width: 400px;
+  height: 400px;
+  background-image: url(/src/assets/ball/1.png);
+  top: 200px;
+  left: 400px;
+}
+
+.ball-small {
+  width: 300px;
+  height: 300px;
+  background-image: url(/src/assets/ball/2.png);
+  top: 100px;
+  right: 500px;
+}
+
+.decoration {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.heading {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-family: var(--monospace);
+  font-style: italic;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  padding: 100px;
+}
+
+.start-game {
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  width: 320px;
+  height: 60px;
+  background-color: rgba(31, 112, 127, .3);
+  backdrop-filter: blur(6px);
+  font-size: 1.5rem;
+  transition: .3s;
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, 0.5);
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  margin: 20px;
+}
+
+.start-game:hover {
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+}
