@@ -91,6 +91,7 @@
   min-height: 750px;
   width: 800px;
   background-image: url("https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/bg/1.jpg");
+  background-repeat: no-repeat;
 }
 
 .toy-item {
