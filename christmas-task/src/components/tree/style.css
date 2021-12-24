@@ -8,12 +8,20 @@
   text-align: center;
 }
 
-.play {
+.play-audio {
   width: 40px;
   height: 40px;
   background-image: url(/src/assets/svg/audio.svg);
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.play {
+  filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
+}
+
+.pause {
+  filter: none;
 }
 
 .settings {
