@@ -39,6 +39,8 @@ export function renderTree() {
   template.querySelector('.snow').addEventListener('click', () => {
     snowFalling.classList.toggle('fall');
   });
+  // add lights
+
 
   return template;
 
