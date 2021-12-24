@@ -139,3 +139,13 @@
 .tree-box {
   height: calc(100vh - 140px);
 }
+
+.snow {
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.layer1 {
+  width: 1.5rem;
+  height: 1.5;
+}
