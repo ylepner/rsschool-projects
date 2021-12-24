@@ -5,6 +5,9 @@ export function renderTree() {
   const template = document.createElement('div');
   template.innerHTML = html;
   // add tree options
+  const treeBox = template.querySelector('.tree-box') as HTMLElement;
+  const audio = template.querySelector('audio');
+  const playBtn = template.querySelector('.play-audio') as HTMLElement;
   template.querySelectorAll('.tree').forEach((element: HTMLElement, i: number) => {
     i += 1;
     const treeUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/tree/${i}.png`;
@@ -15,10 +18,11 @@ export function renderTree() {
     i += 1;
     const backgroundUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/bg/${i}.jpg`;
     element.style.backgroundImage = `url(${backgroundUrl})`;
+    element.addEventListener('click', () => {
+      treeBox.style.backgroundImage = `url(${backgroundUrl})`;
+    });
   });
   // add music
-  const audio = template.querySelector('audio');
-  const playBtn = template.querySelector('.play-audio') as HTMLElement;
   template.querySelector('.play-audio').addEventListener('click', () => {
     if (playBtn.classList.contains('play')) {
       audioPause();
@@ -26,6 +30,7 @@ export function renderTree() {
       audioPlay();
     }
   });
+
   return template;
 
   function audioPlay() {
