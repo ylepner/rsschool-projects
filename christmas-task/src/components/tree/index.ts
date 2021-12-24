@@ -8,6 +8,7 @@ export function renderTree() {
   const treeImg = template.querySelector('.tree-box-img') as HTMLImageElement;
   const audio = template.querySelector('audio');
   const playBtn = template.querySelector('.play-audio') as HTMLElement;
+  const snowFalling = template.querySelector('.falling-snow') as HTMLElement;
   // add tree options
   template.querySelectorAll('.tree').forEach((element: HTMLElement, i: number) => {
     i += 1;
@@ -33,6 +34,10 @@ export function renderTree() {
     } else {
       audioPlay();
     }
+  });
+  // add snow
+  template.querySelector('.snow').addEventListener('click', () => {
+    snowFalling.classList.toggle('fall');
   });
 
   return template;

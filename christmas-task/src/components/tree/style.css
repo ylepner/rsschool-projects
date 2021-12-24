@@ -145,7 +145,54 @@
   opacity: 0.8;
 }
 
-.layer1 {
-  width: 1.5rem;
-  height: 1.5;
+.falling-snow {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.falling-snow img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fall i:after,
+.fall i:before {
+  content: "";
+}
+
+.fall i:after,
+.fall i:before,
+.fall i {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.falling-snow i:after {
+  background: url("./snowballs-lg.png") repeat 0px 0px;
+  animation: falling-down-snow 4s linear infinite;
+}
+
+.falling-snow i:before {
+  background: url("./snowballs-md.png") repeat 0px 0px;
+  animation: falling-down-snow 8s linear infinite;
+}
+
+.falling-snow i {
+  background: url("./snowballs-sm.png") repeat 0px 0px;
+  animation: falling-down-snow 20s linear infinite;
+}
+
+@keyframes falling-down-snow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0px 280px;
+  }
 }
