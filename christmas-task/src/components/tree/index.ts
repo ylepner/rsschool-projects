@@ -39,7 +39,7 @@ export function renderTree() {
   });
   // add lights
   template.querySelectorAll('ul').forEach((element: HTMLElement) => {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 38; i++) {
       const li = document.createElement('li');
       element.appendChild(li);
     }
@@ -47,7 +47,18 @@ export function renderTree() {
   // lights switch
   template.querySelectorAll('.lights-btn').forEach((element: HTMLElement) => {
     element.addEventListener('click', () => {
-      element.classList.toggle('active');
+      if (element.dataset.color === 'no-color') {
+        template.querySelector('.tree-lights').classList.add('invisible');
+      } else {
+        template.querySelector('.tree-lights').classList.remove('invisible');
+        element.classList.toggle('active');
+        if (element.classList.contains('active')) {
+          template.querySelectorAll('li').forEach((el) => {
+            el.className = '';
+            el.classList.add(element.dataset.color);
+          });
+        }
+      }
     });
   });
 

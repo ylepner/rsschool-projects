@@ -201,6 +201,10 @@
   position: relative;
 }
 
+.tree-lights.invisible {
+  display: none;
+} 
+
 .lightrope li {
   position: relative;
   -webkit-animation-fill-mode: both;
@@ -209,13 +213,11 @@
   animation-iteration-count: infinite;
   list-style: none;
   padding: 0;
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
-  background: red;
-  box-shadow: 0px 4.66667px 24px 3px red;
   -webkit-animation-name: flash-1;
   animation-name: flash-1;
   -webkit-animation-duration: 2s;
@@ -262,8 +264,6 @@ ul {
   animation-name: flash-2;
   -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
-  width: 8px;
-  height: 8px;
 }
 
 .lightrope li:nth-child(4n+2) {
@@ -287,8 +287,6 @@ ul {
 
 .lightrope li:first-child {
   margin-top: 85px;
-  width: 8px;
-  height: 8px;
 }
 
 @-webkit-keyframes flash-1 {
@@ -354,5 +352,60 @@ ul {
   50% {
     background: rgba(247, 0, 148, 0.4);
     box-shadow: 0px 4.66667px 24px 3px rgba(247, 0, 148, 0.2);
+  }
+}
+
+.lightrope li.red { animation-name: red; }
+.lightrope li.green { animation-name: green; }
+.lightrope li.blue { animation-name: blue; }
+.lightrope li.yellow { animation-name: yellow; }
+
+.lightrope li.multicolor:nth-child(1n + 1) { animation-name: red; }
+.lightrope li:nth-child(2n + 2).multicolor { animation-name: green; }
+.lightrope li:nth-child(3n + 3).multicolor { animation-name: blue; }
+.lightrope li:nth-child(4n + 4).multicolor { animation-name: yellow; }
+
+@keyframes green {
+  0%,
+  100% {
+    background: green;
+    box-shadow: 0px 2px 12px 2px green;
+  }
+  50% {
+    background: rgba(85, 228, 2, 0.801);
+    box-shadow: 0px 2px 12px 2px rgba(85, 228, 2, 0.801);
+  }
+}
+@keyframes blue {
+  0%,
+  100% {
+    background: blue;
+    box-shadow: 0px 2px 12px 2px blue;
+  }
+  50% {
+    background: rgba(0, 17, 255, 0.4);
+    box-shadow: 0px 2px 12px 2px rgba(0, 17, 255, 0.4);
+  }
+}
+@keyframes red {
+  0%,
+  100% {
+    background: rgb(247, 0, 0);
+    box-shadow: 0px 2px 12px 2px rgb(247, 0, 0);
+  }
+  50% {
+    background: rgba(173, 9, 23, 0.4);
+    box-shadow: 0px 2px 12px 2px rgba(173, 9, 23, 0.4);
+  }
+}
+@keyframes yellow {
+  0%,
+  100% {
+    background: rgba(255, 255, 0, 1);
+    box-shadow: 0px 2px 12px 2px rgba(255, 255, 0, 1);
+  }
+  50% {
+    background: rgba(158, 158, 92, 0.966);
+    box-shadow: 0px 2px 12px 2px rgba(158, 158, 92, 0.966);
   }
 }

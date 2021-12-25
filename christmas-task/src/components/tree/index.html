@@ -34,28 +34,27 @@
     <div class="lights-options">
       <h2 class="text-center">ГИРЛЯНДА</h2>
       <div class="options lights">
-        <button class="lights-btn color-lights"></button>
-        <button class="lights-btn red-lights" style="background-color: red"></button>
-        <button class="lights-btn blue-lights" style="background-color: blue"></button>
-        <button class="lights-btn yellow-lights" style="background-color: yellow"></button>
-        <button class="lights-btn green-lights" style="background-color: green"></button>
-        <button class="lights-btn no-lights" style="background-color: grey"></button>
+        <button class="lights-btn color-lights" data-color="color"></button>
+        <button class="lights-btn red-lights" style="background-color: red" data-color="red"></button>
+        <button class="lights-btn blue-lights" style="background-color: blue" data-color="blue"></button>
+        <button class="lights-btn yellow-lights" style="background-color: yellow" data-color="yellow"></button>
+        <button class="lights-btn green-lights" style="background-color: green" data-color="green"></button>
+        <button class="lights-btn no-lights" style="background-color: grey" data-color="no-color"></button>
       </div>
     </div>
   </div>
   <div class="tree-box-container falling-snow">
     <div class="tree-box">
-
       <div class="tree-img">
         <img class="tree-box-img"
           src="https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/tree/1.png"
           alt="tree number 1">
-        <div class="tree-lights">
+        <div class="tree-lights invisible">
           <div class="lightrope lr1">
             <ul>
             </ul>
           </div>
-          <div class="lightrope lr2">
+          <div class="lightrope lr2" id="inline-flex">
             <ul>
             </ul>
           </div>
@@ -63,7 +62,7 @@
             <ul>
             </ul>
           </div>
-          <div class="lightrope lr4">
+          <div class="lightrope lr4" id="inline-flex">
             <ul>
             </ul>
           </div>
