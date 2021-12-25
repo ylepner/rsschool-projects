@@ -35,6 +35,7 @@ export function renderTree() {
   });
   // add snow
   template.querySelector('.snow').addEventListener('click', () => {
+    template.querySelector('.snow').classList.toggle('active-snow-btn');
     snowFalling.classList.toggle('fall');
   });
   // add lights

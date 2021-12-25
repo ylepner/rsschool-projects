@@ -16,7 +16,8 @@
   background-repeat: no-repeat;
 }
 
-.play {
+.play,
+.active-snow-btn {
   filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
 }
 
