@@ -209,10 +209,10 @@
   animation-iteration-count: infinite;
   list-style: none;
   padding: 0;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   display: flex;
   background: red;
   box-shadow: 0px 4.66667px 24px 3px red;
@@ -235,16 +235,16 @@
   transform: translateX(-50%) rotate(20deg);
 }
 .lr2 {
-  transform: translateX(-50%) rotate(0deg);
+  transform: translateX(-50%) rotate(10deg);
 }
 .lr3 {
-  transform: translateX(-50%) rotate(-20deg);
+  transform: translateX(-50%) rotate(0deg);
 }
 .lr4 {
   transform: translateX(-50%) rotate(-10deg);
 }
 .lr5 {
-  transform: translateX(-50%) rotate(10deg);
+  transform: translateX(-50%) rotate(-20deg);
 }
 
 ul {

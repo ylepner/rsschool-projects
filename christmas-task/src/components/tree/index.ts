@@ -11,8 +11,7 @@ export function renderTree() {
   const snowFalling = template.querySelector('.falling-snow') as HTMLElement;
   // add tree options
   template.querySelectorAll('.tree').forEach((element: HTMLElement, i: number) => {
-    i += 1;
-    const treeUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/tree/${i}.png`;
+    const treeUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/tree/${i + 1}.png`;
     element.style.backgroundImage = `url(${treeUrl})`;
     element.addEventListener('click', () => {
       treeImg.src = treeUrl;
@@ -20,8 +19,7 @@ export function renderTree() {
   });
   // add background options
   template.querySelectorAll('.background').forEach((element: HTMLElement, i: number) => {
-    i += 1;
-    const backgroundUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/bg/${i}.jpg`;
+    const backgroundUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/bg/${i + 1}.jpg`;
     element.style.backgroundImage = `url(${backgroundUrl})`;
     element.addEventListener('click', () => {
       treeBox.style.backgroundImage = `url(${backgroundUrl})`;
@@ -40,7 +38,18 @@ export function renderTree() {
     snowFalling.classList.toggle('fall');
   });
   // add lights
-
+  template.querySelectorAll('ul').forEach((element: HTMLElement) => {
+    for (let i = 0; i < 20; i++) {
+      const li = document.createElement('li');
+      element.appendChild(li);
+    }
+  });
+  // lights switch
+  template.querySelectorAll('.lights-btn').forEach((element: HTMLElement) => {
+    element.addEventListener('click', () => {
+      element.classList.toggle('active');
+    });
+  });
 
   return template;
 
