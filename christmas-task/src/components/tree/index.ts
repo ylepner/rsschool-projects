@@ -1,7 +1,21 @@
+import { toggleElement } from '../../utils';
 import html from './index.html';
 import './style.css';
 
 export function renderTree() {
+  const cart: ToysCart = [
+    {
+      toyId: '1',
+      amount: 2,
+    },
+    {
+      toyId: '15',
+      amount: 5,
+    },
+  ];
+
+  const toysCart = new ToysCartData(cart);
+
   const template = document.createElement('div');
   template.innerHTML = html;
   const treeBox = template.querySelector('.tree-box') as HTMLElement;
@@ -9,6 +23,7 @@ export function renderTree() {
   const audio = template.querySelector('audio');
   const playBtn = template.querySelector('.play-audio') as HTMLElement;
   const snowFalling = template.querySelector('.falling-snow') as HTMLElement;
+  const toyCartDiv = template.querySelector('.toys-cart') as HTMLElement;
   // add tree options
   template.querySelectorAll('.tree').forEach((element: HTMLElement, i: number) => {
     const treeUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/tree/${i + 1}.png`;
@@ -62,7 +77,45 @@ export function renderTree() {
       }
     });
   });
+  const area = template.querySelector('area') as HTMLElement;
 
+  const cartUpdate = () => {
+    updateToysCart(cart, toyCartDiv);
+    template.querySelectorAll('.toy').forEach((element: HTMLImageElement) => {
+      const toyId = element.dataset.toyid;
+      if (toysCart.hasToy(toyId)) {
+        element.addEventListener('dragend', (event) => {
+          if (isDroppedWithinTree(event)) {
+            const copyImg = document.createElement('img');
+            copyImg.addEventListener('dragend', (ev) => {
+              if (isDroppedWithinTree(ev)) {
+                addCoordinates(ev, copyImg);
+                area.append(copyImg);
+              } else {
+                copyImg.remove();
+                toysCart.returnToy(toyId);
+                cartUpdate();
+              }
+            });
+            copyImg.src = element.src;
+            copyImg.style.width = '40px';
+            addCoordinates(event, copyImg);
+            copyImg.classList.add('toy-on-tree');
+            area.append(copyImg);
+            toysCart.pullToy(toyId);
+            cartUpdate();
+          }
+          event.preventDefault();
+        });
+      }
+    });
+  };
+
+  cartUpdate();
+
+  area.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
   return template;
 
   function audioPlay() {
@@ -75,5 +128,54 @@ export function renderTree() {
     playBtn.classList.remove('play');
     playBtn.classList.add('pause');
     audio.pause();
+  }
+
+  function addCoordinates(ev: DragEvent, element: HTMLElement) {
+    const rect = area.getBoundingClientRect();
+    const x = ev.clientX - rect.left;
+    const y = ev.clientY - rect.top;
+    element.style.top = `${y}px`;
+    element.style.left = `${x}px`;
+  }
+}
+
+function isDroppedWithinTree(dragEvent: DragEvent) {
+  return dragEvent.dataTransfer.dropEffect === 'copy';
+}
+
+type ToysCart = { toyId: string, amount: number }[];
+
+function updateToysCart(cart: ToysCart, parentDiv: HTMLElement) {
+  parentDiv.innerHTML = '';
+  const divs = cart.map((element) => {
+    const htmlDiv = `
+    <div class="toy-item back-img">
+      <img src="https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${element.toyId}.png" alt="" class="toy" draggable="true" style="width: 40px" data-toyId=${element.toyId}>
+      <div class="amount-of-item">${element.amount}</div>
+    </div>`;
+    return htmlDiv;
+  });
+
+  parentDiv.innerHTML = divs.join('');
+}
+
+class ToysCartData {
+  constructor(private toysCart: ToysCart) {
+  }
+
+  hasToy(toyId: string) {
+    return this.getToyItem(toyId).amount > 0;
+  }
+
+  pullToy(toyId: string) {
+    this.getToyItem(toyId).amount--;
+  }
+
+  returnToy(toyId: string) {
+    this.getToyItem(toyId).amount++;
+  }
+
+  private getToyItem(toyId: string) {
+    return this.toysCart.find(c => c.toyId === toyId);
   }
 }

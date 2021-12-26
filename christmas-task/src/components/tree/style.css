@@ -111,10 +111,34 @@
   height: 80%;
 }
 
+.my-toys {
+  padding-left: 40px;
+}
+
+.toy-1 {
+  cursor: move;
+  z-index: 1000;
+  width: 40px;
+}
+
 .toy-item {
-  background-image: url("https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/1.png");
   width: 60px;
   height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  position: relative;
+}
+.toy-on-tree {
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+.toy-item img {
+  width: 80%;
+} 
+
+area img {
+  width: 40px;
 }
 
 .toys-cart {
@@ -135,6 +159,9 @@
   justify-content: center;
   align-items: center;
   font-size: 15px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .tree-box {
