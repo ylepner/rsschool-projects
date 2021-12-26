@@ -1,21 +1,8 @@
-import { toggleElement } from '../../utils';
 import html from './index.html';
 import './style.css';
 
-export function renderTree() {
-  const cart: ToysCart = [
-    {
-      toyId: '1',
-      amount: 2,
-    },
-    {
-      toyId: '15',
-      amount: 5,
-    },
-  ];
-
+export function renderTree(cart: ToysCart) {
   const toysCart = new ToysCartData(cart);
-
   const template = document.createElement('div');
   template.innerHTML = html;
   const treeBox = template.querySelector('.tree-box') as HTMLElement;
@@ -24,7 +11,9 @@ export function renderTree() {
   const playBtn = template.querySelector('.play-audio') as HTMLElement;
   const snowFalling = template.querySelector('.falling-snow') as HTMLElement;
   const toyCartDiv = template.querySelector('.toys-cart') as HTMLElement;
+
   // add tree options
+
   template.querySelectorAll('.tree').forEach((element: HTMLElement, i: number) => {
     const treeUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/tree/${i + 1}.png`;
     element.style.backgroundImage = `url(${treeUrl})`;
@@ -32,7 +21,9 @@ export function renderTree() {
       treeImg.src = treeUrl;
     });
   });
+
   // add background options
+
   template.querySelectorAll('.background').forEach((element: HTMLElement, i: number) => {
     const backgroundUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/bg/${i + 1}.jpg`;
     element.style.backgroundImage = `url(${backgroundUrl})`;
@@ -40,7 +31,9 @@ export function renderTree() {
       treeBox.style.backgroundImage = `url(${backgroundUrl})`;
     });
   });
+
   // add music
+
   template.querySelector('.play-audio').addEventListener('click', () => {
     if (playBtn.classList.contains('play')) {
       audioPause();
@@ -48,19 +41,25 @@ export function renderTree() {
       audioPlay();
     }
   });
+
   // add snow
+
   template.querySelector('.snow').addEventListener('click', () => {
     template.querySelector('.snow').classList.toggle('active-snow-btn');
     snowFalling.classList.toggle('fall');
   });
+
   // add lights
+
   template.querySelectorAll('ul').forEach((element: HTMLElement) => {
     for (let i = 0; i < 38; i++) {
       const li = document.createElement('li');
       element.appendChild(li);
     }
   });
+
   // lights switch
+
   template.querySelectorAll('.lights-btn').forEach((element: HTMLElement) => {
     element.addEventListener('click', () => {
       if (element.dataset.color === 'no-color') {
@@ -77,8 +76,10 @@ export function renderTree() {
       }
     });
   });
-  const area = template.querySelector('area') as HTMLElement;
 
+  // drag and drop
+
+  const area = template.querySelector('area') as HTMLElement;
   const cartUpdate = () => {
     updateToysCart(cart, toyCartDiv);
     template.querySelectorAll('.toy').forEach((element: HTMLImageElement) => {
@@ -143,7 +144,7 @@ function isDroppedWithinTree(dragEvent: DragEvent) {
   return dragEvent.dataTransfer.dropEffect === 'copy';
 }
 
-type ToysCart = { toyId: string, amount: number }[];
+export type ToysCart = { toyId: string, amount: number }[];
 
 function updateToysCart(cart: ToysCart, parentDiv: HTMLElement) {
   parentDiv.innerHTML = '';
