@@ -201,6 +201,10 @@ area img {
   display: block;
 }
 
+.fall i{
+  pointer-events: none;
+}
+
 .fall i:after,
 .fall i:before {
   content: "";

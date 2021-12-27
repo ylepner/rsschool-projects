@@ -53,8 +53,6 @@ function goToTreePage() {
   document.querySelector('.main-container').appendChild(renderTree(cart));
 }
 
-goToTreePage();
-
 function goToToysPage() {
   document.querySelector('.search-bar').classList.remove('invisible');
   document.querySelector('.counter-ball').classList.remove('invisible');
