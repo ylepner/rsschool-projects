@@ -279,6 +279,7 @@ area img {
   bottom: 0;
   left:50%;
   transform-origin: 0 0;
+  pointer-events: none;
 }
 
 .lr1 {
