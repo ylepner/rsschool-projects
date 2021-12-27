@@ -27,6 +27,22 @@
 
 .settings {
   margin: 15px;
+  box-sizing: border-box;
+}
+
+.clear-settings {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.clear-settings button {
+  font-family: monospace;
+}
+
+.clear-settings button:hover {
+  filter: invert(57%) sepia(100%) saturate(329%) hue-rotate(141deg) brightness(89%) contrast(90%);
+  background-color: #a7b70030;
 }
 
 .sound-visual-effects {
@@ -437,7 +453,6 @@ ul {
     box-shadow: 0px 2px 12px 2px rgba(158, 158, 92, 0.966);
   }
 }
-
 
 @media (max-width: 1500px) {
   .tree-container {

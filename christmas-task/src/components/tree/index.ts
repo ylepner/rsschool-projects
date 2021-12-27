@@ -6,10 +6,36 @@ export function renderTree(cart: ToysCart) {
   const template = document.createElement('div');
   template.innerHTML = html;
   const treeBox = template.querySelector('.tree-box') as HTMLElement;
+  const treeBoxBackgroundIndex = localStorage.getItem('selectedBackground');
+  if (treeBoxBackgroundIndex) {
+    const treeBoxBackgroundInitialUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/bg/${Number(treeBoxBackgroundIndex) + 1}.jpg`;
+    treeBox.style.backgroundImage = `url(${treeBoxBackgroundInitialUrl})`;
+  }
   const treeImg = template.querySelector('.tree-box-img') as HTMLImageElement;
+  const treeImgIndex = localStorage.getItem('selectedTree');
+  if (treeImgIndex) {
+    const treeInitialUrl = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/tree/${Number(treeImgIndex) + 1}.png`;
+    treeImg.src = treeInitialUrl;
+  }
   const audio = template.querySelector('audio');
   const playBtn = template.querySelector('.play-audio') as HTMLElement;
+  const musicState = localStorage.getItem('music');
+  if (musicState) {
+    playBtn.classList.add('play');
+    audio.play();
+  }
   const snowFalling = template.querySelector('.falling-snow') as HTMLElement;
+  const snowState = localStorage.getItem('snow');
+  if (snowState) {
+    snowFalling.classList.add('fall');
+    template.querySelector('.snow').classList.add('active-snow-btn');
+  }
+  const treeLightsInitial = localStorage.getItem('treeLights');
+  const colorOfLights = localStorage.getItem('color');
+  addLiLights();
+  if (treeLightsInitial) {
+    updateLights(colorOfLights);
+  }
   const toyCartDiv = template.querySelector('.toys-cart') as HTMLElement;
 
   // add tree options
@@ -19,6 +45,7 @@ export function renderTree(cart: ToysCart) {
     element.style.backgroundImage = `url(${treeUrl})`;
     element.addEventListener('click', () => {
       treeImg.src = treeUrl;
+      localStorage.setItem('selectedTree', String(i));
     });
   });
 
@@ -29,6 +56,7 @@ export function renderTree(cart: ToysCart) {
     element.style.backgroundImage = `url(${backgroundUrl})`;
     element.addEventListener('click', () => {
       treeBox.style.backgroundImage = `url(${backgroundUrl})`;
+      localStorage.setItem('selectedBackground', String(i));
     });
   });
 
@@ -36,9 +64,11 @@ export function renderTree(cart: ToysCart) {
 
   template.querySelector('.play-audio').addEventListener('click', () => {
     if (playBtn.classList.contains('play')) {
+      localStorage.removeItem('music');
       audioPause();
     } else {
       audioPlay();
+      localStorage.setItem('music', 'true');
     }
   });
 
@@ -47,34 +77,52 @@ export function renderTree(cart: ToysCart) {
   template.querySelector('.snow').addEventListener('click', () => {
     template.querySelector('.snow').classList.toggle('active-snow-btn');
     snowFalling.classList.toggle('fall');
+    if (snowFalling.classList.contains('fall')) {
+      localStorage.setItem('snow', 'true');
+    } else {
+      localStorage.removeItem('snow');
+    }
   });
 
   // add lights
 
-  template.querySelectorAll('ul').forEach((element: HTMLElement) => {
-    for (let i = 0; i < 21; i++) {
-      const li = document.createElement('li');
-      element.appendChild(li);
-    }
-  });
+  function addLiLights() {
+    template.querySelectorAll('ul').forEach((element: HTMLElement) => {
+      for (let i = 0; i < 21; i++) {
+        const li = document.createElement('li');
+        element.appendChild(li);
+      }
+    });
+  }
 
   // lights switch
 
   template.querySelectorAll('.lights-btn').forEach((element: HTMLElement) => {
     element.addEventListener('click', () => {
-      if (element.dataset.color === 'no-color') {
-        template.querySelector('.tree-lights').classList.add('invisible');
-      } else {
-        template.querySelector('.tree-lights').classList.remove('invisible');
-        element.classList.toggle('active');
-        if (element.classList.contains('active')) {
-          template.querySelectorAll('li').forEach((el) => {
-            el.className = '';
-            el.classList.add(element.dataset.color);
-          });
-        }
-      }
+      updateLights(element.dataset.color);
     });
+  });
+
+  function updateLights(color: string) {
+    if (color === 'no-color') {
+      template.querySelector('.tree-lights').classList.add('invisible');
+      localStorage.setItem('color', 'no-color');
+    } else {
+      localStorage.setItem('color', `${color}`);
+      template.querySelector('.tree-lights').classList.remove('invisible');
+      localStorage.setItem('treeLights', 'true');
+      const element = template.querySelector(`[data-color="${color}"]`) as HTMLElement;
+      template.querySelectorAll('li').forEach((el) => {
+        el.className = '';
+        el.classList.add(element.dataset.color);
+      });
+    }
+  }
+
+  // clear settings
+
+  template.querySelector('.clear-btn').addEventListener('click', () => {
+    localStorage.clear();
   });
 
   // drag and drop

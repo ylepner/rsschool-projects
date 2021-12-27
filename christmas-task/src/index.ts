@@ -38,7 +38,7 @@ function goToTreePage() {
   document.querySelector('.search-bar').classList.add('invisible');
   document.querySelector('.counter-ball').classList.add('invisible');
   document.querySelector('.main-container').innerHTML = '';
-  let cart = toys.cart.itemIds.map((id) => ({
+  const cart = toys.cart.itemIds.map((id) => ({
     toyId: id,
     amount: Number(data.find(el => el.num === id).count),
   }));
