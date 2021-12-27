@@ -241,10 +241,10 @@ area img {
   animation-iteration-count: infinite;
   list-style: none;
   padding: 0;
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: flex;
   -webkit-animation-name: flash-1;
   animation-name: flash-1;

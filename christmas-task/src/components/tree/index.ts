@@ -52,7 +52,7 @@ export function renderTree(cart: ToysCart) {
   // add lights
 
   template.querySelectorAll('ul').forEach((element: HTMLElement) => {
-    for (let i = 0; i < 38; i++) {
+    for (let i = 0; i < 21; i++) {
       const li = document.createElement('li');
       element.appendChild(li);
     }
