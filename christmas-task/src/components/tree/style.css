@@ -437,3 +437,18 @@ ul {
     box-shadow: 0px 2px 12px 2px rgba(158, 158, 92, 0.966);
   }
 }
+
+
+@media (max-width: 1500px) {
+  .tree-container {
+    display: flex;
+    flex-direction: column; 
+  }
+  .settings {
+    display: flex;
+    flex-direction: column;
+  }
+  .tree-box {
+    height: 750px;
+  }
+}
