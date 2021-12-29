@@ -197,6 +197,13 @@ export type ToysCart = { toyId: string, amount: number }[];
 function updateToysCart(cart: ToysCart, parentDiv: HTMLElement) {
   parentDiv.innerHTML = '';
   const divs = cart.map((element) => {
+    if (element.amount === 0) {
+      const htmlDiv = `
+      <div class="toy-item back-img">
+        <div class="amount-of-item">${element.amount}</div>
+      </div>`;
+      return htmlDiv;
+    }
     const htmlDiv = `
     <div class="toy-item back-img">
       <img src="https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${element.toyId}.png" alt="" class="toy" draggable="true" style="width: 40px" data-toyId=${element.toyId}>
@@ -207,7 +214,6 @@ function updateToysCart(cart: ToysCart, parentDiv: HTMLElement) {
 
   parentDiv.innerHTML = divs.join('');
 }
-
 class ToysCartData {
   constructor(private toysCart: ToysCart) {
   }
