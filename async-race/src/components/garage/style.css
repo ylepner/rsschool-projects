@@ -1,0 +1,22 @@
+h1 {
+  color:blanchedalmond;
+}
+
+.margin {
+  margin: 0 5px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.color {
+  width: 35px;
+  height: 22px;
+  margin: 0 5px;
+}
+
+.update {
+  margin: 10px 0;
+}
