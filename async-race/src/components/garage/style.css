@@ -1,5 +1,9 @@
-h1 {
-  color:blanchedalmond;
+.white {
+  color:white;
+}
+
+.flex {
+  display: flex;
 }
 
 .margin {
@@ -19,4 +23,36 @@ h1 {
 
 .update {
   margin: 10px 0;
+}
+
+.garage {
+  margin: 100px 0;
+}
+
+.car-img {
+  width: 100px;
+  margin-bottom: -10px;
+}
+
+.animate {
+  animation-name: drive;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+}
+
+.car-icon {
+  border-bottom: dashed 3px white;
+}
+
+.car-movment-options {
+  margin: 10px 0;
+}
+
+@keyframes drive {
+  from {
+      transform: translateX(0px);
+  }
+  to {
+      transform: translateX(1000px);
+  }
 }
