@@ -29,9 +29,10 @@
   margin: 100px 0;
 }
 
-.car-img {
+svg {
   width: 100px;
-  margin-bottom: -10px;
+  height: 100px;
+  margin-bottom: -35px;
 }
 
 .animate {
