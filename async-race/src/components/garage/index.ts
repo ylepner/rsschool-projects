@@ -1,23 +1,11 @@
 import './style.css';
 import html from './index.html';
+import renderCar from '../car/car';
+import { Car } from '../../models/models';
 
 export default function renderGaragePage() {
   const template = document.createElement('div');
   template.innerHTML = html;
-  const carIcon = template.querySelector('svg') as SVGSVGElement;
-  const startBtn = template.querySelector('.a-btn') as HTMLButtonElement;
-  const restartBtn = template.querySelector('.b-btn') as HTMLButtonElement;
-  startBtn.addEventListener('click', () => {
-    carIcon.classList.add('animate');
-    carIcon.onanimationend = () => {
-      console.log('Animation ended');
-    };
-  });
-  restartBtn.addEventListener('click', () => {
-    carIcon.classList.remove('animate');
-  });
-  const carSVG = template.querySelector('g');
-  carSVG.style.fill = 'orange';
 
   // fetch('http://localhost:3000/garage', {
   //   method: 'POST',
@@ -26,5 +14,18 @@ export default function renderGaragePage() {
   //   },
   //   body: JSON.stringify({ name: 'New car 42', color: '#ff00ff00' }),
   // });
+
+  async function getAndSetCars() {
+    const url = 'http://localhost:3000/garage';
+    const result = await fetch(url);
+    const data = await result.json();
+    data.forEach((el: Car) => {
+      template.querySelector('.garage').appendChild(renderCar(el));
+    });
+    return data;
+  }
+
+  getAndSetCars();
+
   return template;
 }

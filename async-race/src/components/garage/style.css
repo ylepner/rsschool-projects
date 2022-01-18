@@ -28,32 +28,3 @@
 .garage {
   margin: 100px 0;
 }
-
-svg {
-  width: 100px;
-  height: 100px;
-  margin-bottom: -35px;
-}
-
-.animate {
-  animation-name: drive;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-}
-
-.car-icon {
-  border-bottom: dashed 3px white;
-}
-
-.car-movment-options {
-  margin: 10px 0;
-}
-
-@keyframes drive {
-  from {
-      transform: translateX(0px);
-  }
-  to {
-      transform: translateX(1000px);
-  }
-}
