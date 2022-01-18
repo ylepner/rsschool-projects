@@ -9,7 +9,7 @@ export async function getCarsInGarage() {
 }
 
 export async function createCar(car: CreateCarRequest): Promise<Car> {
-  const result = await fetch('http://localhost:3000/garage', {
+  const result = await fetch(`${API_ENDPOINT}/garage`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,4 +18,10 @@ export async function createCar(car: CreateCarRequest): Promise<Car> {
   });
   const data = await result.json() as Car;
   return data;
+}
+
+export async function removeCar(carId: number): Promise<void> {
+  await fetch(`${API_ENDPOINT}/garage/${carId}`, {
+    method: 'DELETE',
+  });
 }

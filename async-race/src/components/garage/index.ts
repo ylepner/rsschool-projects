@@ -2,7 +2,7 @@ import './style.css';
 import html from './index.html';
 import renderCar from '../car/car';
 import { Car, CreateCarRequest } from '../../models/models';
-import { createCar, getCarsInGarage } from '../../garage-api';
+import { createCar, getCarsInGarage, removeCar } from '../../garage-api';
 
 export default function renderGaragePage() {
   const template = document.createElement('div');
@@ -20,15 +20,7 @@ export default function renderGaragePage() {
   // create car
 
   const inputCreateCar = template.querySelector('.create-input') as HTMLInputElement;
-  inputCreateCar.addEventListener('change', () => {
-    const newCarName = inputCreateCar.value;
-  });
-
   const colorSelector = template.querySelector('.color-create') as HTMLInputElement;
-  colorSelector.addEventListener('change', () => {
-    const carColor = colorSelector.value;
-  });
-
   const createBtn = template.querySelector('.create-btn') as HTMLButtonElement;
   createBtn.addEventListener('click', () => {
     addCarToServer();
@@ -46,9 +38,18 @@ export default function renderGaragePage() {
     renderCarRow(newCar);
   }
 
-  function renderCarRow(el: Car) {
-    template.querySelector('.garage').appendChild(renderCar(el));
+  function renderCarRow(car: Car) {
+    const el = renderCar({
+      car,
+      onRemove: async () => {
+        await removeCar(car.id);
+        el.remove();
+      },
+    });
+    template.querySelector('.garage').appendChild(el);
   }
+
+  // remove car
 
   return template;
 }

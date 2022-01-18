@@ -2,7 +2,13 @@ import './style.css';
 import html from './index.html';
 import { Car } from '../../models/models';
 
-export default function renderCar(car: Car) {
+export interface CarComponentParams {
+  car: Car;
+  onSelect?: () => void;
+  onRemove?: () => void;
+}
+export default function renderCar(params: CarComponentParams) {
+  const { car } = params;
   const template = document.createElement('div');
   template.innerHTML = html;
   const carIcon = template.querySelector('svg') as SVGSVGElement;
@@ -22,5 +28,9 @@ export default function renderCar(car: Car) {
   carName.innerHTML = car.name;
   const carSVG = template.querySelector('g');
   carSVG.style.fill = car.color;
+  const removeBtn = template.querySelector('.remove-btn') as HTMLButtonElement;
+  removeBtn.addEventListener('click', () => {
+    params?.onRemove();
+  });
   return template;
 }
