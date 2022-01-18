@@ -1,49 +1,53 @@
 import './style.css';
 import html from './index.html';
 import renderCar from '../car/car';
-import { Car } from '../../models/models';
+import { Car, CreateCarRequest } from '../../models/models';
+import { createCar, getCarsInGarage } from '../../garage-api';
 
 export default function renderGaragePage() {
   const template = document.createElement('div');
   template.innerHTML = html;
 
-  // fetch('http://localhost:3000/garage', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify({ name: 'New car 42', color: '#ff00ff00' }),
-  // });
-
   async function getAndSetCars() {
-    const url = 'http://localhost:3000/garage';
-    const result = await fetch(url);
-    const data = await result.json();
+    const data = await getCarsInGarage();
     data.forEach((el: Car) => {
-      template.querySelector('.garage').appendChild(renderCar(el));
+      renderCarRow(el);
     });
-    return data;
   }
 
   getAndSetCars();
 
-  // const colorSelector = template.querySelector('.color-update') as HTMLInputElement;
-  // colorSelector.addEventListener('change', () => {
-  //   carSVG.style.fill = colorSelector.value;
-  // });
+  // create car
 
   const inputCreateCar = template.querySelector('.create-input') as HTMLInputElement;
   inputCreateCar.addEventListener('change', () => {
     const newCarName = inputCreateCar.value;
   });
 
+  const colorSelector = template.querySelector('.color-create') as HTMLInputElement;
+  colorSelector.addEventListener('change', () => {
+    const carColor = colorSelector.value;
+  });
+
   const createBtn = template.querySelector('.create-btn') as HTMLButtonElement;
   createBtn.addEventListener('click', () => {
     addCarToServer();
-  })
+  });
 
-  function addCarToServer() {
+  async function addCarToServer() {
+    if (!inputCreateCar.value) {
+      alert('No name')
+    }
+    const req: CreateCarRequest = {
+      color: colorSelector.value,
+      name: inputCreateCar.value,
+    };
+    const newCar = await createCar(req);
+    renderCarRow(newCar);
+  }
 
+  function renderCarRow(el: Car) {
+    template.querySelector('.garage').appendChild(renderCar(el));
   }
 
   return template;
