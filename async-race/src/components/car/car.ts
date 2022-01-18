@@ -22,9 +22,5 @@ export default function renderCar(car: Car) {
   carName.innerHTML = car.name;
   const carSVG = template.querySelector('g');
   carSVG.style.fill = car.color;
-  // const colorSelector = template.querySelector('.color-update') as HTMLInputElement;
-  // colorSelector.addEventListener('change', () => {
-  //   carSVG.style.fill = colorSelector.value;
-  // });
   return template;
 }

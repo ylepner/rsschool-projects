@@ -27,5 +27,24 @@ export default function renderGaragePage() {
 
   getAndSetCars();
 
+  // const colorSelector = template.querySelector('.color-update') as HTMLInputElement;
+  // colorSelector.addEventListener('change', () => {
+  //   carSVG.style.fill = colorSelector.value;
+  // });
+
+  const inputCreateCar = template.querySelector('.create-input') as HTMLInputElement;
+  inputCreateCar.addEventListener('change', () => {
+    const newCarName = inputCreateCar.value;
+  });
+
+  const createBtn = template.querySelector('.create-btn') as HTMLButtonElement;
+  createBtn.addEventListener('click', () => {
+    addCarToServer();
+  })
+
+  function addCarToServer() {
+
+  }
+
   return template;
 }
