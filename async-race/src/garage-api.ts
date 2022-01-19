@@ -2,7 +2,7 @@ import { Car, CreateCarRequest } from './models/models';
 
 const API_ENDPOINT = 'http://localhost:3000';
 
-export async function getCarsInGarage() {
+export async function getCarsInGarage(req?: { page?: number, limit?: number }) {
   const result = await fetch(`${API_ENDPOINT}/garage`);
   const data = await result.json() as Car[];
   return data;
@@ -24,4 +24,16 @@ export async function removeCar(carId: number): Promise<void> {
   await fetch(`${API_ENDPOINT}/garage/${carId}`, {
     method: 'DELETE',
   });
+}
+
+export async function updateCar(car: Car): Promise<Car> {
+  const result = await fetch(`${API_ENDPOINT}/garage/${car.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(car),
+  });
+  const data = await result.json() as Car;
+  return data;
 }

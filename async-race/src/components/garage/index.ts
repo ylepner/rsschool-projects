@@ -2,7 +2,7 @@ import './style.css';
 import html from './index.html';
 import renderCar from '../car/car';
 import { Car, CreateCarRequest } from '../../models/models';
-import { createCar, getCarsInGarage, removeCar } from '../../garage-api';
+import { createCar, getCarsInGarage, removeCar, updateCar } from '../../garage-api';
 
 export default function renderGaragePage() {
   const template = document.createElement('div');
@@ -21,10 +21,13 @@ export default function renderGaragePage() {
 
   const inputCreateCar = template.querySelector('.create-input') as HTMLInputElement;
   const colorSelector = template.querySelector('.color-create') as HTMLInputElement;
+  const inputUpdateCar = template.querySelector('.update-input') as HTMLInputElement;
+  const colorSelectorUpdate = template.querySelector('.color-update') as HTMLInputElement;
   const createBtn = template.querySelector('.create-btn') as HTMLButtonElement;
   createBtn.addEventListener('click', () => {
     addCarToServer();
   });
+  const updateBtn = template.querySelector('.update-btn') as HTMLButtonElement;
 
   async function addCarToServer() {
     if (!inputCreateCar.value) {
@@ -44,6 +47,19 @@ export default function renderGaragePage() {
       onRemove: async () => {
         await removeCar(car.id);
         el.remove();
+      },
+      onSelect: async () => {
+        updateBtn.addEventListener('click', async () => {
+          const updatedCar: Car = {
+            color: colorSelectorUpdate.value,
+            name: inputUpdateCar.value,
+            id: car.id,
+          };
+          await updateCar(updatedCar);
+          el.querySelector('g').style.fill = colorSelectorUpdate.value;
+          const name = el.querySelector('.car-name') as HTMLElement;
+          name.innerHTML = inputUpdateCar.value;
+        });
       },
     });
     template.querySelector('.garage').appendChild(el);

@@ -1,6 +1,7 @@
 import './style.css';
 import html from './index.html';
 import { Car } from '../../models/models';
+import { updateCar } from '../../garage-api';
 
 export interface CarComponentParams {
   car: Car;
@@ -31,6 +32,10 @@ export default function renderCar(params: CarComponentParams) {
   const removeBtn = template.querySelector('.remove-btn') as HTMLButtonElement;
   removeBtn.addEventListener('click', () => {
     params?.onRemove();
+  });
+  const selectBtn = template.querySelector('.select-btn') as HTMLButtonElement;
+  selectBtn.addEventListener('click', () => {
+    params?.onSelect();
   });
   return template;
 }
