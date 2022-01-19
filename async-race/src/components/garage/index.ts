@@ -72,7 +72,10 @@ export default function renderGaragePage() {
   // race button
 
   const raceBtn = template.querySelector('.race-btn') as HTMLButtonElement;
+  const resetBtn = template.querySelector('.reset-btn') as HTMLButtonElement;
   raceBtn.addEventListener('click', () => {
+    resetBtn.classList.toggle('not-clickable');
+    raceBtn.classList.toggle('not-clickable');
     template.querySelectorAll('svg').forEach((el: SVGSVGElement) => {
       el.classList.add('animate');
       el.onanimationend = () => {
@@ -80,8 +83,10 @@ export default function renderGaragePage() {
       };
     });
   });
-  const resetBtn = template.querySelector('.reset-btn') as HTMLButtonElement;
+
   resetBtn.addEventListener('click', () => {
+    raceBtn.classList.toggle('not-clickable');
+    resetBtn.classList.toggle('not-clickable');
     template.querySelectorAll('svg').forEach((el: SVGSVGElement) => {
       el.classList.remove('stop-car');
       el.classList.remove('animate');

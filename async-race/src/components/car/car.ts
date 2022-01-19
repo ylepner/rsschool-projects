@@ -17,11 +17,15 @@ export default function renderCar(params: CarComponentParams) {
   const restartBtn = template.querySelector('.b-btn') as HTMLButtonElement;
   startBtn.addEventListener('click', () => {
     carIcon.classList.add('animate');
+    startBtn.classList.toggle('not-clickable');
+    restartBtn.classList.toggle('not-clickable');
     carIcon.onanimationend = () => {
       carIcon.classList.add('stop-car');
     };
   });
   restartBtn.addEventListener('click', () => {
+    startBtn.classList.toggle('not-clickable');
+    restartBtn.classList.toggle('not-clickable');
     carIcon.classList.remove('stop-car');
     carIcon.classList.remove('animate');
   });
