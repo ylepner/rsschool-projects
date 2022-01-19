@@ -15,10 +15,6 @@ svg {
   border-bottom: dashed 3px white;
 }
 
-.car-movement-options {
-  margin: 10px 0;
-}
-
 @keyframes drive {
   from {
       transform: translateX(0px);
@@ -36,7 +32,23 @@ svg {
   margin-top: 15px;
 }
 
+.flag {
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+  align-items: end;
+}
+
 .flag img {
   width: 30px;
   height: 30px;
+}
+
+.car-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.car-icon {
+  margin-bottom: -10px;
 }
