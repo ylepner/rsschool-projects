@@ -1,3 +1,13 @@
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
+}
+
 .white {
   color:white;
 }
@@ -27,4 +37,8 @@
 
 .garage {
   margin: 100px 0;
+}
+
+.blue {
+  background: #abcae5;
 }

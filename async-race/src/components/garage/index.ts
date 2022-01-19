@@ -19,8 +19,6 @@ export default function renderGaragePage() {
 
   getAndSetCars();
 
-  // create car
-
   const inputCreateCar = template.querySelector('.create-input') as HTMLInputElement;
   const colorSelector = template.querySelector('.color-create') as HTMLInputElement;
   const inputUpdateCar = template.querySelector('.update-input') as HTMLInputElement;
@@ -30,6 +28,8 @@ export default function renderGaragePage() {
     addCarToServer();
   });
   const updateBtn = template.querySelector('.update-btn') as HTMLButtonElement;
+
+  // create car
 
   async function addCarToServer() {
     if (!inputCreateCar.value) {
@@ -87,5 +87,6 @@ export default function renderGaragePage() {
       el.classList.remove('animate');
     });
   });
+
   return template;
 }

@@ -36,6 +36,7 @@ export default function renderCar(params: CarComponentParams) {
   const selectBtn = template.querySelector('.select-btn') as HTMLButtonElement;
   selectBtn.addEventListener('click', () => {
     params?.onSelect();
+    // template.querySelector('.update').classList.remove('.not-clickable');
   });
   return template;
 }
