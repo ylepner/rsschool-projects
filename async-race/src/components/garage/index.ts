@@ -2,7 +2,9 @@ import './style.css';
 import html from './index.html';
 import renderCar from '../car/car';
 import { Car, CreateCarRequest } from '../../models/models';
-import { createCar, getCarsInGarage, removeCar, updateCar } from '../../garage-api';
+import {
+  createCar, getCarsInGarage, removeCar, updateCar,
+} from '../../garage-api';
 
 export default function renderGaragePage() {
   const template = document.createElement('div');
@@ -31,7 +33,7 @@ export default function renderGaragePage() {
 
   async function addCarToServer() {
     if (!inputCreateCar.value) {
-      alert('No name')
+      alert('No name');
     }
     const req: CreateCarRequest = {
       color: colorSelector.value,
@@ -40,6 +42,8 @@ export default function renderGaragePage() {
     const newCar = await createCar(req);
     renderCarRow(newCar);
   }
+
+  // update, remove car
 
   function renderCarRow(car: Car) {
     const el = renderCar({
@@ -65,7 +69,23 @@ export default function renderGaragePage() {
     template.querySelector('.garage').appendChild(el);
   }
 
-  // remove car
+  // race button
 
+  const raceBtn = template.querySelector('.race-btn') as HTMLButtonElement;
+  raceBtn.addEventListener('click', () => {
+    template.querySelectorAll('svg').forEach((el: SVGSVGElement) => {
+      el.classList.add('animate');
+      el.onanimationend = () => {
+        el.classList.add('stop-car');
+      };
+    });
+  });
+  const resetBtn = template.querySelector('.reset-btn') as HTMLButtonElement;
+  resetBtn.addEventListener('click', () => {
+    template.querySelectorAll('svg').forEach((el: SVGSVGElement) => {
+      el.classList.remove('stop-car');
+      el.classList.remove('animate');
+    });
+  });
   return template;
 }
