@@ -10,7 +10,8 @@ svg {
   animation-timing-function: linear;
 }
 
-.car-icon {
+.car-movement {
+  display: flex;
   border-bottom: dashed 3px white;
 }
 
@@ -33,4 +34,9 @@ svg {
 
 .car-options {
   margin-top: 15px;
+}
+
+.flag img {
+  width: 30px;
+  height: 30px;
 }
