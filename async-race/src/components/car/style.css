@@ -10,22 +10,18 @@ svg {
   animation-timing-function: linear;
 }
 
-.car-movement {
-  display: flex;
+.car {
+  overflow: hidden;
   border-bottom: dashed 3px white;
 }
 
-@keyframes drive {
-  from {
-      transform: translateX(0px);
-  }
-  to {
-      transform: translateX(1000px);
-  }
+.car-movement {
+  display: flex;
+  margin-right: 60px;
 }
 
 .stop-car {
-  transform: translateX(1000px)
+  transform: translateX(100%)
 }
 
 .car-options {
@@ -33,10 +29,7 @@ svg {
 }
 
 .flag {
-  display: flex;
-  width: 50%;
-  justify-content: flex-end;
-  align-items: end;
+  transform: translateX(-40px);
 }
 
 .flag img {
@@ -45,8 +38,8 @@ svg {
 }
 
 .car-wrapper {
-  display: flex;
   width: 100%;
+  flex-grow: 1;
 }
 
 .car-icon {
@@ -62,3 +55,5 @@ svg {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
+
+

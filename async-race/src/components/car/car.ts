@@ -12,22 +12,23 @@ export default function renderCar(params: CarComponentParams) {
   const { car } = params;
   const template = document.createElement('div');
   template.innerHTML = html;
-  const carIcon = template.querySelector('svg') as SVGSVGElement;
+  // const carIcon = template.querySelector('svg') as SVGSVGElement;
+  const carWrapper = template.querySelector('.car-wrapper') as HTMLDivElement;
   const startBtn = template.querySelector('.a-btn') as HTMLButtonElement;
   const restartBtn = template.querySelector('.b-btn') as HTMLButtonElement;
   startBtn.addEventListener('click', () => {
-    carIcon.classList.add('animate');
+    carWrapper.classList.add('animate');
     startBtn.classList.toggle('not-clickable');
     restartBtn.classList.toggle('not-clickable');
-    carIcon.onanimationend = () => {
-      carIcon.classList.add('stop-car');
+    carWrapper.onanimationend = () => {
+      carWrapper.classList.add('stop-car');
     };
   });
   restartBtn.addEventListener('click', () => {
     startBtn.classList.toggle('not-clickable');
     restartBtn.classList.toggle('not-clickable');
-    carIcon.classList.remove('stop-car');
-    carIcon.classList.remove('animate');
+    carWrapper.classList.remove('stop-car');
+    carWrapper.classList.remove('animate');
   });
   const carName = template.querySelector('.car-name') as HTMLElement;
   carName.innerHTML = car.name;
