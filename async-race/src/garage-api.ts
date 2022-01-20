@@ -2,8 +2,8 @@ import { Car, CreateCarRequest } from './models/models';
 
 const API_ENDPOINT = 'http://localhost:3000';
 
-export async function getCarsInGarage(req?: { page?: number, limit?: number }) {
-  const result = await fetch(`${API_ENDPOINT}/garage`);
+export async function getCarsInGarage(req: { page: number, limit: number }) {
+  const result = await fetch(`${API_ENDPOINT}/garage?_page=${req.page}&_limit=${req.limit}`);
   const data = await result.json() as Car[];
   return data;
 }

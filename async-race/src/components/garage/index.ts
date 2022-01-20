@@ -11,7 +11,7 @@ export default function renderGaragePage() {
   template.innerHTML = html;
 
   async function getAndSetCars() {
-    const data = await getCarsInGarage();
+    const data = await getCarsInGarage({ page: 0, limit: 7 });
     data.forEach((el: Car) => {
       renderCarRow(el);
     });
@@ -34,6 +34,7 @@ export default function renderGaragePage() {
   async function addCarToServer() {
     if (!inputCreateCar.value) {
       alert('No name');
+      return;
     }
     const req: CreateCarRequest = {
       color: colorSelector.value,
