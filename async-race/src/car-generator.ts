@@ -1,3 +1,5 @@
+import { Car, CreateCarRequest } from './models/models';
+
 const carModels = ['Alfa Romeo Spider',
   'Audi 80 and 90',
   'Audi Coupé',
@@ -55,13 +57,11 @@ const carModels = ['Alfa Romeo Spider',
   'Ford Crown Victoria',
   'Ford E-Series',
   'Ford Escort',
-  '(North America)',
   'Ford Explorer',
   'Ford F-Series',
   'Ford Falcon',
   'Ford Fiesta',
   'Ford Focus',
-  'Ford Granada (North America)',
   'Ford LTD',
   'Ford Mustang',
   'Ford Puma',
@@ -145,12 +145,10 @@ const carModels = ['Alfa Romeo Spider',
   'Nissan Z-cars',
   'Oldsmobile Aurora',
   'Oldsmobile Cutlass',
-  'Oldsmobile 88',
   'Opel Ascona',
   'Opel Astra',
   'Opel Corsa',
   'Opel Vectra',
-  'Oreca 07',
   'Packard Eight',
   'Plymouth Fury',
   'Plymouth Voyager',
@@ -165,12 +163,10 @@ const carModels = ['Alfa Romeo Spider',
   'Porsche Cayenne',
   'Porsche Panamera',
   'Rambler Classic',
-  'Renault 5',
   'Renault Clio',
   'Renault Twingo',
   'Renault Twizy',
   'Renault Zoe',
-  'Rover 800',
   'Saturn S-Series',
   'SEAT Ibiza',
   'Škoda Octavia',
@@ -195,5 +191,19 @@ const carModels = ['Alfa Romeo Spider',
   'Volkswagen Gol',
   'Volkswagen Golf',
   'Volkswagen Jetta',
-  'Volkswagen Passat',
-  'Yugo'];
+  'Volkswagen Passat'];
+
+export function getRandomCar(): CreateCarRequest {
+  return {
+    name: randomModel(),
+    color: randomColor(),
+  };
+}
+
+function randomModel() {
+  return carModels[Math.floor(Math.random() * carModels.length)];
+}
+
+function randomColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}

@@ -5,6 +5,7 @@ import { Car, CreateCarRequest } from '../../models/models';
 import {
   createCar, getCarsInGarage, removeCar, updateCar,
 } from '../../garage-api';
+import { getRandomCar } from '../../car-generator';
 
 export default function renderGaragePage() {
   const template = document.createElement('div');
@@ -25,21 +26,17 @@ export default function renderGaragePage() {
   const colorSelectorUpdate = template.querySelector('.color-update') as HTMLInputElement;
   const createBtn = template.querySelector('.create-btn') as HTMLButtonElement;
   createBtn.addEventListener('click', () => {
-    addCarToServer();
+    if (!inputCreateCar.value) {
+      alert('No name');
+      return;
+    }
+    addCarToServer({ color: colorSelector.value, name: inputCreateCar.value });
   });
   const updateBtn = template.querySelector('.update-btn') as HTMLButtonElement;
 
   // create car
 
-  async function addCarToServer() {
-    if (!inputCreateCar.value) {
-      alert('No name');
-      return;
-    }
-    const req: CreateCarRequest = {
-      color: colorSelector.value,
-      name: inputCreateCar.value,
-    };
+  async function addCarToServer(req: CreateCarRequest) {
     const newCar = await createCar(req);
     renderCarRow(newCar);
   }
@@ -105,6 +102,15 @@ export default function renderGaragePage() {
       el.classList.remove('stop-car');
       el.classList.remove('animate');
     });
+  });
+
+  // generate 100 cars
+
+  const generateCars = template.querySelector('.generate-btn') as HTMLButtonElement;
+  generateCars.addEventListener('click', () => {
+    for (let i = 0; i < 10; i += 1) {
+      addCarToServer(getRandomCar());
+    }
   });
 
   return template;
