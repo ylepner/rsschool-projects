@@ -6,16 +6,22 @@ import {
   createCar, getCarsInGarage, removeCar, updateCar,
 } from '../../garage-api';
 import { getRandomCar } from '../../car-generator';
+import { queryElement } from '../../utils';
 
+const PAGE_LIMIT = 7;
 export default function renderGaragePage() {
+  let currentPage = 1;
   const template = document.createElement('div');
   template.innerHTML = html;
 
   async function getAndSetCars() {
-    const data = await getCarsInGarage({ page: 0, limit: 7 });
-    data.forEach((el: Car) => {
+    const data = await getCarsInGarage({ page: currentPage, limit: PAGE_LIMIT });
+    template.querySelector('.garage').innerHTML = '';
+    data.cars.forEach((el: Car) => {
       renderCarRow(el);
     });
+    queryElement(template, 'span', '.cars-count').innerText = String(data.count);
+    queryElement(template, 'span', '.page-number').innerText = String(currentPage);
   }
 
   getAndSetCars();
@@ -37,8 +43,8 @@ export default function renderGaragePage() {
   // create car
 
   async function addCarToServer(req: CreateCarRequest) {
-    const newCar = await createCar(req);
-    renderCarRow(newCar);
+    await createCar(req);
+    getAndSetCars();
   }
 
   // update, remove car
@@ -111,6 +117,20 @@ export default function renderGaragePage() {
     for (let i = 0; i < 10; i += 1) {
       addCarToServer(getRandomCar());
     }
+  });
+
+  // next/prev page
+
+  const nextBtn = template.querySelector('.next-btn');
+  nextBtn.addEventListener('click', () => {
+    currentPage += 1;
+    getAndSetCars();
+  });
+
+  const prevBtn = template.querySelector('.prev-btn');
+  prevBtn.addEventListener('click', () => {
+    currentPage -= 1;
+    getAndSetCars();
   });
 
   return template;

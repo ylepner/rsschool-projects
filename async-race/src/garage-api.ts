@@ -1,11 +1,11 @@
-import { Car, CreateCarRequest } from './models/models';
+import { Car, CarResponse, CreateCarRequest } from './models/models';
 
 const API_ENDPOINT = 'http://localhost:3000';
 
-export async function getCarsInGarage(req: { page: number, limit: number }) {
+export async function getCarsInGarage(req: { page: number, limit: number }): Promise<CarResponse> {
   const result = await fetch(`${API_ENDPOINT}/garage?_page=${req.page}&_limit=${req.limit}`);
   const data = await result.json() as Car[];
-  return data;
+  return { cars: data, count: Number(result.headers.get('x-total-count')) };
 }
 
 export async function createCar(car: CreateCarRequest): Promise<Car> {
