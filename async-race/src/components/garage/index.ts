@@ -53,7 +53,8 @@ export default function renderGaragePage() {
         el.remove();
       },
       onSelect: async () => {
-        updateBtn.addEventListener('click', async () => {
+        template.querySelector('.update').classList.remove('not-clickable');
+        updateBtn.onclick = async () => {
           const updatedCar: Car = {
             color: colorSelectorUpdate.value,
             name: inputUpdateCar.value,
@@ -63,7 +64,7 @@ export default function renderGaragePage() {
           el.querySelector('g').style.fill = colorSelectorUpdate.value;
           const name = el.querySelector('.car-name') as HTMLElement;
           name.innerHTML = inputUpdateCar.value;
-        });
+        };
       },
     });
     template.querySelector('.garage').appendChild(el);
