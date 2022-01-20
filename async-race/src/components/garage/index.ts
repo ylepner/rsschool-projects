@@ -69,13 +69,19 @@ export default function renderGaragePage() {
     template.querySelector('.garage').appendChild(el);
   }
 
-  // race button
+  // race and reset button
 
   const raceBtn = template.querySelector('.race-btn') as HTMLButtonElement;
   const resetBtn = template.querySelector('.reset-btn') as HTMLButtonElement;
   raceBtn.addEventListener('click', () => {
     resetBtn.classList.toggle('not-clickable');
     raceBtn.classList.toggle('not-clickable');
+    template.querySelectorAll('.a-btn').forEach((el: HTMLButtonElement) => {
+      el.classList.add('not-clickable');
+    });
+    template.querySelectorAll('.b-btn').forEach((el: HTMLButtonElement) => {
+      el.classList.remove('not-clickable');
+    });
     template.querySelectorAll('svg').forEach((el: SVGSVGElement) => {
       el.classList.add('animate');
       el.onanimationend = () => {
@@ -87,6 +93,12 @@ export default function renderGaragePage() {
   resetBtn.addEventListener('click', () => {
     raceBtn.classList.toggle('not-clickable');
     resetBtn.classList.toggle('not-clickable');
+    template.querySelectorAll('.a-btn').forEach((el: HTMLButtonElement) => {
+      el.classList.remove('not-clickable');
+    });
+    template.querySelectorAll('.b-btn').forEach((el: HTMLButtonElement) => {
+      el.classList.add('not-clickable');
+    });
     template.querySelectorAll('svg').forEach((el: SVGSVGElement) => {
       el.classList.remove('stop-car');
       el.classList.remove('animate');
