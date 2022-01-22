@@ -7,5 +7,5 @@ export function queryElement<T extends keyof HTMLElementTagNameMap>(
   if (result.tagName.toLowerCase() !== expectedElementType) {
     throw new Error(`Expected ${expectedElementType} but got ${result.tagName}`);
   }
-  return result as any;
+  return result as HTMLElementTagNameMap[T];
 }
