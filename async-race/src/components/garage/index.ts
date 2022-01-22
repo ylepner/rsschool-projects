@@ -73,6 +73,9 @@ export default function renderGaragePage() {
       onSelect: async () => {
         template.querySelector('.update').classList.remove('not-clickable');
         updateBtn.onclick = async () => {
+          const updateInput = template.querySelector('.update-input') as HTMLInputElement;
+          updateInput.value = '';
+          template.querySelector('.update').classList.add('not-clickable');
           const updatedCar: Car = {
             color: colorSelectorUpdate.value,
             name: inputUpdateCar.value,
