@@ -19,7 +19,23 @@ export default function renderGaragePage() {
     template.querySelector('.garage').innerHTML = '';
     carRows = data.cars.map((el: Car) => renderCarRow(el));
     queryElement(template, 'span', '.cars-count').innerText = String(data.count);
-    queryElement(template, 'span', '.page-number').innerText = String(currentPage);
+    updateButtons(data.count);
+  }
+
+  function updateButtons(count: number) {
+    if (currentPage === 1) {
+      queryElement(template, 'span', '.page-number').innerText = String(currentPage);
+      prevBtn.classList.add('not-clickable');
+    }
+    if (currentPage > 1) {
+      queryElement(template, 'span', '.page-number').innerText = String(currentPage);
+      prevBtn.classList.remove('not-clickable');
+    }
+    if (currentPage >= (count / PAGE_LIMIT)) {
+      nextBtn.classList.add('not-clickable');
+    } else {
+      nextBtn.classList.remove('not-clickable');
+    }
   }
 
   getAndSetCars();
@@ -112,8 +128,10 @@ export default function renderGaragePage() {
 
   const prevBtn = template.querySelector('.prev-btn');
   prevBtn.addEventListener('click', () => {
-    currentPage -= 1;
-    getAndSetCars();
+    if (currentPage >= 1) {
+      currentPage -= 1;
+      getAndSetCars();
+    }
   });
 
   return template;
