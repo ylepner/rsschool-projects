@@ -1,4 +1,6 @@
-import { Car, CarResponse, CreateCarRequest } from './models/models';
+import {
+  Car, CarResponse, CreateCarRequest, RideParams,
+} from './models/models';
 
 const API_ENDPOINT = 'http://localhost:3000';
 
@@ -36,4 +38,26 @@ export async function updateCar(car: Car): Promise<Car> {
   });
   const data = await result.json() as Car;
   return data;
+}
+
+async function startStopEngine(carId: number, status: 'started' | 'stopped'): Promise<RideParams> {
+  const result = await fetch(`${API_ENDPOINT}/engine?id=${carId}&status=${status}`, {
+    method: 'PATCH',
+  });
+  const data = await result.json() as RideParams;
+  return data;
+}
+
+export async function startDrive(carId: number) {
+  const result = await fetch(`${API_ENDPOINT}/engine?id=${carId}&status=drive`, {
+    method: 'PATCH',
+  });
+  if (result.ok) {
+    return true;
+  }
+  return false;
+}
+
+export function startEngine(carId: number) {
+  return startStopEngine(carId, 'started');
 }

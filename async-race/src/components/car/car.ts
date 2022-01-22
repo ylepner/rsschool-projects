@@ -1,7 +1,7 @@
 import './style.css';
 import html from './index.html';
-import { Car } from '../../models/models';
-import { updateCar } from '../../garage-api';
+import { Car, RideParams } from '../../models/models';
+import { startDrive, startEngine, updateCar } from '../../garage-api';
 
 export interface CarComponentParams {
   car: Car;
@@ -16,8 +16,10 @@ export default function renderCar(params: CarComponentParams) {
   const carWrapper = template.querySelector('.car-wrapper') as HTMLDivElement;
   const startBtn = template.querySelector('.a-btn') as HTMLButtonElement;
   const restartBtn = template.querySelector('.b-btn') as HTMLButtonElement;
-  startBtn.addEventListener('click', () => {
-    startDriveCar();
+  startBtn.addEventListener('click', async () => {
+    // startDriveCar();
+    const driveFn = await rideCar();
+    driveFn();
   });
   restartBtn.addEventListener('click', () => {
     restart();
@@ -34,23 +36,47 @@ export default function renderCar(params: CarComponentParams) {
   selectBtn.addEventListener('click', () => {
     params?.onSelect();
   });
-  function startDriveCar() {
+
+  async function rideCar() {
+    const rideParams = await startEngine(car.id);
+    return async () => {
+      const now = performance.now();
+      const time = startDriveCar(rideParams);
+      const rideResult = await startDrive(car.id);
+      if (!rideResult) {
+        const end = performance.now();
+        const diffSec = (end - now) / 1000;
+        const timePercents = (diffSec * 100) / time;
+
+        carWrapper.style.transform = `translateX(${timePercents}%)`;
+        carWrapper.classList.remove('stop-car');
+      }
+      return {
+        time,
+        rideResult,
+      };
+    };
+  }
+
+  function startDriveCar(rideParams: RideParams) {
+    const time = rideParams.distance / rideParams.velocity / 1000;
+    carWrapper.style.transitionDuration = `${time}s`;
     carWrapper.classList.add('stop-car');
     startBtn.classList.add('not-clickable');
     restartBtn.classList.remove('not-clickable');
-    carWrapper.onanimationend = () => {
-      carWrapper.classList.add('stop-car');
-    };
+    return time;
   }
   function restart() {
+    carWrapper.style.transform = undefined;
+    carWrapper.style.transitionDuration = '0s';
     startBtn.classList.remove('not-clickable');
     restartBtn.classList.add('not-clickable');
     carWrapper.classList.remove('stop-car');
-    carWrapper.classList.remove('animate');
   }
   return {
     template,
     startDriveCar,
     restart,
+    rideCar,
   };
 }

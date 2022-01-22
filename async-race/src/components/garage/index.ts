@@ -100,7 +100,10 @@ export default function renderGaragePage() {
     raceBtn.classList.add('not-clickable');
     resetBtn.classList.remove('not-clickable');
     carRows.forEach((el) => {
-      el.startDriveCar();
+      el.startDriveCar({
+        distance: 10000,
+        velocity: 33,
+      });
     });
   });
 

@@ -13,3 +13,8 @@ export interface CarResponse {
   cars: Car[];
   count: number;
 }
+
+export interface RideParams {
+  velocity: number;
+  distance: number;
+}
