@@ -96,15 +96,15 @@ export default function renderGaragePage() {
 
   const raceBtn = template.querySelector('.race-btn') as HTMLButtonElement;
   const resetBtn = template.querySelector('.reset-btn') as HTMLButtonElement;
-  raceBtn.addEventListener('click', () => {
+  raceBtn.addEventListener('click', async () => {
     raceBtn.classList.add('not-clickable');
     resetBtn.classList.remove('not-clickable');
-    carRows.forEach((el) => {
-      el.startDriveCar({
-        distance: 10000,
-        velocity: 33,
-      });
-    });
+    const startedCars = carRows.map((el) => el.rideCar());
+    const result = await Promise.all(startedCars);
+    const promises = result.map((el) => el());
+    const raceResult = await Promise.all(promises);
+    const winner = raceResult.filter((el) => el.rideResult).sort((a, b) => a.time - b.time);
+    console.log(winner);
   });
 
   resetBtn.addEventListener('click', () => {

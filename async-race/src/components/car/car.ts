@@ -40,20 +40,20 @@ export default function renderCar(params: CarComponentParams) {
   async function rideCar() {
     const rideParams = await startEngine(car.id);
     return async () => {
-      const now = performance.now();
       const time = startDriveCar(rideParams);
+      const now = performance.now();
       const rideResult = await startDrive(car.id);
       if (!rideResult) {
         const end = performance.now();
         const diffSec = (end - now) / 1000;
         const timePercents = (diffSec * 100) / time;
-
         carWrapper.style.transform = `translateX(${timePercents}%)`;
         carWrapper.classList.remove('stop-car');
       }
       return {
         time,
         rideResult,
+        id: car.id,
       };
     };
   }
@@ -67,15 +67,14 @@ export default function renderCar(params: CarComponentParams) {
     return time;
   }
   function restart() {
-    carWrapper.style.transform = undefined;
-    carWrapper.style.transitionDuration = '0s';
+    carWrapper.style.removeProperty('transform');
+    carWrapper.style.removeProperty('transition-duration');
     startBtn.classList.remove('not-clickable');
     restartBtn.classList.add('not-clickable');
     carWrapper.classList.remove('stop-car');
   }
   return {
     template,
-    startDriveCar,
     restart,
     rideCar,
   };
