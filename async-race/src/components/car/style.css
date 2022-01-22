@@ -21,7 +21,9 @@ svg {
 }
 
 .stop-car {
-  transform: translateX(100%)
+  transform: translateX(100%);
+  transition: linear 3s;
+  transition-property: transform;
 }
 
 .car-options {
@@ -40,8 +42,6 @@ svg {
 .car-wrapper {
   width: 100%;
   flex-grow: 1;
-  transition: linear 3s;
-  transition-property: transform;
 }
 
 .car-icon {

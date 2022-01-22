@@ -13,13 +13,11 @@ export default function renderGaragePage() {
   let currentPage = 1;
   const template = document.createElement('div');
   template.innerHTML = html;
-
+  let carRows: Array<ReturnType<typeof renderCarRow>>;
   async function getAndSetCars() {
     const data = await getCarsInGarage({ page: currentPage, limit: PAGE_LIMIT });
     template.querySelector('.garage').innerHTML = '';
-    data.cars.forEach((el: Car) => {
-      renderCarRow(el);
-    });
+    carRows = data.cars.map((el: Car) => renderCarRow(el));
     queryElement(template, 'span', '.cars-count').innerText = String(data.count);
     queryElement(template, 'span', '.page-number').innerText = String(currentPage);
   }
@@ -54,7 +52,7 @@ export default function renderGaragePage() {
       car,
       onRemove: async () => {
         await removeCar(car.id);
-        el.remove();
+        el.template.remove();
       },
       onSelect: async () => {
         template.querySelector('.update').classList.remove('not-clickable');
@@ -65,13 +63,14 @@ export default function renderGaragePage() {
             id: car.id,
           };
           await updateCar(updatedCar);
-          el.querySelector('g').style.fill = colorSelectorUpdate.value;
-          const name = el.querySelector('.car-name') as HTMLElement;
+          el.template.querySelector('g').style.fill = colorSelectorUpdate.value;
+          const name = el.template.querySelector('.car-name') as HTMLElement;
           name.innerHTML = inputUpdateCar.value;
         };
       },
     });
-    template.querySelector('.garage').appendChild(el);
+    template.querySelector('.garage').appendChild(el.template);
+    return el;
   }
 
   // race and reset button
@@ -79,34 +78,18 @@ export default function renderGaragePage() {
   const raceBtn = template.querySelector('.race-btn') as HTMLButtonElement;
   const resetBtn = template.querySelector('.reset-btn') as HTMLButtonElement;
   raceBtn.addEventListener('click', () => {
-    resetBtn.classList.toggle('not-clickable');
-    raceBtn.classList.toggle('not-clickable');
-    template.querySelectorAll('.a-btn').forEach((el: HTMLButtonElement) => {
-      el.classList.add('not-clickable');
-    });
-    template.querySelectorAll('.b-btn').forEach((el: HTMLButtonElement) => {
-      el.classList.remove('not-clickable');
-    });
-    template.querySelectorAll('svg').forEach((el: SVGSVGElement) => {
-      el.classList.add('animate');
-      el.onanimationend = () => {
-        el.classList.add('stop-car');
-      };
+    raceBtn.classList.add('not-clickable');
+    resetBtn.classList.remove('not-clickable');
+    carRows.forEach((el) => {
+      el.startDriveCar();
     });
   });
 
   resetBtn.addEventListener('click', () => {
-    raceBtn.classList.toggle('not-clickable');
-    resetBtn.classList.toggle('not-clickable');
-    template.querySelectorAll('.a-btn').forEach((el: HTMLButtonElement) => {
-      el.classList.remove('not-clickable');
-    });
-    template.querySelectorAll('.b-btn').forEach((el: HTMLButtonElement) => {
-      el.classList.add('not-clickable');
-    });
-    template.querySelectorAll('svg').forEach((el: SVGSVGElement) => {
-      el.classList.remove('stop-car');
-      el.classList.remove('animate');
+    raceBtn.classList.remove('not-clickable');
+    resetBtn.classList.add('not-clickable');
+    carRows.forEach((el) => {
+      el.restart();
     });
   });
 

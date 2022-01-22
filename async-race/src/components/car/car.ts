@@ -17,18 +17,10 @@ export default function renderCar(params: CarComponentParams) {
   const startBtn = template.querySelector('.a-btn') as HTMLButtonElement;
   const restartBtn = template.querySelector('.b-btn') as HTMLButtonElement;
   startBtn.addEventListener('click', () => {
-    carWrapper.classList.add('animate');
-    startBtn.classList.toggle('not-clickable');
-    restartBtn.classList.toggle('not-clickable');
-    carWrapper.onanimationend = () => {
-      carWrapper.classList.add('stop-car');
-    };
+    startDriveCar();
   });
   restartBtn.addEventListener('click', () => {
-    startBtn.classList.toggle('not-clickable');
-    restartBtn.classList.toggle('not-clickable');
-    carWrapper.classList.remove('stop-car');
-    carWrapper.classList.remove('animate');
+    restart();
   });
   const carName = template.querySelector('.car-name') as HTMLElement;
   carName.innerHTML = car.name;
@@ -41,7 +33,24 @@ export default function renderCar(params: CarComponentParams) {
   const selectBtn = template.querySelector('.select-btn') as HTMLButtonElement;
   selectBtn.addEventListener('click', () => {
     params?.onSelect();
-    // template.querySelector('.update').classList.remove('.not-clickable');
   });
-  return template;
+  function startDriveCar() {
+    carWrapper.classList.add('stop-car');
+    startBtn.classList.add('not-clickable');
+    restartBtn.classList.remove('not-clickable');
+    carWrapper.onanimationend = () => {
+      carWrapper.classList.add('stop-car');
+    };
+  }
+  function restart() {
+    startBtn.classList.remove('not-clickable');
+    restartBtn.classList.add('not-clickable');
+    carWrapper.classList.remove('stop-car');
+    carWrapper.classList.remove('animate');
+  }
+  return {
+    template,
+    startDriveCar,
+    restart,
+  };
 }
