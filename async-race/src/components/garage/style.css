@@ -46,3 +46,17 @@ input {
 .blue {
   background: #abcae5;
 }
+
+.winner-info {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  left: 50%;
+  font-size: 3rem;
+  font-weight: bold;
+  transform: translateX(-50%);
+}
+
+.winner-info.disabled {
+  display: none;
+}

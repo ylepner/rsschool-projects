@@ -102,12 +102,13 @@ export default function renderGaragePage() {
     const startedCars = carRows.map((el) => el.rideCar());
     const result = await Promise.all(startedCars);
     const promises = result.map((el) => el());
-    const raceResult = await Promise.all(promises);
-    const winner = raceResult.filter((el) => el.rideResult).sort((a, b) => a.time - b.time);
-    console.log(winner);
+    const winner = await promiseAnyWithResult(promises, (el) => el.rideResult);
+    template.querySelector('.winner-info').classList.remove('disabled');
+    template.querySelector('.winner-info').innerHTML = `${winner.car.name} WON! 🏆 Time ${Math.floor(winner.time * 100) / 100}`;
   });
 
   resetBtn.addEventListener('click', () => {
+    template.querySelector('.winner-info').classList.add('disabled');
     raceBtn.classList.remove('not-clickable');
     resetBtn.classList.add('not-clickable');
     carRows.forEach((el) => {
@@ -119,6 +120,7 @@ export default function renderGaragePage() {
 
   const generateCars = template.querySelector('.generate-btn') as HTMLButtonElement;
   generateCars.addEventListener('click', () => {
+    template.querySelector('.winner-info').classList.add('disabled');
     for (let i = 0; i < 10; i += 1) {
       addCarToServer(getRandomCar());
     }
@@ -141,4 +143,21 @@ export default function renderGaragePage() {
   });
 
   return template;
+}
+
+function promiseAnyWithResult<T>(promises: Promise<T>[], filter: (el: T) => boolean): Promise<T> {
+  let flag = false;
+  return new Promise<T>((resolve) => {
+    promises.forEach((promise) => {
+      promise.then((result) => {
+        if (flag) {
+          return;
+        }
+        if (filter(result)) {
+          resolve(result);
+          flag = true;
+        }
+      });
+    });
+  });
 }

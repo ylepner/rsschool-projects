@@ -53,7 +53,7 @@ export default function renderCar(params: CarComponentParams) {
       return {
         time,
         rideResult,
-        id: car.id,
+        car,
       };
     };
   }
