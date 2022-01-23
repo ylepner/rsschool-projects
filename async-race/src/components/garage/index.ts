@@ -3,8 +3,8 @@ import html from './index.html';
 import renderCar from '../car/car';
 import { Car, CreateCarRequest } from '../../models/models';
 import {
-  createCar, getCarsInGarage, removeCar, updateCar,
-} from '../../garage-api';
+  createCar, getCarsInGarage, removeCar, updateCar, updateWins,
+} from '../../api';
 import { getRandomCar } from '../../car-generator';
 import { queryElement } from '../../utils';
 
@@ -105,6 +105,7 @@ export default function renderGaragePage() {
     const winner = await promiseAnyWithResult(promises, (el) => el.rideResult);
     template.querySelector('.winner-info').classList.remove('disabled');
     template.querySelector('.winner-info').innerHTML = `${winner.car.name} WON! 🏆 Time ${Math.floor(winner.time * 100) / 100}`;
+    updateWins(winner.car.id, winner.time);
   });
 
   resetBtn.addEventListener('click', () => {

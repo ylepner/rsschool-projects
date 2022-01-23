@@ -1,5 +1,5 @@
 import {
-  Car, CarResponse, CreateCarRequest, RideParams,
+  Car, CarResponse, CreateCarRequest, RideParams, Winner,
 } from './models/models';
 
 const API_ENDPOINT = 'http://localhost:3000';
@@ -60,4 +60,53 @@ export async function startDrive(carId: number) {
 
 export function startEngine(carId: number) {
   return startStopEngine(carId, 'started');
+}
+
+export async function getWinners(req: { page: number, limit?: number, sort?: 'id' | 'wins' | 'time', order: 'ASC' | 'DESC' }) {
+  const result = await fetch(`${API_ENDPOINT}/winners`);
+  const data = await result.json() as Winner[];
+  return { winners: data, count: Number(result.headers.get('x-total-count')) };
+}
+
+async function getWinner(carId: number) {
+  const result = await fetch(`${API_ENDPOINT}/winners/${carId}`);
+  if (!result.ok) {
+    return null;
+  }
+  const data = await result.json() as Winner;
+  return data;
+}
+
+async function createWinner(winner: Winner): Promise<Winner> {
+  const result = await fetch(`${API_ENDPOINT}/winners`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(winner),
+  });
+  const data = await result.json() as Winner;
+  return data;
+}
+
+async function updateWinner(winner: Winner) {
+  const result = await fetch(`${API_ENDPOINT}/winners/${winner.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(winner),
+  });
+  const data = await result.json() as Winner;
+  return { wins: data.wins, time: data.time };
+}
+
+export async function updateWins(carId: number, time: number) {
+  const winner = await getWinner(carId);
+  if (winner) {
+    winner.wins += 1;
+    await updateWinner(winner);
+  } else {
+    await createWinner({ id: carId, wins: 1, time });
+  }
 }

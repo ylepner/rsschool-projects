@@ -1,7 +1,7 @@
 import './style.css';
 import html from './index.html';
 import { Car, RideParams } from '../../models/models';
-import { startDrive, startEngine, updateCar } from '../../garage-api';
+import { startDrive, startEngine, updateCar } from '../../api';
 
 export interface CarComponentParams {
   car: Car;

@@ -18,3 +18,9 @@ export interface RideParams {
   velocity: number;
   distance: number;
 }
+
+export interface Winner {
+  id: number;
+  wins: number;
+  time: number;
+}

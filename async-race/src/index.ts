@@ -20,4 +20,4 @@ function goToWinnersPage() {
   document.querySelector('.main-container').appendChild(renderWinnersPage());
 }
 
-goToGaragePage();
+goToWinnersPage();

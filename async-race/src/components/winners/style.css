@@ -1,3 +1,8 @@
-h1 {
+h1, tr, td {
   color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+tr {
+  font-weight: bold;
 }
