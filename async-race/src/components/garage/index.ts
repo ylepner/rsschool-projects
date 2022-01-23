@@ -13,6 +13,8 @@ export default function renderGaragePage() {
   let currentPage = 1;
   const template = document.createElement('div');
   template.innerHTML = html;
+  document.querySelector('.go-to-winners').classList.remove('not-clickable');
+  document.querySelector('.go-to-garage').classList.add('not-clickable');
   let carRows: Array<ReturnType<typeof renderCarRow>>;
   async function getAndSetCars() {
     const data = await getCarsInGarage({ page: currentPage, limit: PAGE_LIMIT });
@@ -122,7 +124,7 @@ export default function renderGaragePage() {
   const generateCars = template.querySelector('.generate-btn') as HTMLButtonElement;
   generateCars.addEventListener('click', () => {
     template.querySelector('.winner-info').classList.add('disabled');
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < 100; i += 1) {
       addCarToServer(getRandomCar());
     }
   });

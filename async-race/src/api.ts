@@ -10,6 +10,12 @@ export async function getCarsInGarage(req: { page: number, limit: number }): Pro
   return { cars: data, count: Number(result.headers.get('x-total-count')) };
 }
 
+export async function getCar(carId: number) {
+  const result = await fetch(`${API_ENDPOINT}/garage/${carId}`);
+  const data = await result.json() as Car;
+  return data;
+}
+
 export async function createCar(car: CreateCarRequest): Promise<Car> {
   const result = await fetch(`${API_ENDPOINT}/garage`, {
     method: 'POST',
@@ -62,7 +68,7 @@ export function startEngine(carId: number) {
   return startStopEngine(carId, 'started');
 }
 
-export async function getWinners(req: { page: number, limit?: number, sort?: 'id' | 'wins' | 'time', order: 'ASC' | 'DESC' }) {
+export async function getWinners(req?: { page?: number, limit?: number, sort?: 'id' | 'wins' | 'time', order?: 'ASC' | 'DESC' }) {
   const result = await fetch(`${API_ENDPOINT}/winners`);
   const data = await result.json() as Winner[];
   return { winners: data, count: Number(result.headers.get('x-total-count')) };

@@ -1,36 +1,4 @@
-import './style.css';
-import html from './index.html';
-import { getCar, getWinners } from '../../api';
-
-export default function renderWinnersPage() {
-  const template = document.createElement('div');
-  template.innerHTML = html;
-  document.querySelector('.go-to-winners').classList.add('not-clickable');
-  document.querySelector('.go-to-garage').classList.remove('not-clickable');
-  const resultsTemplate = getWinnersArray().then((result) => result.map((res, i) => {
-    const table = template.querySelector('table') as HTMLTableElement;
-    const newTableRow = document.createElement('tr');
-    newTableRow.innerHTML = `<td>${i + 1}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
-    table.appendChild(newTableRow);
-  }));
-  return template;
-}
-
-async function getWinnersArray() {
-  const winners = await getWinners();
-  const carsArray = winners.winners.map(async (winner) => {
-    const car = await getCar(winner.id);
-    return {
-      ...car, ...winner,
-    };
-  });
-  const result = await Promise.all(carsArray);
-  console.log(result);
-  return result;
-}
-
-const iconSvg = `
-<svg class='winner-svg' version="1.0" xmlns="http://www.w3.org/2000/svg" width="1280.000000pt" height="640.000000pt"
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="1280.000000pt" height="640.000000pt"
   viewBox="0 0 1280.000000 640.000000" preserveAspectRatio="xMidYMid meet">
   <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)" fill="#cddc39" stroke="none">
     <path d="M3565 5336 c-106 -30 -101 -26 -108 -111 -4 -42 -9 -80 -12 -85 -6
@@ -125,4 +93,4 @@ l-15 -73 3006 7 c1653 4 3007 8 3009 9 1 1 -8 37 -20 81 -19 67 -22 105 -22
     <path d="M11033 1803 c-10 -3 -13 -47 -13 -169 0 -90 4 -164 8 -164 36 0 186
 61 239 98 16 10 -216 242 -234 235z" />
   </g>
-</svg>`;
+</svg>

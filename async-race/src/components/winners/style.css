@@ -6,3 +6,13 @@ h1, tr, td {
 tr {
   font-weight: bold;
 }
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+.winner-svg {
+  width: 60px;
+  height: 30px;
+}
