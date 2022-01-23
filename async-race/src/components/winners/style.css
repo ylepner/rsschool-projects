@@ -16,3 +16,11 @@ td {
   width: 60px;
   height: 30px;
 }
+
+table {
+  margin-bottom: 50px;
+}
+
+.pointer {
+  cursor: pointer;
+}

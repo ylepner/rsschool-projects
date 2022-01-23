@@ -7,12 +7,15 @@ export default function renderWinnersPage() {
   template.innerHTML = html;
   document.querySelector('.go-to-winners').classList.add('not-clickable');
   document.querySelector('.go-to-garage').classList.remove('not-clickable');
-  const resultsTemplate = getWinnersArray().then((result) => result.map((res, i) => {
+  getWinnersArray().then((result) => result.forEach((res, i) => {
     const table = template.querySelector('table') as HTMLTableElement;
     const newTableRow = document.createElement('tr');
     newTableRow.innerHTML = `<td>${i + 1}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
     table.appendChild(newTableRow);
   }));
+  template.querySelector('.wins').addEventListener('click', () => {
+
+  })
   return template;
 }
 
@@ -25,7 +28,6 @@ async function getWinnersArray() {
     };
   });
   const result = await Promise.all(carsArray);
-  console.log(result);
   return result;
 }
 

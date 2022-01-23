@@ -111,6 +111,9 @@ export async function updateWins(carId: number, time: number) {
   const winner = await getWinner(carId);
   if (winner) {
     winner.wins += 1;
+    if (time < winner.time) {
+      winner.time = time;
+    }
     await updateWinner(winner);
   } else {
     await createWinner({ id: carId, wins: 1, time });
