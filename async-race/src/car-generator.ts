@@ -1,4 +1,4 @@
-import { Car, CreateCarRequest } from './models/models';
+import { CreateCarRequest } from './models/models';
 
 const carModels = ['Alfa Romeo Spider',
   'Audi 80 and 90',

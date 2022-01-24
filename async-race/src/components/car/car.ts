@@ -17,7 +17,6 @@ export default function renderCar(params: CarComponentParams) {
   const startBtn = template.querySelector('.a-btn') as HTMLButtonElement;
   const restartBtn = template.querySelector('.b-btn') as HTMLButtonElement;
   startBtn.addEventListener('click', async () => {
-    // startDriveCar();
     const driveFn = await rideCar();
     driveFn();
   });

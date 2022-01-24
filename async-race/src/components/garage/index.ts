@@ -69,17 +69,17 @@ export default function renderGaragePage() {
         el.template.remove();
       },
       onSelect: async () => {
+        const name = el.template.querySelector('.car-name') as HTMLElement;
         template.querySelector('.update').classList.remove('not-clickable');
         updateBtn.onclick = async () => {
           const updatedCar: Car = {
             color: colorSelectorUpdate.value,
-            name: inputUpdateCar.value,
+            name: inputUpdateCar.value || name.innerHTML,
             id: car.id,
           };
           await updateCar(updatedCar);
           el.template.querySelector('g').style.fill = colorSelectorUpdate.value;
-          const name = el.template.querySelector('.car-name') as HTMLElement;
-          name.innerHTML = inputUpdateCar.value;
+          name.innerHTML = updatedCar.name;
           const updateInput = template.querySelector('.update-input') as HTMLInputElement;
           updateInput.value = '';
           template.querySelector('.update').classList.add('not-clickable');
