@@ -1,7 +1,7 @@
 import './style.css';
 import html from './index.html';
 import { Car, RideParams } from '../../models/models';
-import { startDrive, startEngine, updateCar } from '../../api';
+import { startDrive, startEngine, stopEngine } from '../../api';
 
 export interface CarComponentParams {
   car: Car;
@@ -66,7 +66,8 @@ export default function renderCar(params: CarComponentParams) {
     restartBtn.classList.remove('not-clickable');
     return time;
   }
-  function restart() {
+  async function restart() {
+    await stopEngine(car.id);
     carWrapper.style.removeProperty('transform');
     carWrapper.style.removeProperty('transition-duration');
     startBtn.classList.remove('not-clickable');

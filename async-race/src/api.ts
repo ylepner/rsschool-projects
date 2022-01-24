@@ -75,6 +75,10 @@ export function startEngine(carId: number) {
   return startStopEngine(carId, 'started');
 }
 
+export function stopEngine(carId: number) {
+  return startStopEngine(carId, 'stopped');
+}
+
 export async function getWinners(req?: { page?: number, limit?: number, sort?: 'id' | 'wins' | 'time', order?: 'ASC' | 'DESC' }) {
   req = req ?? {};
   const queryParams = Object.entries(req).map((el) => `_${el[0]}=${el[1]}`).join('&');
