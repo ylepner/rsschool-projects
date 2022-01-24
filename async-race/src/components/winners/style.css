@@ -29,3 +29,12 @@ table {
   opacity: 0.5;
   pointer-events: none;
 }
+
+.active-sort::after {
+  content: '↑';
+  display: inline-block;
+}
+
+.active-sort.desc::after {
+  transform: rotate(180deg);
+}

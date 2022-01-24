@@ -32,15 +32,15 @@ export default function renderWinnersPage() {
 
   renderTable();
 
-  // sorting
-
   template.querySelector('.wins').addEventListener('click', () => {
-    if (state.order === 'ASC') {
-      state.order = 'DESC';
-    } else {
-      state.order = 'ASC';
-    }
+    sort(state, template.querySelector('.wins'), template);
     state.sort = 'wins';
+    renderTable();
+  });
+
+  template.querySelector('.time').addEventListener('click', () => {
+    sort(state, template.querySelector('.time'), template);
+    state.sort = 'time';
     renderTable();
   });
 
@@ -89,4 +89,22 @@ async function getWinnersArray(req: WinnersRequest) {
   });
   const result = await Promise.all(carsArray);
   return result;
+}
+
+function sort(state: WinnersRequest, column: HTMLElement, template: HTMLElement) {
+  if (state.order === 'ASC') {
+    state.order = 'DESC';
+  } else {
+    state.order = 'ASC';
+  }
+  template.querySelector('.active-sort')?.classList?.remove('active-sort');
+  column.classList.add('active-sort');
+  if (state.order === 'ASC') {
+    column.classList.add('asc');
+    column.classList.remove('desc');
+  } else {
+    column.classList.add('desc');
+    column.classList.remove('asc');
+  }
+  return state.order;
 }
