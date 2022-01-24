@@ -2,13 +2,15 @@ import './style.css';
 import html from './index.html';
 import { getCar, getWinners } from '../../api';
 import { queryElement } from '../../utils';
-
-const CAR_LIMIT = 10;
-let currentPage = 1;
+import { WinnersRequest } from '../../models/models';
 
 export default function renderWinnersPage() {
   const template = document.createElement('div');
   template.innerHTML = html;
+  const state: WinnersRequest = {
+    page: 1,
+    limit: 10,
+  };
   document.querySelector('.go-to-winners').classList.add('not-clickable');
   document.querySelector('.go-to-garage').classList.remove('not-clickable');
   const table = template.querySelector('table') as HTMLTableElement;
@@ -17,10 +19,11 @@ export default function renderWinnersPage() {
     newTr.forEach((el) => {
       el.remove();
     });
-    getWinnersArray(currentPage, CAR_LIMIT).then((result) => result.forEach((res, i) => {
+    getWinnersArray(state).then((result) => result.forEach((res, i) => {
       const newTableRow = document.createElement('tr');
       newTableRow.classList.add('new-tr');
-      newTableRow.innerHTML = `<td>${(i + 1) + (currentPage - 1) * CAR_LIMIT}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
+      newTableRow.innerHTML = `<td>${(i + 1) + (state.page - 1) * state.limit}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
+      newTableRow.querySelector('g').style.fill = res.color;
       table.appendChild(newTableRow);
       updateButtons(res.count);
     }));
@@ -31,7 +34,12 @@ export default function renderWinnersPage() {
   // sorting
 
   template.querySelector('.wins').addEventListener('click', () => {
-    getWinnersArray(currentPage, CAR_LIMIT, 'wins', 'ASC');
+    if (state.order === 'ASC') {
+      state.order = 'DESC';
+    } else {
+      state.order = 'ASC';
+    }
+    state.sort = 'wins';
     renderTable();
   });
 
@@ -39,13 +47,13 @@ export default function renderWinnersPage() {
   const prevWinnersBtn = template.querySelector('.winner-prev-btn');
 
   function updateButtons(count: number) {
-    if (currentPage === 1) {
+    if (state.page === 1) {
       prevWinnersBtn.classList.add('not-clickable');
     }
-    if (currentPage > 1) {
+    if (state.page > 1) {
       prevWinnersBtn.classList.remove('not-clickable');
     }
-    if (currentPage >= (count / CAR_LIMIT)) {
+    if (state.page >= (count / state.limit)) {
       nextWinnersBtn.classList.add('not-clickable');
     } else {
       nextWinnersBtn.classList.remove('not-clickable');
@@ -53,34 +61,24 @@ export default function renderWinnersPage() {
   }
 
   nextWinnersBtn.addEventListener('click', () => {
-    currentPage += 1;
-    queryElement(template, 'span', '.page-number').innerText = String(currentPage);
+    state.page += 1;
+    queryElement(template, 'span', '.page-number').innerText = String(state.page);
     renderTable();
   });
 
   prevWinnersBtn.addEventListener('click', () => {
-    if (currentPage >= 1) {
-      currentPage -= 1;
+    if (state.page >= 1) {
+      state.page -= 1;
     }
-    queryElement(template, 'span', '.page-number').innerText = String(currentPage);
+    queryElement(template, 'span', '.page-number').innerText = String(state.page);
     renderTable();
   });
 
   return template;
 }
 
-async function getWinnersArray(page: number, limit: number, sort?: string, order?: string) {
-  let reqObj = {};
-  if (sort && order) {
-    reqObj = {
-      page, limit, sort: 'wins', order: 'ASC',
-    };
-  } else {
-    reqObj = {
-      page, limit,
-    };
-  }
-  const winners = await getWinners(reqObj);
+async function getWinnersArray(req: WinnersRequest) {
+  const winners = await getWinners(req);
   const { count } = winners;
   const carsArray = winners.winners.map(async (winner) => {
     const car = await getCar(winner.id);

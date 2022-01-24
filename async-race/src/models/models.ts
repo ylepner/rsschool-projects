@@ -24,3 +24,10 @@ export interface Winner {
   wins: number;
   time: number;
 }
+
+export interface WinnersRequest {
+  page?: number;
+  limit?: number;
+  sort?: 'id' | 'wins' | 'time';
+  order?: 'ASC' | 'DESC'
+}
