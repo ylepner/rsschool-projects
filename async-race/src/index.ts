@@ -1,6 +1,7 @@
 import renderGaragePage from './components/garage';
 import renderWinnersPage from './components/winners';
 import './style.css';
+import './self-check';
 
 document.body.innerHTML = `<footer>
 <div class="nav-pannel">
