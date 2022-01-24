@@ -7,16 +7,18 @@ export interface CarComponentParams {
   car: Car;
   onSelect?: () => void;
   onRemove?: () => void;
+  onStart?: () => void;
+  onStop?: () => void;
 }
 export default function renderCar(params: CarComponentParams) {
   const { car } = params;
   const template = document.createElement('div');
   template.innerHTML = html;
-  // const carIcon = template.querySelector('svg') as SVGSVGElement;
   const carWrapper = template.querySelector('.car-wrapper') as HTMLDivElement;
   const startBtn = template.querySelector('.a-btn') as HTMLButtonElement;
   const restartBtn = template.querySelector('.b-btn') as HTMLButtonElement;
   startBtn.addEventListener('click', async () => {
+    params?.onStart();
     const driveFn = await rideCar();
     driveFn();
   });

@@ -85,6 +85,10 @@ export default function renderGaragePage() {
           template.querySelector('.update').classList.add('not-clickable');
         };
       },
+      onStart: () => {
+        raceBtn.classList.add('not-clickable');
+        resetBtn.classList.remove('not-clickable');
+      },
     });
     template.querySelector('.garage').appendChild(el.template);
     return el;
