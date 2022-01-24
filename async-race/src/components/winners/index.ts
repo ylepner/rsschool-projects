@@ -1,8 +1,9 @@
 import './style.css';
 import html from './index.html';
 import { getCar, getWinners } from '../../api';
+import { queryElement } from '../../utils';
 
-const CAR_LIMIT = 3;
+const CAR_LIMIT = 10;
 let currentPage = 1;
 
 export default function renderWinnersPage() {
@@ -11,24 +12,28 @@ export default function renderWinnersPage() {
   document.querySelector('.go-to-winners').classList.add('not-clickable');
   document.querySelector('.go-to-garage').classList.remove('not-clickable');
   const table = template.querySelector('table') as HTMLTableElement;
+  let index = 0;
   function renderTable() {
     const newTr = template.querySelectorAll('.new-tr');
     newTr.forEach((el) => {
       el.remove();
     });
-    getWinnersArray(currentPage, CAR_LIMIT).then((result) => result.forEach((res, i) => {
+    getWinnersArray(currentPage, CAR_LIMIT).then((result) => result.forEach((res) => {
       const newTableRow = document.createElement('tr');
       newTableRow.classList.add('new-tr');
-      newTableRow.innerHTML = `<td>${i + 1}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
+      newTableRow.innerHTML = `<td>${index += 1}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
       table.appendChild(newTableRow);
       updateButtons(res.count);
     }));
   }
 
   renderTable();
-  // template.querySelector('.wins').addEventListener('click', () => {
 
-  // })
+  // sorting
+
+  template.querySelector('.wins').addEventListener('click', () => {
+    getWinnersArray(currentPage, CAR_LIMIT, 'wins', 'ASC');
+  });
 
   const nextWinnersBtn = template.querySelector('.winner-next-btn');
   const prevWinnersBtn = template.querySelector('.winner-prev-btn');
@@ -48,22 +53,36 @@ export default function renderWinnersPage() {
   }
 
   nextWinnersBtn.addEventListener('click', () => {
+    index = CAR_LIMIT * currentPage;
     currentPage += 1;
+    queryElement(template, 'span', '.page-number').innerText = String(currentPage);
     renderTable();
   });
 
   prevWinnersBtn.addEventListener('click', () => {
     if (currentPage >= 1) {
       currentPage -= 1;
+      index = (currentPage - 1) * 10;
     }
+    queryElement(template, 'span', '.page-number').innerText = String(currentPage);
     renderTable();
   });
 
   return template;
 }
 
-async function getWinnersArray(page: number, limit: number) {
-  const winners = await getWinners({ page, limit });
+async function getWinnersArray(page: number, limit: number, sort?: string, order?: string) {
+  let reqObj = {};
+  if (sort && order) {
+    reqObj = {
+      page, limit, sort: 'wins', order: 'ASC',
+    };
+  } else {
+    reqObj = {
+      page, limit,
+    };
+  }
+  const winners = await getWinners(reqObj);
   const { count } = winners;
   const carsArray = winners.winners.map(async (winner) => {
     const car = await getCar(winner.id);
@@ -172,3 +191,7 @@ l-15 -73 3006 7 c1653 4 3007 8 3009 9 1 1 -8 37 -20 81 -19 67 -22 105 -22
 61 239 98 16 10 -216 242 -234 235z" />
   </g>
 </svg>`;
+function req(req: any) {
+  throw new Error('Function not implemented.');
+}
+

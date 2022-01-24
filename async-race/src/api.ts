@@ -1,5 +1,5 @@
 import {
-  Car, CarResponse, CreateCarRequest, RideParams, Winner,
+  Car, CarResponse, CreateCarRequest, RideParams, SortFunction, Winner,
 } from './models/models';
 
 const API_ENDPOINT = 'http://localhost:3000';
@@ -69,11 +69,16 @@ export function startEngine(carId: number) {
 }
 
 export async function getWinners(req?: { page?: number, limit?: number, sort?: 'id' | 'wins' | 'time', order?: 'ASC' | 'DESC' }) {
+  if (req.sort === 'wins' && req.order === 'ASC') {
+    const result = await fetch(`${API_ENDPOINT}/winners?_page=${req.page}&_limit=${req.limit}&_sort='wins'&_order='ASC'`);
+    const data = await result.json() as Winner[];
+    return { winners: data, count: Number(result.headers.get('x-total-count')) };
+  }
   const result = await fetch(`${API_ENDPOINT}/winners?_page=${req.page}&_limit=${req.limit}`);
   const data = await result.json() as Winner[];
+  console.log(data);
   return { winners: data, count: Number(result.headers.get('x-total-count')) };
 }
-
 async function getWinner(carId: number) {
   const result = await fetch(`${API_ENDPOINT}/winners/${carId}`);
   if (!result.ok) {
