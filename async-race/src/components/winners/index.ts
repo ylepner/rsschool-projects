@@ -12,16 +12,15 @@ export default function renderWinnersPage() {
   document.querySelector('.go-to-winners').classList.add('not-clickable');
   document.querySelector('.go-to-garage').classList.remove('not-clickable');
   const table = template.querySelector('table') as HTMLTableElement;
-  let index = 0;
   function renderTable() {
     const newTr = template.querySelectorAll('.new-tr');
     newTr.forEach((el) => {
       el.remove();
     });
-    getWinnersArray(currentPage, CAR_LIMIT).then((result) => result.forEach((res) => {
+    getWinnersArray(currentPage, CAR_LIMIT).then((result) => result.forEach((res, i) => {
       const newTableRow = document.createElement('tr');
       newTableRow.classList.add('new-tr');
-      newTableRow.innerHTML = `<td>${index += 1}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
+      newTableRow.innerHTML = `<td>${(i + 1) + (currentPage - 1) * CAR_LIMIT}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
       table.appendChild(newTableRow);
       updateButtons(res.count);
     }));
@@ -33,6 +32,7 @@ export default function renderWinnersPage() {
 
   template.querySelector('.wins').addEventListener('click', () => {
     getWinnersArray(currentPage, CAR_LIMIT, 'wins', 'ASC');
+    renderTable();
   });
 
   const nextWinnersBtn = template.querySelector('.winner-next-btn');
@@ -53,7 +53,6 @@ export default function renderWinnersPage() {
   }
 
   nextWinnersBtn.addEventListener('click', () => {
-    index = CAR_LIMIT * currentPage;
     currentPage += 1;
     queryElement(template, 'span', '.page-number').innerText = String(currentPage);
     renderTable();
@@ -62,7 +61,6 @@ export default function renderWinnersPage() {
   prevWinnersBtn.addEventListener('click', () => {
     if (currentPage >= 1) {
       currentPage -= 1;
-      index = (currentPage - 1) * 10;
     }
     queryElement(template, 'span', '.page-number').innerText = String(currentPage);
     renderTable();
