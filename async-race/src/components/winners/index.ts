@@ -2,29 +2,73 @@ import './style.css';
 import html from './index.html';
 import { getCar, getWinners } from '../../api';
 
+const CAR_LIMIT = 3;
+let currentPage = 1;
+
 export default function renderWinnersPage() {
   const template = document.createElement('div');
   template.innerHTML = html;
   document.querySelector('.go-to-winners').classList.add('not-clickable');
   document.querySelector('.go-to-garage').classList.remove('not-clickable');
-  getWinnersArray().then((result) => result.forEach((res, i) => {
-    const table = template.querySelector('table') as HTMLTableElement;
-    const newTableRow = document.createElement('tr');
-    newTableRow.innerHTML = `<td>${i + 1}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
-    table.appendChild(newTableRow);
-  }));
-  template.querySelector('.wins').addEventListener('click', () => {
+  const table = template.querySelector('table') as HTMLTableElement;
+  function renderTable() {
+    const newTr = template.querySelectorAll('.new-tr');
+    newTr.forEach((el) => {
+      el.remove();
+    });
+    getWinnersArray(currentPage, CAR_LIMIT).then((result) => result.forEach((res, i) => {
+      const newTableRow = document.createElement('tr');
+      newTableRow.classList.add('new-tr');
+      newTableRow.innerHTML = `<td>${i + 1}</td><td>${iconSvg}</td><td>${res.name}</td><td>${res.wins}</td><td>${Math.floor(res.time * 100) / 100}</td>`;
+      table.appendChild(newTableRow);
+      updateButtons(res.count);
+    }));
+  }
 
-  })
+  renderTable();
+  // template.querySelector('.wins').addEventListener('click', () => {
+
+  // })
+
+  const nextWinnersBtn = template.querySelector('.winner-next-btn');
+  const prevWinnersBtn = template.querySelector('.winner-prev-btn');
+
+  function updateButtons(count: number) {
+    if (currentPage === 1) {
+      prevWinnersBtn.classList.add('not-clickable');
+    }
+    if (currentPage > 1) {
+      prevWinnersBtn.classList.remove('not-clickable');
+    }
+    if (currentPage >= (count / CAR_LIMIT)) {
+      nextWinnersBtn.classList.add('not-clickable');
+    } else {
+      nextWinnersBtn.classList.remove('not-clickable');
+    }
+  }
+
+  nextWinnersBtn.addEventListener('click', () => {
+    currentPage += 1;
+    renderTable();
+  });
+
+  prevWinnersBtn.addEventListener('click', () => {
+    if (currentPage >= 1) {
+      currentPage -= 1;
+    }
+    renderTable();
+  });
+
   return template;
 }
 
-async function getWinnersArray() {
-  const winners = await getWinners();
+async function getWinnersArray(page: number, limit: number) {
+  const winners = await getWinners({ page, limit });
+  const { count } = winners;
   const carsArray = winners.winners.map(async (winner) => {
     const car = await getCar(winner.id);
     return {
-      ...car, ...winner,
+      ...car, ...winner, count,
     };
   });
   const result = await Promise.all(carsArray);

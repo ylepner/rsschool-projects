@@ -24,3 +24,8 @@ table {
 .pointer {
   cursor: pointer;
 }
+
+.not-clickable {
+  opacity: 0.5;
+  pointer-events: none;
+}
