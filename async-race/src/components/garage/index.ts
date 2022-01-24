@@ -5,7 +5,7 @@ import { Car, CreateCarRequest } from '../../models/models';
 import {
   createCar, getCarsInGarage, removeCar, updateCar, updateWins,
 } from '../../api';
-import { getRandomCar } from '../../car-generator';
+import { getRandomCar, randomModel } from '../../car-generator';
 import { queryElement } from '../../utils';
 
 const PAGE_LIMIT = 7;
@@ -48,11 +48,7 @@ export default function renderGaragePage() {
   const colorSelectorUpdate = template.querySelector('.color-update') as HTMLInputElement;
   const createBtn = template.querySelector('.create-btn') as HTMLButtonElement;
   createBtn.addEventListener('click', () => {
-    if (!inputCreateCar.value) {
-      alert('No name');
-      return;
-    }
-    addCarToServer({ color: colorSelector.value, name: inputCreateCar.value });
+    addCarToServer({ color: colorSelector.value, name: inputCreateCar.value || randomModel() });
   });
   const updateBtn = template.querySelector('.update-btn') as HTMLButtonElement;
 

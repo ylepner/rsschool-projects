@@ -200,7 +200,7 @@ export function getRandomCar(): CreateCarRequest {
   };
 }
 
-function randomModel() {
+export function randomModel() {
   return carModels[Math.floor(Math.random() * carModels.length)];
 }
 
