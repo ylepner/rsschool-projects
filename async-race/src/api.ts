@@ -76,7 +76,6 @@ export async function getWinners(req?: { page?: number, limit?: number, sort?: '
   }
   const result = await fetch(`${API_ENDPOINT}/winners?_page=${req.page}&_limit=${req.limit}`);
   const data = await result.json() as Winner[];
-  console.log(data);
   return { winners: data, count: Number(result.headers.get('x-total-count')) };
 }
 async function getWinner(carId: number) {
