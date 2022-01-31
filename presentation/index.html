@@ -1,0 +1,487 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;600&family=Nunito:wght@200&display=swap"
+    rel="stylesheet">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>CSS Grid Layout</h1>
+      </section>
+      <section>
+        <section>
+          Why CSS Grid?
+        </section>
+        <section>
+          Historically, there have been different methods for controlling web page layout.
+        </section>
+        <section>
+          <div class="grid-container">
+            <div class="flex column">
+              Tables
+              <img src="https://vertex-academy.com/tutorials/wp-content/uploads/2016/08/table.png"
+                alt="table html element"
+                style="width: 300px; height: 180px; margin: 0 auto 4rem auto; background: transparent;">
+            </div>
+            <div class="flex column fragment" data-fragment-index="1">
+              Floats
+              <img src="https://www.homepage-tukurikata.com/image/float-right.png" alt="table html element"
+                style="width: 300px; height: 180px; margin: 0 auto 4rem auto; background: transparent;">
+            </div>
+            <div class="flex column fragment" data-fragment-index="2">
+              Positioning
+              <img src="https://www.csssolid.com/images/csspositions/css-position-all.png" alt="table html element"
+                style="width: 300px; height: 180px; margin: 0 auto 4rem auto; background: transparent;">
+            </div>
+            <div class="flex column fragment" data-fragment-index="3">
+              Inline-block
+              <img
+                src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2011/09/inline-block.png?resize=526%2C207&ssl=1"
+                alt="table html element"
+                style="width: 400px; height: 180px; margin: 0 auto 4rem auto; background: transparent;">
+            </div>
+          </div>
+          <div class="fragment" data-fragment-index="4">
+            But all of these methods left out a lot of important functionality.
+          </div>
+        </section>
+        <section>
+          Flexbox is a very great layout tool. But it doesn't solve all the problems.
+        </section>
+        <section>
+          CSS Grid Layout is a two-dimensional layout system for the web.
+          It lets you lay content out in rows and columns and build complex layouts straightforward.
+        </section>
+        <section>
+          <div class="flex column">
+            <div class="flex">
+              <img src="./src/css-flexbox.png" alt="table html element">
+              <div class="flex" style="align-items: center; margin-left: 20px;">
+                display: flex;
+              </div>
+            </div>
+            <div class="flex-wrap fragment fade-in-then-out" data-fragment-index="2">
+              <div class="no-wrap-example flex jc-end ff">
+                <div class="flex" style="width: 200px; border: solid 1px white; margin: 20px;">
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: red;"></div>
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: yellow;"></div>
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: blue;"></div>
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: green;"></div>
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: white;"></div>
+                </div>
+                <div class="flex center fs-20 text-align">
+                  <pre><code style="width: 100px;" data-trim data-noescape>
+                  display: flex; <br>
+                  width: 200px;
+                </code></pre>
+                </div>
+              </div>
+              <div class="wrap-example flex jc-end ff">
+                <div class="flex" style="flex-wrap: wrap; width: 150px; border: solid 1px white; margin: 20px;">
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: red;"></div>
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: yellow;"></div>
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: blue;"></div>
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: green;"></div>
+                  <div class="margin-5" style="width: 30px; height: 30px; background-color: white;"></div>
+                </div>
+                <div class="flex center fs-20 text-align">
+                  <pre><code style="width: 100px;" data-trim data-noescape>
+                display: flex; <br>
+                width: 150px; <br>
+                flex-wrap: wrap;
+              </code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="flex fragment" data-fragment-index="3" style="align-items: center;">
+              <img src="./src/css-grid.png" alt="table html element">
+              <div class="flex" style="align-items: center; margin-left: 20px;"></div>
+              display: grid;
+            </div>
+          </div>
+        </section>
+        <!-- <section>
+          <div class="flex" style="flex-direction: column-reverse;">
+            <img class="fragment" data-fragment-index="2" src="./src/flex.png" alt="">
+            <pre><code class="fragment" data-fragment-index="1"  data-trim data-noescape>
+              display: flex;
+            </code></pre>
+          </div>
+          <div class="flex" style="flex-direction: column-reverse;">
+            <div class="flex jc-center">
+              <img class="fragment" data-fragment-index="4" src="./src/wrap.png" alt=""
+                style="width: 500px; height: 400px;">
+            </div>
+            <pre><code class="fragment" data-fragment-index="3" data-trim data-noescape>
+              display: flex;
+              flex-wrap: wrap;
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <div class="flex" style="flex-direction: column-reverse;">
+            <div class="flex jc-center">
+              <img class="fragment" data-fragment-index="1" src="./src/grid.png" alt="" style="max-height: 40vh;">
+            </div>
+            <pre><code data-trim data-noescape>
+              display: grid;
+            </code></pre>
+          </div>
+          <div class="link">
+            <a class="fragment" data-fragment-index="2" href="https://labs.jensimmons.com/">
+              https://labs.jensimmons.com/</a>
+          </div>
+        </section> -->
+      </section>
+      <section>
+        <section>
+          CSS Grid: Basic Features
+        </section>
+        <section>
+          <div>
+            Grid Container
+          </div>
+          <div class="fragment margin-30">
+            Create a grid container by setting the display property with a value of grid or inline-grid.
+            All direct children of grid containers become grid items.
+          </div>
+          <div class="grid-container">
+            <div class="fragment">
+              <pre><code data-trim data-noescape>
+              display: grid;
+            </code></pre>
+              <img src="./src/display-grid.png" alt="display: grid">
+            </div>
+            <div class="fragment">
+              <pre><code data-trim data-noescape>
+              display: inline-grid;
+            </code></pre>
+              <img src="./src/display-inline-grid.png" alt="display: inline-grid">
+            </div>
+          </div>
+        </section>
+        <section>
+          <div>
+            Explicit Grid
+          </div>
+          <div class="fragment" style="margin-top: 30px; font-size: 30px;">
+            Explicitly set a grid by creating columns and rows with the grid-template-columns and grid-template-rows
+            properties.
+          </div>
+          <div class="fragment">
+            <pre><code data-trim data-noescape>
+              display: grid;
+              grid-template-rows: 50px 100px;
+            </code></pre>
+            <div>
+              <img class="fragment" src="./src/explicit.png" alt="explicit grid" style="max-height: 32vh;">
+              <div class="fragment flex fs-20 center" style="margin: 0 100px;">
+                Because only 2 row tracks were defined, heights of items 3 and 4 are defined by the contents of each.
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div>
+            You can use all non-negative length value for track size values: px, rem, em, %, fr, etc.
+          </div>
+          <pre class="fragment"><code data-trim data-noescape>
+              display: grid;
+              grid-template-columns: 3rem 25% 1fr 2fr;
+          </code></pre>
+          <img class="fragment" src="./src/css-grid-values.png" alt="css-grid-values">
+          <div class="fragment">
+            <span class="fragment highlight-blue">"fr"</span> is a special css grid fractional unit which helps create
+            flexible grid tracks. It represents a fraction of the available space in the grid container.
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          CSS Grid: Useful Hints
+        </section>
+        <section>
+          <div>
+            Minimum and Maximum Grid Track Sizes
+          </div>
+          <pre><code data-trim data-noescape>
+            grid-template-rows: minmax(100px, auto);
+            grid-template-columns: minmax(auto, 50%) 1fr 3em;</code>
+          </pre>
+          <img src="./src/minmax.png" alt="Minimum and Maximum Grid Track Sizes" style="max-width: 44vh;">
+          <div class="fs-20">
+            The minmax() function accepts 2 arguments: the first is the minimum size of the track and the second the
+            maximum size.
+            Alongside length values, the values can also be auto, which allows the track to grow/stretch based on the
+            size of the
+            content.
+          </div>
+        </section>
+        <section>
+          <div>
+            Repeating Grid Tracks
+          </div>
+          <pre><code data-trim data-noescape>
+            grid-template-rows: repeat(4, 100px);
+            grid-template-columns: repeat(3, 1fr);</code>
+          </pre>
+          <img src="./src/repeat.png" alt="Repeating Grid Tracks" style="max-width: 44vh;">
+          <div class="fs-20">
+            The repeat() notation accepts 2 arguments: the first represents the number of times the defined tracks
+            should repeat, and the second is the track definition.
+          </div>
+        </section>
+        <section>
+          <div>
+            Positioning Items by Grid Line Numbers
+          </div>
+          <pre><code data-trim data-noescape>
+            grid-row-start:    2;
+            grid-row-end:      3;
+            grid-column-start: 2;
+            grid-column-end:   3;</code>
+          </pre>
+          <div class="flex">
+            <img src="./src/line-numbers.png" alt="Grid Line Numbers">
+            <div class="flex column" style="gap: 100px;">
+              <pre><code data-trim data-noescape style="width: 120%;">
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;</code>
+          </pre>
+              <pre><code data-trim data-noescape style="width: 120%;">
+            grid-area: 2 / 3 / 2 / 3 </code>
+          </pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div>
+            Implicitly Named Grid Lines
+          </div>
+          <div class="flex margin-30" style="gap: 50px;">
+            <pre><code data-trim data-noescape class="fs-20">
+            grid-template-areas:   "header header"
+                                   "content sidebar"
+                                   "footer footer";
+            grid-template-rows:    80px 1fr 40px;
+            grid-template-columns: 1fr 200px;</code>
+          </pre>
+            <pre style="margin: 0;"><code data-trim data-noescape style="line-height: 25px; height: 100px;" class="fs-20">
+            header {
+              grid-area: header;
+            }
+
+            .main-block {
+              grid-area: content;
+            }
+
+            .sidebar {
+              grid-area: sidebar;
+            }
+
+            footer {
+              grid-area: footer;
+            }
+          </code>
+          </pre>
+          </div>
+          <img src="./src/named-grid-lines.png" alt="Implicitly Named Grid Lines" style="max-width: 32vh;">
+          <div class="fragment" style="line-height: 30px;">
+            <span class="fs-20">More information</span> <br>
+            <a href="https://learncssgrid.com/">
+              https://learncssgrid.com/
+            </a>
+          </div>
+        </section>
+        <section>
+          <div>
+            But what if you don’t specify position of child elements in the grid and need complex grid layout?
+            In this case grid would assign position automatically.
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          CSS Grid Auto Flow
+        </section>
+        <section>
+          <div>
+            CSS Grid of 24 box elements
+          </div>
+          <div class="flex-inline jc-center margin-30" style="gap: 50px; height: 500px;">
+            <div class="grid">
+              <div class="box">BOX 1</div>
+              <div class="box">BOX 2</div>
+              <div class="box">BOX 3</div>
+              <div class="box">BOX 4</div>
+              <div class="box">BOX 5</div>
+              <div class="box">BOX 6</div>
+              <div class="box">BOX 7</div>
+              <div class="box">BOX 8</div>
+              <div class="box">BOX 9</div>
+              <div class="box">BOX 10</div>
+              <div class="box">BOX 11</div>
+              <div class="box">BOX 12</div>
+              <div class="box">BOX 13</div>
+              <div class="box">BOX 14</div>
+              <div class="box">BOX 15</div>
+              <div class="box">BOX 16</div>
+              <div class="box">BOX 17</div>
+              <div class="box">BOX 18</div>
+              <div class="box">BOX 19</div>
+              <div class="box">BOX 20</div>
+              <div class="box">BOX 21</div>
+              <div class="box">BOX 22</div>
+              <div class="box">BOX 23</div>
+              <div class="box">BOX 24</div>
+            </div>
+            <pre><code data-trim data-noescape class="fs-20">
+            .box {
+              border: 1px solid white;
+              background-color:crimson;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              font-size: 20px;
+              padding: 5px;
+            }
+
+            .grid {
+              display: grid;
+              grid-template-rows: repeat(4, 1fr);
+              grid-template-columns: repeat(6, 1fr);
+              grid-gap: 5px;
+            }
+          </code></pre>
+          </div>
+        </section>
+        <section>
+          <div>
+            Higlith some blocks
+          </div>
+          <div class="flex-inline jc-center margin-30" style="gap: 50px;">
+            <img src="./src/child.png" alt="box: nth-child(5n)">
+            <pre><code data-trim data-noescape class="fs-20">
+              .box:nth-child(6n) {
+                background-color: #009688;
+              }
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <div>
+            Set "span" property
+          </div>
+          <div class="flex-inline jc-center margin-30" style="gap: 50px;">
+            <img src="./src/span.png" alt="box: span">
+            <pre><code data-trim data-noescape class="fs-20">
+              .box:nth-child(6n) {
+                background-color: #009688;
+                grid-column: span 2;
+                grid-row: span 2;
+              }
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <div>
+            Set grid-auto-flow: column
+          </div>
+          <div class="flex-inline jc-center margin-30" style="gap: 50px;">
+            <img src="./src/column.png" alt="grid-auto-flow: column">
+            <pre><code data-trim data-noescape class="fs-20">
+              .box:nth-child(6n) {
+                background-color: #009688;
+                grid-column: span 2;
+                grid-row: span 2;
+                grid-auto-flow: column;
+              }
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <div>
+            Set grid-auto-flow: dense
+          </div>
+          <div class="flex-inline jc-center margin-30" style="gap: 50px;">
+            <img src="./src/dense.png" alt="grid-auto-flow: dence">
+            <pre><code data-trim data-noescape class="fs-20">
+            .box:nth-child(6n) {
+              background-color: #009688;
+              grid-column: span 2;
+              grid-row: span 2;
+              grid-auto-flow: dense;
+            }
+          </code></pre>
+          </div>
+        </section>
+        <section>
+          <div style="font-size: 25px; margin-bottom: 30px;">
+            With "grid-auto-flow: dense" you can create with one line of code reach effects for photo gallery or market
+            places web layout in responsive design.
+          </div>
+          <video style="max-width: 50vh;"
+            src="./src/Image Gallery Options _ Jen Simmons - Google Chrome 2022-01-30 19-37-24.mp4" controls></video>
+          <div class="fs-20">Video from:
+            <a href="https://labs.jensimmons.com/">https://labs.jensimmons.com/</a>
+          </div>
+        </section>
+      </section>
+      <section>
+        <div class="margin-30">
+          Let's sum up
+        </div>
+        <ol type="1" style="font-size: 30px;">
+          <li class="fragment">CSS Grid is a powerful tool that allows for two-dimensional layouts to be created on the
+            web.</li>
+          <li class="fragment">You can build a grid from any number of elements of different size.</li>
+          <li class="fragment">You can control rows and colomns and have access to any grid cell.</li>
+          <li class="fragment">CSS Grid has many features that make building complex layouts simpler. You can use
+            different grid track
+            sizes, special css grid functions such as minmax(), repeat(), also is possible define grid lines by numbers
+            or names.</li>
+          <li class="fragment">"Grid-auto-flow" property controls how auto-placed items get inserted in the grid.</li>
+          <li class="fragment">You can always combine different web page layout methods. For example, CSS Grid and
+            Flexbox models work together quite well.</li>
+        </ol>
+      </section>
+      <section>
+        Thank you for your attention!
+      </section>
+    </div>
+  </div>
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      disableLayout: false,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>
