@@ -1,3 +1,1 @@
-# ylepner-JSFE2021Q3
-
-Private repository for @ylepner
+Deploy: https://ylepner-migration-newip-to-ts.netlify.app/
