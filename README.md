@@ -1,3 +1,3 @@
 # ylepner-JSFE2021Q3
 
-https://rolling-scopes-school.github.io/ylepner-JSFE2021Q3/momentum/
+Delpoy: https://ylepner-momentum.netlify.app/
