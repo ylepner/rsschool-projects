@@ -4,7 +4,7 @@ const weatherDescription = document.querySelector('.weather-description');
 const wind = document.querySelector('.wind')
 const cityInput = document.querySelector('.city')
 const humidity = document.querySelector('.humidity')
-let city = 'Minsk'
+let city = 'Gdańsk'
 
 async function getAndSetWeather() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=269ae7b2577bd17dfe150b43eacf40fd&units=metric`;
