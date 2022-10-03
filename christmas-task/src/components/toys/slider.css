@@ -1,0 +1,44 @@
+.year-filter,
+.amount-filter {
+  flex-direction: column;;
+}
+
+.year-bar,
+.amount-bar {
+  flex-grow: 1;
+  margin: 15px;
+}
+
+.noUi-handle:before, .noUi-handle:after {
+  content: unset;
+}
+
+.input-range {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .input-range {
+    display: contents;
+  }
+  .borders {
+    height: unset;
+  }
+}
+
+.noUi-horizontal .noUi-handle {
+  right: -10px;
+}
+
+.noUi-horizontal {
+  height: 6px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
