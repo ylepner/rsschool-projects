@@ -10,15 +10,19 @@ import { toggleElement } from '../../utils';
 import { render } from '../card/card';
 import html from './index.html';
 
-export function renderToys() {
+export interface ToysParams {
+  cart: Cart;
+}
+
+export function renderToys({ cart }: ToysParams) {
   const template = document.createElement('div');
   template.innerHTML = html;
 
-  // add to cart
+  // add cards
 
-  const cart: Cart = {
-    itemIds: [],
-  };
+  // const cart: Cart = {
+  //   itemIds: [],
+  // };
 
   const filterState: Filter = {
     shape: [],
@@ -145,7 +149,7 @@ export function renderToys() {
 
   // counter of favorite items
 
-  const countBall = template.querySelector('.count');
+  const countBall = document.querySelector('.count');
 
   function addToCart(cardNum: string) {
     if (cart.itemIds.includes(cardNum)) {

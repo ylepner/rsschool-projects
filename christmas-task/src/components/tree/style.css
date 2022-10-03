@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-.play {
+.play-audio {
   width: 40px;
   height: 40px;
   background-image: url(/src/assets/svg/audio.svg);
@@ -16,8 +16,33 @@
   background-repeat: no-repeat;
 }
 
+.play,
+.active-snow-btn {
+  filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
+}
+
+.pause {
+  filter: none;
+}
+
 .settings {
   margin: 15px;
+  box-sizing: border-box;
+}
+
+.clear-settings {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.clear-settings button {
+  font-family: monospace;
+}
+
+.clear-settings button:hover {
+  filter: invert(57%) sepia(100%) saturate(329%) hue-rotate(141deg) brightness(89%) contrast(90%);
+  background-color: #a7b70030;
 }
 
 .sound-visual-effects {
@@ -95,16 +120,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
 }
 
 .tree-box img {
   height: 80%;
 }
 
+.my-toys {
+  padding-left: 40px;
+}
+
+.toy-1 {
+  cursor: move;
+  z-index: 1000;
+  width: 40px;
+}
+
 .toy-item {
-  background-image: url("https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/1.png");
   width: 60px;
   height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  position: relative;
+}
+.toy-on-tree {
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+.toy-item img {
+  width: 80%;
+} 
+
+area img {
+  width: 40px;
 }
 
 .toys-cart {
@@ -125,8 +175,300 @@
   justify-content: center;
   align-items: center;
   font-size: 15px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .tree-box {
   height: calc(100vh - 140px);
+}
+
+.snow {
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.falling-snow {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.falling-snow img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fall i{
+  pointer-events: none;
+}
+
+.fall i:after,
+.fall i:before {
+  content: "";
+}
+
+.fall i:after,
+.fall i:before,
+.fall i {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.falling-snow i:after {
+  background: url("./snowballs-lg.png") repeat 0px 0px;
+  animation: falling-down-snow 4s linear infinite;
+}
+
+.falling-snow i:before {
+  background: url("./snowballs-md.png") repeat 0px 0px;
+  animation: falling-down-snow 8s linear infinite;
+}
+
+.falling-snow i {
+  background: url("./snowballs-sm.png") repeat 0px 0px;
+  animation: falling-down-snow 20s linear infinite;
+}
+
+@keyframes falling-down-snow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0px 280px;
+  }
+}
+
+.tree-img {
+  position: relative;
+}
+
+.tree-lights.invisible {
+  display: none;
+} 
+
+.lightrope li {
+  position: relative;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  list-style: none;
+  padding: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  display: flex;
+  -webkit-animation-name: flash-1;
+  animation-name: flash-1;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+.lightrope {
+  width: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left:50%;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.lr1 {
+  transform: translateX(-50%) rotate(20deg);
+}
+.lr2 {
+  transform: translateX(-50%) rotate(10deg);
+}
+.lr3 {
+  transform: translateX(-50%) rotate(0deg);
+}
+.lr4 {
+  transform: translateX(-50%) rotate(-10deg);
+}
+.lr5 {
+  transform: translateX(-50%) rotate(-20deg);
+}
+
+ul {
+  padding: 0;
+}
+
+#inline-flex {
+  display: inline-flex;
+}
+
+.lightrope li:nth-child(2n+1) {
+  background: yellow;
+  box-shadow: 0px 4.66667px 24px 3px rgba(0, 255, 255, 0.5);
+  -webkit-animation-name: flash-2;
+  animation-name: flash-2;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+}
+
+.lightrope li:nth-child(4n+2) {
+  background: #f70094;
+  box-shadow: 0px 4.66667px 24px 3px #f70094;
+  -webkit-animation-name: flash-3;
+  animation-name: flash-3;
+  -webkit-animation-duration: 1.1s;
+  animation-duration: 1.1s;
+}
+
+.lightrope li:nth-child(odd) {
+  -webkit-animation-duration: 1.8s;
+  animation-duration: 1.8s;
+}
+
+.lightrope li:nth-child(3n+1) {
+  -webkit-animation-duration: 1.4s;
+  animation-duration: 1.4s;
+}
+
+.lightrope li:first-child {
+  margin-top: 85px;
+}
+
+@-webkit-keyframes flash-1 {
+  0%, 100% {
+    background: rgb(236, 55, 55);
+    box-shadow: 0px 4.66667px 24px 3px rgb(236, 55, 55);;
+  }
+  50% {
+    background: #128071;
+    box-shadow: 0px 4.66667px 24px 3px green;
+  }
+}
+
+@keyframes flash-1 {
+  0%, 100% {
+    background: rgb(236, 55, 55);;
+    box-shadow: 0px 4.66667px 24px 3px rgb(236, 55, 55);;
+  }
+  50% {
+    background: #1ddde8;
+    box-shadow: 0px 4.66667px 24px 3px green;
+  }
+}
+
+@-webkit-keyframes flash-2 {
+  0%, 100% {
+    background: rgb(226, 226, 71);
+    box-shadow: 0px 4.66667px 24px 3px rgb(226, 226, 71);;
+  }
+  50% {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@keyframes flash-2 {
+  0%, 100% {
+    background: rgb(226, 226, 71);;
+    box-shadow: 0px 4.66667px 24px 3px rgb(226, 226, 71);;
+  }
+  50% {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@-webkit-keyframes flash-3 {
+  0%, 100% {
+    background: #f39447;
+    box-shadow: 0px 4.66667px 24px 3px #f39447;;
+  }
+  50% {
+    background: rgba(247, 0, 148, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(247, 0, 148, 0.2);
+  }
+}
+
+@keyframes flash-3 {
+  0%, 100% {
+    background: #f39447;;
+    box-shadow: 0px 4.66667px 24px 3px #f39447;;
+  }
+  50% {
+    background: rgba(247, 0, 148, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(247, 0, 148, 0.2);
+  }
+}
+
+.lightrope li.red { animation-name: red; }
+.lightrope li.green { animation-name: green; }
+.lightrope li.blue { animation-name: blue; }
+.lightrope li.yellow { animation-name: yellow; }
+
+.lightrope li.multicolor:nth-child(1n + 1) { animation-name: red; }
+.lightrope li:nth-child(2n + 2).multicolor { animation-name: green; }
+.lightrope li:nth-child(3n + 3).multicolor { animation-name: blue; }
+.lightrope li:nth-child(4n + 4).multicolor { animation-name: yellow; }
+
+@keyframes green {
+  0%,
+  100% {
+    background: green;
+    box-shadow: 0px 2px 12px 2px green;
+  }
+  50% {
+    background: rgba(85, 228, 2, 0.801);
+    box-shadow: 0px 2px 12px 2px rgba(85, 228, 2, 0.801);
+  }
+}
+@keyframes blue {
+  0%,
+  100% {
+    background: blue;
+    box-shadow: 0px 2px 12px 2px blue;
+  }
+  50% {
+    background: rgba(0, 17, 255, 0.4);
+    box-shadow: 0px 2px 12px 2px rgba(0, 17, 255, 0.4);
+  }
+}
+@keyframes red {
+  0%,
+  100% {
+    background: rgb(247, 0, 0);
+    box-shadow: 0px 2px 12px 2px rgb(247, 0, 0);
+  }
+  50% {
+    background: rgba(173, 9, 23, 0.4);
+    box-shadow: 0px 2px 12px 2px rgba(173, 9, 23, 0.4);
+  }
+}
+@keyframes yellow {
+  0%,
+  100% {
+    background: rgba(255, 255, 0, 1);
+    box-shadow: 0px 2px 12px 2px rgba(255, 255, 0, 1);
+  }
+  50% {
+    background: rgba(158, 158, 92, 0.966);
+    box-shadow: 0px 2px 12px 2px rgba(158, 158, 92, 0.966);
+  }
+}
+
+@media (max-width: 1500px) {
+  .tree-container {
+    display: flex;
+    flex-direction: column; 
+  }
+  .settings {
+    display: flex;
+    flex-direction: column;
+  }
+  .tree-box {
+    height: 750px;
+  }
 }

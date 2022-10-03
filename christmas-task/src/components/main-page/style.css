@@ -11,6 +11,8 @@
   background-image: url(/src/assets/ball/1.png);
   top: 200px;
   left: 400px;
+  animation: bounce 1s infinite alternate;
+  animation-duration: 3s;
 }
 
 .ball-small {
@@ -19,6 +21,8 @@
   background-image: url(/src/assets/ball/2.png);
   top: 100px;
   right: 500px;
+  animation: bounce2 1s infinite alternate;
+  animation-duration: 3s;
 }
 
 .decoration {
@@ -61,3 +65,21 @@
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
 }
+
+/* @keyframes bounce {
+  from {
+    margin-top: 200px;
+  }
+  to { 
+    margin-top: 100px;
+  }
+}
+
+@keyframes bounce2 {
+  from {
+    margin-top: 50px;
+  }
+  to { 
+    margin-top: 300px;
+  }
+} */
