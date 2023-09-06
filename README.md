@@ -1,6 +1,6 @@
 # Christmas tree
 
-This project was created with vanilla JavaScript.
+This project was created with Typescript.
 
 ## Description
 
