@@ -144,10 +144,17 @@
   justify-content: center;
   align-items: baseline;
   position: relative;
+  cursor: grab;
 }
+
+.default {
+  cursor: default;
+}
+
 .toy-on-tree {
   transform: translate(-50%, -50%);
   position: absolute;
+  cursor: grab;
 }
 .toy-item img {
   width: 80%;

@@ -199,7 +199,7 @@ function updateToysCart(cart: ToysCart, parentDiv: HTMLElement) {
   const divs = cart.map((element) => {
     if (element.amount === 0) {
       const htmlDiv = `
-      <div class="toy-item back-img">
+      <div class="toy-item back-img default">
         <div class="amount-of-item">${element.amount}</div>
       </div>`;
       return htmlDiv;
