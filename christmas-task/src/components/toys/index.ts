@@ -2,7 +2,7 @@ import './style.css';
 import 'nouislider/dist/nouislider.css';
 import noUiSlider from 'nouislider';
 import './slider.css';
-import data from '../../data';
+import data from '../../data_eng';
 import {
   Cart, Filter, Query, Card, SortFunction,
 } from '../../models/models';
@@ -17,12 +17,6 @@ export interface ToysParams {
 export function renderToys({ cart }: ToysParams) {
   const template = document.createElement('div');
   template.innerHTML = html;
-
-  // add cards
-
-  // const cart: Cart = {
-  //   itemIds: [],
-  // };
 
   const filterState: Filter = {
     shape: [],

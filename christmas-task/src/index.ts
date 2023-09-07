@@ -4,7 +4,7 @@ import './self-check';
 import { renderHome } from './components/main-page';
 import { renderTree } from './components/tree';
 import { renderToys, ToysParams } from './components/toys';
-import data from './data';
+import data from './data_eng';
 
 const toys: ToysParams = {
   cart: {
