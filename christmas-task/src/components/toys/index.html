@@ -2,25 +2,25 @@
   <div class="value-filters filters">
     <h1 class="filter-item">ФИЛЬТРЫ ПО ЗНАЧЕНИЮ</h1>
     <div class="forms-filter filter-item">
-      <h4>Форма:</h4>
-      <button class="forms-btn ball" data-shape="шар">
+      <h4>Shape:</h4>
+      <button class="forms-btn ball" data-shape="ball">
         <img src="/src/assets/svg/ball.svg" alt="ball">
       </button>
-      <button class="forms-btn bell" data-shape="колокольчик">
+      <button class="forms-btn bell" data-shape="bell">
         <img src="/src/assets/svg/bell.svg" alt="bell">
       </button>
-      <button class="forms-btn cone" data-shape="шишка">
-        <img src="/src/assets/svg/cone.svg" alt="cone">
+      <button class="forms-btn cone" data-shape="pinecone">
+        <img src="/src/assets/svg/cone.svg" alt="pinecone">
       </button>
-      <button class="forms-btn snowflake" data-shape="снежинка">
+      <button class="forms-btn snowflake" data-shape="snowflake">
         <img src="/src/assets/svg/snowflake.svg" alt="snowflake">
       </button>
-      <button class="forms-btn toy" data-shape="фигурка">
+      <button class="forms-btn toy" data-shape="toy">
         <img src="/src/assets/svg/toy.svg" alt="toy">
       </button>
     </div>
     <div class="color-filter filter-item">
-      <h4>Цвет:</h4>
+      <h4>Color:</h4>
       <button class="color-btn" data-color="белый" style="background: white"></button>
       <button class="color-btn" data-color="желтый" style="background: yellow"></button>
       <button class="color-btn" data-color="красный" style="background: red"></button>
@@ -28,28 +28,28 @@
       <button class="color-btn" data-color="зелёный" style="background: #45af4a"></button>
     </div>
     <div class="size-filter filter-item">
-      <h4>Размер:</h4>
-      <button class="size-btn big-size" data-size="большой">
+      <h4>Size:</h4>
+      <button class="size-btn big-size" data-size="big">
         <img src="/src/assets/svg/ball.svg" alt="big size">
       </button>
-      <button class="size-btn medium-size" data-size="средний">
+      <button class="size-btn medium-size" data-size="meduim">
         <img src="/src/assets/svg/ball.svg" alt="meduim size">
       </button>
-      <button class="size-btn small-size" data-size="малый">
+      <button class="size-btn small-size" data-size="small">
         <img src="/src/assets/svg/ball.svg" alt="small size">
       </button>
     </div>
     <div class="favorite-items-filter filter-item">
-      <h4>Только любимые:</h4>
+      <h4>Favorites only:</h4>
       <input id="checkbox" class="checkbox-input" type="checkbox" unchecked>
       <label class="checkbox-label" for="checkbox"></label>
     </div>
   </div>
   <div class="range-filters filters">
-    <h1 class="filter-item">ФИЛЬТРЫ ПО ДИАПОЗОНУ</h1>
+    <h1 class="filter-item">FILTERS BY RANGE</h1>
     <div class="range-bars-wrapper">
       <div class="amount-filter">
-        <h2 class="filter-item">Количество экземпляров</h2>
+        <h2 class="filter-item">Number of copies</h2>
         <div class="input-range">
           <span class="borders filter-item-amount-min">1</span>
           <span class="amount-bar flex center"></span>
@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="year-filter">
-        <h2 class="filter-item">Год приобретения</h2>
+        <h2 class="filter-item">Year of purchase</h2>
         <div class="input-range">
           <span class="borders filter-item-min">1940</span>
           <span class="year-bar flex center"></span>
@@ -67,27 +67,27 @@
     </div>
   </div>
   <div class="sort-items filters">
-    <h1 class="filter-item">СОРТИРОВКА</h1>
+    <h1 class="filter-item">SORTING</h1>
     <div class="select-controls">
       <select name="sorting" id="sorting">
-        <option value="default">Без сортировки</option>
-        <option value="sortByNameAsc">По названию от "А" до "Я"</option>
-        <option value="sortByNameDesc">По названию от "Я" до "А"</option>
-        <option value="sortByYearAsc">По году по возрастанию</option>
-        <option value="sortByYearDesc">По году по убыванию</option>
+        <option value="default">No sorting</option>
+        <option value="sortByNameAsc">By name from "A" to "Z"</option>
+        <option value="sortByNameDesc">By name from "Z" to "A"</option>
+        <option value="sortByYearAsc">By year ascending</option>
+        <option value="sortByYearDesc">Descending by year</option>
       </select>
-      <button class="reset-filters">Сброс фильтров</button>
+      <button class="reset-filters">Reset filters</button>
     </div>
   </div>
 </section>
 <section class="cards flex">
 </section>
 <span class="message-no-matches borders">
-  Извините, совпадений не обнаружено
+  Sorry, no matches found
 </span>
 <div class="overlay">
   <div class="modal-window-container">
-    Извините, все слоты заполнены
+    Sorry, all slots are full
     <button class="ok-btn">OK</button>
   </div>
 </div>

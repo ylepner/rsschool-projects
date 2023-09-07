@@ -4,9 +4,9 @@ import './style.css';
 
 function convertBoolean(data) {
   if (data.favorite === true) {
-    return 'Да';
+    return 'Yes';
   }
-  return 'Нет';
+  return 'No';
 }
 
 interface CardComponentProps {
@@ -22,12 +22,12 @@ export function render(props: CardComponentProps) {
   template.querySelector('.like-btn').id = `${data.num}`;
   template.querySelector('.card-title').innerHTML = `${data.name}`;
   template.querySelector('img').src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${data.num}.png`;
-  template.querySelector('.amount').innerHTML = `Количество: ${data.count}`;
-  template.querySelector('.year').innerHTML = `Год покупки: ${data.year}`;
-  template.querySelector('.shape').innerHTML = `Форма: ${data.shape}`;
-  template.querySelector('.color').innerHTML = `Цвет: ${data.color}`;
-  template.querySelector('.size').innerHTML = `Размер: ${data.size}`;
-  template.querySelector('.is-favorite').innerHTML = `Любимая: ${favorite}`;
+  template.querySelector('.amount').innerHTML = `Quantity: ${data.count}`;
+  template.querySelector('.year').innerHTML = `Year of purchase: ${data.year}`;
+  template.querySelector('.shape').innerHTML = `Shape: ${data.shape}`;
+  template.querySelector('.color').innerHTML = `Color: ${data.color}`;
+  template.querySelector('.size').innerHTML = `Size: ${data.size}`;
+  template.querySelector('.is-favorite').innerHTML = `Favorite: ${favorite}`;
   template.children[0].addEventListener('click', () => {
     props.onFavoriteClicked();
   });
